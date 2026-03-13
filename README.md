@@ -1,0 +1,155 @@
+<h1>Hi There, I'm Tarun <img src="https://raw.githubusercontent.com/ABSphreak/ABSphreak/master/gifs/Hi.gif" width="30px" alt="wave"></h1>
+
+I work in **cybersecurity**, **AI/ML**, **software protection**, and **low-level engineering**. Most of my work is around low-level analysis, assembly, binary analysis, obfuscation, deobfuscation, and building practical systems for research and real products.
+
+My tech journey also includes AI-based products, data automation, big-data workflows, social media bots, API development, and user-facing product work with hands-on UI/UX.
+
+I'm interested in serious work around **security research**, **software protection**, **AI/ML tooling**, **data systems**, **API products**, and **developer automation**.
+
+<p>
+  <img src="https://img.shields.io/badge/Cybersecurity-6E7781?style=for-the-badge" alt="Cybersecurity">
+  <img src="https://img.shields.io/badge/AI%20%2F%20ML-6E7781?style=for-the-badge" alt="AI ML">
+  <img src="https://img.shields.io/badge/Software%20Protection-6E7781?style=for-the-badge" alt="Software Protection">
+  <img src="https://img.shields.io/badge/Data%20Automation-6E7781?style=for-the-badge" alt="Data Automation">
+  <img src="https://img.shields.io/badge/Joined-October%202017-6E7781?style=for-the-badge" alt="Joined October 2017">
+</p>
+
+## Skill Set :muscle:
+
+These are the areas and tools I work with most often:
+
+**Languages**
+
+<table>
+  <tr>
+    <td align="center"><img title="Rust" alt="Rust" width="40" src="https://raw.githubusercontent.com/github/explore/main/topics/rust/rust.png" /><br>Rust</td>
+    <td align="center"><img title="Go" alt="Go" width="40" src="https://raw.githubusercontent.com/github/explore/main/topics/go/go.png" /><br>Go</td>
+    <td align="center"><img title="Python" alt="Python" width="40" src="https://raw.githubusercontent.com/github/explore/master/topics/python/python.png" /><br>Python</td>
+    <td align="center"><img title="JavaScript" alt="JavaScript" width="40" src="https://raw.githubusercontent.com/github/explore/master/topics/javascript/javascript.png" /><br>JavaScript</td>
+    <td align="center"><img title="TypeScript" alt="TypeScript" width="40" src="https://raw.githubusercontent.com/github/explore/main/topics/typescript/typescript.png" /><br>TypeScript</td>
+    <td align="center"><img title="C#" alt="C#" width="40" src="https://raw.githubusercontent.com/github/explore/main/topics/csharp/csharp.png" /><br>C#</td>
+    <td align="center"><img title="Swift" alt="Swift" width="40" src="https://raw.githubusercontent.com/github/explore/main/topics/swift/swift.png" /><br>Swift</td>
+    <td align="center"><img title="Objective-C" alt="Objective-C" width="40" src="https://raw.githubusercontent.com/github/explore/main/topics/objective-c/objective-c.png" /><br>Objective-C</td>
+  </tr>
+  <tr>
+    <td align="center"><img title="Dart" alt="Dart" width="40" src="https://raw.githubusercontent.com/github/explore/main/topics/dart/dart.png" /><br>Dart</td>
+    <td align="center"><img title="C" alt="C" width="40" src="https://raw.githubusercontent.com/github/explore/master/topics/c/c.png" /><br>C</td>
+    <td align="center"><img title="C++" alt="C++" width="40" src="https://raw.githubusercontent.com/github/explore/main/topics/cpp/cpp.png" /><br>C++</td>
+    <td align="center"><img title="Kotlin" alt="Kotlin" width="40" src="https://raw.githubusercontent.com/github/explore/main/topics/kotlin/kotlin.png" /><br>Kotlin</td>
+    <td align="center"><img title="Java" alt="Java" width="40" src="https://raw.githubusercontent.com/github/explore/main/topics/java/java.png" /><br>Java</td>
+    <td align="center"><img title="SQL" alt="SQL" width="40" src="https://raw.githubusercontent.com/github/explore/master/topics/sql/sql.png" /><br>SQL</td>
+    <td align="center"><img title="HTML" alt="HTML" width="40" src="https://raw.githubusercontent.com/github/explore/main/topics/html/html.png" /><br>HTML</td>
+    <td align="center"><img title="CSS" alt="CSS" width="40" src="https://raw.githubusercontent.com/github/explore/main/topics/css/css.png" /><br>CSS</td>
+  </tr>
+</table>
+
+**Core Areas**
+
+<p>
+  <img src="https://img.shields.io/badge/Assembly%20Analysis-6E7781?style=for-the-badge" alt="Assembly Analysis">
+  <img src="https://img.shields.io/badge/WebAssembly-6E7781?style=for-the-badge&logo=webassembly&logoColor=white" alt="WebAssembly">
+  <img src="https://img.shields.io/badge/Binary%20Analysis-6E7781?style=for-the-badge" alt="Binary Analysis">
+  <img src="https://img.shields.io/badge/Software%20Protection-6E7781?style=for-the-badge" alt="Software Protection">
+  <img src="https://img.shields.io/badge/Prompt%20Engineering-6E7781?style=for-the-badge" alt="Prompt Engineering">
+</p>
+
+**Focus Areas**
+
+<p>
+  <img src="https://img.shields.io/badge/Cybersecurity-6E7781?style=for-the-badge" alt="Cybersecurity">
+  <img src="https://img.shields.io/badge/AI%20%2F%20ML-6E7781?style=for-the-badge" alt="AI ML">
+  <img src="https://img.shields.io/badge/Data%20Automation-6E7781?style=for-the-badge" alt="Data Automation">
+  <img src="https://img.shields.io/badge/API%20Development-6E7781?style=for-the-badge" alt="API Development">
+  <img src="https://img.shields.io/badge/UI%20%2F%20UX-6E7781?style=for-the-badge" alt="UI UX">
+  <img src="https://img.shields.io/badge/Social%20Media%20Bots-6E7781?style=for-the-badge" alt="Social Media Bots">
+</p>
+
+**Frontend**
+
+<table>
+  <tr>
+    <td align="center"><img title="React" alt="React" width="40" src="https://raw.githubusercontent.com/github/explore/main/topics/react/react.png" /><br>React</td>
+    <td align="center"><img title="Next.js" alt="Next.js" width="40" src="https://raw.githubusercontent.com/github/explore/main/topics/nextjs/nextjs.png" /><br>Next.js</td>
+    <td align="center"><img title="Tailwind CSS" alt="Tailwind CSS" width="40" src="https://raw.githubusercontent.com/github/explore/main/topics/tailwind/tailwind.png" /><br>Tailwind</td>
+    <td align="center"><img title="Vite" alt="Vite" width="40" src="https://raw.githubusercontent.com/github/explore/main/topics/vite/vite.png" /><br>Vite</td>
+    <td align="center"><img title="Webpack" alt="Webpack" width="40" src="https://raw.githubusercontent.com/github/explore/main/topics/webpack/webpack.png" /><br>Webpack</td>
+    <td align="center"><img title="Dart" alt="Dart" width="40" src="https://raw.githubusercontent.com/github/explore/main/topics/dart/dart.png" /><br>Dart</td>
+    <td align="center"><img title="React Native" alt="React Native" width="40" src="https://raw.githubusercontent.com/github/explore/main/topics/react-native/react-native.png" /><br>React Native</td>
+    <td align="center"><img title="Flutter" alt="Flutter" width="40" src="https://raw.githubusercontent.com/github/explore/main/topics/flutter/flutter.png" /><br>Flutter</td>
+  </tr>
+</table>
+
+**Backend**
+
+<table>
+  <tr>
+    <td align="center"><img title="Node.js" alt="Node.js" width="40" src="https://raw.githubusercontent.com/github/explore/master/topics/nodejs/nodejs.png" /><br>Node.js</td>
+    <td align="center"><img title="Express" alt="Express" width="40" src="https://raw.githubusercontent.com/github/explore/main/topics/express/express.png" /><br>Express</td>
+    <td align="center"><img title="NestJS" alt="NestJS" width="40" src="https://raw.githubusercontent.com/github/explore/main/topics/nestjs/nestjs.png" /><br>NestJS</td>
+    <td align="center"><img title="FastAPI" alt="FastAPI" width="40" src="https://raw.githubusercontent.com/github/explore/main/topics/fastapi/fastapi.png" /><br>FastAPI</td>
+    <td align="center"><img title="Flask" alt="Flask" width="40" src="https://raw.githubusercontent.com/github/explore/main/topics/flask/flask.png" /><br>Flask</td>
+    <td align="center"><img title="Django" alt="Django" width="40" src="https://raw.githubusercontent.com/github/explore/main/topics/django/django.png" /><br>Django</td>
+    <td align="center"><img title=".NET" alt=".NET" width="40" src="https://raw.githubusercontent.com/github/explore/main/topics/dotnet/dotnet.png" /><br>.NET</td>
+    <td align="center"><img title="GraphQL" alt="GraphQL" width="40" src="https://raw.githubusercontent.com/github/explore/main/topics/graphql/graphql.png" /><br>GraphQL</td>
+  </tr>
+</table>
+
+**Databases**
+
+<table>
+  <tr>
+    <td align="center"><img title="PostgreSQL" alt="PostgreSQL" width="40" src="https://raw.githubusercontent.com/github/explore/main/topics/postgresql/postgresql.png" /><br>PostgreSQL</td>
+    <td align="center"><img title="MongoDB" alt="MongoDB" width="40" src="https://raw.githubusercontent.com/github/explore/master/topics/mongodb/mongodb.png" /><br>MongoDB</td>
+    <td align="center"><img title="SQLite" alt="SQLite" width="40" src="https://raw.githubusercontent.com/github/explore/main/topics/sqlite/sqlite.png" /><br>SQLite</td>
+    <td align="center"><img title="MySQL" alt="MySQL" width="40" src="https://raw.githubusercontent.com/github/explore/main/topics/mysql/mysql.png" /><br>MySQL</td>
+    <td align="center"><img title="Redis" alt="Redis" width="40" src="https://raw.githubusercontent.com/github/explore/main/topics/redis/redis.png" /><br>Redis</td>
+    <td align="center"><img title="Cassandra" alt="Cassandra" width="40" src="https://raw.githubusercontent.com/github/explore/main/topics/cassandra/cassandra.png" /><br>Cassandra</td>
+    <td align="center"><img title="Elasticsearch" alt="Elasticsearch" width="40" src="https://raw.githubusercontent.com/github/explore/main/topics/elasticsearch/elasticsearch.png" /><br>Elasticsearch</td>
+    <td align="center"><img title="Firebase" alt="Firebase" width="40" src="https://raw.githubusercontent.com/github/explore/main/topics/firebase/firebase.png" /><br>Firebase</td>
+  </tr>
+</table>
+
+**Tools**
+
+<table>
+  <tr>
+    <td align="center"><img title="Git" alt="Git" width="40" src="https://raw.githubusercontent.com/github/explore/master/topics/git/git.png" /><br>Git</td>
+    <td align="center"><img title="Linux" alt="Linux" width="40" src="https://raw.githubusercontent.com/github/explore/main/topics/linux/linux.png" /><br>Linux</td>
+    <td align="center"><img title="Docker" alt="Docker" width="40" src="https://raw.githubusercontent.com/github/explore/master/topics/docker/docker.png" /><br>Docker</td>
+    <td align="center"><img title="Postman" alt="Postman" width="40" src="https://raw.githubusercontent.com/github/explore/main/topics/postman/postman.png" /><br>Postman</td>
+    <td align="center"><img title="VS Code" alt="VS Code" width="40" src="https://raw.githubusercontent.com/github/explore/master/topics/visual-studio-code/visual-studio-code.png" /><br>VS Code</td>
+    <td align="center"><img title="Jupyter" alt="Jupyter" width="40" src="https://raw.githubusercontent.com/github/explore/master/topics/jupyter-notebook/jupyter-notebook.png" /><br>Jupyter</td>
+    <td align="center"><img title="GitHub" alt="GitHub" width="40" src="https://raw.githubusercontent.com/github/explore/main/topics/github/github.png" /><br>GitHub</td>
+    <td align="center"><img title="npm" alt="npm" width="40" src="https://raw.githubusercontent.com/github/explore/main/topics/npm/npm.png" /><br>npm</td>
+  </tr>
+</table>
+
+**Software**
+
+<p>
+  <img src="https://img.shields.io/badge/IDA%20Pro-6E7781?style=for-the-badge" alt="IDA Pro">
+  <img src="https://img.shields.io/badge/Ghidra-6E7781?style=for-the-badge" alt="Ghidra">
+  <img src="https://img.shields.io/badge/Binary%20Ninja-6E7781?style=for-the-badge" alt="Binary Ninja">
+  <img src="https://img.shields.io/badge/Frida-6E7781?style=for-the-badge" alt="Frida">
+  <img src="https://img.shields.io/badge/x64dbg-6E7781?style=for-the-badge" alt="x64dbg">
+</p>
+
+**Selected Work**
+
+- [nanobananademo](https://github.com/tanu360/nanobananademo) for generating, editing, and upscaling images with modern AI models.
+- [chatjimmy-reverse-api](https://github.com/tanu360/chatjimmy-reverse-api) for an AI-facing reverse API workflow.
+- [ida-chat-plugin](https://github.com/tanu360/ida-chat-plugin) for bringing AI-assisted chat into IDA Pro.
+- [1code](https://github.com/tanu360/1code) and [claude-code-dashboard](https://github.com/tanu360/claude-code-dashboard) for code-agent UX and analytics.
+
+**Notable Open Source Repositories**
+
+- [Instagram-SSL-Pinning-Bypass](https://github.com/tanu360/Instagram-SSL-Pinning-Bypass)
+- [apple-intelligence-api](https://github.com/tanu360/apple-intelligence-api)
+- [Facebook-SSL-Pinning-Bypass](https://github.com/tanu360/Facebook-SSL-Pinning-Bypass)
+- [facebook-checker-v4](https://github.com/tanu360/facebook-checker-v4)
+
+## Let's Connect :handshake:
+
+<a href="https://github.com/tanu360"><img src="https://img.shields.io/badge/GitHub-tanu360-181717?style=for-the-badge&logo=github&logoColor=white" alt="GitHub"></a>
+<a href="https://github.com/tanu360?tab=repositories"><img src="https://img.shields.io/badge/Repositories-View%20Work-1f6feb?style=for-the-badge&logo=github&logoColor=white" alt="Repositories"></a>
+<a href="https://gist.github.com/tanu360"><img src="https://img.shields.io/badge/Gists-Public%20Notes-8957e5?style=for-the-badge&logo=github&logoColor=white" alt="Gists"></a>
