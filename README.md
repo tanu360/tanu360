@@ -4,14 +4,14 @@ I work in **cybersecurity**, **AI/ML**, **software protection**, and **low-level
 
 My tech journey also includes AI-based products, data automation, big-data workflows, social media bots, API development, and user-facing product work with hands-on UI/UX.
 
-I'm interested in serious work around **security research**, **software protection**, **AI/ML tooling**, **data systems**, **API products**, and **developer automation**.
+I'm interested in serious work around **security research**, **software protection**, **LLMs**, **data systems**, **API products**, and **developer automation**.
 
 <p>
-  <img src="https://img.shields.io/badge/Cybersecurity-6E7781?style=for-the-badge" alt="Cybersecurity">
-  <img src="https://img.shields.io/badge/AI%20%2F%20ML-6E7781?style=for-the-badge" alt="AI ML">
-  <img src="https://img.shields.io/badge/Software%20Protection-6E7781?style=for-the-badge" alt="Software Protection">
-  <img src="https://img.shields.io/badge/Data%20Automation-6E7781?style=for-the-badge" alt="Data Automation">
-  <img src="https://img.shields.io/badge/Joined-October%202017-6E7781?style=for-the-badge" alt="Joined October 2017">
+  <img src="https://img.shields.io/badge/Cybersecurity-E34F26?style=for-the-badge&logo=hackaday&logoColor=white" alt="Cybersecurity">
+  <img src="https://img.shields.io/badge/AI%20%2F%20ML-8A2BE2?style=for-the-badge&logo=openai&logoColor=white" alt="AI ML">
+  <img src="https://img.shields.io/badge/Software%20Protection-0D1117?style=for-the-badge&logo=letsencrypt&logoColor=white" alt="Software Protection">
+  <img src="https://img.shields.io/badge/Data%20Automation-00ADD8?style=for-the-badge&logo=apache-airflow&logoColor=white" alt="Data Automation">
+  <img src="https://img.shields.io/badge/Joined-October%202017-1f6feb?style=for-the-badge&logo=github&logoColor=white" alt="Joined October 2017">
 </p>
 
 ## Skill Set :muscle:
@@ -46,22 +46,28 @@ These are the areas and tools I work with most often:
 **Core Areas**
 
 <p>
-  <img src="https://img.shields.io/badge/Assembly%20Analysis-6E7781?style=for-the-badge" alt="Assembly Analysis">
-  <img src="https://img.shields.io/badge/WebAssembly-6E7781?style=for-the-badge&logo=webassembly&logoColor=white" alt="WebAssembly">
-  <img src="https://img.shields.io/badge/Binary%20Analysis-6E7781?style=for-the-badge" alt="Binary Analysis">
-  <img src="https://img.shields.io/badge/Software%20Protection-6E7781?style=for-the-badge" alt="Software Protection">
-  <img src="https://img.shields.io/badge/Prompt%20Engineering-6E7781?style=for-the-badge" alt="Prompt Engineering">
+  <img src="https://img.shields.io/badge/Assembly%20Analysis-DC322F?style=for-the-badge&logo=amd&logoColor=white" alt="Assembly Analysis">
+  <img src="https://img.shields.io/badge/WebAssembly-654FF0?style=for-the-badge&logo=webassembly&logoColor=white" alt="WebAssembly">
+  <img src="https://img.shields.io/badge/Binary%20Analysis-FD3A5C?style=for-the-badge&logo=scrutinizerci&logoColor=white" alt="Binary Analysis">
+  <img src="https://img.shields.io/badge/Software%20Protection-2C2D72?style=for-the-badge&logo=letsencrypt&logoColor=white" alt="Software Protection">
+  <img src="https://img.shields.io/badge/Prompt%20Engineering-10A37F?style=for-the-badge&logo=openai&logoColor=white" alt="Prompt Engineering">
+  <img src="https://img.shields.io/badge/Reverse%20Engineering-FF6F00?style=for-the-badge&logo=hackaday&logoColor=white" alt="Reverse Engineering">
+  <img src="https://img.shields.io/badge/DYLD%20%2F%20Dylib%20Injection-0D1117?style=for-the-badge&logo=apple&logoColor=white" alt="DYLD / Dylib Injection">
+  <img src="https://img.shields.io/badge/SSL%20Pinning%20Bypass-009688?style=for-the-badge&logo=letsencrypt&logoColor=white" alt="SSL Pinning Bypass">
+  <img src="https://img.shields.io/badge/Frida%20Hooking-EF5350?style=for-the-badge&logo=android&logoColor=white" alt="Frida Hooking">
 </p>
 
 **Focus Areas**
 
 <p>
-  <img src="https://img.shields.io/badge/Cybersecurity-6E7781?style=for-the-badge" alt="Cybersecurity">
-  <img src="https://img.shields.io/badge/AI%20%2F%20ML-6E7781?style=for-the-badge" alt="AI ML">
-  <img src="https://img.shields.io/badge/Data%20Automation-6E7781?style=for-the-badge" alt="Data Automation">
-  <img src="https://img.shields.io/badge/API%20Development-6E7781?style=for-the-badge" alt="API Development">
-  <img src="https://img.shields.io/badge/UI%20%2F%20UX-6E7781?style=for-the-badge" alt="UI UX">
-  <img src="https://img.shields.io/badge/Social%20Media%20Bots-6E7781?style=for-the-badge" alt="Social Media Bots">
+  <img src="https://img.shields.io/badge/Cybersecurity-E34F26?style=for-the-badge&logo=hackaday&logoColor=white" alt="Cybersecurity">
+  <img src="https://img.shields.io/badge/AI%20%2F%20ML-8A2BE2?style=for-the-badge&logo=openai&logoColor=white" alt="AI ML">
+  <img src="https://img.shields.io/badge/Data%20Automation-00ADD8?style=for-the-badge&logo=apache-airflow&logoColor=white" alt="Data Automation">
+  <img src="https://img.shields.io/badge/API%20Development-FF6C37?style=for-the-badge&logo=postman&logoColor=white" alt="API Development">
+  <img src="https://img.shields.io/badge/UI%20%2F%20UX-FF61F6?style=for-the-badge&logo=figma&logoColor=white" alt="UI UX">
+  <img src="https://img.shields.io/badge/Social%20Media%20Bots-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white" alt="Social Media Bots">
+  <img src="https://img.shields.io/badge/Cloudflare%20Workers-F38020?style=for-the-badge&logo=cloudflare&logoColor=white" alt="Cloudflare Workers">
+  <img src="https://img.shields.io/badge/MQL5%20%2F%20Trading%20Systems-4285F4?style=for-the-badge&logo=tradingview&logoColor=white" alt="MQL5 / Trading Systems">
 </p>
 
 **Frontend**
@@ -127,11 +133,25 @@ These are the areas and tools I work with most often:
 **Software**
 
 <p>
-  <img src="https://img.shields.io/badge/IDA%20Pro-6E7781?style=for-the-badge" alt="IDA Pro">
-  <img src="https://img.shields.io/badge/Ghidra-6E7781?style=for-the-badge" alt="Ghidra">
-  <img src="https://img.shields.io/badge/Binary%20Ninja-6E7781?style=for-the-badge" alt="Binary Ninja">
-  <img src="https://img.shields.io/badge/Frida-6E7781?style=for-the-badge" alt="Frida">
-  <img src="https://img.shields.io/badge/x64dbg-6E7781?style=for-the-badge" alt="x64dbg">
+  <img src="https://img.shields.io/badge/IDA%20Pro-2B579A?style=for-the-badge&logo=intel&logoColor=white" alt="IDA Pro">
+  <img src="https://img.shields.io/badge/Ghidra-BF0A30?style=for-the-badge&logo=nsa&logoColor=white" alt="Ghidra">
+  <img src="https://img.shields.io/badge/Binary%20Ninja-D81B60?style=for-the-badge" alt="Binary Ninja">
+  <img src="https://img.shields.io/badge/Frida-EF5350?style=for-the-badge&logo=android&logoColor=white" alt="Frida">
+  <img src="https://img.shields.io/badge/x64dbg-00599C?style=for-the-badge" alt="x64dbg">
+  <img src="https://img.shields.io/badge/Hopper-FF9800?style=for-the-badge" alt="Hopper">
+  <img src="https://img.shields.io/badge/LLDB-000000?style=for-the-badge&logo=llvm&logoColor=white" alt="LLDB">
+  <img src="https://img.shields.io/badge/Wireshark-1679A7?style=for-the-badge&logo=wireshark&logoColor=white" alt="Wireshark">
+</p>
+
+**Cloud & Infra**
+
+<p>
+  <img src="https://img.shields.io/badge/Cloudflare%20Workers-F38020?style=for-the-badge&logo=cloudflare&logoColor=white" alt="Cloudflare Workers">
+  <img src="https://img.shields.io/badge/AWS-232F3E?style=for-the-badge&logo=amazonwebservices&logoColor=white" alt="AWS">
+  <img src="https://img.shields.io/badge/Azure-0078D4?style=for-the-badge&logo=microsoftazure&logoColor=white" alt="Azure">
+  <img src="https://img.shields.io/badge/Google%20Cloud-4285F4?style=for-the-badge&logo=googlecloud&logoColor=white" alt="Google Cloud">
+  <img src="https://img.shields.io/badge/Nginx-009639?style=for-the-badge&logo=nginx&logoColor=white" alt="Nginx">
+  <img src="https://img.shields.io/badge/Snowflake-29B5E8?style=for-the-badge&logo=snowflake&logoColor=white" alt="Snowflake">
 </p>
 
 **Selected Work**
