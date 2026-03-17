@@ -153,6 +153,29 @@ These are the areas and tools I work with most often:
   <img src="https://img.shields.io/badge/Snowflake-29B5E8?style=for-the-badge&logo=snowflake&logoColor=white" alt="Snowflake">
 </p>
 
+## GitHub Stats :chart_with_upwards_trend:
+
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://github-readme-stats.vercel.app/api?username=tanu360&show_icons=true&theme=github_dark&hide_border=true&bg_color=00000000&title_color=58A6FF&icon_color=58A6FF&text_color=C9D1D9" />
+    <source media="(prefers-color-scheme: light)" srcset="https://github-readme-stats.vercel.app/api?username=tanu360&show_icons=true&theme=default&hide_border=true&bg_color=00000000&title_color=0969DA&icon_color=0969DA&text_color=1F2328" />
+    <img width="49%" src="https://github-readme-stats.vercel.app/api?username=tanu360&show_icons=true&theme=github_dark&hide_border=true&bg_color=00000000&title_color=58A6FF&icon_color=58A6FF&text_color=C9D1D9" alt="GitHub Stats" />
+  </picture>
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://github-readme-streak-stats.herokuapp.com/?user=tanu360&theme=github-dark-blue&hide_border=true&background=00000000&stroke=30363D&ring=58A6FF&fire=58A6FF&currStreakLabel=58A6FF&sideLabels=C9D1D9&dates=8B949E" />
+    <source media="(prefers-color-scheme: light)" srcset="https://github-readme-streak-stats.herokuapp.com/?user=tanu360&theme=default&hide_border=true&background=00000000&stroke=D0D7DE&ring=0969DA&fire=0969DA&currStreakLabel=0969DA&sideLabels=1F2328&dates=656D76" />
+    <img width="49%" src="https://github-readme-streak-stats.herokuapp.com/?user=tanu360&theme=github-dark-blue&hide_border=true&background=00000000&stroke=30363D&ring=58A6FF&fire=58A6FF&currStreakLabel=58A6FF&sideLabels=C9D1D9&dates=8B949E" alt="GitHub Streak" />
+  </picture>
+</p>
+
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://github-readme-stats.vercel.app/api/top-langs/?username=tanu360&layout=compact&theme=github_dark&hide_border=true&bg_color=00000000&title_color=58A6FF&text_color=C9D1D9&langs_count=10" />
+    <source media="(prefers-color-scheme: light)" srcset="https://github-readme-stats.vercel.app/api/top-langs/?username=tanu360&layout=compact&theme=default&hide_border=true&bg_color=00000000&title_color=0969DA&text_color=1F2328&langs_count=10" />
+    <img width="40%" src="https://github-readme-stats.vercel.app/api/top-langs/?username=tanu360&layout=compact&theme=github_dark&hide_border=true&bg_color=00000000&title_color=58A6FF&text_color=C9D1D9&langs_count=10" alt="Top Languages" />
+  </picture>
+</p>
+
 **Selected Work**
 
 - [nanobananademo](https://github.com/tanu360/nanobananademo) for generating, editing, and upscaling images with modern AI models.
