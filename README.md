@@ -1,10 +1,10 @@
 <h1>Hi There, I'm Tarun <img src="https://raw.githubusercontent.com/ABSphreak/ABSphreak/master/gifs/Hi.gif" width="30px" alt="wave"></h1>
 
-I work in **cybersecurity**, **AI/ML**, **software protection**, and **low-level engineering**. Most of my work is around low-level analysis, assembly, binary analysis, obfuscation, deobfuscation, and building practical systems for research and real products.
+I work in **cybersecurity**, **AI/ML**, **software protection**, and **low-level engineering**. I specialize in vulnerability research, binary hardening, and building defensive tooling — with deep hands-on experience in assembly-level analysis, reverse engineering for security audits, and designing protection systems for commercial software.
 
-My tech journey also includes AI-based products, data automation, big-data workflows, social media bots, API development, and user-facing product work with hands-on UI/UX.
+Beyond security, I build AI-powered products, real-time data pipelines, developer tools, and scalable backend systems. My work spans from low-level native code to full-stack product development — always focused on solving hard engineering problems.
 
-I'm interested in serious work around **security research**, **software protection**, **LLMs**, **data systems**, **API products**, and **developer automation**.
+I'm open to serious collaboration around **security consulting**, **software protection engineering**, **AI/ML tooling**, **data infrastructure**, and **developer automation**.
 
 <p>
   <img src="https://img.shields.io/badge/Cybersecurity-E34F26?style=for-the-badge&logo=hackaday&logoColor=white" alt="Cybersecurity">
@@ -52,9 +52,8 @@ These are the areas and tools I work with most often:
   <img src="https://img.shields.io/badge/Software%20Protection-2C2D72?style=for-the-badge&logo=letsencrypt&logoColor=white" alt="Software Protection">
   <img src="https://img.shields.io/badge/Prompt%20Engineering-10A37F?style=for-the-badge&logo=openai&logoColor=white" alt="Prompt Engineering">
   <img src="https://img.shields.io/badge/Reverse%20Engineering-FF6F00?style=for-the-badge&logo=hackaday&logoColor=white" alt="Reverse Engineering">
-  <img src="https://img.shields.io/badge/DYLD%20%2F%20Dylib%20Injection-0D1117?style=for-the-badge&logo=apple&logoColor=white" alt="DYLD / Dylib Injection">
-  <img src="https://img.shields.io/badge/SSL%20Pinning%20Bypass-009688?style=for-the-badge&logo=letsencrypt&logoColor=white" alt="SSL Pinning Bypass">
-  <img src="https://img.shields.io/badge/Frida%20Hooking-EF5350?style=for-the-badge&logo=android&logoColor=white" alt="Frida Hooking">
+  <img src="https://img.shields.io/badge/DLL%20%2F%20Dylib%20Engineering-0D1117?style=for-the-badge&logo=windows&logoColor=white" alt="DLL / Dylib Engineering">
+  <img src="https://img.shields.io/badge/Dynamic%20Instrumentation-EF5350?style=for-the-badge&logo=android&logoColor=white" alt="Dynamic Instrumentation">
 </p>
 
 **Focus Areas**
@@ -157,15 +156,15 @@ These are the areas and tools I work with most often:
 **Selected Work**
 
 - [nanobananademo](https://github.com/tanu360/nanobananademo) for generating, editing, and upscaling images with modern AI models.
-- [chatjimmy-reverse-api](https://github.com/tanu360/chatjimmy-reverse-api) for an AI-facing reverse API workflow.
 - [ida-chat-plugin](https://github.com/tanu360/ida-chat-plugin) for bringing AI-assisted chat into IDA Pro.
-- [1code](https://github.com/tanu360/1code) and [claude-code-dashboard](https://github.com/tanu360/claude-code-dashboard) for code-agent UX and analytics.
+- [claude-code-dashboard](https://github.com/tanu360/claude-code-dashboard) for code-agent UX and analytics.
 
 **Notable Open Source Repositories**
 
 - [Instagram-SSL-Pinning-Bypass](https://github.com/tanu360/Instagram-SSL-Pinning-Bypass)
-- [apple-intelligence-api](https://github.com/tanu360/apple-intelligence-api)
 - [Facebook-SSL-Pinning-Bypass](https://github.com/tanu360/Facebook-SSL-Pinning-Bypass)
+- [ChatJimmy-Reverse-API](https://github.com/tanu360/chatjimmy-reverse-api)
+- [apple-intelligence-api](https://github.com/tanu360/apple-intelligence-api)
 - [facebook-checker-v4](https://github.com/tanu360/facebook-checker-v4)
 
 ## Let's Connect :handshake:
