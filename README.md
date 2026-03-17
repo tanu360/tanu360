@@ -11,7 +11,7 @@ I'm open to serious collaboration around **security consulting**, **software pro
   <img src="https://img.shields.io/badge/AI%20%2F%20ML-8A2BE2?style=for-the-badge&logo=openai&logoColor=white" alt="AI ML">
   <img src="https://img.shields.io/badge/Software%20Protection-0D1117?style=for-the-badge&logo=letsencrypt&logoColor=white" alt="Software Protection">
   <img src="https://img.shields.io/badge/Data%20Automation-00ADD8?style=for-the-badge&logo=apache-airflow&logoColor=white" alt="Data Automation">
-  <img src="https://img.shields.io/badge/Joined-October%202017-1f6feb?style=for-the-badge&logo=github&logoColor=white" alt="Joined October 2017">
+  <img src="https://komarev.com/ghpvc/?username=tanu360&style=for-the-badge&color=1f6feb&label=Profile%20Views" alt="Profile Views">
 </p>
 
 ## Skill Set :muscle:
@@ -195,3 +195,4 @@ These are the areas and tools I work with most often:
 <a href="https://github.com/tanu360"><img src="https://img.shields.io/badge/GitHub-tanu360-181717?style=for-the-badge&logo=github&logoColor=white" alt="GitHub"></a>
 <a href="https://github.com/tanu360?tab=repositories"><img src="https://img.shields.io/badge/Repositories-View%20Work-1f6feb?style=for-the-badge&logo=github&logoColor=white" alt="Repositories"></a>
 <a href="https://gist.github.com/tanu360"><img src="https://img.shields.io/badge/Gists-Public%20Notes-8957e5?style=for-the-badge&logo=github&logoColor=white" alt="Gists"></a>
+<a href="https://github.com/tanu360"><img src="https://img.shields.io/badge/Joined-October%202017-1f6feb?style=for-the-badge&logo=github&logoColor=white" alt="Joined October 2017"></a>
