@@ -9,7 +9,7 @@ I'm open to serious collaboration around **security consulting**, **software pro
 <p>
   <img src="https://img.shields.io/badge/Cybersecurity-E34F26?style=for-the-badge&logo=hackaday&logoColor=white" alt="Cybersecurity">
   <img src="https://img.shields.io/badge/AI%20%2F%20ML-8A2BE2?style=for-the-badge&logo=openai&logoColor=white" alt="AI ML">
-  <img src="https://img.shields.io/badge/Software%20Protection-0D1117?style=for-the-badge&logo=letsencrypt&logoColor=white" alt="Software Protection">
+  <img src="https://img.shields.io/badge/Software%20Protection-0E7490?style=for-the-badge&logo=letsencrypt&logoColor=white" alt="Software Protection">
   <img src="https://img.shields.io/badge/Data%20Automation-00ADD8?style=for-the-badge&logo=apache-airflow&logoColor=white" alt="Data Automation">
   <img src="https://komarev.com/ghpvc/?username=tanu360&style=for-the-badge&color=1f6feb&label=Profile%20Views" alt="Profile Views">
 </p>
@@ -52,7 +52,7 @@ These are the areas and tools I work with most often:
   <img src="https://img.shields.io/badge/Software%20Protection-2C2D72?style=for-the-badge&logo=letsencrypt&logoColor=white" alt="Software Protection">
   <img src="https://img.shields.io/badge/Prompt%20Engineering-10A37F?style=for-the-badge&logo=openai&logoColor=white" alt="Prompt Engineering">
   <img src="https://img.shields.io/badge/Reverse%20Engineering-FF6F00?style=for-the-badge&logo=hackaday&logoColor=white" alt="Reverse Engineering">
-  <img src="https://img.shields.io/badge/DLL%20%2F%20Dylib%20Engineering-0D1117?style=for-the-badge&logo=windows&logoColor=white" alt="DLL / Dylib Engineering">
+  <img src="https://img.shields.io/badge/DLL%20%2F%20Dylib%20Engineering-0E7490?style=for-the-badge&logo=windows&logoColor=white" alt="DLL / Dylib Engineering">
   <img src="https://img.shields.io/badge/Dynamic%20Instrumentation-EF5350?style=for-the-badge&logo=android&logoColor=white" alt="Dynamic Instrumentation">
 </p>
 
@@ -138,7 +138,7 @@ These are the areas and tools I work with most often:
   <img src="https://img.shields.io/badge/Frida-EF5350?style=for-the-badge&logo=android&logoColor=white" alt="Frida">
   <img src="https://img.shields.io/badge/x64dbg-00599C?style=for-the-badge" alt="x64dbg">
   <img src="https://img.shields.io/badge/Hopper-FF9800?style=for-the-badge" alt="Hopper">
-  <img src="https://img.shields.io/badge/LLDB-000000?style=for-the-badge&logo=llvm&logoColor=white" alt="LLDB">
+  <img src="https://img.shields.io/badge/LLDB-0E7490?style=for-the-badge&logo=llvm&logoColor=white" alt="LLDB">
   <img src="https://img.shields.io/badge/Wireshark-1679A7?style=for-the-badge&logo=wireshark&logoColor=white" alt="Wireshark">
 </p>
 
