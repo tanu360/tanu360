@@ -1,8 +1,8 @@
 <h1>Hi There, I'm Tarun <img src="https://raw.githubusercontent.com/ABSphreak/ABSphreak/master/gifs/Hi.gif" width="30px" alt="wave"></h1>
 
-I work in **cybersecurity**, **AI/ML**, **software protection**, and **low-level engineering**. I specialize in vulnerability research, binary hardening, and building defensive tooling — with deep hands-on experience in assembly-level analysis, reverse engineering for security audits, and designing protection systems for commercial software.
+I work across **cybersecurity**, **AI/ML**, **software protection**, and **low-level engineering**. My focus includes vulnerability research, binary hardening, defensive tooling, assembly-level analysis, reverse engineering for security audits, and designing protection systems for commercial software.
 
-Beyond security, I build AI-powered products, real-time data pipelines, developer tools, and scalable backend systems. My work spans from low-level native code to full-stack product development — always focused on solving hard engineering problems.
+Beyond security, I build AI-powered products, real-time data pipelines, developer tools, and scalable backend systems. My work spans from low-level native code to full-stack product development, always focused on solving hard engineering problems.
 
 I'm open to serious collaboration around **security consulting**, **software protection engineering**, **AI/ML tooling**, **data infrastructure**, and **developer automation**.
 
