@@ -176,7 +176,7 @@ These are the areas and tools I work with most often:
   </picture>
 </p>
 
-## Contribution Activity
+## Contribution Activity :zap:
 
 <p align="center">
   <a href="https://github.com/tanu360">
