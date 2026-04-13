@@ -176,6 +176,18 @@ These are the areas and tools I work with most often:
   </picture>
 </p>
 
+## Contribution Activity
+
+<p align="center">
+  <a href="https://github.com/tanu360">
+    <picture>
+      <source media="(prefers-color-scheme: dark)" srcset="https://github-readme-activity-graph.vercel.app/graph?username=tanu360&bg_color=0d1117&color=c9d1d9&title_color=58a6ff&line=10a37f&point=f59e0b&area=true&area_color=0e7490&hide_border=true" />
+      <source media="(prefers-color-scheme: light)" srcset="https://github-readme-activity-graph.vercel.app/graph?username=tanu360&bg_color=f8fafc&color=1f2937&title_color=1f6feb&line=0e7490&point=f59e0b&area=true&area_color=10a37f&hide_border=true" />
+      <img width="100%" src="https://github-readme-activity-graph.vercel.app/graph?username=tanu360&bg_color=0d1117&color=c9d1d9&title_color=58a6ff&line=10a37f&point=f59e0b&area=true&area_color=0e7490&hide_border=true&custom_title=Contribution%20Activity" />
+    </picture>
+  </a>
+</p>
+
 **Selected Work**
 
 - [nanobananademo](https://github.com/tanu360/nanobananademo) for generating, editing, and upscaling images with modern AI models.
