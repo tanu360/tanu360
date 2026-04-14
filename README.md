@@ -203,7 +203,7 @@ These are the areas and tools I work with most often:
 
 ## Let's Connect :handshake:
 
-<a href="https://github.com/tanu360"><img src="https://img.shields.io/badge/GitHub-tanu360-181717?style=for-the-badge&logo=github&logoColor=white" alt="GitHub"></a>
+<a href="https://github.com/tanu360"><img src="https://img.shields.io/badge/GitHub-tanu360-F38020?style=for-the-badge&logo=github&logoColor=white" alt="GitHub"></a>
 <a href="https://github.com/tanu360?tab=repositories"><img src="https://img.shields.io/badge/Repositories-View%20Work-1f6feb?style=for-the-badge&logo=github&logoColor=white" alt="Repositories"></a>
 <a href="https://gist.github.com/tanu360"><img src="https://img.shields.io/badge/Gists-Public%20Notes-8957e5?style=for-the-badge&logo=github&logoColor=white" alt="Gists"></a>
 <a href="https://github.com/tanu360"><img src="https://img.shields.io/badge/Joined-October%202017-1f6feb?style=for-the-badge&logo=github&logoColor=white" alt="Joined October 2017"></a>
