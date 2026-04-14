@@ -189,6 +189,12 @@ These are the areas and tools I work with most often:
   </picture>
 </p>
 
+## Stargazers Around the World :earth_asia:
+
+<p align="center">
+  <img width="100%" src="./profile/stargazers-worldmap.svg" alt="Stargazers Around the World" />
+</p>
+
 ## Contribution Activity :zap:
 
 <p align="center">
