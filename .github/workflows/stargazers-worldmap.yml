@@ -11,6 +11,8 @@ jobs:
     permissions:
       contents: write
     steps:
+      - uses: actions/checkout@v4
+
       - uses: lowlighter/metrics@latest
         with:
           filename: profile/stargazers-worldmap.svg
@@ -21,3 +23,16 @@ jobs:
           plugin_stargazers_worldmap: yes
           plugin_stargazers_worldmap_token: ${{ secrets.GOOGLE_MAP_TOKEN }}
           plugin_stargazers_worldmap_sample: 200
+
+      - name: Remove map headings
+        run: |
+          perl -0pi -e 's{<h2 class="field">.*?</h2>}{}gs; s{<h3 class="margin-lr-auto">Stargazers origins</h3>}{}gs;' profile/stargazers-worldmap.svg
+
+      - name: Commit map if changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add profile/stargazers-worldmap.svg
+          git diff --cached --quiet && exit 0
+          git commit -m "chore: update stargazers world map"
+          git push
