@@ -34,6 +34,7 @@ jobs:
             s{<h2 class="field">.*?</h2>}{}gs;
             s{<h3 class="margin-lr-auto">Stargazers origins</h3>}{}gs;
             s{<svg xmlns="http://www\.w3\.org/2000/svg" width="480" height="436" class="">}{<svg xmlns="http://www.w3.org/2000/svg" width="480" height="315" viewBox="0 0 480 315" class="">}s;
+            s{<svg xmlns="http://www\.w3\.org/2000/svg" width="480" height="315">}{<svg xmlns="http://www.w3.org/2000/svg" width="456" height="291" viewBox="0 0 480 315" style="display:block;margin:12px auto;">}s;
             s{\.margin-bottom\{margin-bottom:16px\}}{.margin-bottom{margin-bottom:0}}s;
             s{<div xmlns="http://www\.w3\.org/1999/xhtml" id="metrics-end"></div>}{}s;
           ' profile/stargazers-worldmap.svg
