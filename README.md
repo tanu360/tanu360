@@ -1,4 +1,4 @@
-<h1>Hi There, I'm Tarun <img src="https://raw.githubusercontent.com/ABSphreak/ABSphreak/master/gifs/Hi.gif" width="30px" alt="wave"></h1>
+<h1>Hi There, I'm Tarun <img src="https://github.githubassets.com/images/mona-loading-dimmed.gif" width="30px" alt="GitHub gif"></h1>
 
 > **Renaissance-class offensive security researcher with demonstrated global top-tier depth in multiple rare niches and shipped production engineering capability.**
 
@@ -189,7 +189,7 @@ These are the areas and tools I work with most often:
   </picture>
 </p>
 
-## Stargazers Around the World :earth_asia:
+## Stargazers :earth_asia:
 
 <p align="center">
   <img width="100%" src="./profile/stargazers-worldmap.svg" alt="Stargazers Around the World" />
