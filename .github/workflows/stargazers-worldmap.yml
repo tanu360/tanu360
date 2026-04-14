@@ -43,8 +43,16 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add profile/stargazers-worldmap.svg
-          git diff --cached --quiet && exit 0
-          git commit -m "chore: update stargazers world map"
-          git pull --rebase origin main
-          git push
+          output_file="profile/stargazers-worldmap.svg"
+          temp_file="$(mktemp)"
+          cp "$output_file" "$temp_file"
+          for attempt in 1 2 3; do
+            git fetch origin main
+            git reset --hard origin/main
+            cp "$temp_file" "$output_file"
+            git add "$output_file"
+            git diff --cached --quiet && exit 0
+            git commit -m "chore: update stargazers world map"
+            git push && exit 0
+          done
+          exit 1
