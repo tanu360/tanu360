@@ -45,6 +45,18 @@ jobs:
           path: profile/top-langs-light.svg
           token: ${{ secrets.README_STATS_TOKEN || github.token }}
 
+      - name: Generate Wakapi card (dark)
+        run: >
+          curl -fsSL
+          "https://github-readme-stats-fast.vercel.app/api/wakatime?username=tanu1337&api_domain=wakapi.dev&range=all_time&layout=compact&langs_count=10&hide_border=true&bg_color=00000000&title_color=58A6FF&icon_color=58A6FF&text_color=C9D1D9&custom_title=All-Time%20Coding"
+          -o profile/wakapi-dark.svg
+
+      - name: Generate Wakapi card (light)
+        run: >
+          curl -fsSL
+          "https://github-readme-stats-fast.vercel.app/api/wakatime?username=tanu1337&api_domain=wakapi.dev&range=all_time&layout=compact&langs_count=10&hide_border=true&bg_color=00000000&title_color=0969DA&icon_color=0969DA&text_color=1F2328&custom_title=All-Time%20Coding"
+          -o profile/wakapi-light.svg
+
       - name: Commit cards
         run: |
           git config user.name "github-actions[bot]"

@@ -171,7 +171,12 @@ These are the areas and tools I work with most often:
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="./profile/top-langs-dark.svg" />
     <source media="(prefers-color-scheme: light)" srcset="./profile/top-langs-light.svg" />
-    <img width="40%" src="./profile/top-langs-dark.svg" alt="Top Languages" />
+    <img width="35%" src="./profile/top-langs-dark.svg" alt="Top Languages" />
+  </picture>
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="./profile/wakapi-dark.svg" />
+    <source media="(prefers-color-scheme: light)" srcset="./profile/wakapi-light.svg" />
+    <img width="58%" src="./profile/wakapi-dark.svg" alt="All-Time Coding" />
   </picture>
 </p>
 
@@ -180,8 +185,8 @@ These are the areas and tools I work with most often:
 <p align="center">
   <a href="https://github.com/tanu360">
     <picture>
-      <source media="(prefers-color-scheme: dark)" srcset="https://github-readme-activity-graph.vercel.app/graph?username=tanu360&bg_color=0d1117&color=c9d1d9&title_color=58a6ff&line=10a37f&point=f59e0b&area=true&area_color=0e7490&hide_border=true" />
-      <source media="(prefers-color-scheme: light)" srcset="https://github-readme-activity-graph.vercel.app/graph?username=tanu360&bg_color=f8fafc&color=1f2937&title_color=1f6feb&line=0e7490&point=f59e0b&area=true&area_color=10a37f&hide_border=true" />
+      <source media="(prefers-color-scheme: dark)" srcset="https://github-readme-activity-graph.vercel.app/graph?username=tanu360&bg_color=0d1117&color=c9d1d9&title_color=58a6ff&line=10a37f&point=f59e0b&area=true&area_color=0e7490&hide_border=true&custom_title=Contribution%20Activity" />
+      <source media="(prefers-color-scheme: light)" srcset="https://github-readme-activity-graph.vercel.app/graph?username=tanu360&bg_color=f8fafc&color=1f2937&title_color=1f6feb&line=0e7490&point=f59e0b&area=true&area_color=10a37f&hide_border=true&custom_title=Contribution%20Activity" />
       <img width="100%" src="https://github-readme-activity-graph.vercel.app/graph?username=tanu360&bg_color=0d1117&color=c9d1d9&title_color=58a6ff&line=10a37f&point=f59e0b&area=true&area_color=0e7490&hide_border=true&custom_title=Contribution%20Activity" />
     </picture>
   </a>
