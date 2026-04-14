@@ -1,8 +1,12 @@
 <h1>Hi There, I'm Tarun <img src="https://raw.githubusercontent.com/ABSphreak/ABSphreak/master/gifs/Hi.gif" width="30px" alt="wave"></h1>
 
-I work across **cybersecurity**, **AI/ML**, **software protection**, and **low-level engineering**. My focus includes vulnerability research, binary hardening, defensive tooling, assembly-level analysis, reverse engineering for security audits, and designing protection systems for commercial software.
+> **Renaissance-class offensive security researcher with demonstrated global top-tier depth in multiple rare niches and shipped production engineering capability.**
 
-Beyond security, I build AI-powered products, real-time data pipelines, developer tools, and scalable backend systems. My work spans from low-level native code to full-stack product development, always focused on solving hard engineering problems.
+## About Me
+
+I work across **cybersecurity**, **AI/ML**, **software protection**, and **low-level engineering** — with a focus on problems that demand both depth and breadth. My core work spans reverse engineering and binary analysis across Windows, macOS, Linux, Android, and iOS; software protection research on commercial protectors and virtualization systems; mobile application security including native library analysis and runtime instrumentation; and API protocol analysis with authentication internals and anti-bot research.
+
+Beyond security, I build AI-powered products, real-time data pipelines, developer tools, and scalable backend systems. My work spans from native code and assembly-level analysis to full-stack product development — I'm comfortable anywhere on the stack, and most drawn to hard engineering problems where the interesting answers live below the surface.
 
 I'm open to serious collaboration around **security consulting**, **software protection engineering**, **AI/ML tooling**, **data infrastructure**, and **developer automation**.
 
@@ -45,14 +49,19 @@ These are the areas and tools I work with most often:
 **Core Areas**
 
 <p>
-  <img src="https://img.shields.io/badge/Assembly%20Analysis-DC322F?style=for-the-badge&logo=amd&logoColor=white" alt="Assembly Analysis">
-  <img src="https://img.shields.io/badge/WebAssembly-654FF0?style=for-the-badge&logo=webassembly&logoColor=white" alt="WebAssembly">
+  <img src="https://img.shields.io/badge/Reverse%20Engineering-FF6F00?style=for-the-badge&logo=hackaday&logoColor=white" alt="Reverse Engineering">
   <img src="https://img.shields.io/badge/Binary%20Analysis-FD3A5C?style=for-the-badge&logo=scrutinizerci&logoColor=white" alt="Binary Analysis">
   <img src="https://img.shields.io/badge/Software%20Protection-2C2D72?style=for-the-badge&logo=letsencrypt&logoColor=white" alt="Software Protection">
-  <img src="https://img.shields.io/badge/Prompt%20Engineering-10A37F?style=for-the-badge&logo=openai&logoColor=white" alt="Prompt Engineering">
-  <img src="https://img.shields.io/badge/Reverse%20Engineering-FF6F00?style=for-the-badge&logo=hackaday&logoColor=white" alt="Reverse Engineering">
+  <img src="https://img.shields.io/badge/Assembly%20Analysis-DC322F?style=for-the-badge&logo=amd&logoColor=white" alt="Assembly Analysis">
+  <img src="https://img.shields.io/badge/Devirtualization-6A1B9A?style=for-the-badge&logo=gnubash&logoColor=white" alt="Devirtualization">
+  <img src="https://img.shields.io/badge/Deobfuscation-00838F?style=for-the-badge&logo=codefactor&logoColor=white" alt="Deobfuscation">
+  <img src="https://img.shields.io/badge/WebAssembly-654FF0?style=for-the-badge&logo=webassembly&logoColor=white" alt="WebAssembly">
   <img src="https://img.shields.io/badge/DLL%20%2F%20Dylib%20Engineering-0E7490?style=for-the-badge&logo=windows&logoColor=white" alt="DLL / Dylib Engineering">
   <img src="https://img.shields.io/badge/Dynamic%20Instrumentation-EF5350?style=for-the-badge&logo=android&logoColor=white" alt="Dynamic Instrumentation">
+  <img src="https://img.shields.io/badge/Vulnerability%20Research-B71C1C?style=for-the-badge&logo=cachet&logoColor=white" alt="Vulnerability Research">
+  <img src="https://img.shields.io/badge/Mobile%20Security-2E7D32?style=for-the-badge&logo=android&logoColor=white" alt="Mobile Security">
+  <img src="https://img.shields.io/badge/API%20Security-FF6C37?style=for-the-badge&logo=postman&logoColor=white" alt="API Security">
+  <img src="https://img.shields.io/badge/Prompt%20Engineering-10A37F?style=for-the-badge&logo=openai&logoColor=white" alt="Prompt Engineering">
 </p>
 
 **Focus Areas**
@@ -194,17 +203,17 @@ These are the areas and tools I work with most often:
 
 **Selected Work**
 
-- [nanobananademo](https://github.com/tanu360/nanobananademo) for generating, editing, and upscaling images with modern AI models.
-- [ida-chat-plugin](https://github.com/tanu360/ida-chat-plugin) for bringing AI-assisted chat into IDA Pro.
-- [claude-code-dashboard](https://github.com/tanu360/claude-code-dashboard) for code-agent UX and analytics.
+- [ida-chat-plugin](https://github.com/tanu360/ida-chat-plugin) — AI-assisted chat interface for IDA Pro, distributed through the official Hex-Rays `hcli` plugin registry.
+- [nanobananademo](https://github.com/tanu360/nanobananademo) — generation, editing, and upscaling pipeline built on modern AI image models.
+- [claude-code-dashboard](https://github.com/tanu360/claude-code-dashboard) — code-agent UX and analytics dashboard.
 
 **Notable Open Source Repositories**
 
-- [Instagram-SSL-Pinning-Bypass](https://github.com/tanu360/Instagram-SSL-Pinning-Bypass)
-- [Facebook-SSL-Pinning-Bypass](https://github.com/tanu360/Facebook-SSL-Pinning-Bypass)
-- [ChatJimmy-Reverse-API](https://github.com/tanu360/chatjimmy-reverse-api)
-- [apple-intelligence-api](https://github.com/tanu360/apple-intelligence-api)
-- [facebook-checker-v4](https://github.com/tanu360/facebook-checker-v4)
+- [Facebook-SSL-Pinning-Bypass](https://github.com/tanu360/Facebook-SSL-Pinning-Bypass) — native library analysis and SSL pinning bypass research on production Android.
+- [Instagram-SSL-Pinning-Bypass](https://github.com/tanu360/Instagram-SSL-Pinning-Bypass) — mobile traffic interception research on the Meta ecosystem.
+- [apple-intelligence-api](https://github.com/tanu360/apple-intelligence-api) — OpenAI-compatible server on top of Apple's on-device Foundation Models.
+- [chatjimmy-reverse-api](https://github.com/tanu360/chatjimmy-reverse-api) — dual OpenAI + Anthropic compatibility layer with streaming and tool calling.
+- [facebook-checker-v4](https://github.com/tanu360/facebook-checker-v4) — automation tooling research.
 
 ## Let's Connect :handshake:
 
