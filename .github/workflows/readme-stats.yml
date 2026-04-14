@@ -48,14 +48,55 @@ jobs:
       - name: Generate Wakapi card (dark)
         run: >
           curl -fsSL
-          "https://github-readme-stats-fast.vercel.app/api/wakatime?username=tanu1337&api_domain=wakapi.dev&range=all_time&layout=compact&langs_count=10&hide_border=true&bg_color=00000000&title_color=58A6FF&icon_color=58A6FF&text_color=C9D1D9&custom_title=All-Time%20Coding"
+          "https://github-readme-stats-fast.vercel.app/api/wakatime?username=tanu1337&api_domain=wakapi.dev&range=all_time&layout=compact&langs_count=10&hide_border=true&bg_color=00000000&title_color=58A6FF&icon_color=58A6FF&text_color=C9D1D9&custom_title=Time%20by%20Language"
           -o profile/wakapi-dark.svg
 
       - name: Generate Wakapi card (light)
         run: >
           curl -fsSL
-          "https://github-readme-stats-fast.vercel.app/api/wakatime?username=tanu1337&api_domain=wakapi.dev&range=all_time&layout=compact&langs_count=10&hide_border=true&bg_color=00000000&title_color=0969DA&icon_color=0969DA&text_color=1F2328&custom_title=All-Time%20Coding"
+          "https://github-readme-stats-fast.vercel.app/api/wakatime?username=tanu1337&api_domain=wakapi.dev&range=all_time&layout=compact&langs_count=10&hide_border=true&bg_color=00000000&title_color=0969DA&icon_color=0969DA&text_color=1F2328&custom_title=Time%20by%20Language"
           -o profile/wakapi-light.svg
+
+      - name: Post-process Wakapi cards
+        run: |
+          for file in profile/wakapi-dark.svg profile/wakapi-light.svg; do
+            perl -0pi -e '
+              s{(<text\b[^>]*data-testid="header"[^>]*>).*?(</text>)}{$1Time by Language$2}s;
+              my %colors = (
+                q{jsx} => q{#f1e05a},
+                q{tsx} => q{#3178c6},
+                q{python} => q{#3572A5},
+                q{bash} => q{#89e051},
+                q{objective-c} => q{#438eff},
+                q{json} => q{#f59e0b},
+                q{unknown} => q{#14b8a6},
+                q{css} => q{#663399},
+                q{typescript} => q{#3178c6},
+                q{html} => q{#e34c26},
+              );
+              my %display = (
+                q{objective-c} => q{Objective-C},
+                q{json} => q{JSON},
+                q{typescript} => q{TypeScript},
+                q{html} => q{HTML},
+              );
+              my @order;
+              s{(<circle cx="5" cy="6" r="5" fill=")(#[0-9A-Fa-f]{6})(" \/>[\s\S]*?<text[^>]*>\s*)([^<]+?)(\s*</text>)}{
+                my ($open, $fallback, $middle, $raw, $close) = ($1, $2, $3, $4, $5);
+                $raw =~ s/^\s+|\s+$//g;
+                my ($lang, $rest) = split(/\s-\s/, $raw, 2);
+                my $key = lc $lang;
+                my $color = $colors{$key} // $fallback;
+                my $label = $display{$key} // $lang;
+                push @order, $color;
+                $open . $color . $middle . $label . (defined $rest ? q{ - } . $rest : q{}) . $close;
+              }gse;
+              my $index = 0;
+              s{(<rect[\s\S]*?data-testid="lang-progress"[\s\S]*?fill=")(#[0-9A-Fa-f]{6})(")}{
+                $1 . ($order[$index++] // $2) . $3
+              }gse;
+            ' "$file"
+          done
 
       - name: Commit cards
         run: |

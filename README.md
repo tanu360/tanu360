@@ -185,7 +185,7 @@ These are the areas and tools I work with most often:
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="./profile/wakapi-dark.svg" />
     <source media="(prefers-color-scheme: light)" srcset="./profile/wakapi-light.svg" />
-    <img width="58%" src="./profile/wakapi-dark.svg" alt="All-Time Coding" />
+    <img width="58%" src="./profile/wakapi-dark.svg" alt="Time by Language" />
   </picture>
 </p>
 
