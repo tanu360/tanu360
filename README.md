@@ -8,10 +8,10 @@ I'm open to serious collaboration around **security consulting**, **software pro
 
 <p>
   <img src="https://img.shields.io/badge/Cybersecurity-E34F26?style=for-the-badge&logo=hackaday&logoColor=white" alt="Cybersecurity">
-  <img src="https://img.shields.io/badge/AI%20%2F%20ML-8A2BE2?style=for-the-badge&logo=openai&logoColor=white" alt="AI ML">
-  <img src="https://img.shields.io/badge/Software%20Protection-0E7490?style=for-the-badge&logo=letsencrypt&logoColor=white" alt="Software Protection">
-  <img src="https://img.shields.io/badge/Data%20Automation-00ADD8?style=for-the-badge&logo=apache-airflow&logoColor=white" alt="Data Automation">
+  <img src="https://img.shields.io/badge/AI%20%2F%20ML-8A2BE2?style=for-the-badge&logo=huggingface&logoColor=white" alt="AI ML">
+  <img src="https://img.shields.io/badge/App%20Protection-0E7490?style=for-the-badge&logo=letsencrypt&logoColor=white" alt="Software Protection">
   <img src="https://komarev.com/ghpvc/?username=tanu360&style=for-the-badge&color=1f6feb&label=Profile%20Views" alt="Profile Views">
+  <a href="https://wakatime.com/@tanu360"><img src="https://wakatime.com/badge/user/ea5fa0c5-338f-466b-ac38-0265754265c1.svg?style=for-the-badge" alt="WakaTime"></a>
 </p>
 
 ## Skill Set :muscle:
