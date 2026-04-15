@@ -46,34 +46,48 @@ These are the areas and tools I work with most often:
   </tr>
 </table>
 
-**Core Areas**
+**Core Domains**
 
 <p>
   <img src="https://img.shields.io/badge/Reverse%20Engineering-FF6F00?style=for-the-badge&logo=hackaday&logoColor=white" alt="Reverse Engineering">
   <img src="https://img.shields.io/badge/Binary%20Analysis-FD3A5C?style=for-the-badge&logo=scrutinizerci&logoColor=white" alt="Binary Analysis">
   <img src="https://img.shields.io/badge/Software%20Protection-2C2D72?style=for-the-badge&logo=letsencrypt&logoColor=white" alt="Software Protection">
+  <img src="https://img.shields.io/badge/Vulnerability%20Research-B71C1C?style=for-the-badge&logo=cachet&logoColor=white" alt="Vulnerability Research">
+</p>
+
+**Low-Level Specialization**
+
+<p>
   <img src="https://img.shields.io/badge/Assembly%20Analysis-DC322F?style=for-the-badge&logo=amd&logoColor=white" alt="Assembly Analysis">
   <img src="https://img.shields.io/badge/Devirtualization-6A1B9A?style=for-the-badge&logo=gnubash&logoColor=white" alt="Devirtualization">
   <img src="https://img.shields.io/badge/Deobfuscation-00838F?style=for-the-badge&logo=codefactor&logoColor=white" alt="Deobfuscation">
-  <img src="https://img.shields.io/badge/WebAssembly-654FF0?style=for-the-badge&logo=webassembly&logoColor=white" alt="WebAssembly">
-  <img src="https://img.shields.io/badge/DLL%20%2F%20Dylib%20Engineering-0E7490?style=for-the-badge&logo=windows&logoColor=white" alt="DLL / Dylib Engineering">
   <img src="https://img.shields.io/badge/Dynamic%20Instrumentation-EF5350?style=for-the-badge&logo=android&logoColor=white" alt="Dynamic Instrumentation">
-  <img src="https://img.shields.io/badge/Vulnerability%20Research-B71C1C?style=for-the-badge&logo=cachet&logoColor=white" alt="Vulnerability Research">
-  <img src="https://img.shields.io/badge/Mobile%20Security-2E7D32?style=for-the-badge&logo=android&logoColor=white" alt="Mobile Security">
-  <img src="https://img.shields.io/badge/API%20Security-FF6C37?style=for-the-badge&logo=postman&logoColor=white" alt="API Security">
-  <img src="https://img.shields.io/badge/Prompt%20Engineering-10A37F?style=for-the-badge&logo=openai&logoColor=white" alt="Prompt Engineering">
 </p>
 
-**Focus Areas**
+**Platforms & Security Areas**
 
 <p>
-  <img src="https://img.shields.io/badge/Cybersecurity-E34F26?style=for-the-badge&logo=hackaday&logoColor=white" alt="Cybersecurity">
+  <img src="https://img.shields.io/badge/Mobile%20Security-2E7D32?style=for-the-badge&logo=android&logoColor=white" alt="Mobile Security">
+  <img src="https://img.shields.io/badge/API%20Security-FF6C37?style=for-the-badge&logo=postman&logoColor=white" alt="API Security">
+  <img src="https://img.shields.io/badge/WebAssembly-654FF0?style=for-the-badge&logo=webassembly&logoColor=white" alt="WebAssembly">
+  <img src="https://img.shields.io/badge/DLL%20%2F%20Dylib%20Engineering-0E7490?style=for-the-badge&logo=windows&logoColor=white" alt="DLL / Dylib Engineering">
+</p>
+
+**Applied Engineering**
+
+<p>
   <img src="https://img.shields.io/badge/AI%20%2F%20ML-8A2BE2?style=for-the-badge&logo=openai&logoColor=white" alt="AI ML">
   <img src="https://img.shields.io/badge/Data%20Automation-00ADD8?style=for-the-badge&logo=apache-airflow&logoColor=white" alt="Data Automation">
   <img src="https://img.shields.io/badge/API%20Development-FF6C37?style=for-the-badge&logo=postman&logoColor=white" alt="API Development">
-  <img src="https://img.shields.io/badge/UI%20%2F%20UX-FF61F6?style=for-the-badge&logo=figma&logoColor=white" alt="UI UX">
-  <img src="https://img.shields.io/badge/Social%20Media%20Bots-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white" alt="Social Media Bots">
   <img src="https://img.shields.io/badge/Cloudflare%20Workers-F38020?style=for-the-badge&logo=cloudflare&logoColor=white" alt="Cloudflare Workers">
+</p>
+
+**Product & Interface Work**
+
+<p>
+  <img src="https://img.shields.io/badge/UI%20%2F%20UX-FF61F6?style=for-the-badge&logo=figma&logoColor=white" alt="UI UX">
+  <img src="https://img.shields.io/badge/Prompt%20Engineering-10A37F?style=for-the-badge&logo=openai&logoColor=white" alt="Prompt Engineering">
+  <img src="https://img.shields.io/badge/Social%20Media%20Bots-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white" alt="Social Media Bots">
   <img src="https://img.shields.io/badge/MQL5%20%2F%20Trading%20Systems-4285F4?style=for-the-badge&logo=tradingview&logoColor=white" alt="MQL5 / Trading Systems">
 </p>
 
