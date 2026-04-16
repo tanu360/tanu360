@@ -61,15 +61,15 @@ These are the areas and tools I work with most often:
   <img src="https://img.shields.io/badge/Assembly%20Analysis-DC322F?style=for-the-badge&logo=amd&logoColor=white" alt="Assembly Analysis">
   <img src="https://img.shields.io/badge/Devirtualization-6A1B9A?style=for-the-badge&logo=gnubash&logoColor=white" alt="Devirtualization">
   <img src="https://img.shields.io/badge/Deobfuscation-00838F?style=for-the-badge&logo=codefactor&logoColor=white" alt="Deobfuscation">
-  <img src="https://img.shields.io/badge/Dynamic%20Instrumentation-EF5350?style=for-the-badge&logo=android&logoColor=white" alt="Dynamic Instrumentation">
+  <img src="https://img.shields.io/badge/Dynamic%20Instrumentation-3DDC84?style=for-the-badge&logo=android&logoColor=white" alt="Dynamic Instrumentation">
 </p>
 
 **Platforms & Security Areas**
 
 <p>
-  <img src="https://img.shields.io/badge/Mobile%20Security-2E7D32?style=for-the-badge&logo=android&logoColor=white" alt="Mobile Security">
-  <img src="https://img.shields.io/badge/API%20Security-FF6C37?style=for-the-badge&logo=postman&logoColor=white" alt="API Security">
-  <img src="https://img.shields.io/badge/WebAssembly-654FF0?style=for-the-badge&logo=webassembly&logoColor=white" alt="WebAssembly">
+  <img src="https://img.shields.io/badge/Mobile%20Security-3DDC84?style=for-the-badge&logo=android&logoColor=white" alt="Mobile Security">
+  <img src="https://img.shields.io/badge/API%20Security-FF6C37?style=for-the-badge&logo=Postman&logoColor=white" alt="API Security">
+  <img src="https://img.shields.io/badge/WebAssembly-654FF0?style=for-the-badge&logo=WebAssembly&logoColor=white" alt="WebAssembly">
   <img src="https://img.shields.io/badge/DLL%20%2F%20Dylib%20Engineering-0E7490?style=for-the-badge&logo=windows&logoColor=white" alt="DLL / Dylib Engineering">
 </p>
 
@@ -77,15 +77,15 @@ These are the areas and tools I work with most often:
 
 <p>
   <img src="https://img.shields.io/badge/AI%20%2F%20ML-8A2BE2?style=for-the-badge&logo=openai&logoColor=white" alt="AI ML">
-  <img src="https://img.shields.io/badge/Data%20Automation-00ADD8?style=for-the-badge&logo=apache-airflow&logoColor=white" alt="Data Automation">
-  <img src="https://img.shields.io/badge/API%20Development-FF6C37?style=for-the-badge&logo=postman&logoColor=white" alt="API Development">
-  <img src="https://img.shields.io/badge/Cloudflare%20Workers-F38020?style=for-the-badge&logo=cloudflare&logoColor=white" alt="Cloudflare Workers">
+  <img src="https://img.shields.io/badge/Data%20Automation-017CEE?style=for-the-badge&logo=Apache%20Airflow&logoColor=white" alt="Data Automation">
+  <img src="https://img.shields.io/badge/API%20Development-FF6C37?style=for-the-badge&logo=Postman&logoColor=white" alt="API Development">
+  <img src="https://img.shields.io/badge/Cloudflare%20Workers-F38020?style=for-the-badge&logo=Cloudflare&logoColor=white" alt="Cloudflare Workers">
 </p>
 
 **Product & Interface Work**
 
 <p>
-  <img src="https://img.shields.io/badge/UI%20%2F%20UX-FF61F6?style=for-the-badge&logo=figma&logoColor=white" alt="UI UX">
+  <img src="https://img.shields.io/badge/UI%20%2F%20UX-F24E1E?style=for-the-badge&logo=figma&logoColor=white" alt="UI UX">
   <img src="https://img.shields.io/badge/Prompt%20Engineering-10A37F?style=for-the-badge&logo=openai&logoColor=white" alt="Prompt Engineering">
   <img src="https://img.shields.io/badge/Social%20Media%20Bots-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white" alt="Social Media Bots">
   <img src="https://img.shields.io/badge/MQL5%20%2F%20Trading%20Systems-4285F4?style=for-the-badge&logo=tradingview&logoColor=white" alt="MQL5 / Trading Systems">
@@ -161,16 +161,16 @@ These are the areas and tools I work with most often:
   <img src="https://img.shields.io/badge/x64dbg-00599C?style=for-the-badge" alt="x64dbg">
   <img src="https://img.shields.io/badge/Hopper-FF9800?style=for-the-badge" alt="Hopper">
   <img src="https://img.shields.io/badge/LLDB-0E7490?style=for-the-badge&logo=llvm&logoColor=white" alt="LLDB">
-  <img src="https://img.shields.io/badge/Wireshark-1679A7?style=for-the-badge&logo=wireshark&logoColor=white" alt="Wireshark">
+  <img src="https://img.shields.io/badge/Wireshark-1679A7?style=for-the-badge&logo=Wireshark&logoColor=white" alt="Wireshark">
 </p>
 
 **Cloud & Infra**
 
 <p>
-  <img src="https://img.shields.io/badge/Cloudflare%20Workers-F38020?style=for-the-badge&logo=cloudflare&logoColor=white" alt="Cloudflare Workers">
-  <img src="https://img.shields.io/badge/AWS-232F3E?style=for-the-badge&logo=amazonwebservices&logoColor=white" alt="AWS">
-  <img src="https://img.shields.io/badge/Azure-0078D4?style=for-the-badge&logo=microsoftazure&logoColor=white" alt="Azure">
-  <img src="https://img.shields.io/badge/Google%20Cloud-4285F4?style=for-the-badge&logo=googlecloud&logoColor=white" alt="Google Cloud">
+  <img src="https://img.shields.io/badge/Cloudflare%20Workers-F38020?style=for-the-badge&logo=Cloudflare&logoColor=white" alt="Cloudflare Workers">
+  <img src="https://img.shields.io/badge/AWS-FF9900?style=for-the-badge&logo=amazonwebservices&logoColor=white" alt="AWS">
+  <img src="https://img.shields.io/badge/Azure-0089D6?style=for-the-badge&logo=microsoft-azure&logoColor=white" alt="Azure">
+  <img src="https://img.shields.io/badge/Google%20Cloud-4285F4?style=for-the-badge&logo=google-cloud&logoColor=white" alt="Google Cloud">
   <img src="https://img.shields.io/badge/Nginx-009639?style=for-the-badge&logo=nginx&logoColor=white" alt="Nginx">
   <img src="https://img.shields.io/badge/Snowflake-29B5E8?style=for-the-badge&logo=snowflake&logoColor=white" alt="Snowflake">
 </p>
