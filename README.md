@@ -203,7 +203,7 @@ These are the areas and tools I work with most often:
   </picture>
 </p>
 
-## Wakapi Activity :stopwatch:
+## Coding Activity :stopwatch:
 
 <p align="center">
   <picture>
