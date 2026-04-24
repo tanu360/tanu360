@@ -144,25 +144,25 @@ jobs:
               bg: '00000000',
               border: 'e4e2e2',
               borderOpacity: 0,
-              text: 'E2E8F0',
-              muted: '94A3B8',
-              grid: '334155',
-              axis: '94A3B8',
-              title: '3B82F6',
-              bar: '3B82F6',
-              projectColors: ['22C55E', '3B82F6', '06B6D4', 'F59E0B'],
+              text: 'C9D1D9',
+              muted: '8B949E',
+              grid: '30363D',
+              axis: '8B949E',
+              title: '58A6FF',
+              bar: '58A6FF',
+              projectColors: ['10A37F', '58A6FF', '0E7490', 'F59E0B'],
             },
             light: {
               bg: '00000000',
               border: 'e4e2e2',
               borderOpacity: 0,
-              text: '0F172A',
-              muted: '64748B',
-              grid: 'CBD5E1',
-              axis: '64748B',
-              title: '3B82F6',
-              bar: '3B82F6',
-              projectColors: ['22C55E', '3B82F6', '06B6D4', 'F59E0B'],
+              text: '1F2328',
+              muted: '656D76',
+              grid: 'D0D7DE',
+              axis: '656D76',
+              title: '0969DA',
+              bar: '0969DA',
+              projectColors: ['10A37F', '0969DA', '0E7490', 'F59E0B'],
             },
           };
 
@@ -493,7 +493,7 @@ jobs:
           }
 
           function hexToRgb(hex) {
-            const safe = String(hex || '3B82F6').replace(/^#/, '');
+            const safe = String(hex || '58A6FF').replace(/^#/, '');
             const value = parseInt(safe.length === 3 ? safe.split('').map((c) => c + c).join('') : safe, 16);
             return {
               r: (value >> 16) & 255,
