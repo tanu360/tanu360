@@ -17,6 +17,21 @@ I'm open to serious collaboration around **security consulting**, **software pro
   <img src="https://komarev.com/ghpvc/?username=tanu360&style=for-the-badge&color=1f6feb&label=Profile%20Views" alt="Profile Views">
 </p>
 
+## Coding Activity :stopwatch:
+
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="./profile/wakatime-merged-dark.svg" />
+    <source media="(prefers-color-scheme: light)" srcset="./profile/wakatime-merged-light.svg" />
+    <img width="49%" src="./profile/wakatime-merged-dark.svg" alt="Wakapi Weekly Activity Stats" />
+  </picture>
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="./profile/wakatime-rank-speed-dark.svg" />
+    <source media="(prefers-color-scheme: light)" srcset="./profile/wakatime-rank-speed-light.svg" />
+    <img width="49%" src="./profile/wakatime-rank-speed-dark.svg" alt="Wakapi Rank and Speedometer Stats" />
+  </picture>
+</p>
+
 ## Skill Set :muscle:
 
 These are the areas and tools I work with most often:
@@ -200,21 +215,6 @@ These are the areas and tools I work with most often:
     <source media="(prefers-color-scheme: dark)" srcset="./profile/wakapi-dark.svg" />
     <source media="(prefers-color-scheme: light)" srcset="./profile/wakapi-light.svg" />
     <img width="58%" src="./profile/wakapi-dark.svg" alt="Time by Language" />
-  </picture>
-</p>
-
-## Coding Activity :stopwatch:
-
-<p align="center">
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="./profile/wakatime-merged-dark.svg" />
-    <source media="(prefers-color-scheme: light)" srcset="./profile/wakatime-merged-light.svg" />
-    <img width="49%" src="./profile/wakatime-merged-dark.svg" alt="Wakapi Weekly Activity Stats" />
-  </picture>
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="./profile/wakatime-rank-speed-dark.svg" />
-    <source media="(prefers-color-scheme: light)" srcset="./profile/wakatime-rank-speed-light.svg" />
-    <img width="49%" src="./profile/wakatime-rank-speed-dark.svg" alt="Wakapi Rank and Speedometer Stats" />
   </picture>
 </p>
 
