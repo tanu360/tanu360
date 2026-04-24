@@ -203,6 +203,27 @@ These are the areas and tools I work with most often:
   </picture>
 </p>
 
+## Wakapi Activity :stopwatch:
+
+<table>
+  <tr>
+    <td width="50%">
+      <picture>
+        <source media="(prefers-color-scheme: dark)" srcset="./profile/wakatime-merged-dark.svg" />
+        <source media="(prefers-color-scheme: light)" srcset="./profile/wakatime-merged-light.svg" />
+        <img width="100%" src="./profile/wakatime-merged-dark.svg" alt="Wakapi Weekly Activity Stats" />
+      </picture>
+    </td>
+    <td width="50%">
+      <picture>
+        <source media="(prefers-color-scheme: dark)" srcset="./profile/wakatime-rank-speed-dark.svg" />
+        <source media="(prefers-color-scheme: light)" srcset="./profile/wakatime-rank-speed-light.svg" />
+        <img width="100%" src="./profile/wakatime-rank-speed-dark.svg" alt="Wakapi Rank and Speedometer Stats" />
+      </picture>
+    </td>
+  </tr>
+</table>
+
 ## Stargazers :earth_asia:
 
 <p align="center">
