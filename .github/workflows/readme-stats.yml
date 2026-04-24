@@ -452,13 +452,13 @@ jobs:
 
           function tierForRank(rank) {
             const tiers = [
-              { name: 'Diamond', min: 1, max: 100, colorIndex: 1 },
-              { name: 'Platinum', min: 101, max: 500, colorIndex: 2 },
-              { name: 'Gold', min: 501, max: 2500, colorIndex: 3 },
-              { name: 'Silver', min: 2501, max: 10000, colorIndex: 0 },
-              { name: 'Bronze', min: 10001, max: Infinity, colorIndex: 3 },
+              { name: 'Diamond', min: 1, max: 10, colorIndex: 1 },
+              { name: 'Gold', min: 11, max: 50, colorIndex: 3 },
+              { name: 'Silver', min: 51, max: 100, colorIndex: 2 },
+              { name: 'Bronze', min: 101, max: 1000, colorIndex: 0 },
+              { name: 'Obsidian', min: 1001, max: Infinity, colorIndex: 2 },
             ];
-            if (!rank) return { name: 'Weekly', min: 1, max: 100, colorIndex: 1 };
+            if (!rank) return { name: 'Weekly', min: 1, max: 10, colorIndex: 1 };
             return tiers.find((tier) => rank >= tier.min && rank <= tier.max) || tiers[tiers.length - 1];
           }
 
@@ -528,7 +528,9 @@ jobs:
             const tierColor = theme.projectColors[tier.colorIndex % theme.projectColors.length];
             const tierSize = Number.isFinite(tier.max) ? tier.max - tier.min + 1 : 10000;
             const tierProgress = info.rank
-              ? Math.max(0.08, Math.min(1, (tier.max - info.rank + 1) / tierSize))
+              ? Number.isFinite(tier.max)
+                ? Math.max(0.08, Math.min(1, (tier.max - info.rank + 1) / tierSize))
+                : Math.max(0.08, Math.min(1, tier.min / Math.max(info.rank, tier.min)))
               : Math.min(1, weeklyTotalSeconds(data) / (40 * 3600));
             const rankText = info.rank ? `Rank #${info.rank}` : 'Rank syncing';
             const tierRange = Number.isFinite(tier.max) ? `#${tier.min}-${tier.max}` : `#${tier.min}+`;
