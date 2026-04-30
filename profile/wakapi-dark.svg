@@ -129,7 +129,7 @@
             data-testid="lang-progress"
             x="0"
             y="0"
-            width="116.529"
+            width="116.4825"
             height="8"
             fill="#858585"
           />
@@ -137,9 +137,9 @@
           <rect
             mask="url(#rect-mask)"
             data-testid="lang-progress"
-            x="116.529"
+            x="116.4825"
             y="0"
-            width="101.463"
+            width="101.50949999999999"
             height="8"
             fill="#3178c6"
           />
@@ -209,7 +209,7 @@
             data-testid="lang-progress"
             x="419.94149999999996"
             y="0"
-            width="23.9475"
+            width="23.901"
             height="8"
             fill="#663399"
           />
@@ -217,7 +217,7 @@
           <rect
             mask="url(#rect-mask)"
             data-testid="lang-progress"
-            x="443.88899999999995"
+            x="443.8425"
             y="0"
             width="19.808999999999997"
             height="8"
@@ -235,7 +235,7 @@
     <g transform="translate(230, 25)">
       <circle cx="5" cy="6" r="5" fill="#3178c6" />
       <text data-testid="lang-name" x="15" y="10" class='lang-name'>
-        TSX - 302 hrs 3 mins
+        TSX - 302 hrs 22 mins
       </text>
     </g>
   
@@ -249,7 +249,7 @@
     <g transform="translate(230, 50)">
       <circle cx="5" cy="6" r="5" fill="#89e051" />
       <text data-testid="lang-name" x="15" y="10" class='lang-name'>
-        Bash - 108 hrs 54 mins
+        Bash - 108 hrs 52 mins
       </text>
     </g>
   
@@ -263,14 +263,14 @@
     <g transform="translate(230, 75)">
       <circle cx="5" cy="6" r="5" fill="#14b8a6" />
       <text data-testid="lang-name" x="15" y="10" class='lang-name'>
-        Unknown - 93 hrs 12 mins
+        Unknown - 93 hrs 17 mins
       </text>
     </g>
   
     <g transform="translate(25, 100)">
       <circle cx="5" cy="6" r="5" fill="#f59e0b" />
       <text data-testid="lang-name" x="15" y="10" class='lang-name'>
-        JSON - 84 hrs 53 mins
+        JSON - 85 hrs 0 mins
       </text>
     </g>
   
