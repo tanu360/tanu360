@@ -45,6 +45,20 @@ jobs:
           path: profile/top-langs-light.svg
           token: ${{ secrets.README_STATS_TOKEN || github.token }}
 
+      - name: Generate streak card (dark)
+        uses: DenverCoder1/github-readme-streak-stats@main
+        with:
+          options: user=${{ github.repository_owner }}&theme=github-dark-blue&hide_border=true&background=00000000&stroke=30363D&ring=58A6FF&fire=58A6FF&currStreakLabel=58A6FF&sideLabels=C9D1D9&dates=8B949E
+          path: profile/streak-dark.svg
+          token: ${{ secrets.README_STATS_TOKEN || github.token }}
+
+      - name: Generate streak card (light)
+        uses: DenverCoder1/github-readme-streak-stats@main
+        with:
+          options: user=${{ github.repository_owner }}&theme=default&hide_border=true&background=00000000&stroke=D0D7DE&ring=0969DA&fire=0969DA&currStreakLabel=0969DA&sideLabels=1F2328&dates=656D76
+          path: profile/streak-light.svg
+          token: ${{ secrets.README_STATS_TOKEN || github.token }}
+
       - name: Generate Wakapi card (dark)
         run: >
           curl -fsSL
