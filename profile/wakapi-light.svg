@@ -169,7 +169,7 @@
             data-testid="lang-progress"
             x="307.5045"
             y="0"
-            width="35.2935"
+            width="35.34"
             height="8"
             fill="#3178c6"
           />
@@ -177,9 +177,9 @@
           <rect
             mask="url(#rect-mask)"
             data-testid="lang-progress"
-            x="342.798"
+            x="342.84450000000004"
             y="0"
-            width="28.923"
+            width="29.016"
             height="8"
             fill="#89e051"
           />
@@ -187,7 +187,7 @@
           <rect
             mask="url(#rect-mask)"
             data-testid="lang-progress"
-            x="371.721"
+            x="371.86050000000006"
             y="0"
             width="28.551"
             height="8"
@@ -197,7 +197,7 @@
           <rect
             mask="url(#rect-mask)"
             data-testid="lang-progress"
-            x="400.272"
+            x="400.41150000000005"
             y="0"
             width="25.853999999999996"
             height="8"
@@ -207,9 +207,9 @@
           <rect
             mask="url(#rect-mask)"
             data-testid="lang-progress"
-            x="426.126"
+            x="426.26550000000003"
             y="0"
-            width="20.180999999999997"
+            width="20.1345"
             height="8"
             fill="#f1e05a"
           />
@@ -217,7 +217,7 @@
           <rect
             mask="url(#rect-mask)"
             data-testid="lang-progress"
-            x="446.30699999999996"
+            x="446.40000000000003"
             y="0"
             width="18.785999999999998"
             height="8"
@@ -256,14 +256,14 @@
     <g transform="translate(25, 75)">
       <circle cx="5" cy="6" r="5" fill="#3178c6" />
       <text data-testid="lang-name" x="15" y="10" class='lang-name'>
-        TypeScript - 106 hrs 55 mins
+        TypeScript - 107 hrs 1 mins
       </text>
     </g>
   
     <g transform="translate(230, 75)">
       <circle cx="5" cy="6" r="5" fill="#89e051" />
       <text data-testid="lang-name" x="15" y="10" class='lang-name'>
-        Bash - 87 hrs 37 mins
+        Bash - 87 hrs 49 mins
       </text>
     </g>
   
