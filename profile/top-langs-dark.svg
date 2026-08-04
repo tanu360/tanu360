@@ -140,7 +140,7 @@
           data-testid="lang-progress"
           x="89.29"
           y="0"
-          width="83.32"
+          width="83.33"
           height="8"
           fill="#f1e05a"
         />
@@ -148,7 +148,7 @@
         <rect
           mask="url(#rect-mask)"
           data-testid="lang-progress"
-          x="172.61"
+          x="172.62"
           y="0"
           width="25.93"
           height="8"
@@ -158,7 +158,7 @@
         <rect
           mask="url(#rect-mask)"
           data-testid="lang-progress"
-          x="198.54000000000002"
+          x="198.55"
           y="0"
           width="21.52"
           height="8"
@@ -168,7 +168,7 @@
         <rect
           mask="url(#rect-mask)"
           data-testid="lang-progress"
-          x="220.06000000000003"
+          x="220.07000000000002"
           y="0"
           width="17.24"
           height="8"
@@ -178,7 +178,7 @@
         <rect
           mask="url(#rect-mask)"
           data-testid="lang-progress"
-          x="237.30000000000004"
+          x="237.31000000000003"
           y="0"
           width="19.47"
           height="8"
@@ -188,7 +188,7 @@
         <rect
           mask="url(#rect-mask)"
           data-testid="lang-progress"
-          x="246.77000000000004"
+          x="246.78000000000003"
           y="0"
           width="12.02"
           height="8"
@@ -198,7 +198,7 @@
         <rect
           mask="url(#rect-mask)"
           data-testid="lang-progress"
-          x="248.79000000000005"
+          x="248.80000000000004"
           y="0"
           width="10.71"
           height="8"
@@ -208,7 +208,7 @@
         <rect
           mask="url(#rect-mask)"
           data-testid="lang-progress"
-          x="249.50000000000006"
+          x="249.51000000000005"
           y="0"
           width="10.36"
           height="8"
@@ -218,7 +218,7 @@
         <rect
           mask="url(#rect-mask)"
           data-testid="lang-progress"
-          x="249.86000000000007"
+          x="249.87000000000006"
           y="0"
           width="10.14"
           height="8"
