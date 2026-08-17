@@ -139,7 +139,7 @@
             data-testid="lang-progress"
             x="107.6475"
             y="0"
-            width="89.094"
+            width="88.86149999999999"
             height="8"
             fill="#3178c6"
           />
@@ -147,9 +147,9 @@
           <rect
             mask="url(#rect-mask)"
             data-testid="lang-progress"
-            x="196.74149999999997"
+            x="196.509"
             y="0"
-            width="58.59"
+            width="58.6365"
             height="8"
             fill="#14b8a6"
           />
@@ -157,9 +157,9 @@
           <rect
             mask="url(#rect-mask)"
             data-testid="lang-progress"
-            x="255.33149999999998"
+            x="255.14549999999997"
             y="0"
-            width="53.2425"
+            width="53.42850000000001"
             height="8"
             fill="#3572A5"
           />
@@ -219,7 +219,7 @@
             data-testid="lang-progress"
             x="447.1439999999999"
             y="0"
-            width="18.785999999999998"
+            width="18.692999999999998"
             height="8"
             fill="#00ADD8"
           />
@@ -235,21 +235,21 @@
     <g transform="translate(230, 25)">
       <circle cx="5" cy="6" r="5" fill="#3178c6" />
       <text data-testid="lang-name" x="15" y="10" class='lang-name'>
-        TSX - 269 hrs 21 mins
+        TSX - 268 hrs 34 mins
       </text>
     </g>
   
     <g transform="translate(25, 50)">
       <circle cx="5" cy="6" r="5" fill="#14b8a6" />
       <text data-testid="lang-name" x="15" y="10" class='lang-name'>
-        Unknown - 177 hrs 4 mins
+        Unknown - 177 hrs 15 mins
       </text>
     </g>
   
     <g transform="translate(230, 50)">
       <circle cx="5" cy="6" r="5" fill="#3572A5" />
       <text data-testid="lang-name" x="15" y="10" class='lang-name'>
-        Python - 160 hrs 54 mins
+        Python - 161 hrs 39 mins
       </text>
     </g>
   
@@ -291,7 +291,7 @@
     <g transform="translate(230, 125)">
       <circle cx="5" cy="6" r="5" fill="#00ADD8" />
       <text data-testid="lang-name" x="15" y="10" class='lang-name'>
-        Go - 56 hrs 50 mins
+        Go - 56 hrs 33 mins
       </text>
     </g>
   
