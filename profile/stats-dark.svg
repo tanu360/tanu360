@@ -9,7 +9,7 @@
         aria-labelledby="descId"
       >
         <title id="titleId">Tarun's GitHub Stats, Rank: B+</title>
-        <desc id="descId">Total Stars Earned: 163, Total Commits  (last year) : 2024, Total PRs: 8, Total Issues: 26, Contributed to (last year): 9</desc>
+        <desc id="descId">Total Stars Earned: 164, Total Commits  (last year) : 2024, Total PRs: 8, Total Issues: 26, Contributed to (last year): 9</desc>
         <style>
           .header {
             font: 600 18px 'Segoe UI', Ubuntu, Sans-Serif;
@@ -73,7 +73,7 @@
         stroke-dashoffset: 251.32741228718345;
       }
       to {
-        stroke-dashoffset: 109.14180491676487;
+        stroke-dashoffset: 109.04990920782743;
       }
     }
   
@@ -162,7 +162,7 @@
         x="219.01"
         y="12.5"
         data-testid="stars"
-      >163</text>
+      >164</text>
     </g>
   </g><g transform="translate(0, 25)">
     <g class="stagger" style="animation-delay: 600ms" transform="translate(25, 0)">
