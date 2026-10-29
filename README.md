@@ -43,7 +43,7 @@ I'm open to serious collaboration around **security consulting**, **software pro
 
 <p><picture><source media="(prefers-color-scheme: dark)" srcset="./profile/section-skills-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="./profile/section-skills-light.svg" /><img width="100%" src="./profile/section-skills-dark.svg" alt="04 Skills" /></picture></p>
 
-<p><picture><source media="(prefers-color-scheme: dark)" srcset="./profile/skills-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="./profile/skills-light.svg" /><img width="100%" src="./profile/skills-dark.svg" alt="Skills: languages, core domains, low-level specialization, platforms, applied engineering, frontend, backend, databases, tools, software and cloud" /></picture></p>
+<p><picture><source media="(prefers-color-scheme: dark)" srcset="./profile/skills-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="./profile/skills-light.svg" /><img width="100%" src="./profile/skills-dark.svg" alt="Skills: languages, core domains, low-level specialization, security areas, applied engineering, interface work, frontend, backend, databases, tools, software and cloud" /></picture></p>
 
 <br />
 
