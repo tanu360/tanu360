@@ -73,35 +73,55 @@ const STICKERS = {
 const TILTS = [-2.5, 2, -2, 2.5];
 const BIO = 18;
 
-// Draws a line of plain text and stickers; returns nothing. Stickers sit centred on the
-// line's x-height and are rotated about their own centre.
+// Every few seconds each sticker flips over and swaps word: "make" becomes "break" and
+// "break" becomes "make", then back. Both faces share one slot, sized for the longer word.
+const OTHER = { make: 'break', break: 'make' };
+const SWAP = 6; // seconds per make ⇄ break cycle
+const STICKER_CSS =
+  `.stk,.fa,.fb{animation-duration:${SWAP}s;animation-iteration-count:infinite;animation-delay:var(--d,0s)}` +
+  '.stk{transform-box:fill-box;transform-origin:center;animation-name:flip;animation-timing-function:ease-in-out}' +
+  '.fa{animation-name:fa;animation-timing-function:steps(1,end)}.fb{opacity:0;animation-name:fb;animation-timing-function:steps(1,end)}' +
+  '@keyframes flip{0%,40%{transform:scaleY(1)}45%{transform:scaleY(0)}50%,90%{transform:scaleY(1)}95%{transform:scaleY(0)}100%{transform:scaleY(1)}}' +
+  '@keyframes fa{0%{opacity:1}45%{opacity:0}95%{opacity:1}100%{opacity:1}}' +
+  '@keyframes fb{0%{opacity:0}45%{opacity:1}95%{opacity:0}100%{opacity:0}}' +
+  '@media (prefers-reduced-motion:reduce){.stk,.fa,.fb{animation:none}.fb{opacity:0}}';
+
+const STICKER = { size: 15, icon: 12, padX: 7, h: 23 };
+const stickerW = Math.max(...Object.keys(STICKERS).map((w) => STICKER.padX * 2 + STICKER.icon + 5 + measure(w, STICKER.size, 600).width));
+
+// One face of a sticker: coloured tile, white icon and word, centred in the slot.
+function stickerFace(doc, word, left, mid) {
+  const { size, icon, h } = STICKER;
+  const contentW = icon + 5 + measure(word, size, 600).width;
+  const x0 = left + (stickerW - contentW) / 2;
+  const start = doc.parts.length;
+  doc.text(word, { x: x0 + icon + 5, y: +(mid + size * 0.36).toFixed(2), size, weight: 600, fill: '#ffffff' });
+  const label = doc.parts.splice(start).join('');
+  const { colour, icon: paths } = STICKERS[word];
+  return (
+    `<rect x="${left.toFixed(1)}" y="${(mid - h / 2).toFixed(1)}" width="${stickerW.toFixed(1)}" height="${h}" rx="5" fill="${colour}"/>` +
+    `<g transform="translate(${x0.toFixed(1)} ${(mid - icon / 2).toFixed(1)}) scale(${icon / 24})" fill="none" stroke="#ffffff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">${paths.map((d) => `<path d="${d}"/>`).join('')}</g>` +
+    label
+  );
+}
+
+// Draws a line of plain text and stickers. Stickers sit centred on the line's x-height,
+// tilted about their own centre; the flip cascades a little from one sticker to the next.
 function bioLine(doc, x, y, parts) {
   let cx = x;
   for (const part of parts) {
-    const sticker = STICKERS[part];
-    if (!sticker) {
+    if (!STICKERS[part]) {
       cx += doc.text(part, { x: cx, y, size: BIO, weight: 400, fill: 'ink2' });
       continue;
     }
-    const size = 15;
-    const icon = 12;
-    const padX = 7;
-    const h = 23;
-    const textW = measure(part, size, 600).width;
-    const w = padX + icon + 5 + textW + padX;
     const left = cx + 3;
     const mid = y - BIO * 0.27; // x-height centre of the surrounding text
-    const top = mid - h / 2;
-    const tilt = TILTS[doc.stickerCount = (doc.stickerCount ?? -1) + 1];
-    const start = doc.parts.length;
-    doc.text(part, { x: left + padX + icon + 5, y: +(mid + size * 0.36).toFixed(2), size, weight: 600, fill: '#ffffff' });
-    const label = doc.parts.splice(start).join('');
-    const s = icon / 24;
-    doc.add(`<g transform="rotate(${tilt} ${(left + w / 2).toFixed(1)} ${mid.toFixed(1)})">` +
-      `<rect x="${left.toFixed(1)}" y="${top.toFixed(1)}" width="${w.toFixed(1)}" height="${h}" rx="5" fill="${sticker.colour}"/>` +
-      `<g transform="translate(${(left + padX).toFixed(1)} ${(mid - icon / 2).toFixed(1)}) scale(${s})" fill="none" stroke="#ffffff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">${sticker.icon.map((d) => `<path d="${d}"/>`).join('')}</g>` +
-      `${label}</g>`);
-    cx = left + w + 3;
+    const n = (doc.stickerCount = (doc.stickerCount ?? -1) + 1);
+    doc.add(
+      `<g transform="rotate(${TILTS[n]} ${(left + stickerW / 2).toFixed(1)} ${mid.toFixed(1)})">` +
+        `<g class="stk" style="--d:${(n * 0.15).toFixed(2)}s"><g class="fa">${stickerFace(doc, part, left, mid)}</g><g class="fb">${stickerFace(doc, OTHER[part], left, mid)}</g></g></g>`,
+    );
+    cx = left + stickerW + 3;
   }
 }
 
@@ -203,7 +223,7 @@ function render(theme) {
 
   const pct = (v) => ((v / CYCLE) * 100).toFixed(3);
   const frames = SPANS.map(([a, b], n) => `.ip${n}{animation:ip${n} ${CYCLE.toFixed(2)}s steps(1,end) infinite}@keyframes ip${n}{${a ? `0%{opacity:0}${pct(a)}%{opacity:1}` : '0%{opacity:1}'}${pct(b)}%{opacity:0}100%{opacity:0}}`).join('');
-  const css = `<style>.ip{opacity:0}${frames}@media (prefers-reduced-motion:reduce){.ip{animation:none!important;opacity:0}.ip-rest{opacity:1}}</style>`;
+  const css = `<style>.ip{opacity:0}${frames}@media (prefers-reduced-motion:reduce){.ip{animation:none!important;opacity:0}.ip-rest{opacity:1}}${STICKER_CSS}</style>`;
   const svg = doc.svg(H, 'Hello World, I am Tarun', 'I make things, break things, and make things that break things. Reverse engineering, AI systems and developer tools. Illustration: a disassembler graph of a function that checks a PE file\'s MZ header, stepped through one instruction at a time and pausing on a breakpoint.');
   return svg.replace('<defs>', `${css}\n<defs>`);
 }
