@@ -207,7 +207,16 @@ const coding = await eitherOf('coding total', prev.coding ?? { seconds: allTime.
 });
 
 // Day-by-day totals need an API key.
-const week = await eitherOf('coding week', prev.wakapi?.week, ['wakapi', 'wakatime'], async (p) => {
+// Project names are private: only the first and last characters and how many are hidden
+// are kept ("om••••••••io"). Applied to saved weeks too, so a real name never reaches data.json.
+function maskName(name) {
+  if (typeof name !== 'string' || name === 'Other') return name;
+  const keep = name.length > 6 ? 2 : 1;
+  return `${name.slice(0, keep)}${'•'.repeat(Math.max(2, name.length - 2 * keep))}${name.slice(-keep)}`;
+}
+const maskWeek = (w) => w && { ...w, days: w.days.map((d) => ({ ...d, projects: d.projects.map((pr) => ({ ...pr, name: maskName(pr.name) })) })) };
+
+const week = maskWeek(await eitherOf('coding week', prev.wakapi?.week, ['wakapi', 'wakatime'], async (p) => {
   if (!p.auth) throw new Error('no API key');
   const today = new Date();
   const from = new Date(today);
@@ -224,7 +233,7 @@ const week = await eitherOf('coding week', prev.wakapi?.week, ['wakapi', 'wakati
     })),
     source: p.name,
   };
-});
+}));
 
 const rank = await eitherOf('leaderboard', prev.wakapi?.rank, ['wakapi', 'wakatime'], async (p) => {
   const leaders = await getJson(`${p.api}/leaders`, p.auth ?? {});
