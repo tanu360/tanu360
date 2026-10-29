@@ -21,7 +21,7 @@ const GROUPS = [
   ['Tools', ['Git', 'Linux', 'Docker', 'Postman', 'VS Code', 'Jupyter', 'GitHub', 'npm']],
   ['Software', ['IDA Pro', 'Ghidra', 'Binary Ninja', 'Frida', 'x64dbg', 'Hopper', 'LLDB', 'Wireshark']],
   ['Cloud & Infra', ['Cloudflare Workers', 'AWS', 'Azure', 'Google Cloud', 'Nginx', 'Snowflake']],
-].map(([name, items], i) => ({ name, label: name.toUpperCase(), items, practice: i >= 1 && i <= 5 }));
+].map(([name, items], i) => ({ name, label: name[0] + name.slice(1).toLowerCase(), items, practice: i >= 1 && i <= 5 }));
 
 // Simple Icons slugs. Items it has no usable mark for get one from Devicon or Lucide
 // in MARKS below.
@@ -287,7 +287,7 @@ function specLogos(doc) {
   let y = 0;
   GROUPS.forEach((g) => {
     const top = y + 10;
-    doc.label(g.label, PAD, baseline(top, specMark.h, 10.5));
+    doc.label(g.label, PAD, baseline(top, specMark.h, 12.5));
     y = items(doc, specMark, g, x0, narrow ? top + 22 : top, W) + (narrow ? 20 : 15);
   });
   if (doc.right > doc.W - PAD - EDGE + 0.01) throw new Error(`spec-logos: an item reaches x=${doc.right.toFixed(1)}, past ${doc.W - PAD - EDGE}`);

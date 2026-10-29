@@ -4,6 +4,10 @@ import opentype from 'opentype.js';
 // Geist, vendored so the daily build needs nothing but opentype.js.
 const fontFile = (w) => new URL(`./assets/fonts/geist-${w}.woff`, import.meta.url);
 export const FIGURE_WEIGHT = 500;
+// Figure sizes: one HERO number leads each card, KPI tiles sit under it, STAT for strips.
+export const HERO = 52;
+export const KPI = 32;
+export const STAT = 24;
 const fonts = Object.fromEntries(
   [400, 500, 600].map((w) => {
     const buf = fs.readFileSync(fontFile(w));
@@ -94,14 +98,15 @@ export class Doc {
     this.bodyStart = this.parts.length;
   }
 
+  // Stat labels in sentence case: tracked caps at 10.5px read as noise and are slow to scan.
   label(str, x, y, anchor = 'start') {
-    return this.text(str, { x, y, size: 10.5, weight: 600, tracking: 0.12, anchor, fill: 'ink3' });
+    return this.text(str, { x, y, size: 12.5, weight: 500, anchor, fill: 'ink2' });
   }
 
   // Big figure with an optional smaller unit after it.
-  figure(value, unit, x, y, size = 44) {
+  figure(value, unit, x, y, size = KPI) {
     const w = this.text(value, { x: x - size * 0.04, y, size, weight: FIGURE_WEIGHT, tracking: -0.03 });
-    if (unit) this.text(unit, { x: x - size * 0.04 + w + size * 0.15, y, size: size * 0.35, fill: 'ink3' });
+    if (unit) this.text(unit, { x: x - size * 0.04 + w + Math.max(5, size * 0.15), y, size: Math.max(13, size * 0.35), fill: 'ink3' });
   }
 
   // Squares sharing one size and opacity, drawn from a single shared shape.

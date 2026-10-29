@@ -1,5 +1,5 @@
 import fs from 'node:fs';
-import { Doc, THEMES, PAD, FULL, HALF, FIGURE_WEIGHT, fmt, duration, monthYear, monthShort, dayMonth, weekdayDate, contrast } from './lib.mjs';
+import { Doc, THEMES, PAD, FULL, HALF, FIGURE_WEIGHT, HERO, KPI, STAT, fmt, duration, monthYear, monthShort, dayMonth, weekdayDate, contrast } from './lib.mjs';
 
 const here = (p) => new URL(p, import.meta.url);
 const data = JSON.parse(fs.readFileSync(here('./data.json')));
@@ -7,6 +7,8 @@ const world = JSON.parse(fs.readFileSync(here('./assets/world-grid.json')));
 const ICONS = JSON.parse(fs.readFileSync(here('./assets/icons.json')));
 // Paired half-width cards share a height so they line up side by side in the README.
 const HALF_HEIGHT = 490;
+// Space under each card's last line of text, so every gap between cards matches.
+const BOTTOM = 26;
 const WAKATIME_URL = process.env.WAKATIME_URL || 'wakatime.com/@tanu1337';
 const plural = (n, word) => `${word}${n === 1 ? '' : 's'}`;
 
@@ -51,10 +53,10 @@ function github(theme, W = FULL) {
   doc.header('Overview', `github.com/${data.login}`);
 
   const tiles = [
-    { label: 'CONTRIBUTIONS', value: fmt(c.allTime), sub: `since ${monthYear(c.since)}` },
-    { label: 'CURRENT STREAK', value: fmt(c.current.days), unit: plural(c.current.days, 'day'), sub: c.current.days ? `since ${dayMonth(c.current.start)}` : 'no activity yet today' },
-    { label: 'LONGEST STREAK', value: fmt(c.longest.days), unit: plural(c.longest.days, 'day'), sub: `${monthYear(c.longest.start)} – ${monthYear(c.longest.end)}` },
-    { label: 'GRADE', value: s.grade, sub: `top ${Math.round(s.percentile)}% by readme-stats` },
+    { label: 'Contributions', value: fmt(c.allTime), sub: `since ${monthYear(c.since)}` },
+    { label: 'Current streak', value: fmt(c.current.days), unit: plural(c.current.days, 'day'), sub: c.current.days ? `since ${dayMonth(c.current.start)}` : 'no activity yet today' },
+    { label: 'Longest streak', value: fmt(c.longest.days), unit: plural(c.longest.days, 'day'), sub: `${monthYear(c.longest.start)} – ${monthYear(c.longest.end)}` },
+    { label: 'Grade', value: s.grade, sub: `top ${Math.round(s.percentile)}% by readme-stats` },
   ];
   const cols = narrow ? 2 : 4;
   const colW = (W - 2 * PAD) / cols;
@@ -63,7 +65,7 @@ function github(theme, W = FULL) {
     const x = PAD + (i % cols) * colW;
     const dy = Math.floor(i / cols) * ROW;
     doc.label(tile.label, x, 66 + dy);
-    doc.figure(tile.value, tile.unit, x, 116 + dy);
+    doc.figure(tile.value, tile.unit, x, 116 + dy, i ? KPI : narrow ? 46 : HERO);
     doc.text(tile.sub, { x, y: 142 + dy, size: 12.5, fill: 'ink3' });
   });
 
@@ -101,18 +103,18 @@ function github(theme, W = FULL) {
   }
   if (starts.length > 1 && starts[1].col - starts[0].col < 3) starts.shift();
   for (const { col, date } of starts) {
-    if (col <= weeks - 2) doc.text(monthShort(date), { x: PAD + col * pitch + gap / 2, y: gridBottom + 16, size: 10.5, fill: 'ink3' });
+    if (col <= weeks - 2) doc.text(monthShort(date), { x: PAD + col * pitch + gap / 2, y: gridBottom + 17, size: 11, fill: 'ink3' });
   }
 
   // Stats strip: label, figure, caption — same rhythm as the tiles above.
   const stripRule = gridBottom + 28;
   const strip = [
-    { label: 'STARS EARNED', value: fmt(s.stars), sub: `across ${s.publicRepos} repos` },
-    { label: 'COMMITS', value: fmt(s.commits), sub: 'last 12 months' },
-    { label: 'PULL REQUESTS', value: fmt(s.prs), sub: 'all time' },
-    { label: 'ISSUES', value: fmt(s.issues), sub: 'all time' },
-    { label: 'CONTRIBUTED TO', value: fmt(s.contributedTo), unit: plural(s.contributedTo, 'repo'), sub: 'last 12 months' },
-    { label: 'FOLLOWERS', value: fmt(s.followers), sub: 'on GitHub' },
+    { label: 'Stars earned', value: fmt(s.stars), sub: `across ${s.publicRepos} repos` },
+    { label: 'Commits', value: fmt(s.commits), sub: 'last 12 months' },
+    { label: 'Pull requests', value: fmt(s.prs), sub: 'all time' },
+    { label: 'Issues', value: fmt(s.issues), sub: 'all time' },
+    { label: 'Contributed to', value: fmt(s.contributedTo), unit: plural(s.contributedTo, 'repo'), sub: 'last 12 months' },
+    { label: 'Followers', value: fmt(s.followers), sub: 'on GitHub' },
   ];
   const stripCols = narrow ? 3 : 6;
   const stripW = (W - 2 * PAD) / stripCols;
@@ -121,13 +123,13 @@ function github(theme, W = FULL) {
     const x = PAD + (i % stripCols) * stripW;
     const y = stripRule + Math.floor(i / stripCols) * STRIP_ROW;
     doc.label(item.label, x, y + 30);
-    const w = doc.text(item.value, { x: x - 1, y: y + 60, size: 24, weight: FIGURE_WEIGHT, tracking: -0.02 });
+    const w = doc.text(item.value, { x: x - 1, y: y + 60, size: STAT, weight: FIGURE_WEIGHT, tracking: -0.02 });
     if (item.unit) doc.text(item.unit, { x: x + w + 5, y: y + 60, size: 13, fill: 'ink3' });
-    doc.text(item.sub, { x, y: y + 80, size: 11.5, fill: 'ink3' });
+    doc.text(item.sub, { x, y: y + 80, size: 12, fill: 'ink3' });
   });
 
   return doc.svg(
-    stripRule + 92 + (Math.ceil(strip.length / stripCols) - 1) * STRIP_ROW,
+    stripRule + 80 + (Math.ceil(strip.length / stripCols) - 1) * STRIP_ROW + BOTTOM,
     `GitHub stats for ${data.login}`,
     `${fmt(c.allTime)} contributions since ${monthYear(c.since)}; current streak ${c.current.days} days; longest streak ${c.longest.days} days; grade ${s.grade}. ` +
       `${fmt(c.lastYear)} contributions in the last 12 months. ${fmt(s.stars)} stars, ${fmt(s.commits)} commits in the last 12 months, ${s.prs} pull requests, ${s.issues} issues, contributed to ${s.contributedTo} repos, ${s.followers} followers.`,
@@ -196,7 +198,7 @@ function languages(theme) {
     time.text(`${fmt(l.seconds / 3600)} hrs`, { x: lx, y: up ? ly + 6 : ly + 16, size: 11, anchor, fill: 'ink3' });
   });
 
-  return pair(theme, 'languages', code.svg(94 + (parts.length - 1) * 26 + 16, '', ''), time.svg(cy + R + 44, '', ''), {
+  return pair(theme, 'languages', code.svg(94 + (parts.length - 1) * 26 + BOTTOM, '', ''), time.svg(cy + R + 32 + BOTTOM, '', ''), {
     header: ['Languages'],
     title: 'Languages',
     desc: `By code: ${parts.map((l) => `${l.name} ${(l.share * 100).toFixed(1)}%`).join(', ')}. By coding time: ${langs.map((l) => `${langName(l.name)} ${fmt(l.seconds / 3600)} hrs`).join(', ')}.`,
@@ -230,8 +232,8 @@ function ringList(doc, label, items, total, top) {
 
 // The two half cards share one grid: stats on top, a chart whose baseline is CHART_BASE with
 // a caption row under it, and a ring list starting at LIST_TOP.
-const CHART_BASE = 284;
-const LIST_TOP = CHART_BASE + 46;
+const CHART_BASE = 270;
+const LIST_TOP = CHART_BASE + 56;
 
 // ── Wakapi: this week ───────────────────────────────────────────────────────
 function week(theme) {
@@ -241,10 +243,10 @@ function week(theme) {
   const best = days.reduce((a, b) => (b.seconds > a.seconds ? b : a));
   doc.header('This week', `${dayMonth(days[0].date)} – ${dayMonth(days.at(-1).date)}`);
 
-  doc.label('TOTAL', PAD, 66);
-  doc.figure(duration(total), null, PAD, 110, 38);
-  doc.label('DAILY AVERAGE', HALF / 2, 66);
-  doc.figure(duration(total / days.length), null, HALF / 2, 110, 38);
+  doc.label('Total', PAD, 66);
+  doc.figure(duration(total), null, PAD, 110);
+  doc.label('Daily average', HALF / 2, 66);
+  doc.figure(duration(total / days.length), null, HALF / 2, 110);
 
   // One bar per day on a full-height track; the best day carries the ink.
   const base = CHART_BASE;
@@ -264,10 +266,10 @@ function week(theme) {
   const totals = new Map();
   for (const d of days) for (const p of d.projects) totals.set(p.name, (totals.get(p.name) || 0) + p.seconds);
   const projects = [...totals].sort((a, b) => (a[0] === 'Other') - (b[0] === 'Other') || b[1] - a[1]).slice(0, 4);
-  const bottom = ringList(doc, 'PROJECTS', projects, total, LIST_TOP);
+  const bottom = ringList(doc, 'Projects', projects, total, LIST_TOP);
 
   return doc.svg(
-    Math.max(bottom + 14, HALF_HEIGHT),
+    Math.max(bottom + BOTTOM, HALF_HEIGHT),
     'Coding this week',
     `${duration(total)} total, ${duration(total / days.length)} daily average. Best day ${best.date} with ${duration(best.seconds)}. Projects: ${projects.map(([n, sec]) => `${n} ${duration(sec)}`).join(', ')}.`,
   );
@@ -293,10 +295,10 @@ function rank(theme) {
   const tier = TIERS[tierIndex];
 
   // Same top row as the week card: two figures at the same size and positions.
-  doc.label('RANKED TIME', PAD, 66);
-  doc.figure(r ? duration(r.seconds) : '—', null, PAD, 110, 38);
-  doc.label('DAILY AVERAGE', HALF / 2, 66);
-  doc.figure(r ? duration(r.dailyAverage) : '—', null, HALF / 2, 110, 38);
+  doc.label('Ranked time', PAD, 66);
+  doc.figure(r ? duration(r.seconds) : '—', null, PAD, 110);
+  doc.label('Daily average', HALF / 2, 66);
+  doc.figure(r ? duration(r.dailyAverage) : '—', null, HALF / 2, 110);
 
   // Notched half-gauge (Bklit's gauge) sitting on the week card's chart baseline: Bronze on
   // the left to Diamond on the right, one gap between tiers, filled up to the current rank.
@@ -330,10 +332,10 @@ function rank(theme) {
   const all = (r?.languages ?? []).filter((l) => l.name.toLowerCase() !== 'unknown');
   const langTotal = (r?.languages ?? []).reduce((sum, l) => sum + l.seconds, 0) || 1;
   const langs = all.slice(0, 4).map((l) => [langName(l.name), l.seconds]);
-  const bottom = ringList(doc, 'LANGUAGES THIS WEEK', langs, langTotal, LIST_TOP);
+  const bottom = ringList(doc, 'Languages this week', langs, langTotal, LIST_TOP);
 
   return doc.svg(
-    Math.max(bottom + 14, HALF_HEIGHT),
+    Math.max(bottom + BOTTOM, HALF_HEIGHT),
     'Wakapi leaderboard',
     r ? `Rank ${r.rank} on the ${r.source ?? 'wakapi.dev'} weekly leaderboard, ${tier.name} tier. ${duration(r.seconds)} ranked time, ${duration(r.dailyAverage)} daily average.` : 'Not in the public top 100 this week.',
   );
@@ -357,10 +359,10 @@ function stargazers(theme, W = FULL) {
 
   const topRepo = data.repos[0];
   const tiles = [
-    { label: 'STARGAZERS', value: fmt(total), sub: `across ${data.repos.length} starred repos` },
-    { label: 'COUNTRIES', value: fmt(countries.length), sub: `from ${located.length} located profiles` },
-    { label: 'LOCATED', value: `${Math.round((located.length / total) * 100)}%`, sub: `${located.length} of ${total} list a location` },
-    { label: 'MOST STARRED', value: fmt(topRepo.stars), unit: 'stars', sub: topRepo.name },
+    { label: 'Total', value: fmt(total), sub: `across ${data.repos.length} starred repos` },
+    { label: 'Countries', value: fmt(countries.length), sub: `from ${located.length} located profiles` },
+    { label: 'Located', value: `${Math.round((located.length / total) * 100)}%`, sub: `${located.length} of ${total} list a location` },
+    { label: 'Most starred', value: fmt(topRepo.stars), unit: 'stars', sub: topRepo.name },
   ];
   const cols = narrow ? 2 : 4;
   const colW = (W - 2 * PAD) / cols;
@@ -369,7 +371,7 @@ function stargazers(theme, W = FULL) {
     const x = PAD + (i % cols) * colW;
     const dy = Math.floor(i / cols) * ROW;
     doc.label(tile.label, x, 66 + dy);
-    doc.figure(tile.value, tile.unit, x, 104 + dy, 32);
+    doc.figure(tile.value, tile.unit, x, 104 + dy);
     doc.text(tile.sub, { x, y: 126 + dy, size: 12, fill: 'ink3' });
   });
 
@@ -429,9 +431,9 @@ function stargazers(theme, W = FULL) {
   top.forEach((c, i) => {
     const x = PAD + (i % perRow) * tileW;
     const y = listRule + 30 + Math.floor(i / perRow) * 78;
-    doc.label(c.name.toUpperCase(), x, y);
-    doc.text(fmt(c.count), { x: x - 1, y: y + 30, size: 24, weight: FIGURE_WEIGHT, tracking: -0.02 });
-    doc.text(`${Math.round((c.count / located.length) * 100)}% of located`, { x, y: y + 48, size: 11.5, fill: 'ink3' });
+    doc.label(c.name, x, y);
+    doc.text(fmt(c.count), { x: x - 1, y: y + 30, size: STAT, weight: FIGURE_WEIGHT, tracking: -0.02 });
+    doc.text(`${Math.round((c.count / located.length) * 100)}% of located`, { x, y: y + 48, size: 12, fill: 'ink3' });
   });
 
   // Credit the geocoder with its mark: "Locations from GitHub profiles · [logo] OpenStreetMap".
@@ -443,7 +445,7 @@ function stargazers(theme, W = FULL) {
   doc.text('Locations from GitHub profiles ·', { x: osmX - 6, y: creditY, size: 11.5, anchor: 'end', fill: 'ink3' });
 
   return doc.svg(
-    creditY + 8,
+    creditY + BOTTOM,
     'Stargazers around the world',
     `${fmt(total)} stargazers; ${located.length} list a location, across ${countries.length} countries. Top: ${top.map((c) => `${c.name} ${c.count}`).join(', ')}.`,
   );
@@ -488,8 +490,8 @@ function activity(theme, W = FULL) {
   doc.header('Contribution activity', `last ${DAYS} days`);
 
   // Headline number with its change inline, then three supporting stats on the same baseline.
-  doc.label('CONTRIBUTIONS', PAD, 66);
-  const w = doc.text(fmt(total), { x: PAD - 2, y: 116, size: 44, weight: FIGURE_WEIGHT, tracking: -0.03 });
+  doc.label('Contributions', PAD, 66);
+  const w = doc.text(fmt(total), { x: PAD - 2, y: 116, size: HERO, weight: FIGURE_WEIGHT, tracking: -0.03 });
   if (change !== null) {
     const delta = change === 0 ? '0%' : `${change > 0 ? '↑' : '↓'} ${Math.abs(change)}%`;
     // Direction is the one place a card uses colour: green when up, red when down.
@@ -498,9 +500,9 @@ function activity(theme, W = FULL) {
   doc.text(prevTotal ? `vs ${fmt(prevTotal)} in the 30 days before` : `in the last ${DAYS} days`, { x: PAD, y: 142, size: 12, fill: 'ink3' });
 
   const side = [
-    { label: 'DAILY AVERAGE', value: (total / DAYS).toFixed(1), sub: 'per day' },
-    { label: 'BUSIEST DAY', value: fmt(peak.count), sub: weekdayDate(peak.date) },
-    { label: 'ACTIVE DAYS', value: String(active), unit: `of ${DAYS}`, sub: `${DAYS - active} quiet ${plural(DAYS - active, 'day')}` },
+    { label: 'Daily average', value: (total / DAYS).toFixed(1), sub: 'per day' },
+    { label: 'Busiest day', value: fmt(peak.count), sub: weekdayDate(peak.date) },
+    { label: 'Active days', value: String(active), unit: `of ${DAYS}`, sub: `${DAYS - active} quiet ${plural(DAYS - active, 'day')}` },
   ];
   const sideX = narrow ? PAD : PAD + 330;
   const sideY = narrow ? 114 : 0;
@@ -508,12 +510,12 @@ function activity(theme, W = FULL) {
   side.forEach((item, i) => {
     const x = sideX + i * sideW;
     doc.label(item.label, x, 66 + sideY);
-    const vw = doc.text(item.value, { x: x - 1, y: 116 + sideY, size: 32, weight: FIGURE_WEIGHT, tracking: -0.03 });
+    const vw = doc.text(item.value, { x: x - 1, y: 116 + sideY, size: KPI, weight: FIGURE_WEIGHT, tracking: -0.03 });
     if (item.unit) doc.text(item.unit, { x: x + vw + 5, y: 116 + sideY, size: 13, fill: 'ink3' });
     doc.text(item.sub, { x, y: 142 + sideY, size: 12, fill: 'ink3' });
   });
 
-  // Chart: dashed recessive grid, gradient area, a 2px line, faded in at the left edge.
+  // Chart: solid hairline grid, gradient area, a 2px line, faded in at the left edge.
   const left = PAD;
   const right = W - PAD - 8;
   const top = 196 + sideY;
@@ -521,7 +523,7 @@ function activity(theme, W = FULL) {
   const max = Math.max(peak.count, 1) * 1.12;
   for (let k = 0; k <= 4; k++) {
     const y = base - (k / 4) * (base - top);
-    doc.add(`<line x1="${left}" x2="${W - PAD}" y1="${y.toFixed(1)}" y2="${y.toFixed(1)}" stroke="${t.ink}" stroke-opacity="${k ? 0.1 : 0.16}" stroke-dasharray="${k ? '3 5' : '0'}"/>`);
+    doc.add(`<line x1="${left}" x2="${W - PAD}" y1="${y.toFixed(1)}" y2="${y.toFixed(1)}" stroke="${t.ink}" stroke-opacity="${k ? 0.07 : 0.16}"/>`);
   }
 
   const pts = days.map((d, i) => [left + (i * (right - left)) / (DAYS - 1), base - (d.count / max) * (base - top)]);
@@ -545,7 +547,7 @@ function activity(theme, W = FULL) {
   });
 
   return doc.svg(
-    base + 30,
+    base + 22 + BOTTOM,
     'Contribution activity, last 30 days',
     `${fmt(total)} contributions in the last ${DAYS} days${change === null ? '' : `, ${change >= 0 ? 'up' : 'down'} ${Math.abs(change)}% on the 30 days before`}. ` +
       `Busiest day ${peak.date} with ${peak.count}. Active on ${active} of ${DAYS} days. Daily counts: ${days.map((d) => d.count).join(', ')}.`,
