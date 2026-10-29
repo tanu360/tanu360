@@ -1,0 +1,2814 @@
+{
+ "login": "tanu360",
+ "generatedAt": "2026-10-29T10:08:43.901Z",
+ "createdAt": "2017-10-23T22:54:19Z",
+ "stats": {
+  "stars": 189,
+  "commits": 2280,
+  "prs": 15,
+  "issues": 21,
+  "reviews": 1,
+  "contributedTo": 8,
+  "followers": 97,
+  "publicRepos": 20,
+  "grade": "B+",
+  "percentile": 38.63650041590716
+ },
+ "repoLanguages": [
+  {
+   "name": "TypeScript",
+   "share": 0.48652983987564635
+  },
+  {
+   "name": "JavaScript",
+   "share": 0.266308908068829
+  },
+  {
+   "name": "Go",
+   "share": 0.07498732450697472
+  },
+  {
+   "name": "CSS",
+   "share": 0.06251251870613118
+  },
+  {
+   "name": "Python",
+   "share": 0.06062900703659581
+  },
+  {
+   "name": "HTML",
+   "share": 0.028661096820335925
+  },
+  {
+   "name": "MDX",
+   "share": 0.010833748091240792
+  },
+  {
+   "name": "Swift",
+   "share": 0.0046770338686846075
+  },
+  {
+   "name": "Shell",
+   "share": 0.002575895524713688
+  },
+  {
+   "name": "Smali",
+   "share": 0.0008360459082370597
+  },
+  {
+   "name": "PLpgSQL",
+   "share": 0.00041081398970986603
+  },
+  {
+   "name": "Java",
+   "share": 0.00031493153035517114
+  },
+  {
+   "name": "Dockerfile",
+   "share": 0.0002670872822617967
+  },
+  {
+   "name": "Rust",
+   "share": 0.00022073008512267587
+  },
+  {
+   "name": "PHP",
+   "share": 0.00018717445706799843
+  },
+  {
+   "name": "SCSS",
+   "share": 0.00004655116030706697
+  },
+  {
+   "name": "Procfile",
+   "share": 0.000001293087786307416
+  }
+ ],
+ "repos": [
+  {
+   "name": "Instagram-SSL-Pinning-Bypass",
+   "stars": 51
+  },
+  {
+   "name": "apple-intelligence-api",
+   "stars": 39
+  },
+  {
+   "name": "Facebook-SSL-Pinning-Bypass",
+   "stars": 31
+  },
+  {
+   "name": "kiro-reverse-api",
+   "stars": 17
+  },
+  {
+   "name": "chatjimmy-reverse-api",
+   "stars": 14
+  },
+  {
+   "name": "facebook-checker-v4",
+   "stars": 12
+  },
+  {
+   "name": "claude-code-dashboard",
+   "stars": 7
+  },
+  {
+   "name": "maildotcom-sdk",
+   "stars": 7
+  },
+  {
+   "name": "ida-chat-plugin",
+   "stars": 3
+  },
+  {
+   "name": "nanobananademo",
+   "stars": 3
+  },
+  {
+   "name": "whatsapp-api",
+   "stars": 2
+  },
+  {
+   "name": "facebook-checker-node",
+   "stars": 1
+  },
+  {
+   "name": "threads-posts-helper",
+   "stars": 1
+  },
+  {
+   "name": "Instagram-SSL-Pinning-Private",
+   "stars": 1
+  }
+ ],
+ "contributions": {
+  "allTime": 30775,
+  "lastYear": 2294,
+  "since": "2017-10-24",
+  "current": {
+   "days": 1,
+   "start": "2026-10-29"
+  },
+  "longest": {
+   "days": 427,
+   "start": "2018-05-31",
+   "end": "2019-07-31"
+  },
+  "calendar": [
+   {
+    "date": "2025-10-26",
+    "count": 0,
+    "level": "NONE"
+   },
+   {
+    "date": "2025-10-27",
+    "count": 0,
+    "level": "NONE"
+   },
+   {
+    "date": "2025-10-28",
+    "count": 3,
+    "level": "FIRST_QUARTILE"
+   },
+   {
+    "date": "2025-10-29",
+    "count": 8,
+    "level": "FIRST_QUARTILE"
+   },
+   {
+    "date": "2025-10-30",
+    "count": 7,
+    "level": "FIRST_QUARTILE"
+   },
+   {
+    "date": "2025-10-31",
+    "count": 15,
+    "level": "SECOND_QUARTILE"
+   },
+   {
+    "date": "2025-11-01",
+    "count": 1,
+    "level": "FIRST_QUARTILE"
+   },
+   {
+    "date": "2025-11-02",
+    "count": 4,
+    "level": "FIRST_QUARTILE"
+   },
+   {
+    "date": "2025-11-03",
+    "count": 1,
+    "level": "FIRST_QUARTILE"
+   },
+   {
+    "date": "2025-11-04",
+    "count": 9,
+    "level": "FIRST_QUARTILE"
+   },
+   {
+    "date": "2025-11-05",
+    "count": 3,
+    "level": "FIRST_QUARTILE"
+   },
+   {
+    "date": "2025-11-06",
+    "count": 11,
+    "level": "FIRST_QUARTILE"
+   },
+   {
+    "date": "2025-11-07",
+    "count": 2,
+    "level": "FIRST_QUARTILE"
+   },
+   {
+    "date": "2025-11-08",
+    "count": 0,
+    "level": "NONE"
+   },
+   {
+    "date": "2025-11-09",
+    "count": 0,
+    "level": "NONE"
+   },
+   {
+    "date": "2025-11-10",
+    "count": 0,
+    "level": "NONE"
+   },
+   {
+    "date": "2025-11-11",
+    "count": 0,
+    "level": "NONE"
+   },
+   {
+    "date": "2025-11-12",
+    "count": 0,
+    "level": "NONE"
+   },
+   {
+    "date": "2025-11-13",
+    "count": 0,
+    "level": "NONE"
+   },
+   {
+    "date": "2025-11-14",
+    "count": 2,
+    "level": "FIRST_QUARTILE"
+   },
+   {
+    "date": "2025-11-15",
+    "count": 0,
+    "level": "NONE"
+   },
+   {
+    "date": "2025-11-16",
+    "count": 0,
+    "level": "NONE"
+   },
+   {
+    "date": "2025-11-17",
+    "count": 2,
+    "level": "FIRST_QUARTILE"
+   },
+   {
+    "date": "2025-11-18",
+    "count": 1,
+    "level": "FIRST_QUARTILE"
+   },
+   {
+    "date": "2025-11-19",
+    "count": 8,
+    "level": "FIRST_QUARTILE"
+   },
+   {
+    "date": "2025-11-20",
+    "count": 6,
+    "level": "FIRST_QUARTILE"
+   },
+   {
+    "date": "2025-11-21",
+    "count": 0,
+    "level": "NONE"
+   },
+   {
+    "date": "2025-11-22",
+    "count": 1,
+    "level": "FIRST_QUARTILE"
+   },
+   {
+    "date": "2025-11-23",
+    "count": 0,
+    "level": "NONE"
+   },
+   {
+    "date": "2025-11-24",
+    "count": 0,
+    "level": "NONE"
+   },
+   {
+    "date": "2025-11-25",
+    "count": 5,
+    "level": "FIRST_QUARTILE"
+   },
+   {
+    "date": "2025-11-26",
+    "count": 0,
+    "level": "NONE"
+   },
+   {
+    "date": "2025-11-27",
+    "count": 0,
+    "level": "NONE"
+   },
+   {
+    "date": "2025-11-28",
+    "count": 0,
+    "level": "NONE"
+   },
+   {
+    "date": "2025-11-29",
+    "count": 3,
+    "level": "FIRST_QUARTILE"
+   },
+   {
+    "date": "2025-11-30",
+    "count": 0,
+    "level": "NONE"
+   },
+   {
+    "date": "2025-12-01",
+    "count": 2,
+    "level": "FIRST_QUARTILE"
+   },
+   {
+    "date": "2025-12-02",
+    "count": 0,
+    "level": "NONE"
+   },
+   {
+    "date": "2025-12-03",
+    "count": 2,
+    "level": "FIRST_QUARTILE"
+   },
+   {
+    "date": "2025-12-04",
+    "count": 0,
+    "level": "NONE"
+   },
+   {
+    "date": "2025-12-05",
+    "count": 0,
+    "level": "NONE"
+   },
+   {
+    "date": "2025-12-06",
+    "count": 0,
+    "level": "NONE"
+   },
+   {
+    "date": "2025-12-07",
+    "count": 0,
+    "level": "NONE"
+   },
+   {
+    "date": "2025-12-08",
+    "count": 0,
+    "level": "NONE"
+   },
+   {
+    "date": "2025-12-09",
+    "count": 0,
+    "level": "NONE"
+   },
+   {
+    "date": "2025-12-10",
+    "count": 0,
+    "level": "NONE"
+   },
+   {
+    "date": "2025-12-11",
+    "count": 0,
+    "level": "NONE"
+   },
+   {
+    "date": "2025-12-12",
+    "count": 1,
+    "level": "FIRST_QUARTILE"
+   },
+   {
+    "date": "2025-12-13",
+    "count": 0,
+    "level": "NONE"
+   },
+   {
+    "date": "2025-12-14",
+    "count": 0,
+    "level": "NONE"
+   },
+   {
+    "date": "2025-12-15",
+    "count": 26,
+    "level": "SECOND_QUARTILE"
+   },
+   {
+    "date": "2025-12-16",
+    "count": 2,
+    "level": "FIRST_QUARTILE"
+   },
+   {
+    "date": "2025-12-17",
+    "count": 18,
+    "level": "SECOND_QUARTILE"
+   },
+   {
+    "date": "2025-12-18",
+    "count": 44,
+    "level": "THIRD_QUARTILE"
+   },
+   {
+    "date": "2025-12-19",
+    "count": 44,
+    "level": "THIRD_QUARTILE"
+   },
+   {
+    "date": "2025-12-20",
+    "count": 36,
+    "level": "THIRD_QUARTILE"
+   },
+   {
+    "date": "2025-12-21",
+    "count": 19,
+    "level": "SECOND_QUARTILE"
+   },
+   {
+    "date": "2025-12-22",
+    "count": 2,
+    "level": "FIRST_QUARTILE"
+   },
+   {
+    "date": "2025-12-23",
+    "count": 1,
+    "level": "FIRST_QUARTILE"
+   },
+   {
+    "date": "2025-12-24",
+    "count": 0,
+    "level": "NONE"
+   },
+   {
+    "date": "2025-12-25",
+    "count": 0,
+    "level": "NONE"
+   },
+   {
+    "date": "2025-12-26",
+    "count": 0,
+    "level": "NONE"
+   },
+   {
+    "date": "2025-12-27",
+    "count": 0,
+    "level": "NONE"
+   },
+   {
+    "date": "2025-12-28",
+    "count": 2,
+    "level": "FIRST_QUARTILE"
+   },
+   {
+    "date": "2025-12-29",
+    "count": 3,
+    "level": "FIRST_QUARTILE"
+   },
+   {
+    "date": "2025-12-30",
+    "count": 0,
+    "level": "NONE"
+   },
+   {
+    "date": "2025-12-31",
+    "count": 1,
+    "level": "FIRST_QUARTILE"
+   },
+   {
+    "date": "2026-01-01",
+    "count": 0,
+    "level": "NONE"
+   },
+   {
+    "date": "2026-01-02",
+    "count": 0,
+    "level": "NONE"
+   },
+   {
+    "date": "2026-01-03",
+    "count": 11,
+    "level": "FIRST_QUARTILE"
+   },
+   {
+    "date": "2026-01-04",
+    "count": 14,
+    "level": "SECOND_QUARTILE"
+   },
+   {
+    "date": "2026-01-05",
+    "count": 7,
+    "level": "FIRST_QUARTILE"
+   },
+   {
+    "date": "2026-01-06",
+    "count": 3,
+    "level": "FIRST_QUARTILE"
+   },
+   {
+    "date": "2026-01-07",
+    "count": 1,
+    "level": "FIRST_QUARTILE"
+   },
+   {
+    "date": "2026-01-08",
+    "count": 1,
+    "level": "FIRST_QUARTILE"
+   },
+   {
+    "date": "2026-01-09",
+    "count": 1,
+    "level": "FIRST_QUARTILE"
+   },
+   {
+    "date": "2026-01-10",
+    "count": 8,
+    "level": "FIRST_QUARTILE"
+   },
+   {
+    "date": "2026-01-11",
+    "count": 8,
+    "level": "FIRST_QUARTILE"
+   },
+   {
+    "date": "2026-01-12",
+    "count": 0,
+    "level": "NONE"
+   },
+   {
+    "date": "2026-01-13",
+    "count": 0,
+    "level": "NONE"
+   },
+   {
+    "date": "2026-01-14",
+    "count": 0,
+    "level": "NONE"
+   },
+   {
+    "date": "2026-01-15",
+    "count": 1,
+    "level": "FIRST_QUARTILE"
+   },
+   {
+    "date": "2026-01-16",
+    "count": 2,
+    "level": "FIRST_QUARTILE"
+   },
+   {
+    "date": "2026-01-17",
+    "count": 0,
+    "level": "NONE"
+   },
+   {
+    "date": "2026-01-18",
+    "count": 1,
+    "level": "FIRST_QUARTILE"
+   },
+   {
+    "date": "2026-01-19",
+    "count": 3,
+    "level": "FIRST_QUARTILE"
+   },
+   {
+    "date": "2026-01-20",
+    "count": 0,
+    "level": "NONE"
+   },
+   {
+    "date": "2026-01-21",
+    "count": 0,
+    "level": "NONE"
+   },
+   {
+    "date": "2026-01-22",
+    "count": 1,
+    "level": "FIRST_QUARTILE"
+   },
+   {
+    "date": "2026-01-23",
+    "count": 3,
+    "level": "FIRST_QUARTILE"
+   },
+   {
+    "date": "2026-01-24",
+    "count": 17,
+    "level": "SECOND_QUARTILE"
+   },
+   {
+    "date": "2026-01-25",
+    "count": 0,
+    "level": "NONE"
+   },
+   {
+    "date": "2026-01-26",
+    "count": 0,
+    "level": "NONE"
+   },
+   {
+    "date": "2026-01-27",
+    "count": 0,
+    "level": "NONE"
+   },
+   {
+    "date": "2026-01-28",
+    "count": 4,
+    "level": "FIRST_QUARTILE"
+   },
+   {
+    "date": "2026-01-29",
+    "count": 0,
+    "level": "NONE"
+   },
+   {
+    "date": "2026-01-30",
+    "count": 0,
+    "level": "NONE"
+   },
+   {
+    "date": "2026-01-31",
+    "count": 0,
+    "level": "NONE"
+   },
+   {
+    "date": "2026-02-01",
+    "count": 0,
+    "level": "NONE"
+   },
+   {
+    "date": "2026-02-02",
+    "count": 0,
+    "level": "NONE"
+   },
+   {
+    "date": "2026-02-03",
+    "count": 0,
+    "level": "NONE"
+   },
+   {
+    "date": "2026-02-04",
+    "count": 0,
+    "level": "NONE"
+   },
+   {
+    "date": "2026-02-05",
+    "count": 0,
+    "level": "NONE"
+   },
+   {
+    "date": "2026-02-06",
+    "count": 0,
+    "level": "NONE"
+   },
+   {
+    "date": "2026-02-07",
+    "count": 0,
+    "level": "NONE"
+   },
+   {
+    "date": "2026-02-08",
+    "count": 0,
+    "level": "NONE"
+   },
+   {
+    "date": "2026-02-09",
+    "count": 0,
+    "level": "NONE"
+   },
+   {
+    "date": "2026-02-10",
+    "count": 0,
+    "level": "NONE"
+   },
+   {
+    "date": "2026-02-11",
+    "count": 0,
+    "level": "NONE"
+   },
+   {
+    "date": "2026-02-12",
+    "count": 0,
+    "level": "NONE"
+   },
+   {
+    "date": "2026-02-13",
+    "count": 0,
+    "level": "NONE"
+   },
+   {
+    "date": "2026-02-14",
+    "count": 1,
+    "level": "FIRST_QUARTILE"
+   },
+   {
+    "date": "2026-02-15",
+    "count": 8,
+    "level": "FIRST_QUARTILE"
+   },
+   {
+    "date": "2026-02-16",
+    "count": 12,
+    "level": "SECOND_QUARTILE"
+   },
+   {
+    "date": "2026-02-17",
+    "count": 0,
+    "level": "NONE"
+   },
+   {
+    "date": "2026-02-18",
+    "count": 7,
+    "level": "FIRST_QUARTILE"
+   },
+   {
+    "date": "2026-02-19",
+    "count": 4,
+    "level": "FIRST_QUARTILE"
+   },
+   {
+    "date": "2026-02-20",
+    "count": 2,
+    "level": "FIRST_QUARTILE"
+   },
+   {
+    "date": "2026-02-21",
+    "count": 24,
+    "level": "THIRD_QUARTILE"
+   },
+   {
+    "date": "2026-02-22",
+    "count": 6,
+    "level": "FIRST_QUARTILE"
+   },
+   {
+    "date": "2026-02-23",
+    "count": 28,
+    "level": "THIRD_QUARTILE"
+   },
+   {
+    "date": "2026-02-24",
+    "count": 16,
+    "level": "SECOND_QUARTILE"
+   },
+   {
+    "date": "2026-02-25",
+    "count": 35,
+    "level": "FOURTH_QUARTILE"
+   },
+   {
+    "date": "2026-02-26",
+    "count": 4,
+    "level": "FIRST_QUARTILE"
+   },
+   {
+    "date": "2026-02-27",
+    "count": 3,
+    "level": "FIRST_QUARTILE"
+   },
+   {
+    "date": "2026-02-28",
+    "count": 0,
+    "level": "NONE"
+   },
+   {
+    "date": "2026-03-01",
+    "count": 2,
+    "level": "FIRST_QUARTILE"
+   },
+   {
+    "date": "2026-03-02",
+    "count": 12,
+    "level": "SECOND_QUARTILE"
+   },
+   {
+    "date": "2026-03-03",
+    "count": 1,
+    "level": "FIRST_QUARTILE"
+   },
+   {
+    "date": "2026-03-04",
+    "count": 0,
+    "level": "NONE"
+   },
+   {
+    "date": "2026-03-05",
+    "count": 0,
+    "level": "NONE"
+   },
+   {
+    "date": "2026-03-06",
+    "count": 3,
+    "level": "FIRST_QUARTILE"
+   },
+   {
+    "date": "2026-03-07",
+    "count": 17,
+    "level": "SECOND_QUARTILE"
+   },
+   {
+    "date": "2026-03-08",
+    "count": 0,
+    "level": "NONE"
+   },
+   {
+    "date": "2026-03-09",
+    "count": 18,
+    "level": "SECOND_QUARTILE"
+   },
+   {
+    "date": "2026-03-10",
+    "count": 16,
+    "level": "SECOND_QUARTILE"
+   },
+   {
+    "date": "2026-03-11",
+    "count": 25,
+    "level": "THIRD_QUARTILE"
+   },
+   {
+    "date": "2026-03-12",
+    "count": 3,
+    "level": "FIRST_QUARTILE"
+   },
+   {
+    "date": "2026-03-13",
+    "count": 12,
+    "level": "SECOND_QUARTILE"
+   },
+   {
+    "date": "2026-03-14",
+    "count": 0,
+    "level": "NONE"
+   },
+   {
+    "date": "2026-03-15",
+    "count": 14,
+    "level": "SECOND_QUARTILE"
+   },
+   {
+    "date": "2026-03-16",
+    "count": 22,
+    "level": "SECOND_QUARTILE"
+   },
+   {
+    "date": "2026-03-17",
+    "count": 24,
+    "level": "THIRD_QUARTILE"
+   },
+   {
+    "date": "2026-03-18",
+    "count": 8,
+    "level": "FIRST_QUARTILE"
+   },
+   {
+    "date": "2026-03-19",
+    "count": 25,
+    "level": "THIRD_QUARTILE"
+   },
+   {
+    "date": "2026-03-20",
+    "count": 4,
+    "level": "FIRST_QUARTILE"
+   },
+   {
+    "date": "2026-03-21",
+    "count": 0,
+    "level": "NONE"
+   },
+   {
+    "date": "2026-03-22",
+    "count": 1,
+    "level": "FIRST_QUARTILE"
+   },
+   {
+    "date": "2026-03-23",
+    "count": 0,
+    "level": "NONE"
+   },
+   {
+    "date": "2026-03-24",
+    "count": 18,
+    "level": "SECOND_QUARTILE"
+   },
+   {
+    "date": "2026-03-25",
+    "count": 36,
+    "level": "FOURTH_QUARTILE"
+   },
+   {
+    "date": "2026-03-26",
+    "count": 30,
+    "level": "THIRD_QUARTILE"
+   },
+   {
+    "date": "2026-03-27",
+    "count": 37,
+    "level": "FOURTH_QUARTILE"
+   },
+   {
+    "date": "2026-03-28",
+    "count": 19,
+    "level": "SECOND_QUARTILE"
+   },
+   {
+    "date": "2026-03-29",
+    "count": 43,
+    "level": "FOURTH_QUARTILE"
+   },
+   {
+    "date": "2026-03-30",
+    "count": 34,
+    "level": "THIRD_QUARTILE"
+   },
+   {
+    "date": "2026-03-31",
+    "count": 14,
+    "level": "SECOND_QUARTILE"
+   },
+   {
+    "date": "2026-04-01",
+    "count": 9,
+    "level": "FIRST_QUARTILE"
+   },
+   {
+    "date": "2026-04-02",
+    "count": 20,
+    "level": "SECOND_QUARTILE"
+   },
+   {
+    "date": "2026-04-03",
+    "count": 9,
+    "level": "FIRST_QUARTILE"
+   },
+   {
+    "date": "2026-04-04",
+    "count": 11,
+    "level": "FIRST_QUARTILE"
+   },
+   {
+    "date": "2026-04-05",
+    "count": 0,
+    "level": "NONE"
+   },
+   {
+    "date": "2026-04-06",
+    "count": 0,
+    "level": "NONE"
+   },
+   {
+    "date": "2026-04-07",
+    "count": 0,
+    "level": "NONE"
+   },
+   {
+    "date": "2026-04-08",
+    "count": 0,
+    "level": "NONE"
+   },
+   {
+    "date": "2026-04-09",
+    "count": 0,
+    "level": "NONE"
+   },
+   {
+    "date": "2026-04-10",
+    "count": 1,
+    "level": "FIRST_QUARTILE"
+   },
+   {
+    "date": "2026-04-11",
+    "count": 10,
+    "level": "FIRST_QUARTILE"
+   },
+   {
+    "date": "2026-04-12",
+    "count": 27,
+    "level": "THIRD_QUARTILE"
+   },
+   {
+    "date": "2026-04-13",
+    "count": 32,
+    "level": "THIRD_QUARTILE"
+   },
+   {
+    "date": "2026-04-14",
+    "count": 11,
+    "level": "FIRST_QUARTILE"
+   },
+   {
+    "date": "2026-04-15",
+    "count": 10,
+    "level": "FIRST_QUARTILE"
+   },
+   {
+    "date": "2026-04-16",
+    "count": 3,
+    "level": "FIRST_QUARTILE"
+   },
+   {
+    "date": "2026-04-17",
+    "count": 0,
+    "level": "NONE"
+   },
+   {
+    "date": "2026-04-18",
+    "count": 12,
+    "level": "SECOND_QUARTILE"
+   },
+   {
+    "date": "2026-04-19",
+    "count": 21,
+    "level": "SECOND_QUARTILE"
+   },
+   {
+    "date": "2026-04-20",
+    "count": 21,
+    "level": "SECOND_QUARTILE"
+   },
+   {
+    "date": "2026-04-21",
+    "count": 6,
+    "level": "FIRST_QUARTILE"
+   },
+   {
+    "date": "2026-04-22",
+    "count": 14,
+    "level": "SECOND_QUARTILE"
+   },
+   {
+    "date": "2026-04-23",
+    "count": 7,
+    "level": "FIRST_QUARTILE"
+   },
+   {
+    "date": "2026-04-24",
+    "count": 18,
+    "level": "SECOND_QUARTILE"
+   },
+   {
+    "date": "2026-04-25",
+    "count": 7,
+    "level": "FIRST_QUARTILE"
+   },
+   {
+    "date": "2026-04-26",
+    "count": 20,
+    "level": "SECOND_QUARTILE"
+   },
+   {
+    "date": "2026-04-27",
+    "count": 46,
+    "level": "FOURTH_QUARTILE"
+   },
+   {
+    "date": "2026-04-28",
+    "count": 37,
+    "level": "FOURTH_QUARTILE"
+   },
+   {
+    "date": "2026-04-29",
+    "count": 12,
+    "level": "SECOND_QUARTILE"
+   },
+   {
+    "date": "2026-04-30",
+    "count": 0,
+    "level": "NONE"
+   },
+   {
+    "date": "2026-05-01",
+    "count": 9,
+    "level": "FIRST_QUARTILE"
+   },
+   {
+    "date": "2026-05-02",
+    "count": 2,
+    "level": "FIRST_QUARTILE"
+   },
+   {
+    "date": "2026-05-03",
+    "count": 0,
+    "level": "NONE"
+   },
+   {
+    "date": "2026-05-04",
+    "count": 8,
+    "level": "FIRST_QUARTILE"
+   },
+   {
+    "date": "2026-05-05",
+    "count": 15,
+    "level": "SECOND_QUARTILE"
+   },
+   {
+    "date": "2026-05-06",
+    "count": 10,
+    "level": "FIRST_QUARTILE"
+   },
+   {
+    "date": "2026-05-07",
+    "count": 0,
+    "level": "NONE"
+   },
+   {
+    "date": "2026-05-08",
+    "count": 3,
+    "level": "FIRST_QUARTILE"
+   },
+   {
+    "date": "2026-05-09",
+    "count": 0,
+    "level": "NONE"
+   },
+   {
+    "date": "2026-05-10",
+    "count": 1,
+    "level": "FIRST_QUARTILE"
+   },
+   {
+    "date": "2026-05-11",
+    "count": 3,
+    "level": "FIRST_QUARTILE"
+   },
+   {
+    "date": "2026-05-12",
+    "count": 0,
+    "level": "NONE"
+   },
+   {
+    "date": "2026-05-13",
+    "count": 4,
+    "level": "FIRST_QUARTILE"
+   },
+   {
+    "date": "2026-05-14",
+    "count": 16,
+    "level": "SECOND_QUARTILE"
+   },
+   {
+    "date": "2026-05-15",
+    "count": 2,
+    "level": "FIRST_QUARTILE"
+   },
+   {
+    "date": "2026-05-16",
+    "count": 3,
+    "level": "FIRST_QUARTILE"
+   },
+   {
+    "date": "2026-05-17",
+    "count": 2,
+    "level": "FIRST_QUARTILE"
+   },
+   {
+    "date": "2026-05-18",
+    "count": 11,
+    "level": "FIRST_QUARTILE"
+   },
+   {
+    "date": "2026-05-19",
+    "count": 2,
+    "level": "FIRST_QUARTILE"
+   },
+   {
+    "date": "2026-05-20",
+    "count": 0,
+    "level": "NONE"
+   },
+   {
+    "date": "2026-05-21",
+    "count": 0,
+    "level": "NONE"
+   },
+   {
+    "date": "2026-05-22",
+    "count": 6,
+    "level": "FIRST_QUARTILE"
+   },
+   {
+    "date": "2026-05-23",
+    "count": 4,
+    "level": "FIRST_QUARTILE"
+   },
+   {
+    "date": "2026-05-24",
+    "count": 10,
+    "level": "FIRST_QUARTILE"
+   },
+   {
+    "date": "2026-05-25",
+    "count": 18,
+    "level": "SECOND_QUARTILE"
+   },
+   {
+    "date": "2026-05-26",
+    "count": 4,
+    "level": "FIRST_QUARTILE"
+   },
+   {
+    "date": "2026-05-27",
+    "count": 13,
+    "level": "SECOND_QUARTILE"
+   },
+   {
+    "date": "2026-05-28",
+    "count": 19,
+    "level": "SECOND_QUARTILE"
+   },
+   {
+    "date": "2026-05-29",
+    "count": 29,
+    "level": "THIRD_QUARTILE"
+   },
+   {
+    "date": "2026-05-30",
+    "count": 2,
+    "level": "FIRST_QUARTILE"
+   },
+   {
+    "date": "2026-05-31",
+    "count": 4,
+    "level": "FIRST_QUARTILE"
+   },
+   {
+    "date": "2026-06-01",
+    "count": 11,
+    "level": "FIRST_QUARTILE"
+   },
+   {
+    "date": "2026-06-02",
+    "count": 2,
+    "level": "FIRST_QUARTILE"
+   },
+   {
+    "date": "2026-06-03",
+    "count": 2,
+    "level": "FIRST_QUARTILE"
+   },
+   {
+    "date": "2026-06-04",
+    "count": 0,
+    "level": "NONE"
+   },
+   {
+    "date": "2026-06-05",
+    "count": 2,
+    "level": "FIRST_QUARTILE"
+   },
+   {
+    "date": "2026-06-06",
+    "count": 1,
+    "level": "FIRST_QUARTILE"
+   },
+   {
+    "date": "2026-06-07",
+    "count": 0,
+    "level": "NONE"
+   },
+   {
+    "date": "2026-06-08",
+    "count": 0,
+    "level": "NONE"
+   },
+   {
+    "date": "2026-06-09",
+    "count": 3,
+    "level": "FIRST_QUARTILE"
+   },
+   {
+    "date": "2026-06-10",
+    "count": 7,
+    "level": "FIRST_QUARTILE"
+   },
+   {
+    "date": "2026-06-11",
+    "count": 4,
+    "level": "FIRST_QUARTILE"
+   },
+   {
+    "date": "2026-06-12",
+    "count": 0,
+    "level": "NONE"
+   },
+   {
+    "date": "2026-06-13",
+    "count": 0,
+    "level": "NONE"
+   },
+   {
+    "date": "2026-06-14",
+    "count": 0,
+    "level": "NONE"
+   },
+   {
+    "date": "2026-06-15",
+    "count": 1,
+    "level": "FIRST_QUARTILE"
+   },
+   {
+    "date": "2026-06-16",
+    "count": 0,
+    "level": "NONE"
+   },
+   {
+    "date": "2026-06-17",
+    "count": 0,
+    "level": "NONE"
+   },
+   {
+    "date": "2026-06-18",
+    "count": 0,
+    "level": "NONE"
+   },
+   {
+    "date": "2026-06-19",
+    "count": 0,
+    "level": "NONE"
+   },
+   {
+    "date": "2026-06-20",
+    "count": 0,
+    "level": "NONE"
+   },
+   {
+    "date": "2026-06-21",
+    "count": 0,
+    "level": "NONE"
+   },
+   {
+    "date": "2026-06-22",
+    "count": 0,
+    "level": "NONE"
+   },
+   {
+    "date": "2026-06-23",
+    "count": 4,
+    "level": "FIRST_QUARTILE"
+   },
+   {
+    "date": "2026-06-24",
+    "count": 0,
+    "level": "NONE"
+   },
+   {
+    "date": "2026-06-25",
+    "count": 0,
+    "level": "NONE"
+   },
+   {
+    "date": "2026-06-26",
+    "count": 0,
+    "level": "NONE"
+   },
+   {
+    "date": "2026-06-27",
+    "count": 3,
+    "level": "FIRST_QUARTILE"
+   },
+   {
+    "date": "2026-06-28",
+    "count": 0,
+    "level": "NONE"
+   },
+   {
+    "date": "2026-06-29",
+    "count": 0,
+    "level": "NONE"
+   },
+   {
+    "date": "2026-06-30",
+    "count": 0,
+    "level": "NONE"
+   },
+   {
+    "date": "2026-07-01",
+    "count": 0,
+    "level": "NONE"
+   },
+   {
+    "date": "2026-07-02",
+    "count": 0,
+    "level": "NONE"
+   },
+   {
+    "date": "2026-07-03",
+    "count": 0,
+    "level": "NONE"
+   },
+   {
+    "date": "2026-07-04",
+    "count": 0,
+    "level": "NONE"
+   },
+   {
+    "date": "2026-07-05",
+    "count": 0,
+    "level": "NONE"
+   },
+   {
+    "date": "2026-07-06",
+    "count": 2,
+    "level": "FIRST_QUARTILE"
+   },
+   {
+    "date": "2026-07-07",
+    "count": 0,
+    "level": "NONE"
+   },
+   {
+    "date": "2026-07-08",
+    "count": 0,
+    "level": "NONE"
+   },
+   {
+    "date": "2026-07-09",
+    "count": 0,
+    "level": "NONE"
+   },
+   {
+    "date": "2026-07-10",
+    "count": 0,
+    "level": "NONE"
+   },
+   {
+    "date": "2026-07-11",
+    "count": 0,
+    "level": "NONE"
+   },
+   {
+    "date": "2026-07-12",
+    "count": 0,
+    "level": "NONE"
+   },
+   {
+    "date": "2026-07-13",
+    "count": 0,
+    "level": "NONE"
+   },
+   {
+    "date": "2026-07-14",
+    "count": 0,
+    "level": "NONE"
+   },
+   {
+    "date": "2026-07-15",
+    "count": 0,
+    "level": "NONE"
+   },
+   {
+    "date": "2026-07-16",
+    "count": 0,
+    "level": "NONE"
+   },
+   {
+    "date": "2026-07-17",
+    "count": 0,
+    "level": "NONE"
+   },
+   {
+    "date": "2026-07-18",
+    "count": 0,
+    "level": "NONE"
+   },
+   {
+    "date": "2026-07-19",
+    "count": 0,
+    "level": "NONE"
+   },
+   {
+    "date": "2026-07-20",
+    "count": 0,
+    "level": "NONE"
+   },
+   {
+    "date": "2026-07-21",
+    "count": 1,
+    "level": "FIRST_QUARTILE"
+   },
+   {
+    "date": "2026-07-22",
+    "count": 0,
+    "level": "NONE"
+   },
+   {
+    "date": "2026-07-23",
+    "count": 3,
+    "level": "FIRST_QUARTILE"
+   },
+   {
+    "date": "2026-07-24",
+    "count": 1,
+    "level": "FIRST_QUARTILE"
+   },
+   {
+    "date": "2026-07-25",
+    "count": 0,
+    "level": "NONE"
+   },
+   {
+    "date": "2026-07-26",
+    "count": 0,
+    "level": "NONE"
+   },
+   {
+    "date": "2026-07-27",
+    "count": 0,
+    "level": "NONE"
+   },
+   {
+    "date": "2026-07-28",
+    "count": 0,
+    "level": "NONE"
+   },
+   {
+    "date": "2026-07-29",
+    "count": 1,
+    "level": "FIRST_QUARTILE"
+   },
+   {
+    "date": "2026-07-30",
+    "count": 0,
+    "level": "NONE"
+   },
+   {
+    "date": "2026-07-31",
+    "count": 0,
+    "level": "NONE"
+   },
+   {
+    "date": "2026-08-01",
+    "count": 0,
+    "level": "NONE"
+   },
+   {
+    "date": "2026-08-02",
+    "count": 0,
+    "level": "NONE"
+   },
+   {
+    "date": "2026-08-03",
+    "count": 1,
+    "level": "FIRST_QUARTILE"
+   },
+   {
+    "date": "2026-08-04",
+    "count": 0,
+    "level": "NONE"
+   },
+   {
+    "date": "2026-08-05",
+    "count": 0,
+    "level": "NONE"
+   },
+   {
+    "date": "2026-08-06",
+    "count": 2,
+    "level": "FIRST_QUARTILE"
+   },
+   {
+    "date": "2026-08-07",
+    "count": 6,
+    "level": "FIRST_QUARTILE"
+   },
+   {
+    "date": "2026-08-08",
+    "count": 0,
+    "level": "NONE"
+   },
+   {
+    "date": "2026-08-09",
+    "count": 0,
+    "level": "NONE"
+   },
+   {
+    "date": "2026-08-10",
+    "count": 0,
+    "level": "NONE"
+   },
+   {
+    "date": "2026-08-11",
+    "count": 0,
+    "level": "NONE"
+   },
+   {
+    "date": "2026-08-12",
+    "count": 0,
+    "level": "NONE"
+   },
+   {
+    "date": "2026-08-13",
+    "count": 0,
+    "level": "NONE"
+   },
+   {
+    "date": "2026-08-14",
+    "count": 1,
+    "level": "FIRST_QUARTILE"
+   },
+   {
+    "date": "2026-08-15",
+    "count": 0,
+    "level": "NONE"
+   },
+   {
+    "date": "2026-08-16",
+    "count": 0,
+    "level": "NONE"
+   },
+   {
+    "date": "2026-08-17",
+    "count": 4,
+    "level": "FIRST_QUARTILE"
+   },
+   {
+    "date": "2026-08-18",
+    "count": 0,
+    "level": "NONE"
+   },
+   {
+    "date": "2026-08-19",
+    "count": 0,
+    "level": "NONE"
+   },
+   {
+    "date": "2026-08-20",
+    "count": 0,
+    "level": "NONE"
+   },
+   {
+    "date": "2026-08-21",
+    "count": 4,
+    "level": "FIRST_QUARTILE"
+   },
+   {
+    "date": "2026-08-22",
+    "count": 1,
+    "level": "FIRST_QUARTILE"
+   },
+   {
+    "date": "2026-08-23",
+    "count": 0,
+    "level": "NONE"
+   },
+   {
+    "date": "2026-08-24",
+    "count": 0,
+    "level": "NONE"
+   },
+   {
+    "date": "2026-08-25",
+    "count": 0,
+    "level": "NONE"
+   },
+   {
+    "date": "2026-08-26",
+    "count": 3,
+    "level": "FIRST_QUARTILE"
+   },
+   {
+    "date": "2026-08-27",
+    "count": 0,
+    "level": "NONE"
+   },
+   {
+    "date": "2026-08-28",
+    "count": 0,
+    "level": "NONE"
+   },
+   {
+    "date": "2026-08-29",
+    "count": 0,
+    "level": "NONE"
+   },
+   {
+    "date": "2026-08-30",
+    "count": 0,
+    "level": "NONE"
+   },
+   {
+    "date": "2026-08-31",
+    "count": 21,
+    "level": "SECOND_QUARTILE"
+   },
+   {
+    "date": "2026-09-01",
+    "count": 0,
+    "level": "NONE"
+   },
+   {
+    "date": "2026-09-02",
+    "count": 1,
+    "level": "FIRST_QUARTILE"
+   },
+   {
+    "date": "2026-09-03",
+    "count": 0,
+    "level": "NONE"
+   },
+   {
+    "date": "2026-09-04",
+    "count": 1,
+    "level": "FIRST_QUARTILE"
+   },
+   {
+    "date": "2026-09-05",
+    "count": 0,
+    "level": "NONE"
+   },
+   {
+    "date": "2026-09-06",
+    "count": 0,
+    "level": "NONE"
+   },
+   {
+    "date": "2026-09-07",
+    "count": 0,
+    "level": "NONE"
+   },
+   {
+    "date": "2026-09-08",
+    "count": 0,
+    "level": "NONE"
+   },
+   {
+    "date": "2026-09-09",
+    "count": 0,
+    "level": "NONE"
+   },
+   {
+    "date": "2026-09-10",
+    "count": 0,
+    "level": "NONE"
+   },
+   {
+    "date": "2026-09-11",
+    "count": 0,
+    "level": "NONE"
+   },
+   {
+    "date": "2026-09-12",
+    "count": 0,
+    "level": "NONE"
+   },
+   {
+    "date": "2026-09-13",
+    "count": 0,
+    "level": "NONE"
+   },
+   {
+    "date": "2026-09-14",
+    "count": 2,
+    "level": "FIRST_QUARTILE"
+   },
+   {
+    "date": "2026-09-15",
+    "count": 29,
+    "level": "THIRD_QUARTILE"
+   },
+   {
+    "date": "2026-09-16",
+    "count": 8,
+    "level": "FIRST_QUARTILE"
+   },
+   {
+    "date": "2026-09-17",
+    "count": 32,
+    "level": "THIRD_QUARTILE"
+   },
+   {
+    "date": "2026-09-18",
+    "count": 28,
+    "level": "THIRD_QUARTILE"
+   },
+   {
+    "date": "2026-09-19",
+    "count": 12,
+    "level": "SECOND_QUARTILE"
+   },
+   {
+    "date": "2026-09-20",
+    "count": 34,
+    "level": "THIRD_QUARTILE"
+   },
+   {
+    "date": "2026-09-21",
+    "count": 12,
+    "level": "SECOND_QUARTILE"
+   },
+   {
+    "date": "2026-09-22",
+    "count": 20,
+    "level": "SECOND_QUARTILE"
+   },
+   {
+    "date": "2026-09-23",
+    "count": 16,
+    "level": "SECOND_QUARTILE"
+   },
+   {
+    "date": "2026-09-24",
+    "count": 9,
+    "level": "FIRST_QUARTILE"
+   },
+   {
+    "date": "2026-09-25",
+    "count": 11,
+    "level": "FIRST_QUARTILE"
+   },
+   {
+    "date": "2026-09-26",
+    "count": 7,
+    "level": "FIRST_QUARTILE"
+   },
+   {
+    "date": "2026-09-27",
+    "count": 17,
+    "level": "SECOND_QUARTILE"
+   },
+   {
+    "date": "2026-09-28",
+    "count": 8,
+    "level": "FIRST_QUARTILE"
+   },
+   {
+    "date": "2026-09-29",
+    "count": 25,
+    "level": "THIRD_QUARTILE"
+   },
+   {
+    "date": "2026-09-30",
+    "count": 36,
+    "level": "FOURTH_QUARTILE"
+   },
+   {
+    "date": "2026-10-01",
+    "count": 4,
+    "level": "FIRST_QUARTILE"
+   },
+   {
+    "date": "2026-10-02",
+    "count": 23,
+    "level": "SECOND_QUARTILE"
+   },
+   {
+    "date": "2026-10-03",
+    "count": 38,
+    "level": "FOURTH_QUARTILE"
+   },
+   {
+    "date": "2026-10-04",
+    "count": 78,
+    "level": "FOURTH_QUARTILE"
+   },
+   {
+    "date": "2026-10-05",
+    "count": 18,
+    "level": "SECOND_QUARTILE"
+   },
+   {
+    "date": "2026-10-06",
+    "count": 1,
+    "level": "FIRST_QUARTILE"
+   },
+   {
+    "date": "2026-10-07",
+    "count": 0,
+    "level": "NONE"
+   },
+   {
+    "date": "2026-10-08",
+    "count": 0,
+    "level": "NONE"
+   },
+   {
+    "date": "2026-10-09",
+    "count": 4,
+    "level": "FIRST_QUARTILE"
+   },
+   {
+    "date": "2026-10-10",
+    "count": 4,
+    "level": "FIRST_QUARTILE"
+   },
+   {
+    "date": "2026-10-11",
+    "count": 20,
+    "level": "SECOND_QUARTILE"
+   },
+   {
+    "date": "2026-10-12",
+    "count": 3,
+    "level": "FIRST_QUARTILE"
+   },
+   {
+    "date": "2026-10-13",
+    "count": 0,
+    "level": "NONE"
+   },
+   {
+    "date": "2026-10-14",
+    "count": 56,
+    "level": "FOURTH_QUARTILE"
+   },
+   {
+    "date": "2026-10-15",
+    "count": 18,
+    "level": "SECOND_QUARTILE"
+   },
+   {
+    "date": "2026-10-16",
+    "count": 1,
+    "level": "FIRST_QUARTILE"
+   },
+   {
+    "date": "2026-10-17",
+    "count": 23,
+    "level": "SECOND_QUARTILE"
+   },
+   {
+    "date": "2026-10-18",
+    "count": 18,
+    "level": "SECOND_QUARTILE"
+   },
+   {
+    "date": "2026-10-19",
+    "count": 35,
+    "level": "FOURTH_QUARTILE"
+   },
+   {
+    "date": "2026-10-20",
+    "count": 3,
+    "level": "FIRST_QUARTILE"
+   },
+   {
+    "date": "2026-10-21",
+    "count": 17,
+    "level": "SECOND_QUARTILE"
+   },
+   {
+    "date": "2026-10-22",
+    "count": 1,
+    "level": "FIRST_QUARTILE"
+   },
+   {
+    "date": "2026-10-23",
+    "count": 4,
+    "level": "FIRST_QUARTILE"
+   },
+   {
+    "date": "2026-10-24",
+    "count": 2,
+    "level": "FIRST_QUARTILE"
+   },
+   {
+    "date": "2026-10-25",
+    "count": 0,
+    "level": "NONE"
+   },
+   {
+    "date": "2026-10-26",
+    "count": 1,
+    "level": "FIRST_QUARTILE"
+   },
+   {
+    "date": "2026-10-27",
+    "count": 0,
+    "level": "NONE"
+   },
+   {
+    "date": "2026-10-28",
+    "count": 0,
+    "level": "NONE"
+   },
+   {
+    "date": "2026-10-29",
+    "count": 1,
+    "level": "FIRST_QUARTILE"
+   }
+  ]
+ },
+ "wakapi": {
+  "totalSeconds": 6661357,
+  "since": "2025-10-25T02:41:46+04:00",
+  "languages": [
+   {
+    "name": "Javascript",
+    "seconds": 1031657
+   },
+   {
+    "name": "TSX",
+    "seconds": 889421
+   },
+   {
+    "name": "Unknown",
+    "seconds": 715180
+   },
+   {
+    "name": "Python",
+    "seconds": 701323
+   },
+   {
+    "name": "Typescript",
+    "seconds": 431033
+   },
+   {
+    "name": "CSS",
+    "seconds": 391055
+   },
+   {
+    "name": "Bash",
+    "seconds": 362810
+   },
+   {
+    "name": "Json",
+    "seconds": 300582
+   },
+   {
+    "name": "Markdown",
+    "seconds": 264672
+   },
+   {
+    "name": "Html",
+    "seconds": 221718
+   },
+   {
+    "name": "Go",
+    "seconds": 218652
+   },
+   {
+    "name": "JSX",
+    "seconds": 212776
+   },
+   {
+    "name": "Objective-c",
+    "seconds": 208467
+   },
+   {
+    "name": "Ruby",
+    "seconds": 103822
+   },
+   {
+    "name": "YAML",
+    "seconds": 102023
+   },
+   {
+    "name": "Rust",
+    "seconds": 95140
+   },
+   {
+    "name": "Text",
+    "seconds": 87391
+   },
+   {
+    "name": "Scala",
+    "seconds": 86228
+   },
+   {
+    "name": "PHP",
+    "seconds": 74508
+   },
+   {
+    "name": "TOML",
+    "seconds": 48413
+   },
+   {
+    "name": "Git config",
+    "seconds": 18037
+   },
+   {
+    "name": "C",
+    "seconds": 15046
+   },
+   {
+    "name": "Swift",
+    "seconds": 14552
+   },
+   {
+    "name": "C#",
+    "seconds": 11300
+   },
+   {
+    "name": "XML",
+    "seconds": 10289
+   },
+   {
+    "name": "Mql",
+    "seconds": 8227
+   },
+   {
+    "name": "Ssh config",
+    "seconds": 6907
+   },
+   {
+    "name": "Tsconfig",
+    "seconds": 6647
+   },
+   {
+    "name": "INI",
+    "seconds": 5935
+   },
+   {
+    "name": "C++",
+    "seconds": 4907
+   },
+   {
+    "name": "CSV",
+    "seconds": 4264
+   },
+   {
+    "name": "Batchfile",
+    "seconds": 3877
+   },
+   {
+    "name": "Smali",
+    "seconds": 971
+   },
+   {
+    "name": "Docker",
+    "seconds": 964
+   },
+   {
+    "name": "Makefile",
+    "seconds": 627
+   },
+   {
+    "name": "Java",
+    "seconds": 380
+   },
+   {
+    "name": "Diff",
+    "seconds": 336
+   },
+   {
+    "name": "SQL",
+    "seconds": 327
+   },
+   {
+    "name": "Image (svg)",
+    "seconds": 126
+   },
+   {
+    "name": "Pawn",
+    "seconds": 115
+   },
+   {
+    "name": "Git",
+    "seconds": 46
+   },
+   {
+    "name": "Apache config",
+    "seconds": 34
+   },
+   {
+    "name": "Nginx configuration file",
+    "seconds": 31
+   },
+   {
+    "name": "Protocol buffer",
+    "seconds": 1
+   },
+   {
+    "name": "Tex",
+    "seconds": 0
+   }
+  ],
+  "week": {
+   "note": "Snapshot of the last committed weekly card (summaries need WAKAPI_API_KEY).",
+   "days": [
+    {
+     "date": "2026-10-20",
+     "seconds": 12780,
+     "projects": [
+      {
+       "name": "omninexus.io",
+       "seconds": 8910
+      },
+      {
+       "name": "Other",
+       "seconds": 3870
+      }
+     ]
+    },
+    {
+     "date": "2026-10-21",
+     "seconds": 29160,
+     "projects": [
+      {
+       "name": "omninexus.io",
+       "seconds": 26562
+      },
+      {
+       "name": "Other",
+       "seconds": 2598
+      }
+     ]
+    },
+    {
+     "date": "2026-10-22",
+     "seconds": 8100,
+     "projects": [
+      {
+       "name": "omninexus.io",
+       "seconds": 7218
+      },
+      {
+       "name": "one-time-password",
+       "seconds": 882
+      }
+     ]
+    },
+    {
+     "date": "2026-10-23",
+     "seconds": 24420,
+     "projects": [
+      {
+       "name": "omninexus.io",
+       "seconds": 1206
+      },
+      {
+       "name": "one-time-password",
+       "seconds": 9732
+      },
+      {
+       "name": "littlesnitch",
+       "seconds": 6996
+      },
+      {
+       "name": "Other",
+       "seconds": 6498
+      }
+     ]
+    },
+    {
+     "date": "2026-10-24",
+     "seconds": 4860,
+     "projects": [
+      {
+       "name": "omninexus.io",
+       "seconds": 2946
+      },
+      {
+       "name": "littlesnitch",
+       "seconds": 1914
+      }
+     ]
+    },
+    {
+     "date": "2026-10-25",
+     "seconds": 14700,
+     "projects": [
+      {
+       "name": "omninexus.io",
+       "seconds": 708
+      },
+      {
+       "name": "Other",
+       "seconds": 13992
+      }
+     ]
+    },
+    {
+     "date": "2026-10-26",
+     "seconds": 0,
+     "projects": []
+    }
+   ],
+   "snapshot": true
+  },
+  "rank": {
+   "rank": 55,
+   "of": 100,
+   "seconds": 52355,
+   "dailyAverage": 6544,
+   "languages": [
+    {
+     "name": "Bash",
+     "seconds": 23812
+    },
+    {
+     "name": "Python",
+     "seconds": 16412
+    },
+    {
+     "name": "Objective-c",
+     "seconds": 8388
+    },
+    {
+     "name": "Json",
+     "seconds": 6851
+    },
+    {
+     "name": "Javascript",
+     "seconds": 6140
+    },
+    {
+     "name": "TOML",
+     "seconds": 4598
+    },
+    {
+     "name": "C",
+     "seconds": 4348
+    },
+    {
+     "name": "Markdown",
+     "seconds": 4118
+    },
+    {
+     "name": "Unknown",
+     "seconds": 2399
+    },
+    {
+     "name": "Typescript",
+     "seconds": 2295
+    },
+    {
+     "name": "Rust",
+     "seconds": 999
+    },
+    {
+     "name": "Mql",
+     "seconds": 909
+    },
+    {
+     "name": "TSX",
+     "seconds": 720
+    },
+    {
+     "name": "CSV",
+     "seconds": 409
+    },
+    {
+     "name": "Swift",
+     "seconds": 125
+    },
+    {
+     "name": "Text",
+     "seconds": 124
+    },
+    {
+     "name": "Pawn",
+     "seconds": 115
+    },
+    {
+     "name": "Makefile",
+     "seconds": 6
+    },
+    {
+     "name": "C++",
+     "seconds": 0
+    }
+   ],
+   "range": {
+    "start": "2026-10-22T10:08:34Z",
+    "end": "2026-10-29T10:08:34Z"
+   }
+  }
+ },
+ "stargazers": {
+  "total": 170,
+  "located": [
+   {
+    "lat": 20,
+    "lon": 78,
+    "cc": "IN",
+    "country": "India"
+   },
+   {
+    "lat": 30.2489634,
+    "lon": 120.2052342,
+    "cc": "CN",
+    "country": "China"
+   },
+   {
+    "lat": -2.4833826,
+    "lon": 117.8902853,
+    "cc": "ID",
+    "country": "Indonesia"
+   },
+   {
+    "lat": -34.6095579,
+    "lon": -58.3887904,
+    "cc": "AR",
+    "country": "Argentina"
+   },
+   {
+    "lat": 15.9266657,
+    "lon": 107.9650855,
+    "cc": "VN",
+    "country": "Vietnam"
+   },
+   {
+    "lat": 9.6000359,
+    "lon": 7.9999721,
+    "cc": "NG",
+    "country": "Nigeria"
+   },
+   {
+    "lat": 30.05518,
+    "lon": 107.8748712,
+    "cc": "CN",
+    "country": "China"
+   },
+   {
+    "lat": 22.5445741,
+    "lon": 114.0545429,
+    "cc": "CN",
+    "country": "China"
+   },
+   {
+    "lat": -2.4833826,
+    "lon": 117.8902853,
+    "cc": "ID",
+    "country": "Indonesia"
+   },
+   {
+    "lat": 59.437242,
+    "lon": 24.7572693,
+    "cc": "EE",
+    "country": "Estonia"
+   },
+   {
+    "lat": -19.5687682,
+    "lon": -40.1721991,
+    "cc": "BR",
+    "country": "Brazil"
+   },
+   {
+    "lat": 54.7023545,
+    "lon": -3.2765753,
+    "cc": "GB",
+    "country": "United Kingdom"
+   },
+   {
+    "lat": 28.0000272,
+    "lon": 2.9999825,
+    "cc": "DZ",
+    "country": "Algeria"
+   },
+   {
+    "lat": -10.3333333,
+    "lon": -53.2,
+    "cc": "BR",
+    "country": "Brazil"
+   },
+   {
+    "lat": 10.7737261,
+    "lon": 106.7166008,
+    "cc": "VN",
+    "country": "Vietnam"
+   },
+   {
+    "lat": 25.0375198,
+    "lon": 121.5636796,
+    "cc": "TW",
+    "country": "Taiwan"
+   },
+   {
+    "lat": 50.6281758,
+    "lon": -4.2403337,
+    "cc": "GB",
+    "country": "United Kingdom"
+   },
+   {
+    "lat": 53.4198891,
+    "lon": -7.9332454,
+    "cc": "IE",
+    "country": "Ireland"
+   },
+   {
+    "lat": 41.006381,
+    "lon": 28.9758715,
+    "cc": "TR",
+    "country": "Turkey"
+   },
+   {
+    "lat": 22.3511148,
+    "lon": 78.6677428,
+    "cc": "IN",
+    "country": "India"
+   },
+   {
+    "lat": 25.0742823,
+    "lon": 55.1885624,
+    "cc": "AE",
+    "country": "United Arab Emirates"
+   },
+   {
+    "lat": 22.3511148,
+    "lon": 78.6677428,
+    "cc": "IN",
+    "country": "India"
+   },
+   {
+    "lat": 48.8588897,
+    "lon": 2.320041,
+    "cc": "FR",
+    "country": "France"
+   },
+   {
+    "lat": 49.8879177,
+    "lon": -119.495902,
+    "cc": "CA",
+    "country": "Canada"
+   },
+   {
+    "lat": 52.666667,
+    "lon": -1,
+    "cc": "GB",
+    "country": "United Kingdom"
+   },
+   {
+    "lat": 39.7837304,
+    "lon": -100.445882,
+    "cc": "US",
+    "country": "United States"
+   },
+   {
+    "lat": -32.9593609,
+    "lon": -60.6617024,
+    "cc": "AR",
+    "country": "Argentina"
+   },
+   {
+    "lat": -31.9558967,
+    "lon": 115.8605784,
+    "cc": "AU",
+    "country": "Australia"
+   },
+   {
+    "lat": 51.7520131,
+    "lon": -1.2578499,
+    "cc": "GB",
+    "country": "United Kingdom"
+   },
+   {
+    "lat": 36.1563122,
+    "lon": -95.9927516,
+    "cc": "US",
+    "country": "United States"
+   },
+   {
+    "lat": 10.7737261,
+    "lon": 106.7166008,
+    "cc": "VN",
+    "country": "Vietnam"
+   },
+   {
+    "lat": 37.6171949,
+    "lon": -122.3810622,
+    "cc": "US",
+    "country": "United States"
+   },
+   {
+    "lat": 30.2489634,
+    "lon": 120.2052342,
+    "cc": "CN",
+    "country": "China"
+   },
+   {
+    "lat": 37.2333253,
+    "lon": -121.6846349,
+    "cc": "US",
+    "country": "United States"
+   },
+   {
+    "lat": 37.3228934,
+    "lon": -122.0322895,
+    "cc": "US",
+    "country": "United States"
+   },
+   {
+    "lat": 40.0757384,
+    "lon": -74.4041622,
+    "cc": "US",
+    "country": "United States"
+   },
+   {
+    "lat": 47.59397,
+    "lon": 14.12456,
+    "cc": "AT",
+    "country": "Austria"
+   },
+   {
+    "lat": -23.5506507,
+    "lon": -46.6333824,
+    "cc": "BR",
+    "country": "Brazil"
+   },
+   {
+    "lat": -23.5506507,
+    "lon": -46.6333824,
+    "cc": "BR",
+    "country": "Brazil"
+   },
+   {
+    "lat": 25.0375198,
+    "lon": 121.5636796,
+    "cc": "TW",
+    "country": "Taiwan"
+   },
+   {
+    "lat": 15.9266657,
+    "lon": 107.9650855,
+    "cc": "VN",
+    "country": "Vietnam"
+   },
+   {
+    "lat": 37.456,
+    "lon": 126.7052,
+    "cc": "KR",
+    "country": "South Korea"
+   },
+   {
+    "lat": -6.3140565,
+    "lon": 106.7704982,
+    "cc": "ID",
+    "country": "Indonesia"
+   },
+   {
+    "lat": 41.8755616,
+    "lon": -87.6244212,
+    "cc": "US",
+    "country": "United States"
+   },
+   {
+    "lat": 37.5139935,
+    "lon": 15.0626432,
+    "cc": "IT",
+    "country": "Italy"
+   },
+   {
+    "lat": 21.0283334,
+    "lon": 105.854041,
+    "cc": "VN",
+    "country": "Vietnam"
+   },
+   {
+    "lat": 34.5412252,
+    "lon": 108.9237067,
+    "cc": "CN",
+    "country": "China"
+   },
+   {
+    "lat": 40.0757384,
+    "lon": -74.4041622,
+    "cc": "US",
+    "country": "United States"
+   },
+   {
+    "lat": 11.3323723,
+    "lon": 78.6098639,
+    "cc": "IN",
+    "country": "India"
+   },
+   {
+    "lat": 34.1185808,
+    "lon": -118.3003729,
+    "cc": "US",
+    "country": "United States"
+   },
+   {
+    "lat": 31.331282,
+    "lon": 120.4290851,
+    "cc": "CN",
+    "country": "China"
+   },
+   {
+    "lat": 10.7737261,
+    "lon": 106.7166008,
+    "cc": "VN",
+    "country": "Vietnam"
+   },
+   {
+    "lat": 34.914934,
+    "lon": 134.860666,
+    "cc": "JP",
+    "country": "Japan"
+   },
+   {
+    "lat": 15.9266657,
+    "lon": 107.9650855,
+    "cc": "VN",
+    "country": "Vietnam"
+   },
+   {
+    "lat": 31.2312707,
+    "lon": 121.4700152,
+    "cc": "CN",
+    "country": "China"
+   },
+   {
+    "lat": 21.2094892,
+    "lon": 72.8317058,
+    "cc": "IN",
+    "country": "India"
+   },
+   {
+    "lat": 51.1638175,
+    "lon": 10.4478313,
+    "cc": "DE",
+    "country": "Germany"
+   },
+   {
+    "lat": 4.6533817,
+    "lon": -74.0836331,
+    "cc": "CO",
+    "country": "Colombia"
+   },
+   {
+    "lat": 25.7741566,
+    "lon": -80.1935973,
+    "cc": "US",
+    "country": "United States"
+   },
+   {
+    "lat": 22.3511148,
+    "lon": 78.6677428,
+    "cc": "IN",
+    "country": "India"
+   },
+   {
+    "lat": 36.8002068,
+    "lon": 10.1857757,
+    "cc": "TN",
+    "country": "Tunisia"
+   },
+   {
+    "lat": -37.8774066,
+    "lon": 144.7136172,
+    "cc": "AU",
+    "country": "Australia"
+   },
+   {
+    "lat": 14.8971921,
+    "lon": 100.83273,
+    "cc": "TH",
+    "country": "Thailand"
+   },
+   {
+    "lat": 50.1106444,
+    "lon": 8.6820917,
+    "cc": "DE",
+    "country": "Germany"
+   },
+   {
+    "lat": 15.8309251,
+    "lon": 78.0425373,
+    "cc": "IN",
+    "country": "India"
+   },
+   {
+    "lat": 21.0283334,
+    "lon": 105.854041,
+    "cc": "VN",
+    "country": "Vietnam"
+   },
+   {
+    "lat": 10.7737261,
+    "lon": 106.7166008,
+    "cc": "VN",
+    "country": "Vietnam"
+   },
+   {
+    "lat": 52.3730796,
+    "lon": 4.8924534,
+    "cc": "NL",
+    "country": "Netherlands"
+   },
+   {
+    "lat": 34.5412252,
+    "lon": 108.9237067,
+    "cc": "CN",
+    "country": "China"
+   },
+   {
+    "lat": 64.6863136,
+    "lon": 97.7453061,
+    "cc": "RU",
+    "country": "Russia"
+   },
+   {
+    "lat": 32.6475314,
+    "lon": 54.5643516,
+    "cc": "IR",
+    "country": "Iran"
+   }
+  ]
+ }
+}

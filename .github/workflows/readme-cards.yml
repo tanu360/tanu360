@@ -1,0 +1,54 @@
+name: Update README cards
+
+on:
+  schedule:
+    - cron: "0 0 * * *"
+  workflow_dispatch:
+
+concurrency:
+  group: readme-cards
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    defaults:
+      run:
+        working-directory: .github/cards
+    steps:
+      - uses: actions/checkout@v6
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: .github/cards/package-lock.json
+
+      # Only opentype.js; fonts, icons and the map grid are vendored in assets/.
+      - name: Install
+        run: npm ci --omit=dev
+
+      # Each source keeps its previous data in data.json if it fails, so the cards never blank.
+      - name: Fetch data
+        env:
+          GITHUB_TOKEN: ${{ secrets.README_STATS_TOKEN || github.token }}
+          WAKAPI_API_KEY: ${{ secrets.WAKAPI_API_KEY }}
+        run: node data.mjs
+
+      # Hero and Skills don't depend on data; rebuild them locally with `npm run static`.
+      - name: Render cards
+        run: |
+          node cards.mjs
+          node badges.mjs
+
+      - name: Commit cards
+        working-directory: .
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add profile/*.svg .github/cards/data.json .github/cards/geocache.json
+          git diff --cached --quiet && exit 0
+          git commit -m "chore: update README cards"
+          git push

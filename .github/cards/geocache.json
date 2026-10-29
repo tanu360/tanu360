@@ -1,0 +1,371 @@
+{
+ "algeria": {
+  "lat": 28.0000272,
+  "lon": 2.9999825,
+  "cc": "DZ",
+  "country": "Algeria"
+ },
+ "भारत ( india )": {
+  "lat": 20,
+  "lon": 78,
+  "cc": "IN",
+  "country": "India"
+ },
+ "china,hangzhou": {
+  "lat": 30.2489634,
+  "lon": 120.2052342,
+  "cc": "CN",
+  "country": "China"
+ },
+ "indonesia": {
+  "lat": -2.4833826,
+  "lon": 117.8902853,
+  "cc": "ID",
+  "country": "Indonesia"
+ },
+ "buenos aires": {
+  "lat": -34.6095579,
+  "lon": -58.3887904,
+  "cc": "AR",
+  "country": "Argentina"
+ },
+ "vietnam": {
+  "lat": 15.9266657,
+  "lon": 107.9650855,
+  "cc": "VN",
+  "country": "Vietnam"
+ },
+ "nigeria": {
+  "lat": 9.6000359,
+  "lon": 7.9999721,
+  "cc": "NG",
+  "country": "Nigeria"
+ },
+ "chongqing": {
+  "lat": 30.05518,
+  "lon": 107.8748712,
+  "cc": "CN",
+  "country": "China"
+ },
+ "shenzhen": {
+  "lat": 22.5445741,
+  "lon": 114.0545429,
+  "cc": "CN",
+  "country": "China"
+ },
+ "tallinn": {
+  "lat": 59.437242,
+  "lon": 24.7572693,
+  "cc": "EE",
+  "country": "Estonia"
+ },
+ "espirito santo, brazil": {
+  "lat": -19.5687682,
+  "lon": -40.1721991,
+  "cc": "BR",
+  "country": "Brazil"
+ },
+ "uk": {
+  "lat": 54.7023545,
+  "lon": -3.2765753,
+  "cc": "GB",
+  "country": "United Kingdom"
+ },
+ "brasil": {
+  "lat": -10.3333333,
+  "lon": -53.2,
+  "cc": "BR",
+  "country": "Brazil"
+ },
+ "ho chi minh city, vietnam": {
+  "lat": 10.7737261,
+  "lon": 106.7166008,
+  "cc": "VN",
+  "country": "Vietnam"
+ },
+ "taipei": {
+  "lat": 25.0375198,
+  "lon": 121.5636796,
+  "cc": "TW",
+  "country": "Taiwan"
+ },
+ "router": {
+  "lat": 50.6281758,
+  "lon": -4.2403337,
+  "cc": "GB",
+  "country": "United Kingdom"
+ },
+ "sky": {
+  "lat": 53.4198891,
+  "lon": -7.9332454,
+  "cc": "IE",
+  "country": "Ireland"
+ },
+ "i̇stanbul": {
+  "lat": 41.006381,
+  "lon": 28.9758715,
+  "cc": "TR",
+  "country": "Turkey"
+ },
+ "incheon,korea": {
+  "lat": 37.456,
+  "lon": 126.7052,
+  "cc": "KR",
+  "country": "South Korea"
+ },
+ "tanggerang selatan": {
+  "lat": -6.3140565,
+  "lon": 106.7704982,
+  "cc": "ID",
+  "country": "Indonesia"
+ },
+ "chicago, il": {
+  "lat": 41.8755616,
+  "lon": -87.6244212,
+  "cc": "US",
+  "country": "United States"
+ },
+ "localhost": {
+  "lat": 37.5139935,
+  "lon": 15.0626432,
+  "cc": "IT",
+  "country": "Italy"
+ },
+ "hanoi": {
+  "lat": 21.0283334,
+  "lon": 105.854041,
+  "cc": "VN",
+  "country": "Vietnam"
+ },
+ "tunisie": {
+  "lat": 36.8002068,
+  "lon": 10.1857757,
+  "cc": "TN",
+  "country": "Tunisia"
+ },
+ "united state": {
+  "lat": -37.8774066,
+  "lon": 144.7136172,
+  "cc": "AU",
+  "country": "Australia"
+ },
+ "thailand": {
+  "lat": 14.8971921,
+  "lon": 100.83273,
+  "cc": "TH",
+  "country": "Thailand"
+ },
+ "frankfurt, germany": {
+  "lat": 50.1106444,
+  "lon": 8.6820917,
+  "cc": "DE",
+  "country": "Germany"
+ },
+ "kurnool": {
+  "lat": 15.8309251,
+  "lon": 78.0425373,
+  "cc": "IN",
+  "country": "India"
+ },
+ "hanoi, vietnam": {
+  "lat": 21.0283334,
+  "lon": 105.854041,
+  "cc": "VN",
+  "country": "Vietnam"
+ },
+ "amsterdam": {
+  "lat": 52.3730796,
+  "lon": 4.8924534,
+  "cc": "NL",
+  "country": "Netherlands"
+ },
+ "india": {
+  "lat": 22.3511148,
+  "lon": 78.6677428,
+  "cc": "IN",
+  "country": "India"
+ },
+ "dubai": {
+  "lat": 25.0742823,
+  "lon": 55.1885624,
+  "cc": "AE",
+  "country": "United Arab Emirates"
+ },
+ "paris, france": {
+  "lat": 48.8588897,
+  "lon": 2.320041,
+  "cc": "FR",
+  "country": "France"
+ },
+ "kelowna, canada": {
+  "lat": 49.8879177,
+  "lon": -119.495902,
+  "cc": "CA",
+  "country": "Canada"
+ },
+ "leicestershire, england": {
+  "lat": 52.666667,
+  "lon": -1,
+  "cc": "GB",
+  "country": "United Kingdom"
+ },
+ "united states": {
+  "lat": 39.7837304,
+  "lon": -100.445882,
+  "cc": "US",
+  "country": "United States"
+ },
+ "rosario, argentina": {
+  "lat": -32.9593609,
+  "lon": -60.6617024,
+  "cc": "AR",
+  "country": "Argentina"
+ },
+ "perth": {
+  "lat": -31.9558967,
+  "lon": 115.8605784,
+  "cc": "AU",
+  "country": "Australia"
+ },
+ "oxford, uk": {
+  "lat": 51.7520131,
+  "lon": -1.2578499,
+  "cc": "GB",
+  "country": "United Kingdom"
+ },
+ "tulsa, oklahoma": {
+  "lat": 36.1563122,
+  "lon": -95.9927516,
+  "cc": "US",
+  "country": "United States"
+ },
+ "sf bay area, ca": {
+  "lat": 37.6171949,
+  "lon": -122.3810622,
+  "cc": "US",
+  "country": "United States"
+ },
+ "hangzhou, china": {
+  "lat": 30.2489634,
+  "lon": 120.2052342,
+  "cc": "CN",
+  "country": "China"
+ },
+ "santa clara, ca": {
+  "lat": 37.2333253,
+  "lon": -121.6846349,
+  "cc": "US",
+  "country": "United States"
+ },
+ "cupertino, ca, united states": {
+  "lat": 37.3228934,
+  "lon": -122.0322895,
+  "cc": "US",
+  "country": "United States"
+ },
+ "new jersey": {
+  "lat": 40.0757384,
+  "lon": -74.4041622,
+  "cc": "US",
+  "country": "United States"
+ },
+ "at": {
+  "lat": 47.59397,
+  "lon": 14.12456,
+  "cc": "AT",
+  "country": "Austria"
+ },
+ "são paulo, sp - brasil": {
+  "lat": -23.5506507,
+  "lon": -46.6333824,
+  "cc": "BR",
+  "country": "Brazil"
+ },
+ "brasil, são paulo": {
+  "lat": -23.5506507,
+  "lon": -46.6333824,
+  "cc": "BR",
+  "country": "Brazil"
+ },
+ "germany": {
+  "lat": 51.1638175,
+  "lon": 10.4478313,
+  "cc": "DE",
+  "country": "Germany"
+ },
+ "surat, gujarat": {
+  "lat": 21.2094892,
+  "lon": 72.8317058,
+  "cc": "IN",
+  "country": "India"
+ },
+ "bogotá - colombia": {
+  "lat": 4.6533817,
+  "lon": -74.0836331,
+  "cc": "CO",
+  "country": "Colombia"
+ },
+ "miami": {
+  "lat": 25.7741566,
+  "lon": -80.1935973,
+  "cc": "US",
+  "country": "United States"
+ },
+ "russia": {
+  "lat": 64.6863136,
+  "lon": 97.7453061,
+  "cc": "RU",
+  "country": "Russia"
+ },
+ "iran": {
+  "lat": 32.6475314,
+  "lon": 54.5643516,
+  "cc": "IR",
+  "country": "Iran"
+ },
+ "china": {
+  "lat": 34.5412252,
+  "lon": 108.9237067,
+  "cc": "CN",
+  "country": "China"
+ },
+ "tamil nadu, india": {
+  "lat": 11.3323723,
+  "lon": 78.6098639,
+  "cc": "IN",
+  "country": "India"
+ },
+ "solar system": {
+  "lat": 34.1185808,
+  "lon": -118.3003729,
+  "cc": "US",
+  "country": "United States"
+ },
+ "ho chi minh": {
+  "lat": 10.7737261,
+  "lon": 106.7166008,
+  "cc": "VN",
+  "country": "Vietnam"
+ },
+ "hyogo": {
+  "lat": 34.914934,
+  "lon": 134.860666,
+  "cc": "JP",
+  "country": "Japan"
+ },
+ "shanghai, china": {
+  "lat": 31.2312707,
+  "lon": 121.4700152,
+  "cc": "CN",
+  "country": "China"
+ },
+ "/etc/apt/sources.list": null,
+ "127.0.0.1": null,
+ "🍁": null,
+ "1 kerui rd, huqiu district, suzhou, jiangsu, china, 215009": {
+  "lat": 31.331282,
+  "lon": 120.4290851,
+  "cc": "CN",
+  "country": "China"
+ }
+}
