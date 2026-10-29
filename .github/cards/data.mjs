@@ -175,9 +175,10 @@ const allTime = await source('wakapi all-time', prev.wakapi && { totalSeconds: p
 const week = await source('wakapi week', prev.wakapi?.week, async () => {
   if (!auth) throw new Error('WAKAPI_API_KEY is not set');
   const summaries = await getJson(`${WAKAPI}/users/${WAKAPI_USER}/summaries?range=last_7_days`, auth);
+  // Wakapi repeats one value in range.date; range.start carries each day's own local date.
   return {
     days: summaries.data.slice(-7).map((d) => ({
-      date: (d.range?.date || d.range?.start).slice(0, 10),
+      date: (d.range?.start || d.range?.date).slice(0, 10),
       seconds: d.grand_total.total_seconds,
       projects: (d.projects || []).map((p) => ({ name: p.name, seconds: p.total_seconds })),
     })),
