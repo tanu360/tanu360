@@ -38,19 +38,12 @@ function meterUp(doc, { x, base, width, height, ratio, on }) {
 
 // A ranked row: name, value on the right, bar underneath.
 const ROW = 37;
-// Masked project names ("om••••io"): the real ends, then a blurred run of stand-in letters.
-// The hidden characters never reach the SVG, so taking the blur off reveals nothing.
-const FILLER = 'nxoaemruvsc';
+// Masked project names ("omni••••••"): the visible start in ink, the dots muted.
 function nameText(doc, name, x, y) {
-  const m = /^([^•]*)(•+)([^•]*)$/.exec(name);
+  const m = /^([^•]*)(•+)$/.exec(name);
   if (!m) return doc.text(name, { x, y, size: 13 });
-  let cx = x + doc.text(m[1], { x, y, size: 13 }) + 1;
-  doc.defs.set('blur', '<filter id="blur" x="-20%" y="-60%" width="140%" height="220%"><feGaussianBlur stdDeviation="2.4"/></filter>');
-  const start = doc.parts.length;
-  const filler = Array.from(m[2], (_, i) => FILLER[i % FILLER.length]).join('');
-  cx += doc.text(filler, { x: cx, y, size: 13 }) + 1;
-  doc.add(`<g filter="url(#blur)">${doc.parts.splice(start).join('')}</g>`);
-  return cx - x + doc.text(m[3], { x: cx, y, size: 13 });
+  const w = doc.text(m[1], { x, y, size: 13 });
+  return w + doc.text(m[2], { x: x + w + 1, y, size: 13, tracking: 0.04, fill: 'ink3' }) + 1;
 }
 
 function barRow(doc, { x, y, width, name, value, ratio }) {

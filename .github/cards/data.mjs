@@ -207,12 +207,15 @@ const coding = await eitherOf('coding total', prev.coding ?? { seconds: allTime.
 });
 
 // Day-by-day totals need an API key.
-// Project names are private: only the first and last characters and how many are hidden
-// are kept ("om••••••••io"). Applied to saved weeks too, so a real name never reaches data.json.
+// Project names are private: only the first 1–4 characters (more for longer names) survive,
+// the rest become dots, capped at 10 characters ("omni••••••"). Also applied to saved weeks,
+// so a real name never reaches data.json.
+const MASK_MAX = 10;
 function maskName(name) {
   if (typeof name !== 'string' || name === 'Other') return name;
-  const keep = name.length > 6 ? 2 : 1;
-  return `${name.slice(0, keep)}${'•'.repeat(Math.max(2, name.length - 2 * keep))}${name.slice(-keep)}`;
+  const len = name.length;
+  const keep = len <= 4 ? 1 : len <= 6 ? 2 : len <= 9 ? 3 : 4;
+  return name.slice(0, keep) + '•'.repeat(Math.max(2, Math.min(len, MASK_MAX) - keep));
 }
 const maskWeek = (w) => w && { ...w, days: w.days.map((d) => ({ ...d, projects: d.projects.map((pr) => ({ ...pr, name: maskName(pr.name) })) })) };
 
