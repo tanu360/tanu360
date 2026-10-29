@@ -73,8 +73,9 @@ const STICKERS = {
 const TILTS = [-2.5, 2, -2, 2.5];
 const BIO = 18;
 
-// Every few seconds each sticker flips over and swaps word: "make" becomes "break" and
-// "break" becomes "make", then back. Both faces share one slot, sized for the longer word.
+// Every few seconds the first line's stickers flip over and swap word: "make" becomes
+// "break" and "break" becomes "make", then back. Both faces share one slot, sized for the
+// longer word; the second line keeps the same slot size but never flips.
 const OTHER = { make: 'break', break: 'make' };
 const SWAP = 6; // seconds per make ⇄ break cycle
 const STICKER_CSS =
@@ -106,8 +107,8 @@ function stickerFace(doc, word, left, mid) {
 }
 
 // Draws a line of plain text and stickers. Stickers sit centred on the line's x-height,
-// tilted about their own centre; the flip cascades a little from one sticker to the next.
-function bioLine(doc, x, y, parts) {
+// tilted about their own centre. With `flip`, they swap words, cascading slightly.
+function bioLine(doc, x, y, parts, { flip = false } = {}) {
   let cx = x;
   for (const part of parts) {
     if (!STICKERS[part]) {
@@ -117,10 +118,10 @@ function bioLine(doc, x, y, parts) {
     const left = cx + 3;
     const mid = y - BIO * 0.27; // x-height centre of the surrounding text
     const n = (doc.stickerCount = (doc.stickerCount ?? -1) + 1);
-    doc.add(
-      `<g transform="rotate(${TILTS[n]} ${(left + stickerW / 2).toFixed(1)} ${mid.toFixed(1)})">` +
-        `<g class="stk" style="--d:${(n * 0.15).toFixed(2)}s"><g class="fa">${stickerFace(doc, part, left, mid)}</g><g class="fb">${stickerFace(doc, OTHER[part], left, mid)}</g></g></g>`,
-    );
+    const face = flip
+      ? `<g class="stk" style="--d:${(n * 0.15).toFixed(2)}s"><g class="fa">${stickerFace(doc, part, left, mid)}</g><g class="fb">${stickerFace(doc, OTHER[part], left, mid)}</g></g>`
+      : stickerFace(doc, part, left, mid);
+    doc.add(`<g transform="rotate(${TILTS[n]} ${(left + stickerW / 2).toFixed(1)} ${mid.toFixed(1)})">${face}</g>`);
     cx = left + stickerW + 3;
   }
 }
@@ -136,7 +137,7 @@ function render(theme) {
   // Bio with "make" and "break" as tilted stickers: green to build, red to break, identical in
   // both themes. Primer's emphasis fills for white text: bgColor-success-emphasis (light) and
   // bgColor-danger-emphasis (dark), the same red as the breakpoint hit.
-  bioLine(doc, PAD, 186, ['I ', 'make', ' things, ', 'break', ' things,']);
+  bioLine(doc, PAD, 186, ['I ', 'make', ' things, ', 'break', ' things,'], { flip: true });
   bioLine(doc, PAD, 218, ['and ', 'make', ' things that ', 'break', ' things.']);
   doc.text('Reverse engineering · AI systems · Developer tools', { x: PAD, y: 273, size: 12, fill: 'ink3' });
   doc.text('github.com/tanu360', { x: W - PAD, y: 273, size: 12, anchor: 'end', fill: 'ink3' });
