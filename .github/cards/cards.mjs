@@ -18,15 +18,7 @@ const levelOpacity = (doc, level) => LEVEL[level] || doc.t.empty;
 const LANG_NAMES = { Javascript: 'JavaScript', Typescript: 'TypeScript', Json: 'JSON', Html: 'HTML', Css: 'CSS', Yaml: 'YAML', 'Objective-c': 'Objective-C', Toml: 'TOML', Mql: 'MQL' };
 const langName = (name) => LANG_NAMES[name] ?? name;
 
-// A bar on its own track; a 2px surface gap separates the fill from the rest of the track.
-const BAR = 5;
 const BAR_GAP = 2;
-function meter(doc, { x, y, width, ratio, on = 0.92 }) {
-  const fill = ratio >= 1 ? width : ratio > 0 ? Math.min(width, Math.max(BAR, width * ratio)) : 0;
-  if (fill) doc.rect(x, y, fill, BAR, { opacity: on, rx: 1.5 });
-  const rest = fill ? fill + BAR_GAP : 0;
-  if (width - rest > 1) doc.rect(x + rest, y, width - rest, BAR, { opacity: doc.t.empty, rx: 1.5 });
-}
 
 // The same bar standing up, filled from the baseline.
 function meterUp(doc, { x, base, width, height, ratio, on }) {
@@ -36,20 +28,15 @@ function meterUp(doc, { x, base, width, height, ratio, on }) {
   if (height - rest > 1) doc.rect(x, base - height, width, height - rest, { opacity: doc.t.empty, rx: 1.5 });
 }
 
-// A ranked row: name, value on the right, bar underneath.
-const ROW = 37;
+// Ink opacities for ranked series (rings, composition bar, legends), strongest first.
+const SHADES = [1, 0.72, 0.52, 0.38, 0.27, 0.19, 0.13];
+
 // Masked project names ("omni••••••"): the visible start in ink, the dots muted.
 function nameText(doc, name, x, y) {
   const m = /^([^•]*)(•+)$/.exec(name);
   if (!m) return doc.text(name, { x, y, size: 13 });
   const w = doc.text(m[1], { x, y, size: 13 });
   return w + doc.text(m[2], { x: x + w + 1, y, size: 13, tracking: 0.04, fill: 'ink3' }) + 1;
-}
-
-function barRow(doc, { x, y, width, name, value, ratio }) {
-  nameText(doc, name, x, y);
-  doc.text(value, { x: x + width, y, size: 12.5, anchor: 'end', fill: 'ink2' });
-  meter(doc, { x, y: y + 9, width, ratio });
 }
 
 // ── GitHub: KPI row, contribution grid, stats strip ─────────────────────────
@@ -136,31 +123,74 @@ function github(theme) {
   );
 }
 
-// ── Languages: two ranked lists side by side ────────────────────────────────
+// ── Languages: what the code is made of, and where the hours go ─────────────
+// Left: one bar split by language share (a whole, so one bar) with a legend.
+// Right: a radar of hours per language (Bklit's radar chart), top six.
 function languages(theme) {
   const doc = new Doc(theme, FULL);
+  const t = doc.t;
   doc.header('LANGUAGES');
   const gap = 40;
   const colW = (FULL - 2 * PAD - gap) / 2;
-  const ROWS = 8;
-
-  const repo = data.repoLanguages.slice(0, ROWS).map((l) => ({ name: l.name, share: l.share, value: `${(l.share * 100).toFixed(1)}%` }));
-  const known = data.wakapi.languages.filter((l) => l.name.toLowerCase() !== 'unknown');
-  const time = known.slice(0, ROWS).map((l) => ({ name: langName(l.name), share: l.seconds, value: `${fmt(l.seconds / 3600)} hrs` }));
-
-  const listTop = 116;
-  const column = (x, title, sub, rows) => {
+  const heading = (x, title, sub) => {
     doc.text(title, { x, y: 62, size: 12.5, weight: 600, fill: 'ink2' });
     doc.text(sub, { x, y: 80, size: 11.5, fill: 'ink3' });
-    rows.forEach((row, i) => barRow(doc, { x, y: listTop + i * ROW, width: colW, name: row.name, value: row.value, ratio: row.share / rows[0].share }));
   };
-  column(PAD, 'Code in my repositories', 'share of bytes across owned repos', repo);
-  column(PAD + colW + gap, 'Time spent writing code', `all time on ${data.wakapi.source ?? 'Wakapi'}, ${fmt(data.wakapi.totalSeconds / 3600)} hrs total`, time);
+
+  // Composition bar: top six languages and the rest, separated by 2px gaps.
+  const top = data.repoLanguages.slice(0, 6);
+  const rest = 1 - top.reduce((sum, l) => sum + l.share, 0);
+  const parts = [...top, ...(rest > 0.001 ? [{ name: 'Other', share: rest }] : [])];
+  heading(PAD, 'Code in my repositories', 'share of bytes across owned repos');
+  const barY = 100;
+  let x = PAD;
+  const usable = colW - 2 * (parts.length - 1);
+  parts.forEach((l, i) => {
+    const w = Math.max(2, usable * l.share);
+    doc.rect(x, barY, w, 10, { opacity: SHADES[i], rx: 1.5 });
+    x += w + 2;
+  });
+  parts.forEach((l, i) => {
+    const y = 144 + i * 26;
+    doc.squares([[PAD, y - 9]], 9, SHADES[i]);
+    doc.text(l.name, { x: PAD + 17, y, size: 13 });
+    doc.text(`${(l.share * 100).toFixed(1)}%`, { x: PAD + colW, y, size: 12.5, anchor: 'end', fill: 'ink2' });
+  });
+
+  // Radar of hours: grid hexagons and spokes in hairlines, the shape in ink.
+  const rx0 = PAD + colW + gap;
+  heading(rx0, 'Time spent writing code', `all time on ${data.wakapi.source ?? 'Wakapi'}, ${fmt(data.wakapi.totalSeconds / 3600)} hrs total`);
+  const langs = data.wakapi.languages.filter((l) => l.name.toLowerCase() !== 'unknown').slice(0, 6);
+  const R = 82;
+  const cx = rx0 + colW / 2;
+  const cy = 216;
+  const max = langs[0].seconds;
+  const at = (i, radius) => {
+    const a = -Math.PI / 2 + (i * 2 * Math.PI) / langs.length;
+    return [cx + radius * Math.cos(a), cy + radius * Math.sin(a)];
+  };
+  const poly = (radius) => langs.map((_, i) => at(i, radius).map((v) => v.toFixed(1)).join(' ')).join(' ');
+  for (const f of [1 / 3, 2 / 3, 1]) doc.add(`<polygon points="${poly(R * f)}" fill="none" stroke="${t.rule}"/>`);
+  langs.forEach((_, i) => {
+    const [x1, y1] = at(i, R);
+    doc.add(`<path d="M${cx} ${cy}L${x1.toFixed(1)} ${y1.toFixed(1)}" stroke="${t.rule}"/>`);
+  });
+  const shape = langs.map((l, i) => at(i, R * Math.max(0.04, l.seconds / max)).map((v) => v.toFixed(1)).join(' ')).join(' ');
+  doc.add(`<polygon points="${shape}" fill="${t.ink}" fill-opacity="0.12" stroke="${t.ink}" stroke-width="1.5" stroke-linejoin="round"/>`);
+  langs.forEach((l, i) => {
+    const [px, py] = at(i, R * Math.max(0.04, l.seconds / max));
+    doc.add(`<circle cx="${px.toFixed(1)}" cy="${py.toFixed(1)}" r="2.6" fill="${t.ink}"/>`);
+    const [lx, ly] = at(i, R + 16);
+    const anchor = Math.abs(lx - cx) < 4 ? 'middle' : lx < cx ? 'end' : 'start';
+    const up = ly < cy - R * 0.5;
+    doc.text(langName(l.name), { x: lx, y: up ? ly - 8 : ly + 2, size: 12, weight: 600, anchor });
+    doc.text(`${fmt(l.seconds / 3600)} hrs`, { x: lx, y: up ? ly + 6 : ly + 16, size: 11, anchor, fill: 'ink3' });
+  });
 
   return doc.svg(
-    listTop + (ROWS - 1) * ROW + 22,
+    Math.max(144 + (parts.length - 1) * 26 + 16, cy + R + 44),
     'Languages',
-    `By code: ${repo.map((r) => `${r.name} ${r.value}`).join(', ')}. By coding time: ${time.map((r) => `${r.name} ${r.value}`).join(', ')}.`,
+    `By code: ${parts.map((l) => `${l.name} ${(l.share * 100).toFixed(1)}%`).join(', ')}. By coding time: ${langs.map((l) => `${langName(l.name)} ${fmt(l.seconds / 3600)} hrs`).join(', ')}.`,
   );
 }
 
@@ -191,19 +221,34 @@ function week(theme) {
     doc.text(day, { x: x + colW / 2, y: base + 18, size: 11, weight: isBest ? 600 : 500, anchor: 'middle', fill: isBest ? 'ink' : 'ink3' });
   });
 
-  // Projects across the week, "Other" always last.
+  // Projects as concentric rings (Bklit's ring chart): each ring is that project's share of
+  // the week, read clockwise from the top. "Other" is always last, innermost.
   const totals = new Map();
   for (const d of days) for (const p of d.projects) totals.set(p.name, (totals.get(p.name) || 0) + p.seconds);
   const projects = [...totals].sort((a, b) => (a[0] === 'Other') - (b[0] === 'Other') || b[1] - a[1]).slice(0, 4);
-  const maxProject = Math.max(...projects.map(([, sec]) => sec));
   const listTop = base + 46;
   doc.label('PROJECTS', PAD, listTop);
-  projects.forEach(([name, seconds], i) =>
-    barRow(doc, { x: PAD, y: listTop + 28 + i * ROW, width: HALF - 2 * PAD, name, value: duration(seconds), ratio: seconds / maxProject }),
-  );
+  const RING = { outer: 58, step: 13, width: 8 };
+  const cx = PAD + RING.outer + RING.width / 2;
+  const cy = listTop + 22 + RING.outer + RING.width / 2;
+  projects.forEach(([, seconds], i) => {
+    const r = RING.outer - i * RING.step;
+    const C = 2 * Math.PI * r;
+    const ring = `cx="${cx}" cy="${cy.toFixed(1)}" r="${r}" fill="none" stroke="${doc.t.ink}" stroke-width="${RING.width}"`;
+    doc.add(`<circle ${ring} stroke-opacity="${doc.t.empty}"/>`);
+    doc.add(`<circle ${ring} stroke-opacity="${SHADES[i]}" stroke-linecap="round" stroke-dasharray="${((C * seconds) / total).toFixed(2)} ${C.toFixed(2)}" transform="rotate(-90 ${cx} ${cy.toFixed(1)})"/>`);
+  });
+  const lx = cx + RING.outer + RING.width / 2 + 24;
+  projects.forEach(([name, seconds], i) => {
+    const y = cy - ((projects.length - 1) * 30) / 2 + i * 30 + 4;
+    doc.squares([[lx, y - 9]], 9, SHADES[i]);
+    nameText(doc, name, lx + 16, y);
+    const pct = doc.text(`${Math.round((seconds / total) * 100)}%`, { x: HALF - PAD, y, size: 12, anchor: 'end', fill: 'ink3' });
+    doc.text(duration(seconds), { x: HALF - PAD - pct - 8, y, size: 12.5, anchor: 'end', fill: 'ink2' });
+  });
 
   return doc.svg(
-    Math.max(listTop + 28 + (projects.length - 1) * ROW + 22, HALF_HEIGHT),
+    Math.max(cy + RING.outer + RING.width / 2 + 14, HALF_HEIGHT),
     'Coding this week',
     `${duration(total)} total, ${duration(total / days.length)} daily average. Best day ${best.date} with ${duration(best.seconds)}. Projects: ${projects.map(([n, sec]) => `${n} ${duration(sec)}`).join(', ')}.`,
   );
@@ -217,28 +262,46 @@ const TIERS = [
   { name: 'Diamond', min: 1, max: 10 },
 ];
 
+// Where a rank sits inside its tier, 0 at the tier's worst rank to 1 at its best.
+const tierPos = (t, rank) => (t.max === Infinity ? Math.max(0, Math.min(1, (1000 - rank) / (1000 - t.min))) : (t.max - rank) / (t.max - t.min));
+
 function rank(theme) {
   const doc = new Doc(theme, HALF);
+  const t = doc.t;
   const r = data.wakapi.rank;
   doc.header('LEADERBOARD', WAKATIME_URL);
-  const tierIndex = r ? TIERS.findIndex((t) => r.rank >= t.min && r.rank <= t.max) : -1;
+  const tierIndex = r ? TIERS.findIndex((x) => r.rank >= x.min && r.rank <= x.max) : -1;
   const tier = TIERS[tierIndex];
 
-  doc.label('WEEKLY RANK', PAD, 66);
-  doc.figure(r ? `#${r.rank}` : '—', null, PAD, 116);
-  doc.text(r ? `${tier.name} tier on ${r.source ?? 'wakapi.dev'} · ${tier.max === Infinity ? `ranks ${tier.min}+` : `ranks ${tier.min}–${tier.max}`}` : 'outside the public top 100', { x: PAD, y: 142, size: 12.5, fill: 'ink3' });
-
-  // Tier track, worst to best, filled up to the current rank.
-  const trackY = 172;
-  const bandGap = 4;
-  const bandW = (HALF - 2 * PAD - bandGap * (TIERS.length - 1)) / TIERS.length;
-  TIERS.forEach((t, i) => {
-    const x = PAD + i * (bandW + bandGap);
-    const progress = i < tierIndex ? 1 : i === tierIndex ? (t.max - r.rank) / (t.max - t.min) : 0;
-    meter(doc, { x, y: trackY, width: bandW, ratio: progress, on: i === tierIndex ? 1 : 0.45 });
-    doc.text(t.name, { x, y: trackY + 26, size: 11, weight: i === tierIndex ? 600 : 500, fill: i === tierIndex ? 'ink' : 'ink3' });
+  // Notched half-gauge (Bklit's gauge): Bronze on the left to Diamond on the right, one gap
+  // between tiers, notches filled up to the current rank.
+  const G = { cx: HALF / 2, cy: 214, r: 124, len: 15, per: 11 };
+  const slots = TIERS.length * G.per + TIERS.length - 1;
+  const progress = r ? (tierIndex + tierPos(tier, r.rank)) / TIERS.length : 0;
+  const filled = Math.round(progress * TIERS.length * G.per);
+  const angle = (slot) => Math.PI - ((slot + 0.5) * Math.PI) / slots;
+  const point = (a, radius) => [G.cx + radius * Math.cos(a), G.cy - radius * Math.sin(a)];
+  const on = [];
+  const off = [];
+  TIERS.forEach((x, ti) => {
+    for (let j = 0; j < G.per; j++) {
+      const a = angle(ti * (G.per + 1) + j);
+      const [x1, y1] = point(a, G.r - G.len);
+      const [x2, y2] = point(a, G.r);
+      (ti * G.per + j < filled ? on : off).push(`M${x1.toFixed(1)} ${y1.toFixed(1)}L${x2.toFixed(1)} ${y2.toFixed(1)}`);
+    }
+    const [lx, ly] = point(angle(ti * (G.per + 1) + (G.per - 1) / 2), G.r + 14);
+    const anchor = Math.abs(lx - G.cx) < 30 ? 'middle' : lx < G.cx ? 'end' : 'start';
+    doc.text(x.name, { x: lx, y: ly + 4, size: 11, weight: ti === tierIndex ? 600 : 500, anchor, fill: ti === tierIndex ? 'ink' : 'ink3' });
   });
+  const notch = (d, opacity) => d.length && doc.add(`<path d="${d.join('')}" stroke="${t.ink}" stroke-opacity="${opacity}" stroke-width="3.2" stroke-linecap="round"/>`);
+  notch(off, t.empty * 2);
+  notch(on, 1);
 
+  doc.text(r ? `#${r.rank}` : '—', { x: G.cx, y: G.cy - 26, size: 46, weight: FIGURE_WEIGHT, tracking: -0.03, anchor: 'middle' });
+  doc.text(r ? `${tier.name} tier on ${r.source ?? 'wakapi.dev'}` : 'outside the public top 100', { x: G.cx, y: G.cy - 2, size: 12, anchor: 'middle', fill: 'ink3' });
+
+  const statsTop = G.cy + 40;
   const stats = r
     ? [
         { label: 'RANKED TIME', value: duration(r.seconds) },
@@ -249,21 +312,26 @@ function rank(theme) {
   const colW = (HALF - 2 * PAD) / 3;
   stats.forEach((item, i) => {
     const x = PAD + i * colW;
-    doc.label(item.label, x, trackY + 78);
-    doc.text(item.value, { x: x - 1, y: trackY + 108, size: 24, weight: FIGURE_WEIGHT, tracking: -0.02 });
+    doc.label(item.label, x, statsTop);
+    doc.text(item.value, { x: x - 1, y: statsTop + 30, size: 24, weight: FIGURE_WEIGHT, tracking: -0.02 });
   });
 
-  const listTop = 330;
+  // This week's languages as a plain list: name, time, share.
+  const listTop = statsTop + 72;
   const langs = (r?.languages ?? []).filter((l) => l.name.toLowerCase() !== 'unknown').slice(0, 4);
+  const langTotal = (r?.languages ?? []).reduce((sum, l) => sum + l.seconds, 0) || 1;
   doc.label('LANGUAGES THIS WEEK', PAD, listTop);
-  langs.forEach((l, i) =>
-    barRow(doc, { x: PAD, y: listTop + 28 + i * ROW, width: HALF - 2 * PAD, name: langName(l.name), value: duration(l.seconds), ratio: l.seconds / langs[0].seconds }),
-  );
+  langs.forEach((l, i) => {
+    const y = listTop + 28 + i * 26;
+    doc.text(langName(l.name), { x: PAD, y, size: 13 });
+    const pct = doc.text(`${Math.round((l.seconds / langTotal) * 100)}%`, { x: HALF - PAD, y, size: 12, anchor: 'end', fill: 'ink3' });
+    doc.text(duration(l.seconds), { x: HALF - PAD - pct - 8, y, size: 12.5, anchor: 'end', fill: 'ink2' });
+  });
 
   return doc.svg(
-    Math.max(listTop + 28 + (langs.length - 1) * ROW + 22, HALF_HEIGHT),
+    Math.max(listTop + 28 + (langs.length - 1) * 26 + 14, HALF_HEIGHT),
     'Wakapi leaderboard',
-    r ? `Rank ${r.rank} on the wakapi.dev weekly leaderboard, ${tier.name} tier. ${duration(r.seconds)} ranked time, ${duration(r.dailyAverage)} daily average.` : 'Not in the public top 100 this week.',
+    r ? `Rank ${r.rank} on the ${r.source ?? 'wakapi.dev'} weekly leaderboard, ${tier.name} tier. ${duration(r.seconds)} ranked time, ${duration(r.dailyAverage)} daily average.` : 'Not in the public top 100 this week.',
   );
 }
 
@@ -341,20 +409,20 @@ function stargazers(theme) {
     doc.text(label, { x: PAD + 14, y: ly, size: 11, fill: 'ink3' });
   });
 
-  // Top countries as two ranked columns.
+  // Top countries as tiles: the map already shows where, so no bars.
   const listRule = mapBottom + 14;
-  doc.label('TOP COUNTRIES', PAD, listRule + 30);
-  const gap = 40;
-  const listW = (FULL - 2 * PAD - gap) / 2;
   const top = countries.slice(0, 8);
+  const tileW = (FULL - 2 * PAD) / 4;
   top.forEach((c, i) => {
-    const x = PAD + Math.floor(i / 4) * (listW + gap);
-    const y = listRule + 58 + (i % 4) * ROW;
-    barRow(doc, { x, y, width: listW, name: c.name, value: `${c.count} · ${Math.round((c.count / located.length) * 100)}%`, ratio: c.count / top[0].count });
+    const x = PAD + (i % 4) * tileW;
+    const y = listRule + 30 + Math.floor(i / 4) * 78;
+    doc.label(c.name.toUpperCase(), x, y);
+    doc.text(fmt(c.count), { x: x - 1, y: y + 30, size: 24, weight: FIGURE_WEIGHT, tracking: -0.02 });
+    doc.text(`${Math.round((c.count / located.length) * 100)}% of located`, { x, y: y + 48, size: 11.5, fill: 'ink3' });
   });
 
   // Credit the geocoder with its mark: "Locations from GitHub profiles · [logo] OpenStreetMap".
-  const creditY = listRule + 58 + 3 * ROW + 40;
+  const creditY = listRule + 30 + 78 + 76;
   const osm = ICONS.openstreetmap.d[0];
   const osmW = doc.text('OpenStreetMap', { x: FULL - PAD, y: creditY, size: 11.5, anchor: 'end', fill: 'ink3' });
   const osmX = FULL - PAD - osmW - 6 - 12;
