@@ -72,4 +72,4 @@ I'm open to serious collaboration around **security consulting**, **software pro
   <a href="https://wakatime.com/@tanu1337"><picture><source media="(prefers-color-scheme: dark)" srcset="./profile/connect-wakatime-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="./profile/connect-wakatime-light.svg" /><img height="28" src="./profile/connect-wakatime-dark.svg" alt="WakaTime: @tanu1337" /></picture></a>
 </p>
 
-<p align="center"><picture><source media="(prefers-color-scheme: dark)" srcset="./profile/updated-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="./profile/updated-light.svg" /><img height="18" src="./profile/updated-dark.svg" alt="Cards refresh daily" /></picture></p>
+<p align="center"><picture><source media="(prefers-color-scheme: dark)" srcset="./profile/updated-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="./profile/updated-light.svg" /><img height="18" src="./profile/updated-dark.svg" alt="Last updated" /></picture></p>

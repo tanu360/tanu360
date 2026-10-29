@@ -75,12 +75,15 @@ for (const b of CONNECT) {
 }
 // ── Footer: when the cards last refreshed, said once instead of on every card ──
 {
-  const text = `Cards refresh daily · updated ${fullDate(data.generatedAt)}`;
-  const W = Math.ceil(measure(text, 11.5, 500).width) + 2;
+  const date = fullDate(data.generatedAt);
+  const W = Math.ceil(measure('Updated', 11.5, 500).width + measure(' · ', 11.5, 500).width + measure(date, 11.5, 500).width) + 2;
   for (const theme of Object.keys(THEMES)) {
     const doc = new Doc(theme, W);
-    doc.text(text, { x: 1, y: 13, size: 11.5, fill: 'ink3' });
-    write(`updated-${theme}.svg`, doc.svg(18, text, text));
+    let x = 1;
+    x += doc.text('Updated', { x, y: 13, size: 11.5, fill: 'ink2' });
+    x += doc.text(' · ', { x, y: 13, size: 11.5, fill: 'ink3' });
+    doc.text(date, { x, y: 13, size: 11.5, fill: 'ink3' });
+    write(`updated-${theme}.svg`, doc.svg(18, `Updated ${date}`, `Cards last updated ${date}`));
   }
 }
 
