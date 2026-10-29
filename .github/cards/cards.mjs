@@ -40,11 +40,15 @@ function nameText(doc, name, x, y) {
 }
 
 // ── GitHub: KPI row, contribution grid, stats strip ─────────────────────────
-function github(theme) {
-  const doc = new Doc(theme, FULL);
+// At phone width (W = HALF) the tiles and the strip wrap onto more rows; the grid keeps all
+// 52 weeks with tighter gaps.
+function github(theme, W = FULL) {
+  const narrow = W < FULL;
+  const doc = new Doc(theme, W);
   const c = data.contributions;
   const s = data.stats;
-  doc.header('GitHub', `github.com/${data.login}`);
+  // "Overview", not "GitHub": the section heading above already says GitHub.
+  doc.header('Overview', `github.com/${data.login}`);
 
   const tiles = [
     { label: 'CONTRIBUTIONS', value: fmt(c.allTime), sub: `since ${monthYear(c.since)}` },
@@ -52,25 +56,29 @@ function github(theme) {
     { label: 'LONGEST STREAK', value: fmt(c.longest.days), unit: plural(c.longest.days, 'day'), sub: `${monthYear(c.longest.start)} – ${monthYear(c.longest.end)}` },
     { label: 'GRADE', value: s.grade, sub: `top ${Math.round(s.percentile)}% by readme-stats` },
   ];
-  const colW = (FULL - 2 * PAD) / tiles.length;
+  const cols = narrow ? 2 : 4;
+  const colW = (W - 2 * PAD) / cols;
+  const ROW = 112;
   tiles.forEach((tile, i) => {
-    const x = PAD + i * colW;
-    doc.label(tile.label, x, 66);
-    doc.figure(tile.value, tile.unit, x, 116);
-    doc.text(tile.sub, { x, y: 142, size: 12.5, fill: 'ink3' });
+    const x = PAD + (i % cols) * colW;
+    const dy = Math.floor(i / cols) * ROW;
+    doc.label(tile.label, x, 66 + dy);
+    doc.figure(tile.value, tile.unit, x, 116 + dy);
+    doc.text(tile.sub, { x, y: 142 + dy, size: 12.5, fill: 'ink3' });
   });
 
   // Contribution grid, GitHub-style squares.
-  const top = 188;
+  const top = 188 + (Math.ceil(tiles.length / cols) - 1) * ROW;
   const weeks = Math.ceil(c.calendar.length / 7);
-  const pitch = (FULL - 2 * PAD) / weeks;
-  const size = pitch - 3;
+  const pitch = (W - 2 * PAD) / weeks;
+  const gap = narrow ? 1.6 : 3;
+  const size = pitch - gap;
   const lx = doc.text('Last 12 months', { x: PAD, y: top, size: 12.5, weight: 600, fill: 'ink2' });
   doc.text(`${fmt(c.lastYear)} contributions`, { x: PAD + lx + 10, y: top, size: 12.5, fill: 'ink3' });
 
   const legend = Object.keys(LEVEL);
-  const more = doc.text('More', { x: FULL - PAD, y: top, size: 11.5, anchor: 'end', fill: 'ink3' });
-  const legendX = FULL - PAD - more - 8 - legend.length * 14;
+  const more = doc.text('More', { x: W - PAD, y: top, size: 11.5, anchor: 'end', fill: 'ink3' });
+  const legendX = W - PAD - more - 8 - legend.length * 14;
   legend.forEach((level, i) => doc.squares([[legendX + i * 14, top - 10]], 11, levelOpacity(doc, level)));
   doc.text('Less', { x: legendX - 6, y: top, size: 11.5, anchor: 'end', fill: 'ink3' });
 
@@ -79,7 +87,7 @@ function github(theme) {
   c.calendar.forEach((d, i) => {
     const op = levelOpacity(doc, d.level);
     if (!byLevel.has(op)) byLevel.set(op, []);
-    byLevel.get(op).push([PAD + Math.floor(i / 7) * pitch + 1.5, gridTop + (i % 7) * pitch + 1.5]);
+    byLevel.get(op).push([PAD + Math.floor(i / 7) * pitch + gap / 2, gridTop + (i % 7) * pitch + gap / 2]);
   });
   for (const [op, cells] of byLevel) doc.squares(cells, size, op);
 
@@ -93,7 +101,7 @@ function github(theme) {
   }
   if (starts.length > 1 && starts[1].col - starts[0].col < 3) starts.shift();
   for (const { col, date } of starts) {
-    if (col <= weeks - 2) doc.text(monthShort(date), { x: PAD + col * pitch + 1.5, y: gridBottom + 16, size: 10.5, fill: 'ink3' });
+    if (col <= weeks - 2) doc.text(monthShort(date), { x: PAD + col * pitch + gap / 2, y: gridBottom + 16, size: 10.5, fill: 'ink3' });
   }
 
   // Stats strip: label, figure, caption — same rhythm as the tiles above.
@@ -106,17 +114,20 @@ function github(theme) {
     { label: 'CONTRIBUTED TO', value: fmt(s.contributedTo), unit: plural(s.contributedTo, 'repo'), sub: 'last 12 months' },
     { label: 'FOLLOWERS', value: fmt(s.followers), sub: 'on GitHub' },
   ];
-  const stripW = (FULL - 2 * PAD) / strip.length;
+  const stripCols = narrow ? 3 : 6;
+  const stripW = (W - 2 * PAD) / stripCols;
+  const STRIP_ROW = 86;
   strip.forEach((item, i) => {
-    const x = PAD + i * stripW;
-    doc.label(item.label, x, stripRule + 30);
-    const w = doc.text(item.value, { x: x - 1, y: stripRule + 60, size: 24, weight: FIGURE_WEIGHT, tracking: -0.02 });
-    if (item.unit) doc.text(item.unit, { x: x + w + 5, y: stripRule + 60, size: 13, fill: 'ink3' });
-    doc.text(item.sub, { x, y: stripRule + 80, size: 11.5, fill: 'ink3' });
+    const x = PAD + (i % stripCols) * stripW;
+    const y = stripRule + Math.floor(i / stripCols) * STRIP_ROW;
+    doc.label(item.label, x, y + 30);
+    const w = doc.text(item.value, { x: x - 1, y: y + 60, size: 24, weight: FIGURE_WEIGHT, tracking: -0.02 });
+    if (item.unit) doc.text(item.unit, { x: x + w + 5, y: y + 60, size: 13, fill: 'ink3' });
+    doc.text(item.sub, { x, y: y + 80, size: 11.5, fill: 'ink3' });
   });
 
   return doc.svg(
-    stripRule + 92,
+    stripRule + 92 + (Math.ceil(strip.length / stripCols) - 1) * STRIP_ROW,
     `GitHub stats for ${data.login}`,
     `${fmt(c.allTime)} contributions since ${monthYear(c.since)}; current streak ${c.current.days} days; longest streak ${c.longest.days} days; grade ${s.grade}. ` +
       `${fmt(c.lastYear)} contributions in the last 12 months. ${fmt(s.stars)} stars, ${fmt(s.commits)} commits in the last 12 months, ${s.prs} pull requests, ${s.issues} issues, contributed to ${s.contributedTo} repos, ${s.followers} followers.`,
@@ -329,8 +340,9 @@ function rank(theme) {
 }
 
 // ── Stargazers: Equal Earth square-grid map ─────────────────────────────────
-function stargazers(theme) {
-  const doc = new Doc(theme, FULL);
+function stargazers(theme, W = FULL) {
+  const narrow = W < FULL;
+  const doc = new Doc(theme, W);
   const t = doc.t;
   const { total, located } = data.stargazers;
   const byCountry = new Map();
@@ -340,7 +352,8 @@ function stargazers(theme) {
     byCountry.set(s.cc, entry);
   }
   const countries = [...byCountry.values()].sort((a, b) => b.count - a.count);
-  doc.header('Stargazers', `${fmt(total)} people · ${countries.length} countries`);
+  // No meta line: the tiles right under it give the same counts.
+  doc.header('Stargazers');
 
   const topRepo = data.repos[0];
   const tiles = [
@@ -349,19 +362,22 @@ function stargazers(theme) {
     { label: 'LOCATED', value: `${Math.round((located.length / total) * 100)}%`, sub: `${located.length} of ${total} list a location` },
     { label: 'MOST STARRED', value: fmt(topRepo.stars), unit: 'stars', sub: topRepo.name },
   ];
-  const colW = (FULL - 2 * PAD) / tiles.length;
+  const cols = narrow ? 2 : 4;
+  const colW = (W - 2 * PAD) / cols;
+  const ROW = 96;
   tiles.forEach((tile, i) => {
-    const x = PAD + i * colW;
-    doc.label(tile.label, x, 66);
-    doc.figure(tile.value, tile.unit, x, 104, 32);
-    doc.text(tile.sub, { x, y: 126, size: 12, fill: 'ink3' });
+    const x = PAD + (i % cols) * colW;
+    const dy = Math.floor(i / cols) * ROW;
+    doc.label(tile.label, x, 66 + dy);
+    doc.figure(tile.value, tile.unit, x, 104 + dy, 32);
+    doc.text(tile.sub, { x, y: 126 + dy, size: 12, fill: 'ink3' });
   });
 
   // Map grid (India's official worldview, so all of Jammu & Kashmir is India): land is faint,
   // stargazer countries are shaded by count, and the people themselves are solid.
-  const mapTop = 160;
-  const pitch = (FULL - 2 * PAD) / world.cols;
-  const size = pitch - 1.6;
+  const mapTop = 160 + (Math.ceil(tiles.length / cols) - 1) * ROW;
+  const pitch = (W - 2 * PAD) / world.cols;
+  const size = pitch - (narrow ? 0.9 : 1.6);
   const cellOf = (lat, lon) => [
     Math.min(world.cols - 1, Math.max(0, Math.floor(((lon + 180) / 360) * world.cols))),
     Math.min(world.rows - 1, Math.max(0, Math.floor(((world.latTop - lat) / (world.latTop - world.latBottom)) * world.rows))),
@@ -377,8 +393,8 @@ function stargazers(theme) {
   // Squares batched per opacity into single paths to keep the file small.
   const layers = new Map();
   const square = (col, row, opacity) => {
-    const x = PAD + col * pitch + 0.8;
-    const y = mapTop + row * pitch + 0.8;
+    const x = PAD + col * pitch + (pitch - size) / 2;
+    const y = mapTop + row * pitch + (pitch - size) / 2;
     const key = opacity.toFixed(2);
     if (!layers.has(key)) layers.set(key, []);
     layers.get(key).push(`M${x.toFixed(1)} ${y.toFixed(1)}h${size.toFixed(1)}v${size.toFixed(1)}h-${size.toFixed(1)}z`);
@@ -394,21 +410,25 @@ function stargazers(theme) {
   }
   for (const [opacity, cmds] of layers) doc.add(`<path fill="${t.ink}" fill-opacity="${opacity}" d="${cmds.join('')}"/>`);
 
-  // Legend stacked in the empty South Pacific corner.
+  // Legend stacked in the empty South Pacific corner; on a phone the map is too small for
+  // that, so it runs in one line under the map.
   const mapBottom = mapTop + world.rows * pitch;
+  let lx = PAD;
   [['Stargazer', 1], ['Their country', 0.36], ['Land', landOpacity]].forEach(([label, op], i) => {
-    const ly = mapBottom - 44 + i * 18;
-    doc.add(`<rect x="${PAD}" y="${ly - 8}" width="8" height="8" fill="${t.ink}" fill-opacity="${op}"/>`);
-    doc.text(label, { x: PAD + 14, y: ly, size: 11, fill: 'ink3' });
+    const ly = narrow ? mapBottom + 20 : mapBottom - 44 + i * 18;
+    doc.add(`<rect x="${lx}" y="${ly - 8}" width="8" height="8" fill="${t.ink}" fill-opacity="${op}"/>`);
+    const w = doc.text(label, { x: lx + 14, y: ly, size: 11, fill: 'ink3' });
+    if (narrow) lx += 14 + w + 18;
   });
 
   // Top countries as tiles: the map already shows where, so no bars.
-  const listRule = mapBottom + 14;
-  const top = countries.slice(0, 8);
-  const tileW = (FULL - 2 * PAD) / 4;
+  const listRule = mapBottom + (narrow ? 34 : 14);
+  const perRow = narrow ? 3 : 4;
+  const top = countries.slice(0, perRow * 2);
+  const tileW = (W - 2 * PAD) / perRow;
   top.forEach((c, i) => {
-    const x = PAD + (i % 4) * tileW;
-    const y = listRule + 30 + Math.floor(i / 4) * 78;
+    const x = PAD + (i % perRow) * tileW;
+    const y = listRule + 30 + Math.floor(i / perRow) * 78;
     doc.label(c.name.toUpperCase(), x, y);
     doc.text(fmt(c.count), { x: x - 1, y: y + 30, size: 24, weight: FIGURE_WEIGHT, tracking: -0.02 });
     doc.text(`${Math.round((c.count / located.length) * 100)}% of located`, { x, y: y + 48, size: 11.5, fill: 'ink3' });
@@ -417,8 +437,8 @@ function stargazers(theme) {
   // Credit the geocoder with its mark: "Locations from GitHub profiles · [logo] OpenStreetMap".
   const creditY = listRule + 30 + 78 + 76;
   const osm = ICONS.openstreetmap.d[0];
-  const osmW = doc.text('OpenStreetMap', { x: FULL - PAD, y: creditY, size: 11.5, anchor: 'end', fill: 'ink3' });
-  const osmX = FULL - PAD - osmW - 6 - 12;
+  const osmW = doc.text('OpenStreetMap', { x: W - PAD, y: creditY, size: 11.5, anchor: 'end', fill: 'ink3' });
+  const osmX = W - PAD - osmW - 6 - 12;
   doc.add(`<g transform="translate(${osmX.toFixed(2)} ${creditY - 9.5}) scale(0.5)" fill="${t.ink3}"><path d="${osm}"/></g>`);
   doc.text('Locations from GitHub profiles ·', { x: osmX - 6, y: creditY, size: 11.5, anchor: 'end', fill: 'ink3' });
 
@@ -452,8 +472,10 @@ function smoothPath(pts) {
   return d;
 }
 
-function activity(theme) {
-  const doc = new Doc(theme, FULL);
+// At phone width the three supporting stats drop under the headline number.
+function activity(theme, W = FULL) {
+  const narrow = W < FULL;
+  const doc = new Doc(theme, W);
   const t = doc.t;
   const cal = data.contributions.calendar;
   const days = cal.slice(-DAYS);
@@ -467,7 +489,7 @@ function activity(theme) {
 
   // Headline number with its change inline, then three supporting stats on the same baseline.
   doc.label('CONTRIBUTIONS', PAD, 66);
-  const w = doc.text(fmt(total), { x: PAD - 2, y: 116, size: 46, weight: FIGURE_WEIGHT, tracking: -0.03 });
+  const w = doc.text(fmt(total), { x: PAD - 2, y: 116, size: 44, weight: FIGURE_WEIGHT, tracking: -0.03 });
   if (change !== null) {
     const delta = change === 0 ? '0%' : `${change > 0 ? '↑' : '↓'} ${Math.abs(change)}%`;
     // Direction is the one place a card uses colour: green when up, red when down.
@@ -480,31 +502,32 @@ function activity(theme) {
     { label: 'BUSIEST DAY', value: fmt(peak.count), sub: weekdayDate(peak.date) },
     { label: 'ACTIVE DAYS', value: String(active), unit: `of ${DAYS}`, sub: `${DAYS - active} quiet ${plural(DAYS - active, 'day')}` },
   ];
-  const sideX = PAD + 330;
-  const sideW = (FULL - PAD - sideX) / side.length;
+  const sideX = narrow ? PAD : PAD + 330;
+  const sideY = narrow ? 114 : 0;
+  const sideW = (W - PAD - sideX) / side.length;
   side.forEach((item, i) => {
     const x = sideX + i * sideW;
-    doc.label(item.label, x, 66);
-    const vw = doc.text(item.value, { x: x - 1, y: 116, size: 32, weight: FIGURE_WEIGHT, tracking: -0.03 });
-    if (item.unit) doc.text(item.unit, { x: x + vw + 5, y: 116, size: 13, fill: 'ink3' });
-    doc.text(item.sub, { x, y: 142, size: 12, fill: 'ink3' });
+    doc.label(item.label, x, 66 + sideY);
+    const vw = doc.text(item.value, { x: x - 1, y: 116 + sideY, size: 32, weight: FIGURE_WEIGHT, tracking: -0.03 });
+    if (item.unit) doc.text(item.unit, { x: x + vw + 5, y: 116 + sideY, size: 13, fill: 'ink3' });
+    doc.text(item.sub, { x, y: 142 + sideY, size: 12, fill: 'ink3' });
   });
 
   // Chart: dashed recessive grid, gradient area, a 2px line, faded in at the left edge.
   const left = PAD;
-  const right = FULL - PAD - 8;
-  const top = 196;
-  const base = 362;
+  const right = W - PAD - 8;
+  const top = 196 + sideY;
+  const base = (narrow ? 340 : 362) + sideY;
   const max = Math.max(peak.count, 1) * 1.12;
   for (let k = 0; k <= 4; k++) {
     const y = base - (k / 4) * (base - top);
-    doc.add(`<line x1="${left}" x2="${FULL - PAD}" y1="${y.toFixed(1)}" y2="${y.toFixed(1)}" stroke="${t.ink}" stroke-opacity="${k ? 0.1 : 0.16}" stroke-dasharray="${k ? '3 5' : '0'}"/>`);
+    doc.add(`<line x1="${left}" x2="${W - PAD}" y1="${y.toFixed(1)}" y2="${y.toFixed(1)}" stroke="${t.ink}" stroke-opacity="${k ? 0.1 : 0.16}" stroke-dasharray="${k ? '3 5' : '0'}"/>`);
   }
 
   const pts = days.map((d, i) => [left + (i * (right - left)) / (DAYS - 1), base - (d.count / max) * (base - top)]);
   const line = smoothPath(pts);
   doc.defs.set('area', `<linearGradient id="area" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="${t.ink}" stop-opacity="0.22"/><stop offset="0.6" stop-color="${t.ink}" stop-opacity="0.06"/><stop offset="1" stop-color="${t.ink}" stop-opacity="0"/></linearGradient>`);
-  doc.defs.set('fade', `<linearGradient id="fadeX" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#fff" stop-opacity="0.15"/><stop offset="0.12" stop-color="#fff"/><stop offset="1" stop-color="#fff"/></linearGradient><mask id="fade" maskUnits="userSpaceOnUse" x="0" y="0" width="${FULL}" height="${base + 10}"><rect x="0" y="0" width="${FULL}" height="${base + 10}" fill="url(#fadeX)"/></mask>`);
+  doc.defs.set('fade', `<linearGradient id="fadeX" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#fff" stop-opacity="0.15"/><stop offset="0.12" stop-color="#fff"/><stop offset="1" stop-color="#fff"/></linearGradient><mask id="fade" maskUnits="userSpaceOnUse" x="0" y="0" width="${W}" height="${base + 10}"><rect x="0" y="0" width="${W}" height="${base + 10}" fill="url(#fadeX)"/></mask>`);
   doc.add(`<g mask="url(#fade)"><path d="${line}L${right} ${base}L${left} ${base}Z" fill="url(#area)"/><path d="${line}" fill="none" stroke="${t.ink}" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/></g>`);
 
   // Peak gets a value; today gets a dot with a soft halo.
@@ -518,7 +541,7 @@ function activity(theme) {
   days.forEach((d, i) => {
     if ((DAYS - 1 - i) % 7) return;
     const anchor = i === DAYS - 1 ? 'end' : i === 0 ? 'start' : 'middle';
-    doc.text(i === DAYS - 1 ? 'Today' : dayMonth(d.date), { x: i === DAYS - 1 ? FULL - PAD : pts[i][0], y: base + 22, size: 11, anchor, fill: 'ink3' });
+    doc.text(i === DAYS - 1 ? 'Today' : dayMonth(d.date), { x: i === DAYS - 1 ? W - PAD : pts[i][0], y: base + 22, size: 11, anchor, fill: 'ink3' });
   });
 
   return doc.svg(
@@ -565,7 +588,10 @@ function coding(theme) {
   return pair(theme, 'coding', w, r, { title: 'Coding', desc: `${desc(w)} ${desc(r)}` });
 }
 
-const CARDS = { github, languages, coding, stargazers, activity };
+// Cards drawn at both widths from one builder.
+const both = (name, build) => (theme) => ({ [`${name}-${theme}`]: build(theme, FULL), [`${name}-mobile-${theme}`]: build(theme, HALF) });
+
+const CARDS = { github: both('github', github), languages, coding, stargazers: both('stargazers', stargazers), activity: both('activity', activity) };
 const outDir = process.argv[2] || here('../../profile').pathname;
 fs.mkdirSync(outDir, { recursive: true });
 for (const [name, render] of Object.entries(CARDS)) {

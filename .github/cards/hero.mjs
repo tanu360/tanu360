@@ -2,7 +2,7 @@
 // function that checks a PE file's 'MZ' header, stepped through like a debugger.
 import fs from 'node:fs';
 import opentype from 'opentype.js';
-import { Doc, THEMES, PAD, measure } from './lib.mjs';
+import { Doc, THEMES, PAD, HALF, measure } from './lib.mjs';
 
 const W = 840;
 const H = 244;
@@ -126,12 +126,19 @@ function bioLine(doc, x, y, parts, { flip = false } = {}) {
   }
 }
 
-function render(theme) {
-  const doc = new Doc(theme, W);
+// Phones get the name and bio on top and the graph under them, scaled to the full width,
+// instead of the whole 840px hero shrinking to unreadable.
+const GRAPH_X = 436;
+const NARROW = { lift: 50, graphTop: 186, scale: HALF / (W - GRAPH_X) };
+
+function render(theme, narrow = false) {
+  const doc = new Doc(theme, narrow ? HALF : W);
   const t = doc.t;
   const dark = theme === 'dark';
+  const wrap = (start, transform) => narrow && doc.add(`<g transform="${transform}">${doc.parts.splice(start).join('')}</g>`);
 
   // ── Left: name and bio ──
+  const textStart = doc.parts.length;
   doc.text('HELLO WORLD, I AM', { x: PAD, y: 72, size: 11, weight: 600, tracking: 0.16, fill: 'ink3' });
   doc.text('Tarun', { x: PAD - 4, y: 146, size: 80, weight: 500, tracking: -0.035 });
   // Bio with "make" and "break" as tilted stickers: green to build, red to break, identical in
@@ -139,10 +146,12 @@ function render(theme) {
   // bgColor-danger-emphasis (dark), the same red as the breakpoint hit.
   bioLine(doc, PAD, 186, ['I ', 'make', ' things, ', 'break', ' things,'], { flip: true });
   bioLine(doc, PAD, 218, ['and ', 'make', ' things that ', 'break', ' things.']);
+  wrap(textStart, `translate(0 -${NARROW.lift})`);
+  const graphStart = doc.parts.length;
 
   // ── Right: graph canvas — a faint dot grid that fades out towards every edge ──
   // The gradient is sized to the grid's box, so it is an ellipse that reaches zero at each side.
-  doc.defs.set('fade', `<radialGradient id="fadeR"><stop offset="0.4" stop-color="#fff"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient><mask id="fade"><rect x="436" y="0" width="${W - 436}" height="${H}" fill="url(#fadeR)"/></mask>`);
+  doc.defs.set('fade', `<radialGradient id="fadeR"><stop offset="0.4" stop-color="#fff"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient><mask id="fade"><rect x="${GRAPH_X}" y="0" width="${W - GRAPH_X}" height="${H}" fill="url(#fadeR)"/></mask>`);
   const dots = [];
   for (let y = 10; y <= 238; y += 12) for (let x = 440; x <= W - PAD; x += 12) dots.push(`M${x} ${y}h1v1h-1z`);
   doc.add(`<path d="${dots.join('')}" fill="${t.ink}" fill-opacity="${dark ? 0.22 : 0.2}" mask="url(#fade)"/>`);
@@ -220,17 +229,20 @@ function render(theme) {
   monoText(hitDoc, hmn, { x: hb.x + GUT.text, y: +baseline(hb, bi).toFixed(2), size: CODE, fill: '#ffffff' });
   monoText(hitDoc, hargs, { x: hb.x + GUT.text + COL, y: +baseline(hb, bi).toFixed(2), size: CODE, fill: '#ffffff' });
   doc.add(`<g class="ip ip${hitIndex}${hitIndex === REST ? ' ip-rest' : ''}"><rect x="${hb.x + 3}" y="${rowY(hb, bi) - 1}" width="${hb.w - 6}" height="${LINE}" rx="2.5" fill="${HIT}"/>${ipArrow(hb, bi, '#ffffff')}<circle cx="${hb.x + GUT.dot}" cy="${rowMid(hb, bi).toFixed(2)}" r="${DOT_R}" fill="#ffffff"/>${hitParts.join('')}</g>`);
+  wrap(graphStart, `translate(${(-GRAPH_X * NARROW.scale).toFixed(2)} ${NARROW.graphTop}) scale(${NARROW.scale.toFixed(5)})`);
 
   const pct = (v) => ((v / CYCLE) * 100).toFixed(3);
   const frames = SPANS.map(([a, b], n) => `.ip${n}{animation:ip${n} ${CYCLE.toFixed(2)}s steps(1,end) infinite}@keyframes ip${n}{${a ? `0%{opacity:0}${pct(a)}%{opacity:1}` : '0%{opacity:1}'}${pct(b)}%{opacity:0}100%{opacity:0}}`).join('');
   const css = `<style>.ip{opacity:0}${frames}@media (prefers-reduced-motion:reduce){.ip{animation:none!important;opacity:0}.ip-rest{opacity:1}}${STICKER_CSS}</style>`;
-  const svg = doc.svg(H, 'Hello World, I am Tarun', 'I make things, break things, and make things that break things. Illustration: a disassembler graph of a function that checks a PE file\'s MZ header, stepped through one instruction at a time and pausing on a breakpoint.');
+  const svg = doc.svg(narrow ? NARROW.graphTop + H * NARROW.scale : H, 'Hello World, I am Tarun', 'I make things, break things, and make things that break things. Illustration: a disassembler graph of a function that checks a PE file\'s MZ header, stepped through one instruction at a time and pausing on a breakpoint.');
   return svg.replace('<defs>', `${css}\n<defs>`);
 }
 
 const outDir = process.argv[2] || new URL('../../profile', import.meta.url).pathname;
 for (const theme of Object.keys(THEMES)) {
-  const svg = render(theme);
-  fs.writeFileSync(`${outDir}/hero-${theme}.svg`, svg);
-  console.log(`hero-${theme}.svg ${(svg.length / 1024).toFixed(1)} KB`);
+  for (const [suffix, narrow] of [['', false], ['-mobile', true]]) {
+    const svg = render(theme, narrow);
+    fs.writeFileSync(`${outDir}/hero${suffix}-${theme}.svg`, svg);
+    console.log(`hero${suffix}-${theme}.svg ${(svg.length / 1024).toFixed(1)} KB`);
+  }
 }

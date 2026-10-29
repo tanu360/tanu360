@@ -99,7 +99,7 @@ export class Doc {
   }
 
   // Big figure with an optional smaller unit after it.
-  figure(value, unit, x, y, size = 46) {
+  figure(value, unit, x, y, size = 44) {
     const w = this.text(value, { x: x - size * 0.04, y, size, weight: FIGURE_WEIGHT, tracking: -0.03 });
     if (unit) this.text(unit, { x: x - size * 0.04 + w + size * 0.15, y, size: size * 0.35, fill: 'ink3' });
   }

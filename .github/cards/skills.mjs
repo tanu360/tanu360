@@ -3,7 +3,7 @@
 import fs from 'node:fs';
 import svgpath from 'svgpath';
 import * as simpleIcons from 'simple-icons';
-import { Doc, THEMES, PAD, FULL, measure } from './lib.mjs';
+import { Doc, THEMES, PAD, FULL, HALF, measure } from './lib.mjs';
 
 const here = (p) => new URL(p, import.meta.url);
 
@@ -279,16 +279,18 @@ const specMark = {
   },
 };
 
+// Wide: group labels in a column on the left. Narrow (phones): each label sits above its items.
 function specLogos(doc) {
-  const x0 = PAD + SPEC_LABEL_W;
-  const W = FULL - PAD - EDGE - x0;
+  const narrow = doc.W < FULL;
+  const x0 = narrow ? PAD : PAD + SPEC_LABEL_W;
+  const W = doc.W - PAD - EDGE - x0;
   let y = 0;
   GROUPS.forEach((g) => {
     const top = y + 10;
     doc.label(g.label, PAD, baseline(top, specMark.h, 10.5));
-    y = items(doc, specMark, g, x0, top, W) + 15;
+    y = items(doc, specMark, g, x0, narrow ? top + 22 : top, W) + (narrow ? 20 : 15);
   });
-  if (doc.right > FULL - PAD - EDGE + 0.01) throw new Error(`spec-logos: an item reaches x=${doc.right.toFixed(1)}, past ${FULL - PAD - EDGE}`);
+  if (doc.right > doc.W - PAD - EDGE + 0.01) throw new Error(`spec-logos: an item reaches x=${doc.right.toFixed(1)}, past ${doc.W - PAD - EDGE}`);
   doc.add(`<g>${doc.marks.join('')}</g>`);
   return y - 10;
 }
@@ -317,10 +319,12 @@ function compact(svg) {
 
 const outDir = process.argv[2] || here('../../profile').pathname;
 const desc = GROUPS.map((g) => `${g.name}: ${g.items.join(', ')}.`).join(' ');
-for (const theme of Object.keys(THEMES)) {
-  const doc = new Doc(theme, FULL);
-  const bottom = specLogos(doc);
-  const svg = compact(doc.svg(bottom + PAD, 'Skills', desc));
-  fs.writeFileSync(`${outDir}/skills-${theme}.svg`, svg);
-  console.log(`skills-${theme}.svg ${(svg.length / 1024).toFixed(1)} KB, ${Math.ceil(bottom + PAD)}px tall`);
+for (const [suffix, W] of Object.entries({ '': FULL, '-mobile': HALF })) {
+  for (const theme of Object.keys(THEMES)) {
+    const doc = new Doc(theme, W);
+    const bottom = specLogos(doc);
+    const svg = compact(doc.svg(bottom + PAD, 'Skills', desc));
+    fs.writeFileSync(`${outDir}/skills${suffix}-${theme}.svg`, svg);
+    console.log(`skills${suffix}-${theme}.svg ${(svg.length / 1024).toFixed(1)} KB, ${Math.ceil(bottom + PAD)}px tall`);
+  }
 }

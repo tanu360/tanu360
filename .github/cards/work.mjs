@@ -1,8 +1,8 @@
 // "Selected work" rows: icon, repo name and a muted one-line description, one SVG per
 // project so each stays its own link. Markdown can't mute text or drop link underlines.
-// node work.mjs [outDir]  →  work-<repo>-{dark,light}.svg
+// node work.mjs [outDir]  →  work-<repo>[-mobile]-{dark,light}.svg
 import fs from 'node:fs';
-import { Doc, THEMES, measure } from './lib.mjs';
+import { Doc, THEMES, HALF, measure } from './lib.mjs';
 
 const here = (p) => new URL(p, import.meta.url);
 const outDir = process.argv[2] || here('../../profile').pathname;
@@ -20,6 +20,7 @@ export const WORK = [
 
 const H = 24;
 const ICON = 15;
+const LINE = 18; // description line height in the phone version
 const NAME = 13.5;
 const DESC = 13;
 const BASE = 16.5;
@@ -41,7 +42,34 @@ function icon([kind, name], size, colour) {
 const rowWidth = (w) => ICON + 9 + measure(w.repo, NAME, 600).width + 9 + measure('—', DESC, 400).width + 9 + measure(w.desc, DESC, 400).width + 2;
 const W = Math.ceil(Math.max(...WORK.map(rowWidth)));
 
+// Phone version: the name on the first line, the description under it, wrapped to the cards'
+// phone width. Every row is HALF wide, so they scale alike.
+function lines(str, maxW) {
+  const out = [''];
+  for (const word of str.split(' ')) {
+    const next = out.at(-1) ? `${out.at(-1)} ${word}` : word;
+    if (out.at(-1) && measure(next, DESC, 400).width > maxW) out.push(word);
+    else out[out.length - 1] = next;
+  }
+  return out;
+}
+// Like `text-wrap: balance`: the narrowest width that keeps the line count, so no lone last word.
+function balanced(str, maxW) {
+  const n = lines(str, maxW).length;
+  let w = maxW;
+  while (n > 1 && lines(str, w - 4).length === n) w -= 4;
+  return lines(str, w);
+}
+
 for (const w of WORK) {
+  const text = balanced(w.desc, HALF - ICON - 9 - 4);
+  for (const theme of Object.keys(THEMES)) {
+    const doc = new Doc(theme, HALF);
+    doc.add(icon(w.icon, ICON, doc.t.ink2));
+    doc.text(w.repo, { x: ICON + 9, y: BASE, size: NAME, weight: 600 });
+    text.forEach((line, i) => doc.text(line, { x: ICON + 9, y: BASE + 20 + i * LINE, size: DESC, weight: 400, fill: 'ink3' }));
+    fs.writeFileSync(`${outDir}/work-${w.repo.toLowerCase()}-mobile-${theme}.svg`, doc.svg(H + 20 + (text.length - 1) * LINE + 4, `${w.repo} — ${w.desc}`, `${w.repo}: ${w.desc}`));
+  }
   for (const theme of Object.keys(THEMES)) {
     const doc = new Doc(theme, W);
     const t = doc.t;
