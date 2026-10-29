@@ -126,72 +126,70 @@ function github(theme) {
 // ── Languages: what the code is made of, and where the hours go ─────────────
 // Left: one bar split by language share (a whole, so one bar) with a legend.
 // Right: a radar of hours per language (Bklit's radar chart), top six.
+// Each half is drawn on its own HALF-wide sheet; pair() lays them out per screen.
 function languages(theme) {
-  const doc = new Doc(theme, FULL);
-  const t = doc.t;
-  doc.header('Languages');
-  const gap = 40;
-  const colW = (FULL - 2 * PAD - gap) / 2;
-  const heading = (x, title, sub) => {
-    doc.text(title, { x, y: 62, size: 12.5, weight: 600, fill: 'ink2' });
-    doc.text(sub, { x, y: 80, size: 11.5, fill: 'ink3' });
+  const colW = HALF - 2 * PAD;
+  const heading = (doc, title, sub) => {
+    doc.text(title, { x: PAD, y: 12, size: 12.5, weight: 600, fill: 'ink2' });
+    doc.text(sub, { x: PAD, y: 30, size: 11.5, fill: 'ink3' });
   };
 
   // Composition bar: top six languages and the rest, separated by 2px gaps.
+  const code = new Doc(theme, HALF);
   const top = data.repoLanguages.slice(0, 6);
   const rest = 1 - top.reduce((sum, l) => sum + l.share, 0);
   const parts = [...top, ...(rest > 0.001 ? [{ name: 'Other', share: rest }] : [])];
-  heading(PAD, 'Code in my repositories', 'share of bytes across owned repos');
-  const barY = 100;
+  heading(code, 'Code in my repositories', 'share of bytes across owned repos');
   let x = PAD;
   const usable = colW - 2 * (parts.length - 1);
   parts.forEach((l, i) => {
     const w = Math.max(2, usable * l.share);
-    doc.rect(x, barY, w, 10, { opacity: SHADES[i], rx: 1.5 });
+    code.rect(x, 50, w, 10, { opacity: SHADES[i], rx: 1.5 });
     x += w + 2;
   });
   parts.forEach((l, i) => {
-    const y = 144 + i * 26;
-    doc.squares([[PAD, y - 9]], 9, SHADES[i]);
-    doc.text(l.name, { x: PAD + 17, y, size: 13 });
-    doc.text(`${(l.share * 100).toFixed(1)}%`, { x: PAD + colW, y, size: 12.5, anchor: 'end', fill: 'ink2' });
+    const y = 94 + i * 26;
+    code.squares([[PAD, y - 9]], 9, SHADES[i]);
+    code.text(l.name, { x: PAD + 17, y, size: 13 });
+    code.text(`${(l.share * 100).toFixed(1)}%`, { x: PAD + colW, y, size: 12.5, anchor: 'end', fill: 'ink2' });
   });
 
   // Radar of hours: grid hexagons and spokes in hairlines, the shape in ink.
-  const rx0 = PAD + colW + gap;
-  heading(rx0, 'Time spent writing code', `all time on ${data.wakapi.source ?? 'Wakapi'}, ${fmt(data.wakapi.totalSeconds / 3600)} hrs total`);
+  const time = new Doc(theme, HALF);
+  const t = time.t;
+  heading(time, 'Time spent writing code', `all time on ${data.wakapi.source ?? 'Wakapi'}, ${fmt(data.wakapi.totalSeconds / 3600)} hrs total`);
   const langs = data.wakapi.languages.filter((l) => l.name.toLowerCase() !== 'unknown').slice(0, 6);
   const R = 82;
-  const cx = rx0 + colW / 2;
-  const cy = 216;
+  const cx = HALF / 2;
+  const cy = 166;
   const max = langs[0].seconds;
   const at = (i, radius) => {
     const a = -Math.PI / 2 + (i * 2 * Math.PI) / langs.length;
     return [cx + radius * Math.cos(a), cy + radius * Math.sin(a)];
   };
   const poly = (radius) => langs.map((_, i) => at(i, radius).map((v) => v.toFixed(1)).join(' ')).join(' ');
-  for (const f of [1 / 3, 2 / 3, 1]) doc.add(`<polygon points="${poly(R * f)}" fill="none" stroke="${t.rule}"/>`);
+  for (const f of [1 / 3, 2 / 3, 1]) time.add(`<polygon points="${poly(R * f)}" fill="none" stroke="${t.rule}"/>`);
   langs.forEach((_, i) => {
     const [x1, y1] = at(i, R);
-    doc.add(`<path d="M${cx} ${cy}L${x1.toFixed(1)} ${y1.toFixed(1)}" stroke="${t.rule}"/>`);
+    time.add(`<path d="M${cx} ${cy}L${x1.toFixed(1)} ${y1.toFixed(1)}" stroke="${t.rule}"/>`);
   });
   const shape = langs.map((l, i) => at(i, R * Math.max(0.04, l.seconds / max)).map((v) => v.toFixed(1)).join(' ')).join(' ');
-  doc.add(`<polygon points="${shape}" fill="${t.ink}" fill-opacity="0.12" stroke="${t.ink}" stroke-width="1.5" stroke-linejoin="round"/>`);
+  time.add(`<polygon points="${shape}" fill="${t.ink}" fill-opacity="0.12" stroke="${t.ink}" stroke-width="1.5" stroke-linejoin="round"/>`);
   langs.forEach((l, i) => {
     const [px, py] = at(i, R * Math.max(0.04, l.seconds / max));
-    doc.add(`<circle cx="${px.toFixed(1)}" cy="${py.toFixed(1)}" r="2.6" fill="${t.ink}"/>`);
+    time.add(`<circle cx="${px.toFixed(1)}" cy="${py.toFixed(1)}" r="2.6" fill="${t.ink}"/>`);
     const [lx, ly] = at(i, R + 16);
     const anchor = Math.abs(lx - cx) < 4 ? 'middle' : lx < cx ? 'end' : 'start';
     const up = ly < cy - R * 0.5;
-    doc.text(langName(l.name), { x: lx, y: up ? ly - 8 : ly + 2, size: 12, weight: 600, anchor });
-    doc.text(`${fmt(l.seconds / 3600)} hrs`, { x: lx, y: up ? ly + 6 : ly + 16, size: 11, anchor, fill: 'ink3' });
+    time.text(langName(l.name), { x: lx, y: up ? ly - 8 : ly + 2, size: 12, weight: 600, anchor });
+    time.text(`${fmt(l.seconds / 3600)} hrs`, { x: lx, y: up ? ly + 6 : ly + 16, size: 11, anchor, fill: 'ink3' });
   });
 
-  return doc.svg(
-    Math.max(144 + (parts.length - 1) * 26 + 16, cy + R + 44),
-    'Languages',
-    `By code: ${parts.map((l) => `${l.name} ${(l.share * 100).toFixed(1)}%`).join(', ')}. By coding time: ${langs.map((l) => `${langName(l.name)} ${fmt(l.seconds / 3600)} hrs`).join(', ')}.`,
-  );
+  return pair(theme, 'languages', code.svg(94 + (parts.length - 1) * 26 + 16, '', ''), time.svg(cy + R + 44, '', ''), {
+    header: ['Languages'],
+    title: 'Languages',
+    desc: `By code: ${parts.map((l) => `${l.name} ${(l.share * 100).toFixed(1)}%`).join(', ')}. By coding time: ${langs.map((l) => `${langName(l.name)} ${fmt(l.seconds / 3600)} hrs`).join(', ')}.`,
+  });
 }
 
 // Concentric rings with a legend (Bklit's ring chart): each ring is one item's share of
@@ -531,32 +529,40 @@ function activity(theme) {
   );
 }
 
-// ── Coding: This week and Leaderboard as one card ──────────────────────────
-// Wide screens get the two side by side with a gutter and a hairline between them; phones
-// get them stacked so neither shrinks to unreadable. The README picks one by screen width.
+// ── Two halves, laid out per screen ────────────────────────────────────────
+// Wide screens get the halves side by side, kept apart by the gutter alone; phones get them
+// stacked with a hairline between, at a width that stays readable. The README picks one by
+// screen width. An optional shared header sits above both.
 const heightOf = (svg) => +svg.match(/height="(\d+)"/)[1];
+const HEADER_SPACE = 50;
+const STACK_GAP = 64;
+function pair(theme, name, a, b, { header, title, desc }) {
+  const top = header ? HEADER_SPACE : 0;
+  const [ah, bh] = [heightOf(a), heightOf(b)];
+
+  const wide = new Doc(theme, FULL);
+  if (header) wide.header(...header);
+  wide.place(a, 0, top);
+  wide.place(b, FULL - HALF, top);
+
+  const narrow = new Doc(theme, HALF);
+  if (header) narrow.header(...header);
+  narrow.place(a, 0, top);
+  narrow.rect(PAD, top + ah + STACK_GAP / 2, HALF - 2 * PAD, 1, { fill: 'rule' });
+  narrow.place(b, 0, top + ah + STACK_GAP);
+
+  return {
+    [`${name}-${theme}`]: wide.svg(top + Math.max(ah, bh), title, desc),
+    [`${name}-mobile-${theme}`]: narrow.svg(top + ah + STACK_GAP + bh, title, desc),
+  };
+}
+
+// ── Coding: This week and Leaderboard as one card ──────────────────────────
 function coding(theme) {
   const w = week(theme);
   const r = rank(theme);
-  const [wh, rh] = [heightOf(w), heightOf(r)];
-  const title = 'Coding';
-  const desc = `${w.match(/<desc id="desc">([^<]*)/)[1]} ${r.match(/<desc id="desc">([^<]*)/)[1]}`;
-
-  const wide = new Doc(theme, FULL);
-  wide.place(w, 0, 0);
-  wide.rect(FULL / 2 - 0.5, PAD, 1, Math.max(wh, rh) - 2 * PAD, { fill: 'rule' });
-  wide.place(r, FULL - HALF, 0);
-
-  const GAP = 64;
-  const narrow = new Doc(theme, HALF);
-  narrow.place(w, 0, 0);
-  narrow.rect(PAD, wh + GAP / 2, HALF - 2 * PAD, 1, { fill: 'rule' });
-  narrow.place(r, 0, wh + GAP);
-
-  return {
-    [`coding-${theme}`]: wide.svg(Math.max(wh, rh), title, desc),
-    [`coding-mobile-${theme}`]: narrow.svg(wh + GAP + rh, title, desc),
-  };
+  const desc = (svg) => svg.match(/<desc id="desc">([^<]*)/)[1];
+  return pair(theme, 'coding', w, r, { title: 'Coding', desc: `${desc(w)} ${desc(r)}` });
 }
 
 const CARDS = { github, languages, coding, stargazers, activity };

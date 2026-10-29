@@ -6,7 +6,7 @@ Geist (vendored in `assets/fonts`), so the SVGs render the same everywhere.
 | Script | Writes | Runs |
 |---|---|---|
 | `data.mjs` | `data.json`, `geocache.json` — GitHub API, Wakapi, OpenStreetMap (cached) | daily, workflow |
-| `cards.mjs` | github, activity, languages, coding (+ a stacked phone version), stargazers | daily, workflow |
+| `cards.mjs` | github, activity, languages and coding (each + a stacked phone version), stargazers | daily, workflow |
 | `badges.mjs` | about-\*, connect-\*, updated | daily, workflow |
 | `skills.mjs`, `hero.mjs`, `work.mjs`, `sections.mjs` | skills, hero, work-\*, section-\* | by hand: `npm install && npm run static` |
 | `build-world.mjs` | `assets/world-grid.json` | by hand, once |
