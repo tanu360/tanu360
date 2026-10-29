@@ -12,13 +12,17 @@ const fonts = Object.fromEntries(
 );
 
 // GitHub renders README images over these surfaces, so tokens are checked against them.
+// Text has three roles, used the same way on every card:
+//   ink  — the data: figures, names in lists, titles, chart marks
+//   ink2 — structure: card names, chart headings, values beside a name, body copy
+//   ink3 — meta: labels over figures, units, captions, axes, legends, percentages, dates
 // Colours are GitHub's own (@primer/primitives 11.10, functional dark/light themes):
 // surface = bgColor-default, ink = fgColor-default, ink3 = fgColor-muted,
 // ink2 = base neutral 10 (the scale step just above muted, in both themes),
 // rule = borderColor-muted (borderColor-default at 70%) flattened onto the canvas.
 export const THEMES = {
-  dark: { surface: '#0d1117', ink: '#f0f6fc', ink2: '#b7bdc8', ink3: '#9198a1', rule: '#2f353d', empty: 0.1, up: '#3fb950', down: '#f85149' },
-  light: { surface: '#ffffff', ink: '#1f2328', ink2: '#454c54', ink3: '#59636e', rule: '#dfe4e9', empty: 0.08, up: '#1a7f37', down: '#d1242f' },
+  dark: { surface: '#0d1117', ink: '#f0f6fc', ink2: '#b1bac4', ink3: '#7d8590', rule: '#2f353d', empty: 0.1, up: '#3fb950', down: '#f85149' },
+  light: { surface: '#ffffff', ink: '#1f2328', ink2: '#424a53', ink3: '#6e7781', rule: '#dfe4e9', empty: 0.08, up: '#1a7f37', down: '#d1242f' },
 };
 
 export const PAD = 6;
@@ -84,19 +88,19 @@ export class Doc {
   // Eyebrow label and right-hand meta. No rule under them: svg() lifts everything drawn
   // after the header by HEADER_LIFT so the content sits close to its label.
   header(label, meta) {
-    this.text(label, { x: PAD, y: 18, size: 11, weight: 600, tracking: 0.14, fill: 'ink3' });
+    this.text(label, { x: PAD, y: 18, size: 11, weight: 600, tracking: 0.14, fill: 'ink2' });
     if (meta) this.text(meta, { x: this.W - PAD, y: 18, size: 11, weight: 500, tracking: 0.02, anchor: 'end', fill: 'ink3' });
     this.bodyStart = this.parts.length;
   }
 
   label(str, x, y, anchor = 'start') {
-    return this.text(str, { x, y, size: 10.5, weight: 600, tracking: 0.12, anchor, fill: 'ink2' });
+    return this.text(str, { x, y, size: 10.5, weight: 600, tracking: 0.12, anchor, fill: 'ink3' });
   }
 
   // Big figure with an optional smaller unit after it.
   figure(value, unit, x, y, size = 46) {
     const w = this.text(value, { x: x - size * 0.04, y, size, weight: FIGURE_WEIGHT, tracking: -0.03 });
-    if (unit) this.text(unit, { x: x - size * 0.04 + w + size * 0.15, y, size: size * 0.35, fill: 'ink2' });
+    if (unit) this.text(unit, { x: x - size * 0.04 + w + size * 0.15, y, size: size * 0.35, fill: 'ink3' });
   }
 
   // Squares sharing one size and opacity, drawn from a single shared shape.

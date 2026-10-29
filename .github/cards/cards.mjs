@@ -111,7 +111,7 @@ function github(theme) {
     const x = PAD + i * stripW;
     doc.label(item.label, x, stripRule + 30);
     const w = doc.text(item.value, { x: x - 1, y: stripRule + 60, size: 24, weight: FIGURE_WEIGHT, tracking: -0.02 });
-    if (item.unit) doc.text(item.unit, { x: x + w + 5, y: stripRule + 60, size: 13, fill: 'ink2' });
+    if (item.unit) doc.text(item.unit, { x: x + w + 5, y: stripRule + 60, size: 13, fill: 'ink3' });
     doc.text(item.sub, { x, y: stripRule + 80, size: 11.5, fill: 'ink3' });
   });
 
@@ -488,7 +488,7 @@ function activity(theme) {
     const x = sideX + i * sideW;
     doc.label(item.label, x, 66);
     const vw = doc.text(item.value, { x: x - 1, y: 116, size: 32, weight: FIGURE_WEIGHT, tracking: -0.03 });
-    if (item.unit) doc.text(item.unit, { x: x + vw + 5, y: 116, size: 13, fill: 'ink2' });
+    if (item.unit) doc.text(item.unit, { x: x + vw + 5, y: 116, size: 13, fill: 'ink3' });
     doc.text(item.sub, { x, y: 142, size: 12, fill: 'ink3' });
   });
 
