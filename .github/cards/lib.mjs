@@ -22,6 +22,7 @@ export const THEMES = {
 };
 
 export const PAD = 6;
+const HEADER_LIFT = 12;
 export const FULL = 840;
 export const HALF = 412;
 
@@ -80,11 +81,12 @@ export class Doc {
     this.add(`<rect x="${+x.toFixed(2)}" y="${+y.toFixed(2)}" width="${+Math.max(w, 0).toFixed(2)}" height="${+Math.max(h, 0).toFixed(2)}"${r} fill="${this.t[fill] ?? fill}"${op}/>`);
   }
 
-  // Eyebrow label, right-hand meta and the hairline under them.
+  // Eyebrow label and right-hand meta. No rule under them: svg() lifts everything drawn
+  // after the header by HEADER_LIFT so the content sits close to its label.
   header(label, meta) {
     this.text(label, { x: PAD, y: 18, size: 11, weight: 600, tracking: 0.14, fill: 'ink3' });
     if (meta) this.text(meta, { x: this.W - PAD, y: 18, size: 11, weight: 500, tracking: 0.02, anchor: 'end', fill: 'ink3' });
-    this.rule(32);
+    this.bodyStart = this.parts.length;
   }
 
   label(str, x, y, anchor = 'start') {
@@ -107,6 +109,11 @@ export class Doc {
   }
 
   svg(height, title, desc) {
+    if (this.bodyStart !== undefined) {
+      const body = this.parts.splice(this.bodyStart);
+      this.parts.push(`<g transform="translate(0 -${HEADER_LIFT})">${body.join('\n')}</g>`);
+      height -= HEADER_LIFT;
+    }
     const H = Math.ceil(height);
     return `<svg xmlns="http://www.w3.org/2000/svg" width="${this.W}" height="${H}" viewBox="0 0 ${this.W} ${H}" role="img" aria-labelledby="title desc">
 <title id="title">${esc(title)}</title>

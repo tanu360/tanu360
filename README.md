@@ -1,12 +1,8 @@
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="./profile/hero-dark.svg" />
-  <source media="(prefers-color-scheme: light)" srcset="./profile/hero-light.svg" />
-  <img width="100%" src="./profile/hero-dark.svg" alt="Hello World, I am Tarun. I make things, break things, and make things that break things. Reverse engineering, AI systems and developer tools." />
-</picture>
+<picture><source media="(prefers-color-scheme: dark)" srcset="./profile/hero-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="./profile/hero-light.svg" /><img width="100%" src="./profile/hero-dark.svg" alt="Hello World, I am Tarun. I make things, break things, and make things that break things. Reverse engineering, AI systems and developer tools." /></picture>
 
 > **Renaissance-class** offensive security researcher with demonstrated **global top-tier depth** in multiple **rare niches** and **shipped production engineering** capability.
 
-## About
+<p><picture><source media="(prefers-color-scheme: dark)" srcset="./profile/section-about-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="./profile/section-about-light.svg" /><img width="100%" src="./profile/section-about-dark.svg" alt="01 About" /></picture></p>
 
 I work across **cybersecurity**, **AI/ML**, **software protection**, and **low-level engineering** — with a focus on problems that demand both depth and breadth. My core work spans reverse engineering and binary analysis across Windows, macOS, Linux, Android, and iOS; software protection research on commercial protectors and virtualization systems; mobile application security including native library analysis and runtime instrumentation; and API protocol analysis with authentication internals and anti-bot research.
 
@@ -15,77 +11,43 @@ Beyond security, I build AI-powered products, real-time data pipelines, develope
 I'm open to serious collaboration around **security consulting**, **software protection engineering**, **AI/ML tooling**, **data infrastructure**, and **developer automation**.
 
 <p>
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="./profile/about-cyber-dark.svg" />
-    <source media="(prefers-color-scheme: light)" srcset="./profile/about-cyber-light.svg" />
-    <img height="26" src="./profile/about-cyber-dark.svg" alt="Cybersecurity" />
-  </picture>
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="./profile/about-reversing-dark.svg" />
-    <source media="(prefers-color-scheme: light)" srcset="./profile/about-reversing-light.svg" />
-    <img height="26" src="./profile/about-reversing-dark.svg" alt="Reverse Engineering" />
-  </picture>
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="./profile/about-protection-dark.svg" />
-    <source media="(prefers-color-scheme: light)" srcset="./profile/about-protection-light.svg" />
-    <img height="26" src="./profile/about-protection-dark.svg" alt="Software Protection" />
-  </picture>
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="./profile/about-aiml-dark.svg" />
-    <source media="(prefers-color-scheme: light)" srcset="./profile/about-aiml-light.svg" />
-    <img height="26" src="./profile/about-aiml-dark.svg" alt="AI / ML" />
-  </picture>
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="./profile/about-coding-dark.svg" />
-    <source media="(prefers-color-scheme: light)" srcset="./profile/about-coding-light.svg" />
-    <img height="26" src="./profile/about-coding-dark.svg" alt="Coding time on WakaTime" />
-  </picture>
+  <picture><source media="(prefers-color-scheme: dark)" srcset="./profile/about-cyber-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="./profile/about-cyber-light.svg" /><img height="26" src="./profile/about-cyber-dark.svg" alt="Cybersecurity" /></picture>
+  <picture><source media="(prefers-color-scheme: dark)" srcset="./profile/about-reversing-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="./profile/about-reversing-light.svg" /><img height="26" src="./profile/about-reversing-dark.svg" alt="Reverse Engineering" /></picture>
+  <picture><source media="(prefers-color-scheme: dark)" srcset="./profile/about-protection-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="./profile/about-protection-light.svg" /><img height="26" src="./profile/about-protection-dark.svg" alt="Software Protection" /></picture>
+  <picture><source media="(prefers-color-scheme: dark)" srcset="./profile/about-aiml-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="./profile/about-aiml-light.svg" /><img height="26" src="./profile/about-aiml-dark.svg" alt="AI / ML" /></picture>
+  <picture><source media="(prefers-color-scheme: dark)" srcset="./profile/about-coding-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="./profile/about-coding-light.svg" /><img height="26" src="./profile/about-coding-dark.svg" alt="Coding time on WakaTime" /></picture>
 </p>
 
 <br />
+
+<p><picture><source media="(prefers-color-scheme: dark)" srcset="./profile/section-coding-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="./profile/section-coding-light.svg" /><img width="100%" src="./profile/section-coding-dark.svg" alt="02 Coding" /></picture></p>
 
 <p align="center">
   <a href="https://wakatime.com/@tanu1337"><picture><source media="(prefers-color-scheme: dark)" srcset="./profile/week-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="./profile/week-light.svg" /><img width="49%" src="./profile/week-dark.svg" alt="Coding this week" /></picture></a>
   <a href="https://wakatime.com/@tanu1337"><picture><source media="(prefers-color-scheme: dark)" srcset="./profile/rank-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="./profile/rank-light.svg" /><img width="49%" src="./profile/rank-dark.svg" alt="Wakapi weekly leaderboard" /></picture></a>
 </p>
 
-<p align="center">
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="./profile/skills-dark.svg" />
-    <source media="(prefers-color-scheme: light)" srcset="./profile/skills-light.svg" />
-    <img width="100%" src="./profile/skills-dark.svg" alt="Skills: languages, core domains, low-level specialization, platforms, applied engineering, frontend, backend, databases, tools, software and cloud" />
-  </picture>
-</p>
+<p><picture><source media="(prefers-color-scheme: dark)" srcset="./profile/languages-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="./profile/languages-light.svg" /><img width="100%" src="./profile/languages-dark.svg" alt="Languages by code and by time spent" /></picture></p>
 
-<p align="center">
-  <a href="https://github.com/tanu360"><picture><source media="(prefers-color-scheme: dark)" srcset="./profile/github-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="./profile/github-light.svg" /><img width="100%" src="./profile/github-dark.svg" alt="GitHub stats and contribution grid" /></picture></a>
-</p>
+<br />
 
-<p align="center">
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="./profile/activity-dark.svg" />
-    <source media="(prefers-color-scheme: light)" srcset="./profile/activity-light.svg" />
-    <img width="100%" src="./profile/activity-dark.svg" alt="Contribution activity, last 30 days" />
-  </picture>
-</p>
+<p><picture><source media="(prefers-color-scheme: dark)" srcset="./profile/section-github-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="./profile/section-github-light.svg" /><img width="100%" src="./profile/section-github-dark.svg" alt="03 GitHub" /></picture></p>
 
-<p align="center">
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="./profile/languages-dark.svg" />
-    <source media="(prefers-color-scheme: light)" srcset="./profile/languages-light.svg" />
-    <img width="100%" src="./profile/languages-dark.svg" alt="Languages by code and by time spent" />
-  </picture>
-</p>
+<p><a href="https://github.com/tanu360"><picture><source media="(prefers-color-scheme: dark)" srcset="./profile/github-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="./profile/github-light.svg" /><img width="100%" src="./profile/github-dark.svg" alt="GitHub stats and contribution grid" /></picture></a></p>
 
-<p align="center">
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="./profile/stargazers-dark.svg" />
-    <source media="(prefers-color-scheme: light)" srcset="./profile/stargazers-light.svg" />
-    <img width="100%" src="./profile/stargazers-dark.svg" alt="Stargazers around the world" />
-  </picture>
-</p>
+<p><picture><source media="(prefers-color-scheme: dark)" srcset="./profile/activity-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="./profile/activity-light.svg" /><img width="100%" src="./profile/activity-dark.svg" alt="Contribution activity, last 30 days" /></picture></p>
 
-## Selected work
+<p><picture><source media="(prefers-color-scheme: dark)" srcset="./profile/stargazers-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="./profile/stargazers-light.svg" /><img width="100%" src="./profile/stargazers-dark.svg" alt="Stargazers around the world" /></picture></p>
+
+<br />
+
+<p><picture><source media="(prefers-color-scheme: dark)" srcset="./profile/section-skills-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="./profile/section-skills-light.svg" /><img width="100%" src="./profile/section-skills-dark.svg" alt="04 Skills" /></picture></p>
+
+<p><picture><source media="(prefers-color-scheme: dark)" srcset="./profile/skills-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="./profile/skills-light.svg" /><img width="100%" src="./profile/skills-dark.svg" alt="Skills: languages, core domains, low-level specialization, platforms, applied engineering, frontend, backend, databases, tools, software and cloud" /></picture></p>
+
+<br />
+
+<p><picture><source media="(prefers-color-scheme: dark)" srcset="./profile/section-work-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="./profile/section-work-light.svg" /><img width="100%" src="./profile/section-work-dark.svg" alt="05 Work" /></picture></p>
 
 <p>
 <a href="https://github.com/tanu360/ida-chat-plugin"><picture><source media="(prefers-color-scheme: dark)" srcset="./profile/work-ida-chat-plugin-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="./profile/work-ida-chat-plugin-light.svg" /><img height="24" src="./profile/work-ida-chat-plugin-dark.svg" alt="ida-chat-plugin" /></picture></a><br />
@@ -109,3 +71,5 @@ I'm open to serious collaboration around **security consulting**, **software pro
   &nbsp;&nbsp;
   <a href="https://wakatime.com/@tanu1337"><picture><source media="(prefers-color-scheme: dark)" srcset="./profile/connect-wakatime-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="./profile/connect-wakatime-light.svg" /><img height="28" src="./profile/connect-wakatime-dark.svg" alt="WakaTime: @tanu1337" /></picture></a>
 </p>
+
+<p align="center"><picture><source media="(prefers-color-scheme: dark)" srcset="./profile/updated-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="./profile/updated-light.svg" /><img height="18" src="./profile/updated-dark.svg" alt="Cards refresh daily" /></picture></p>

@@ -1,7 +1,7 @@
-// Small badges: the About pills (focus areas and live coding time) and the footer links.
-// node badges.mjs [outDir]  →  about-*-{theme}.svg, connect-*-{theme}.svg
+// Small badges: the About pills (focus areas and live coding time), the footer links and
+// the "updated" line. node badges.mjs [outDir]  →  about-*, connect-*, updated-{theme}.svg
 import fs from 'node:fs';
-import { Doc, THEMES, measure } from './lib.mjs';
+import { Doc, THEMES, measure, fullDate } from './lib.mjs';
 
 const here = (p) => new URL(p, import.meta.url);
 const data = JSON.parse(fs.readFileSync(here('./data.json')));
@@ -73,4 +73,15 @@ for (const b of CONNECT) {
     write(`connect-${b.id}-${theme}.svg`, doc.svg(H, `${b.label}: ${b.detail}`, `Link to ${b.label}`));
   }
 }
-console.log(`badges: ${ABOUT.length} about, ${CONNECT.length} connect`);
+// ── Footer: when the cards last refreshed, said once instead of on every card ──
+{
+  const text = `Cards refresh daily · updated ${fullDate(data.generatedAt)}`;
+  const W = Math.ceil(measure(text, 11.5, 500).width) + 2;
+  for (const theme of Object.keys(THEMES)) {
+    const doc = new Doc(theme, W);
+    doc.text(text, { x: 1, y: 13, size: 11.5, fill: 'ink3' });
+    write(`updated-${theme}.svg`, doc.svg(18, text, text));
+  }
+}
+
+console.log(`badges: ${ABOUT.length} about, ${CONNECT.length} connect, updated line`);

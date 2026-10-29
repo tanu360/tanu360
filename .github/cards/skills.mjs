@@ -282,17 +282,15 @@ const specMark = {
 function specLogos(doc) {
   const x0 = PAD + SPEC_LABEL_W;
   const W = FULL - PAD - EDGE - x0;
-  let y = 40;
-  GROUPS.forEach((g, n) => {
+  let y = 0;
+  GROUPS.forEach((g) => {
     const top = y + 10;
     doc.label(g.label, PAD, baseline(top, specMark.h, 10.5));
-    y = items(doc, specMark, g, x0, top, W) + 10;
-    if (n < GROUPS.length - 1) doc.rule(y);
-    y += 1;
+    y = items(doc, specMark, g, x0, top, W) + 15;
   });
   if (doc.right > FULL - PAD - EDGE + 0.01) throw new Error(`spec-logos: an item reaches x=${doc.right.toFixed(1)}, past ${FULL - PAD - EDGE}`);
   doc.add(`<g>${doc.marks.join('')}</g>`);
-  return y - 1;
+  return y - 10;
 }
 
 // doc.text() emits one translate+scale per glyph. A run shares its baseline and scale,
@@ -321,7 +319,6 @@ const outDir = process.argv[2] || here('../../profile').pathname;
 const desc = GROUPS.map((g) => `${g.name}: ${g.items.join(', ')}.`).join(' ');
 for (const theme of Object.keys(THEMES)) {
   const doc = new Doc(theme, FULL);
-  doc.header('SKILLS');
   const bottom = specLogos(doc);
   const svg = compact(doc.svg(bottom + PAD, 'Skills', desc));
   fs.writeFileSync(`${outDir}/skills-${theme}.svg`, svg);

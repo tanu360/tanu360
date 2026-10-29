@@ -7,8 +7,8 @@ Geist (vendored in `assets/fonts`), so the SVGs render the same everywhere.
 |---|---|---|
 | `data.mjs` | `data.json`, `geocache.json` — GitHub API, Wakapi, OpenStreetMap (cached) | daily, workflow |
 | `cards.mjs` | github, activity, languages, week, rank, stargazers | daily, workflow |
-| `badges.mjs` | about-\*, connect-\* | daily, workflow |
-| `skills.mjs`, `hero.mjs`, `work.mjs` | skills, hero, work-* | by hand: `npm install && npm run static` |
+| `badges.mjs` | about-\*, connect-\*, updated | daily, workflow |
+| `skills.mjs`, `hero.mjs`, `work.mjs`, `sections.mjs` | skills, hero, work-\*, section-\* | by hand: `npm install && npm run static` |
 | `build-world.mjs` | `assets/world-grid.json` | by hand, once |
 
 Each data source falls back to its previous value in `data.json` if it fails.

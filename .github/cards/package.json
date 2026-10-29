@@ -6,7 +6,7 @@
   "scripts": {
     "data": "node data.mjs",
     "cards": "node cards.mjs && node badges.mjs",
-    "static": "node skills.mjs && node hero.mjs && node work.mjs"
+    "static": "node skills.mjs && node hero.mjs && node work.mjs && node sections.mjs"
   },
   "dependencies": {
     "opentype.js": "^1.3.4"

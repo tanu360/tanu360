@@ -1,11 +1,10 @@
 import fs from 'node:fs';
-import { Doc, THEMES, PAD, FULL, HALF, FIGURE_WEIGHT, fmt, duration, monthYear, monthShort, dayMonth, weekdayDate, fullDate, contrast } from './lib.mjs';
+import { Doc, THEMES, PAD, FULL, HALF, FIGURE_WEIGHT, fmt, duration, monthYear, monthShort, dayMonth, weekdayDate, contrast } from './lib.mjs';
 
 const here = (p) => new URL(p, import.meta.url);
 const data = JSON.parse(fs.readFileSync(here('./data.json')));
 const world = JSON.parse(fs.readFileSync(here('./assets/world-grid.json')));
 const ICONS = JSON.parse(fs.readFileSync(here('./assets/icons.json')));
-const updated = fullDate(data.generatedAt);
 // Paired half-width cards share a height so they line up side by side in the README.
 const HALF_HEIGHT = 490;
 const WAKATIME_URL = process.env.WAKATIME_URL || 'wakatime.com/@tanu1337';
@@ -103,8 +102,7 @@ function github(theme) {
   }
 
   // Stats strip: label, figure, caption — same rhythm as the tiles above.
-  const stripRule = gridBottom + 34;
-  doc.rule(stripRule);
+  const stripRule = gridBottom + 28;
   const strip = [
     { label: 'STARS EARNED', value: fmt(s.stars), sub: `across ${s.publicRepos} repos` },
     { label: 'COMMITS', value: fmt(s.commits), sub: 'last 12 months' },
@@ -122,12 +120,8 @@ function github(theme) {
     doc.text(item.sub, { x, y: stripRule + 80, size: 11.5, fill: 'ink3' });
   });
 
-  const footRule = stripRule + 100;
-  doc.rule(footRule);
-  doc.text(`Updated ${updated}`, { x: PAD, y: footRule + 22, size: 11.5, fill: 'ink3' });
-
   return doc.svg(
-    footRule + 30,
+    stripRule + 92,
     `GitHub stats for ${data.login}`,
     `${fmt(c.allTime)} contributions since ${monthYear(c.since)}; current streak ${c.current.days} days; longest streak ${c.longest.days} days; grade ${s.grade}. ` +
       `${fmt(c.lastYear)} contributions in the last 12 months. ${fmt(s.stars)} stars, ${fmt(s.commits)} commits in the last 12 months, ${s.prs} pull requests, ${s.issues} issues, contributed to ${s.contributedTo} repos, ${s.followers} followers.`,
@@ -155,13 +149,8 @@ function languages(theme) {
   column(PAD, 'Code in my repositories', 'share of bytes across owned repos', repo);
   column(PAD + colW + gap, 'Time spent writing code', `all time on ${data.wakapi.source ?? 'Wakapi'}, ${fmt(data.wakapi.totalSeconds / 3600)} hrs total`, time);
 
-  const footRule = listTop + (ROWS - 1) * ROW + 38;
-  doc.rule(footRule);
-  doc.text(`Updated ${updated}`, { x: PAD, y: footRule + 22, size: 11.5, fill: 'ink3' });
-  doc.text('Bars scale to the top language in each list', { x: FULL - PAD, y: footRule + 22, size: 11.5, anchor: 'end', fill: 'ink3' });
-
   return doc.svg(
-    footRule + 30,
+    listTop + (ROWS - 1) * ROW + 22,
     'Languages',
     `By code: ${repo.map((r) => `${r.name} ${r.value}`).join(', ')}. By coding time: ${time.map((r) => `${r.name} ${r.value}`).join(', ')}.`,
   );
@@ -242,7 +231,6 @@ function rank(theme) {
     doc.text(t.name, { x, y: trackY + 26, size: 11, weight: i === tierIndex ? 600 : 500, fill: i === tierIndex ? 'ink' : 'ink3' });
   });
 
-  doc.rule(trackY + 48);
   const stats = r
     ? [
         { label: 'RANKED TIME', value: duration(r.seconds) },
@@ -346,8 +334,7 @@ function stargazers(theme) {
   });
 
   // Top countries as two ranked columns.
-  const listRule = mapBottom + 20;
-  doc.rule(listRule);
+  const listRule = mapBottom + 14;
   doc.label('TOP COUNTRIES', PAD, listRule + 30);
   const gap = 40;
   const listW = (FULL - 2 * PAD - gap) / 2;
@@ -358,18 +345,16 @@ function stargazers(theme) {
     barRow(doc, { x, y, width: listW, name: c.name, value: `${c.count} · ${Math.round((c.count / located.length) * 100)}%`, ratio: c.count / top[0].count });
   });
 
-  const footRule = listRule + 58 + 3 * ROW + 26;
-  doc.rule(footRule);
-  doc.text(`Updated ${updated}`, { x: PAD, y: footRule + 22, size: 11.5, fill: 'ink3' });
   // Credit the geocoder with its mark: "Locations from GitHub profiles · [logo] OpenStreetMap".
+  const creditY = listRule + 58 + 3 * ROW + 40;
   const osm = ICONS.openstreetmap.d[0];
-  const osmW = doc.text('OpenStreetMap', { x: FULL - PAD, y: footRule + 22, size: 11.5, anchor: 'end', fill: 'ink3' });
+  const osmW = doc.text('OpenStreetMap', { x: FULL - PAD, y: creditY, size: 11.5, anchor: 'end', fill: 'ink3' });
   const osmX = FULL - PAD - osmW - 6 - 12;
-  doc.add(`<g transform="translate(${osmX.toFixed(2)} ${footRule + 12.5}) scale(0.5)" fill="${t.ink3}"><path d="${osm}"/></g>`);
-  doc.text('Locations from GitHub profiles ·', { x: osmX - 6, y: footRule + 22, size: 11.5, anchor: 'end', fill: 'ink3' });
+  doc.add(`<g transform="translate(${osmX.toFixed(2)} ${creditY - 9.5}) scale(0.5)" fill="${t.ink3}"><path d="${osm}"/></g>`);
+  doc.text('Locations from GitHub profiles ·', { x: osmX - 6, y: creditY, size: 11.5, anchor: 'end', fill: 'ink3' });
 
   return doc.svg(
-    footRule + 30,
+    creditY + 8,
     'Stargazers around the world',
     `${fmt(total)} stargazers; ${located.length} list a location, across ${countries.length} countries. Top: ${top.map((c) => `${c.name} ${c.count}`).join(', ')}.`,
   );
@@ -467,13 +452,8 @@ function activity(theme) {
     doc.text(i === DAYS - 1 ? 'Today' : dayMonth(d.date), { x: i === DAYS - 1 ? FULL - PAD : pts[i][0], y: base + 22, size: 11, anchor, fill: 'ink3' });
   });
 
-  const footRule = base + 40;
-  doc.rule(footRule);
-  doc.text(`Updated ${updated}`, { x: PAD, y: footRule + 22, size: 11.5, fill: 'ink3' });
-  doc.text('Commits, pull requests, issues and reviews, as GitHub counts them', { x: FULL - PAD, y: footRule + 22, size: 11.5, anchor: 'end', fill: 'ink3' });
-
   return doc.svg(
-    footRule + 30,
+    base + 30,
     'Contribution activity, last 30 days',
     `${fmt(total)} contributions in the last ${DAYS} days${change === null ? '' : `, ${change >= 0 ? 'up' : 'down'} ${Math.abs(change)}% on the 30 days before`}. ` +
       `Busiest day ${peak.date} with ${peak.count}. Active on ${active} of ${DAYS} days. Daily counts: ${days.map((d) => d.count).join(', ')}.`,
