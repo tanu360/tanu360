@@ -44,7 +44,7 @@ function github(theme) {
   const doc = new Doc(theme, FULL);
   const c = data.contributions;
   const s = data.stats;
-  doc.header('GITHUB', `github.com/${data.login}`);
+  doc.header('GitHub', `github.com/${data.login}`);
 
   const tiles = [
     { label: 'CONTRIBUTIONS', value: fmt(c.allTime), sub: `since ${monthYear(c.since)}` },
@@ -129,7 +129,7 @@ function github(theme) {
 function languages(theme) {
   const doc = new Doc(theme, FULL);
   const t = doc.t;
-  doc.header('LANGUAGES');
+  doc.header('Languages');
   const gap = 40;
   const colW = (FULL - 2 * PAD - gap) / 2;
   const heading = (x, title, sub) => {
@@ -230,7 +230,7 @@ function week(theme) {
   const days = data.wakapi.week.days;
   const total = days.reduce((sum, d) => sum + d.seconds, 0);
   const best = days.reduce((a, b) => (b.seconds > a.seconds ? b : a));
-  doc.header('THIS WEEK', `${dayMonth(days[0].date)} – ${dayMonth(days.at(-1).date)}`);
+  doc.header('This week', `${dayMonth(days[0].date)} – ${dayMonth(days.at(-1).date)}`);
 
   doc.label('TOTAL', PAD, 66);
   doc.figure(duration(total), null, PAD, 110, 38);
@@ -279,7 +279,7 @@ function rank(theme) {
   const doc = new Doc(theme, HALF);
   const t = doc.t;
   const r = data.wakapi.rank;
-  doc.header('LEADERBOARD', WAKATIME_URL);
+  doc.header('Leaderboard', WAKATIME_URL);
   const tierIndex = r ? TIERS.findIndex((x) => r.rank >= x.min && r.rank <= x.max) : -1;
   const tier = TIERS[tierIndex];
 
@@ -342,7 +342,7 @@ function stargazers(theme) {
     byCountry.set(s.cc, entry);
   }
   const countries = [...byCountry.values()].sort((a, b) => b.count - a.count);
-  doc.header('STARGAZERS', `${fmt(total)} people · ${countries.length} countries`);
+  doc.header('Stargazers', `${fmt(total)} people · ${countries.length} countries`);
 
   const topRepo = data.repos[0];
   const tiles = [
@@ -465,7 +465,7 @@ function activity(theme) {
   const peak = days.reduce((a, b) => (b.count > a.count ? b : a));
   const active = days.filter((d) => d.count > 0).length;
   const change = prevTotal ? Math.round(((total - prevTotal) / prevTotal) * 100) : null;
-  doc.header('CONTRIBUTION ACTIVITY', `last ${DAYS} days`);
+  doc.header('Contribution activity', `last ${DAYS} days`);
 
   // Headline number with its change inline, then three supporting stats on the same baseline.
   doc.label('CONTRIBUTIONS', PAD, 66);
@@ -531,14 +531,46 @@ function activity(theme) {
   );
 }
 
-const CARDS = { github, languages, week, rank, stargazers, activity };
+// ── Coding: This week and Leaderboard as one card ──────────────────────────
+// Wide screens get the two side by side with a gutter and a hairline between them; phones
+// get them stacked so neither shrinks to unreadable. The README picks one by screen width.
+const heightOf = (svg) => +svg.match(/height="(\d+)"/)[1];
+function coding(theme) {
+  const w = week(theme);
+  const r = rank(theme);
+  const [wh, rh] = [heightOf(w), heightOf(r)];
+  const title = 'Coding';
+  const desc = `${w.match(/<desc id="desc">([^<]*)/)[1]} ${r.match(/<desc id="desc">([^<]*)/)[1]}`;
+
+  const wide = new Doc(theme, FULL);
+  wide.place(w, 0, 0);
+  wide.rect(FULL / 2 - 0.5, PAD, 1, Math.max(wh, rh) - 2 * PAD, { fill: 'rule' });
+  wide.place(r, FULL - HALF, 0);
+
+  const GAP = 64;
+  const narrow = new Doc(theme, HALF);
+  narrow.place(w, 0, 0);
+  narrow.rect(PAD, wh + GAP / 2, HALF - 2 * PAD, 1, { fill: 'rule' });
+  narrow.place(r, 0, wh + GAP);
+
+  return {
+    [`coding-${theme}`]: wide.svg(Math.max(wh, rh), title, desc),
+    [`coding-mobile-${theme}`]: narrow.svg(wh + GAP + rh, title, desc),
+  };
+}
+
+const CARDS = { github, languages, coding, stargazers, activity };
 const outDir = process.argv[2] || here('../../profile').pathname;
 fs.mkdirSync(outDir, { recursive: true });
 for (const [name, render] of Object.entries(CARDS)) {
   for (const theme of Object.keys(THEMES)) {
-    const svg = render(theme);
-    fs.writeFileSync(`${outDir}/${name}-${theme}.svg`, svg);
-    if (theme === 'dark') console.log(`${name}: ${(svg.length / 1024).toFixed(1)} KB, ${svg.match(/height="(\d+)"/)[1]}px tall`);
+    // A card renders one SVG, or several named ones (desktop and phone versions).
+    const out = render(theme);
+    const files = typeof out === 'string' ? { [`${name}-${theme}`]: out } : out;
+    for (const [file, svg] of Object.entries(files)) {
+      fs.writeFileSync(`${outDir}/${file}.svg`, svg);
+      if (theme === 'dark') console.log(`${file.replace('-dark', '')}: ${(svg.length / 1024).toFixed(1)} KB, ${heightOf(svg)}px tall`);
+    }
   }
 }
 for (const [name, t] of Object.entries(THEMES)) {

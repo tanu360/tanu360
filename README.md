@@ -22,10 +22,7 @@ I'm open to serious collaboration around **security consulting**, **software pro
 
 <p><picture><source media="(prefers-color-scheme: dark)" srcset="./profile/section-coding-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="./profile/section-coding-light.svg" /><img width="100%" src="./profile/section-coding-dark.svg" alt="02 Coding" /></picture></p>
 
-<p align="center">
-  <a href="https://wakatime.com/@tanu1337"><picture><source media="(prefers-color-scheme: dark)" srcset="./profile/week-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="./profile/week-light.svg" /><img width="49%" src="./profile/week-dark.svg" alt="Coding this week" /></picture></a>
-  <a href="https://wakatime.com/@tanu1337"><picture><source media="(prefers-color-scheme: dark)" srcset="./profile/rank-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="./profile/rank-light.svg" /><img width="49%" src="./profile/rank-dark.svg" alt="Wakapi weekly leaderboard" /></picture></a>
-</p>
+<p><a href="https://wakatime.com/@tanu1337"><picture><source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="./profile/coding-mobile-dark.svg" /><source media="(max-width: 600px) and (prefers-color-scheme: light)" srcset="./profile/coding-mobile-light.svg" /><source media="(prefers-color-scheme: dark)" srcset="./profile/coding-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="./profile/coding-light.svg" /><img width="100%" src="./profile/coding-dark.svg" alt="Coding this week and the Wakapi weekly leaderboard" /></picture></a></p>
 
 <p><picture><source media="(prefers-color-scheme: dark)" srcset="./profile/languages-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="./profile/languages-light.svg" /><img width="100%" src="./profile/languages-dark.svg" alt="Languages by code and by time spent" /></picture></p>
 

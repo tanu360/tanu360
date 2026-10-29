@@ -28,7 +28,7 @@ export const THEMES = {
 export const PAD = 6;
 const HEADER_LIFT = 12;
 export const FULL = 840;
-export const HALF = 412;
+export const HALF = 392; // one column of the two-column Coding card
 
 const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c]);
 
@@ -88,7 +88,8 @@ export class Doc {
   // Eyebrow label and right-hand meta. No rule under them: svg() lifts everything drawn
   // after the header by HEADER_LIFT so the content sits close to its label.
   header(label, meta) {
-    this.text(label, { x: PAD, y: 18, size: 11, weight: 600, tracking: 0.14, fill: 'ink2' });
+    // A title, not another caps label: it has to outrank the KPI labels under it.
+    this.text(label, { x: PAD, y: 18, size: 14.5, weight: 600 });
     if (meta) this.text(meta, { x: this.W - PAD, y: 18, size: 11, weight: 500, tracking: 0.02, anchor: 'end', fill: 'ink3' });
     this.bodyStart = this.parts.length;
   }
@@ -110,6 +111,14 @@ export class Doc {
     if (!this.defs.has(id)) this.defs.set(id, `<rect id="${id}" width="${size.toFixed(2)}" height="${size.toFixed(2)}" rx="${Math.min(2, size / 5).toFixed(2)}"/>`);
     const uses = points.map(([x, y]) => `<use href="#${id}" x="${x.toFixed(2)}" y="${y.toFixed(2)}"/>`).join('');
     this.add(`<g fill="${this.t.ink}" fill-opacity="${+opacity.toFixed(3)}">${uses}</g>`);
+  }
+
+  // Draws another card's SVG at (x, y). Def ids name their content (glyph or square size), so
+  // shared ones are kept once.
+  place(svg, x, y) {
+    const [, defs, body] = svg.match(/<defs>([\s\S]*?)<\/defs>\n([\s\S]*)<\/svg>/);
+    for (const [def, id] of defs.matchAll(/<\w+ id="([^"]+)"[^>]*\/>/g)) if (!this.defs.has(id)) this.defs.set(id, def);
+    this.add(`<g transform="translate(${x} ${y})">${body.trim()}</g>`);
   }
 
   svg(height, title, desc) {
