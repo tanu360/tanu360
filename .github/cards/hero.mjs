@@ -5,7 +5,7 @@ import opentype from 'opentype.js';
 import { Doc, THEMES, PAD, measure } from './lib.mjs';
 
 const W = 840;
-const H = 282;
+const H = 244;
 
 const monoBuf = fs.readFileSync(new URL('./assets/fonts/geist-mono-400.woff', import.meta.url));
 const mono = opentype.parse(monoBuf.buffer.slice(monoBuf.byteOffset, monoBuf.byteOffset + monoBuf.byteLength));
@@ -139,8 +139,6 @@ function render(theme) {
   // bgColor-danger-emphasis (dark), the same red as the breakpoint hit.
   bioLine(doc, PAD, 186, ['I ', 'make', ' things, ', 'break', ' things,'], { flip: true });
   bioLine(doc, PAD, 218, ['and ', 'make', ' things that ', 'break', ' things.']);
-  doc.text('Reverse engineering · AI systems · Developer tools', { x: PAD, y: 273, size: 12, fill: 'ink3' });
-  doc.text('github.com/tanu360', { x: W - PAD, y: 273, size: 12, anchor: 'end', fill: 'ink3' });
 
   // ── Right: graph canvas — a faint dot grid that fades in from the text side ──
   doc.defs.set('fade', `<linearGradient id="fadeX" x1="436" x2="840" y1="0" y2="0" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#fff" stop-opacity="0"/><stop offset="0.25" stop-color="#fff"/><stop offset="1" stop-color="#fff"/></linearGradient><mask id="fade"><rect x="0" y="0" width="${W}" height="${H}" fill="url(#fadeX)"/></mask>`);
@@ -225,7 +223,7 @@ function render(theme) {
   const pct = (v) => ((v / CYCLE) * 100).toFixed(3);
   const frames = SPANS.map(([a, b], n) => `.ip${n}{animation:ip${n} ${CYCLE.toFixed(2)}s steps(1,end) infinite}@keyframes ip${n}{${a ? `0%{opacity:0}${pct(a)}%{opacity:1}` : '0%{opacity:1}'}${pct(b)}%{opacity:0}100%{opacity:0}}`).join('');
   const css = `<style>.ip{opacity:0}${frames}@media (prefers-reduced-motion:reduce){.ip{animation:none!important;opacity:0}.ip-rest{opacity:1}}${STICKER_CSS}</style>`;
-  const svg = doc.svg(H, 'Hello World, I am Tarun', 'I make things, break things, and make things that break things. Reverse engineering, AI systems and developer tools. Illustration: a disassembler graph of a function that checks a PE file\'s MZ header, stepped through one instruction at a time and pausing on a breakpoint.');
+  const svg = doc.svg(H, 'Hello World, I am Tarun', 'I make things, break things, and make things that break things. Illustration: a disassembler graph of a function that checks a PE file\'s MZ header, stepped through one instruction at a time and pausing on a breakpoint.');
   return svg.replace('<defs>', `${css}\n<defs>`);
 }
 

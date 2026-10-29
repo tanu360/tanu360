@@ -1,4 +1,4 @@
-<picture><source media="(prefers-color-scheme: dark)" srcset="./profile/hero-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="./profile/hero-light.svg" /><img width="100%" src="./profile/hero-dark.svg" alt="Hello World, I am Tarun. I make things, break things, and make things that break things. Reverse engineering, AI systems and developer tools." /></picture>
+<picture><source media="(prefers-color-scheme: dark)" srcset="./profile/hero-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="./profile/hero-light.svg" /><img width="100%" src="./profile/hero-dark.svg" alt="Hello World, I am Tarun. I make things, break things, and make things that break things." /></picture>
 
 > **Renaissance-class** offensive security researcher with demonstrated **global top-tier depth** in multiple **rare niches** and **shipped production engineering** capability.
 
