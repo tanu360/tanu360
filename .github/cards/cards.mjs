@@ -194,6 +194,36 @@ function languages(theme) {
   );
 }
 
+// Concentric rings with a legend (Bklit's ring chart): each ring is one item's share of
+// `total`, read clockwise from the top. Shared by the two half cards so they mirror.
+const RING = { outer: 58, step: 13, width: 8 };
+function ringList(doc, label, items, total, top) {
+  doc.label(label, PAD, top);
+  const cx = PAD + RING.outer + RING.width / 2;
+  const cy = top + 22 + RING.outer + RING.width / 2;
+  items.forEach(([, seconds], i) => {
+    const r = RING.outer - i * RING.step;
+    const C = 2 * Math.PI * r;
+    const ring = `cx="${cx}" cy="${cy.toFixed(1)}" r="${r}" fill="none" stroke="${doc.t.ink}" stroke-width="${RING.width}"`;
+    doc.add(`<circle ${ring} stroke-opacity="${doc.t.empty}"/>`);
+    doc.add(`<circle ${ring} stroke-opacity="${SHADES[i]}" stroke-linecap="round" stroke-dasharray="${((C * seconds) / total).toFixed(2)} ${C.toFixed(2)}" transform="rotate(-90 ${cx} ${cy.toFixed(1)})"/>`);
+  });
+  const lx = cx + RING.outer + RING.width / 2 + 24;
+  items.forEach(([name, seconds], i) => {
+    const y = cy - ((items.length - 1) * 30) / 2 + i * 30 + 4;
+    doc.squares([[lx, y - 9]], 9, SHADES[i]);
+    nameText(doc, name, lx + 16, y);
+    const pct = doc.text(`${Math.round((seconds / total) * 100)}%`, { x: HALF - PAD, y, size: 12, anchor: 'end', fill: 'ink3' });
+    doc.text(duration(seconds), { x: HALF - PAD - pct - 8, y, size: 12.5, anchor: 'end', fill: 'ink2' });
+  });
+  return cy + RING.outer + RING.width / 2;
+}
+
+// The two half cards share one grid: stats on top, a chart whose baseline is CHART_BASE with
+// a caption row under it, and a ring list starting at LIST_TOP.
+const CHART_BASE = 284;
+const LIST_TOP = CHART_BASE + 46;
+
 // ── Wakapi: this week ───────────────────────────────────────────────────────
 function week(theme) {
   const doc = new Doc(theme, HALF);
@@ -208,7 +238,7 @@ function week(theme) {
   doc.figure(duration(total / days.length), null, HALF / 2, 110, 38);
 
   // One bar per day on a full-height track; the best day carries the ink.
-  const base = 284;
+  const base = CHART_BASE;
   const chartH = 106;
   const slot = (HALF - 2 * PAD) / days.length;
   const colW = 24;
@@ -221,34 +251,14 @@ function week(theme) {
     doc.text(day, { x: x + colW / 2, y: base + 18, size: 11, weight: isBest ? 600 : 500, anchor: 'middle', fill: isBest ? 'ink' : 'ink3' });
   });
 
-  // Projects as concentric rings (Bklit's ring chart): each ring is that project's share of
-  // the week, read clockwise from the top. "Other" is always last, innermost.
+  // Projects, "Other" always last.
   const totals = new Map();
   for (const d of days) for (const p of d.projects) totals.set(p.name, (totals.get(p.name) || 0) + p.seconds);
   const projects = [...totals].sort((a, b) => (a[0] === 'Other') - (b[0] === 'Other') || b[1] - a[1]).slice(0, 4);
-  const listTop = base + 46;
-  doc.label('PROJECTS', PAD, listTop);
-  const RING = { outer: 58, step: 13, width: 8 };
-  const cx = PAD + RING.outer + RING.width / 2;
-  const cy = listTop + 22 + RING.outer + RING.width / 2;
-  projects.forEach(([, seconds], i) => {
-    const r = RING.outer - i * RING.step;
-    const C = 2 * Math.PI * r;
-    const ring = `cx="${cx}" cy="${cy.toFixed(1)}" r="${r}" fill="none" stroke="${doc.t.ink}" stroke-width="${RING.width}"`;
-    doc.add(`<circle ${ring} stroke-opacity="${doc.t.empty}"/>`);
-    doc.add(`<circle ${ring} stroke-opacity="${SHADES[i]}" stroke-linecap="round" stroke-dasharray="${((C * seconds) / total).toFixed(2)} ${C.toFixed(2)}" transform="rotate(-90 ${cx} ${cy.toFixed(1)})"/>`);
-  });
-  const lx = cx + RING.outer + RING.width / 2 + 24;
-  projects.forEach(([name, seconds], i) => {
-    const y = cy - ((projects.length - 1) * 30) / 2 + i * 30 + 4;
-    doc.squares([[lx, y - 9]], 9, SHADES[i]);
-    nameText(doc, name, lx + 16, y);
-    const pct = doc.text(`${Math.round((seconds / total) * 100)}%`, { x: HALF - PAD, y, size: 12, anchor: 'end', fill: 'ink3' });
-    doc.text(duration(seconds), { x: HALF - PAD - pct - 8, y, size: 12.5, anchor: 'end', fill: 'ink2' });
-  });
+  const bottom = ringList(doc, 'PROJECTS', projects, total, LIST_TOP);
 
   return doc.svg(
-    Math.max(cy + RING.outer + RING.width / 2 + 14, HALF_HEIGHT),
+    Math.max(bottom + 14, HALF_HEIGHT),
     'Coding this week',
     `${duration(total)} total, ${duration(total / days.length)} daily average. Best day ${best.date} with ${duration(best.seconds)}. Projects: ${projects.map(([n, sec]) => `${n} ${duration(sec)}`).join(', ')}.`,
   );
@@ -273,9 +283,15 @@ function rank(theme) {
   const tierIndex = r ? TIERS.findIndex((x) => r.rank >= x.min && r.rank <= x.max) : -1;
   const tier = TIERS[tierIndex];
 
-  // Notched half-gauge (Bklit's gauge): Bronze on the left to Diamond on the right, one gap
-  // between tiers, notches filled up to the current rank.
-  const G = { cx: HALF / 2, cy: 214, r: 124, len: 15, per: 11 };
+  // Same top row as the week card: two figures at the same size and positions.
+  doc.label('RANKED TIME', PAD, 66);
+  doc.figure(r ? duration(r.seconds) : '—', null, PAD, 110, 38);
+  doc.label('DAILY AVERAGE', HALF / 2, 66);
+  doc.figure(r ? duration(r.dailyAverage) : '—', null, HALF / 2, 110, 38);
+
+  // Notched half-gauge (Bklit's gauge) sitting on the week card's chart baseline: Bronze on
+  // the left to Diamond on the right, one gap between tiers, filled up to the current rank.
+  const G = { cx: HALF / 2, cy: CHART_BASE, r: 112, len: 14, per: 11 };
   const slots = TIERS.length * G.per + TIERS.length - 1;
   const progress = r ? (tierIndex + tierPos(tier, r.rank)) / TIERS.length : 0;
   const filled = Math.round(progress * TIERS.length * G.per);
@@ -297,39 +313,18 @@ function rank(theme) {
   const notch = (d, opacity) => d.length && doc.add(`<path d="${d.join('')}" stroke="${t.ink}" stroke-opacity="${opacity}" stroke-width="3.2" stroke-linecap="round"/>`);
   notch(off, t.empty * 2);
   notch(on, 1);
+  doc.text(r ? `#${r.rank}` : '—', { x: G.cx, y: G.cy - 8, size: 44, weight: FIGURE_WEIGHT, tracking: -0.03, anchor: 'middle' });
+  // Caption on the same row as the week card's day names.
+  doc.text(r ? `${tier.name} tier on ${r.source ?? 'wakapi.dev'}` : 'outside the public top 100', { x: G.cx, y: CHART_BASE + 18, size: 11, anchor: 'middle', fill: 'ink3' });
 
-  doc.text(r ? `#${r.rank}` : '—', { x: G.cx, y: G.cy - 26, size: 46, weight: FIGURE_WEIGHT, tracking: -0.03, anchor: 'middle' });
-  doc.text(r ? `${tier.name} tier on ${r.source ?? 'wakapi.dev'}` : 'outside the public top 100', { x: G.cx, y: G.cy - 2, size: 12, anchor: 'middle', fill: 'ink3' });
-
-  const statsTop = G.cy + 40;
-  const stats = r
-    ? [
-        { label: 'RANKED TIME', value: duration(r.seconds) },
-        { label: 'DAILY AVERAGE', value: duration(r.dailyAverage) },
-        { label: 'TOP LANGUAGE', value: langName(r.languages.find((l) => l.name.toLowerCase() !== 'unknown')?.name ?? '—') },
-      ]
-    : [];
-  const colW = (HALF - 2 * PAD) / 3;
-  stats.forEach((item, i) => {
-    const x = PAD + i * colW;
-    doc.label(item.label, x, statsTop);
-    doc.text(item.value, { x: x - 1, y: statsTop + 30, size: 24, weight: FIGURE_WEIGHT, tracking: -0.02 });
-  });
-
-  // This week's languages as a plain list: name, time, share.
-  const listTop = statsTop + 72;
-  const langs = (r?.languages ?? []).filter((l) => l.name.toLowerCase() !== 'unknown').slice(0, 4);
+  // This week's languages as rings, mirroring the week card's projects.
+  const all = (r?.languages ?? []).filter((l) => l.name.toLowerCase() !== 'unknown');
   const langTotal = (r?.languages ?? []).reduce((sum, l) => sum + l.seconds, 0) || 1;
-  doc.label('LANGUAGES THIS WEEK', PAD, listTop);
-  langs.forEach((l, i) => {
-    const y = listTop + 28 + i * 26;
-    doc.text(langName(l.name), { x: PAD, y, size: 13 });
-    const pct = doc.text(`${Math.round((l.seconds / langTotal) * 100)}%`, { x: HALF - PAD, y, size: 12, anchor: 'end', fill: 'ink3' });
-    doc.text(duration(l.seconds), { x: HALF - PAD - pct - 8, y, size: 12.5, anchor: 'end', fill: 'ink2' });
-  });
+  const langs = all.slice(0, 4).map((l) => [langName(l.name), l.seconds]);
+  const bottom = ringList(doc, 'LANGUAGES THIS WEEK', langs, langTotal, LIST_TOP);
 
   return doc.svg(
-    Math.max(listTop + 28 + (langs.length - 1) * 26 + 14, HALF_HEIGHT),
+    Math.max(bottom + 14, HALF_HEIGHT),
     'Wakapi leaderboard',
     r ? `Rank ${r.rank} on the ${r.source ?? 'wakapi.dev'} weekly leaderboard, ${tier.name} tier. ${duration(r.seconds)} ranked time, ${duration(r.dailyAverage)} daily average.` : 'Not in the public top 100 this week.',
   );
