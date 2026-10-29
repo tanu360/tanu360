@@ -8,17 +8,24 @@ const data = JSON.parse(fs.readFileSync(here('./data.json')));
 const ICONS = JSON.parse(fs.readFileSync(here('./assets/icons.json')));
 const outDir = process.argv[2] || here('../../profile').pathname;
 
-const icon = (name, x, y, size, fill) => {
-  const { d, box } = ICONS[name];
-  return `<g transform="translate(${x} ${y}) scale(${+(size / box).toFixed(5)})" fill="${fill}">${d.map((p) => `<path d="${p}"/>`).join('')}</g>`;
+// Filled marks carry path data; Lucide line icons carry their shapes and are stroked.
+const icon = (name, x, y, size, colour) => {
+  const { d, stroke, box } = ICONS[name];
+  const s = +(size / box).toFixed(5);
+  if (stroke) return `<g transform="translate(${x} ${y}) scale(${s})" fill="none" stroke="${colour}" stroke-width="${(1.35 / s).toFixed(2)}" stroke-linecap="round" stroke-linejoin="round">${stroke}</g>`;
+  return `<g transform="translate(${x} ${y}) scale(${s})" fill="${colour}">${d.map((p) => `<path d="${p}"/>`).join('')}</g>`;
 };
 const write = (file, svg) => fs.writeFileSync(`${outDir}/${file}`, svg);
 
 // ── About: outline pills ────────────────────────────────────────────────────
-const hrs = Math.floor(data.wakapi.totalSeconds / 3600);
-const mins = Math.floor((data.wakapi.totalSeconds % 3600) / 60);
+// Coding time comes from WakaTime first, Wakapi as the backup (see data.mjs).
+const codingSeconds = data.coding?.seconds ?? data.wakapi.totalSeconds;
+const hrs = Math.floor(codingSeconds / 3600);
+const mins = Math.floor((codingSeconds % 3600) / 60);
 const ABOUT = [
   { id: 'cyber', icon: 'hackaday', label: 'Cybersecurity' },
+  { id: 'reversing', icon: 'binary', label: 'Reverse Engineering' },
+  { id: 'protection', icon: 'shield-check', label: 'Software Protection' },
   { id: 'aiml', icon: 'huggingface', label: 'AI / ML' },
   { id: 'coding', icon: 'wakatime', label: 'Coding time', value: `${hrs.toLocaleString('en-US')} hrs ${mins} mins` },
 ];

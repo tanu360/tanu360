@@ -132,15 +132,26 @@ function render(theme) {
   // Primer fgColor-success / fgColor-danger for the theme.
   const green = dark ? '#3fb950' : '#1a7f37';
   const red = dark ? '#f85149' : '#d1242f';
-  const edge = (d, colour, op, dash) => doc.add(`<path d="${d}" fill="none" stroke="${colour}" stroke-opacity="${op}" stroke-width="1.3"${dash ? ' stroke-dasharray="3 3"' : ''}/>`);
-  const arrow = (x, y, colour, op) => doc.add(`<path d="M${x - 3.5} ${y - 6}L${x} ${y}L${x + 3.5} ${y - 6}Z" fill="${colour}" fill-opacity="${op}"/>`);
+  // A vertical edge from y0 to the arrow tip at y1. The line stops at the arrowhead's base,
+  // a surface-coloured halo clears the dot grid around it, and a dashed edge is spaced so it
+  // starts and ends on a full dash.
+  const ARROW = 6;
+  const edge = (x, y0, y1, colour, op, dash) => {
+    const len = y1 - ARROW - y0;
+    let pattern = '';
+    if (dash) {
+      const n = Math.max(2, Math.round((len + 2.5) / 5.5));
+      pattern = ` stroke-dasharray="3 ${((len - 3 * n) / (n - 1)).toFixed(2)}"`;
+    }
+    doc.add(`<path d="M${x} ${y0}V${y1}" stroke="${t.surface}" stroke-width="7"/>`);
+    doc.add(`<path d="M${x} ${y0}V${y1 - ARROW}" fill="none" stroke="${colour}" stroke-opacity="${op}" stroke-width="1.3"${pattern}/>`);
+    doc.add(`<path d="M${x - 3.5} ${y1 - ARROW}L${x} ${y1}L${x + 3.5} ${y1 - ARROW}Z" fill="${colour}" fill-opacity="${op}"/>`);
+  };
   const { A, B, C } = BLOCKS;
   const bx = B.x + B.w / 2;
   const cx = C.x + C.w / 2;
-  edge(`M${bx} ${A.y + A.h}V${B.y}`, red, 0.9);
-  arrow(bx, B.y, red, 0.9);
-  edge(`M${cx} ${A.y + A.h}V${C.y}`, green, 0.55, true);
-  arrow(cx, C.y, green, 0.55);
+  edge(bx, A.y + A.h, B.y, red, 0.9);
+  edge(cx, A.y + A.h, C.y, green, 0.7, true);
 
   // Blocks: surface fill hides the grid, a header strip with the label, then the listing.
   for (const b of Object.values(BLOCKS)) {

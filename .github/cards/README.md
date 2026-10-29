@@ -12,4 +12,5 @@ Geist (vendored in `assets/fonts`), so the SVGs render the same everywhere.
 | `build-world.mjs` | `assets/world-grid.json` | by hand, once |
 
 Each data source falls back to its previous value in `data.json` if it fails.
-`WAKAPI_API_KEY` is needed for the day-by-day week card; without it the last week on file is kept.
+Coding cards read Wakapi first and WakaTime as the backup (`WAKAPI_API_KEY`, `WAKATIME_API_KEY`);
+the all-time total in the About badges reads WakaTime first. The week card needs one of the keys.

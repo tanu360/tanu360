@@ -1,11 +1,11 @@
 // Fetches everything the cards show and writes data.json.
-// Each source is independent: if one fails (say Wakapi is down), its previous data is
-// kept, so a bad day never blanks a card.
+// Each source is independent: coding data tries Wakapi and WakaTime in turn, and if a
+// source still fails its previous data is kept, so a bad day never blanks a card.
 import fs from 'node:fs';
 
 const LOGIN = process.env.GH_LOGIN || 'tanu360';
 const WAKAPI_USER = process.env.WAKAPI_USERNAME || 'tanu1337';
-const WAKAPI = 'https://wakapi.dev/api/compat/wakatime/v1';
+const WAKATIME_USER = process.env.WAKATIME_USERNAME || 'tanu1337';
 const token = process.env.GITHUB_TOKEN;
 if (!token) throw new Error('GITHUB_TOKEN is required');
 
@@ -163,32 +163,73 @@ const contributions = await source('contributions', prev.contributions, async ()
   };
 });
 
-// ── Wakapi ──────────────────────────────────────────────────────────────────
-const auth = process.env.WAKAPI_API_KEY ? { Authorization: `Basic ${Buffer.from(process.env.WAKAPI_API_KEY).toString('base64')}` } : null;
+// ── Coding time: Wakapi and WakaTime ────────────────────────────────────────
+// Both speak the WakaTime API. Wakapi is the main source for the coding cards with WakaTime
+// as the backup; the headline total in the About badges is the other way round.
+const basic = (key) => key && { Authorization: `Basic ${Buffer.from(key).toString('base64')}` };
+const PROVIDERS = {
+  wakapi: { name: 'Wakapi', host: 'wakapi.dev', api: 'https://wakapi.dev/api/compat/wakatime/v1', user: WAKAPI_USER, auth: basic(process.env.WAKAPI_API_KEY) },
+  wakatime: { name: 'WakaTime', host: 'wakatime.com', api: 'https://wakatime.com/api/v1', user: WAKATIME_USER, auth: basic(process.env.WAKATIME_API_KEY) },
+};
+// Authenticated WakaTime calls address the key's own account as "current".
+const who = (p) => (p.auth && p.name === 'WakaTime' ? 'current' : p.user);
 
-const allTime = await source('wakapi all-time', prev.wakapi && { totalSeconds: prev.wakapi.totalSeconds, since: prev.wakapi.since, languages: prev.wakapi.languages }, async () => {
-  const { data } = await getJson(`${WAKAPI}/users/${WAKAPI_USER}/stats/all_time`);
-  return { totalSeconds: data.total_seconds, since: data.start, languages: data.languages.map((l) => ({ name: l.name, seconds: l.total_seconds })) };
+// Tries each provider in order, then falls back to the previous data.
+const eitherOf = (name, fallback, order, fn) =>
+  source(name, fallback, async () => {
+    const errors = [];
+    for (const key of order) {
+      try {
+        return await fn(PROVIDERS[key]);
+      } catch (error) {
+        errors.push(`${PROVIDERS[key].name}: ${error.message}`);
+      }
+    }
+    throw new Error(errors.join('; '));
+  });
+
+const allTime = await eitherOf(
+  'all-time languages',
+  prev.wakapi && { totalSeconds: prev.wakapi.totalSeconds, since: prev.wakapi.since, languages: prev.wakapi.languages, source: prev.wakapi.source },
+  ['wakapi', 'wakatime'],
+  async (p) => {
+    const { data } = await getJson(`${p.api}/users/${who(p)}/stats/all_time`, p.auth ?? {});
+    if (!data?.languages?.length) throw new Error('no language data');
+    return { totalSeconds: data.total_seconds, since: data.start, languages: data.languages.map((l) => ({ name: l.name, seconds: l.total_seconds })), source: p.name };
+  },
+);
+
+const coding = await eitherOf('coding total', prev.coding ?? { seconds: allTime.totalSeconds, source: allTime.source }, ['wakatime', 'wakapi'], async (p) => {
+  if (!p.auth) throw new Error('no API key');
+  const { data } = await getJson(`${p.api}/users/${who(p)}/all_time_since_today`, p.auth);
+  if (!data?.total_seconds) throw new Error('no total yet');
+  return { seconds: data.total_seconds, source: p.name };
 });
 
-// Day-by-day totals need the API key; without one the last week on file is kept.
-const week = await source('wakapi week', prev.wakapi?.week, async () => {
-  if (!auth) throw new Error('WAKAPI_API_KEY is not set');
-  const summaries = await getJson(`${WAKAPI}/users/${WAKAPI_USER}/summaries?range=last_7_days`, auth);
-  // Wakapi repeats one value in range.date; range.start carries each day's own local date.
+// Day-by-day totals need an API key.
+const week = await eitherOf('coding week', prev.wakapi?.week, ['wakapi', 'wakatime'], async (p) => {
+  if (!p.auth) throw new Error('no API key');
+  const today = new Date();
+  const from = new Date(today);
+  from.setUTCDate(from.getUTCDate() - 6);
+  const query = p.name === 'Wakapi' ? 'range=last_7_days' : `start=${from.toISOString().slice(0, 10)}&end=${today.toISOString().slice(0, 10)}`;
+  const summaries = await getJson(`${p.api}/users/${who(p)}/summaries?${query}`, p.auth);
   return {
+    // Wakapi repeats one value in range.date and puts each day's local date in range.start;
+    // WakaTime's range.date is right and its range.start is UTC.
     days: summaries.data.slice(-7).map((d) => ({
-      date: (d.range?.start || d.range?.date).slice(0, 10),
+      date: (p.name === 'Wakapi' ? d.range?.start || d.range?.date : d.range?.date || d.range?.start).slice(0, 10),
       seconds: d.grand_total.total_seconds,
-      projects: (d.projects || []).map((p) => ({ name: p.name, seconds: p.total_seconds })),
+      projects: (d.projects || []).map((pr) => ({ name: pr.name, seconds: pr.total_seconds })),
     })),
+    source: p.name,
   };
 });
 
-const rank = await source('wakapi leaderboard', prev.wakapi?.rank, async () => {
-  const leaders = await getJson(`${WAKAPI}/leaders`, auth ?? {});
-  const me = leaders.data.find((e) => e.user?.username === WAKAPI_USER);
-  if (!me) return null; // outside the public top 100 this week
+const rank = await eitherOf('leaderboard', prev.wakapi?.rank, ['wakapi', 'wakatime'], async (p) => {
+  const leaders = await getJson(`${p.api}/leaders`, p.auth ?? {});
+  const me = leaders.data.find((e) => e.user?.username?.toLowerCase() === p.user.toLowerCase());
+  if (!me) return null; // not on the public page of the leaderboard this week
   return {
     rank: me.rank,
     of: leaders.data.length,
@@ -196,6 +237,7 @@ const rank = await source('wakapi leaderboard', prev.wakapi?.rank, async () => {
     dailyAverage: me.running_total.daily_average,
     languages: (me.running_total.languages || []).map((l) => ({ name: l.name, seconds: l.total_seconds })),
     range: { start: leaders.range.start_date, end: leaders.range.end_date },
+    source: p.host,
   };
 });
 
@@ -256,11 +298,12 @@ const out = {
   repoLanguages: profile.repoLanguages,
   repos: profile.starred,
   contributions,
+  coding,
   wakapi: { ...allTime, week, rank },
   stargazers,
 };
 fs.writeFileSync(dataPath, `${JSON.stringify(out, null, 1)}\n`);
 console.log(
   `stars ${out.stats.stars} · contributions ${contributions.allTime} · streak ${contributions.current.days}/${contributions.longest.days} · ` +
-    `coding ${Math.round(allTime.totalSeconds / 3600)} hrs · rank ${rank?.rank ?? '—'} · stargazers ${stargazers.total} (${stargazers.located.length} located)`,
+    `coding ${Math.round(coding.seconds / 3600)} hrs (${coding.source}) · week ${week.source ?? 'previous'} · rank ${rank?.rank ?? '—'} · stargazers ${stargazers.total} (${stargazers.located.length} located)`,
 );

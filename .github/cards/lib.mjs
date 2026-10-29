@@ -17,8 +17,8 @@ const fonts = Object.fromEntries(
 // ink2 = base neutral 10 (the scale step just above muted, in both themes),
 // rule = borderColor-muted (borderColor-default at 70%) flattened onto the canvas.
 export const THEMES = {
-  dark: { surface: '#0d1117', ink: '#f0f6fc', ink2: '#b7bdc8', ink3: '#9198a1', rule: '#2f353d', empty: 0.1 },
-  light: { surface: '#ffffff', ink: '#1f2328', ink2: '#454c54', ink3: '#59636e', rule: '#dfe4e9', empty: 0.08 },
+  dark: { surface: '#0d1117', ink: '#f0f6fc', ink2: '#b7bdc8', ink3: '#9198a1', rule: '#2f353d', empty: 0.1, up: '#3fb950', down: '#f85149' },
+  light: { surface: '#ffffff', ink: '#1f2328', ink2: '#454c54', ink3: '#59636e', rule: '#dfe4e9', empty: 0.08, up: '#1a7f37', down: '#d1242f' },
 };
 
 export const PAD = 6;

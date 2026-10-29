@@ -153,7 +153,7 @@ function languages(theme) {
     rows.forEach((row, i) => barRow(doc, { x, y: listTop + i * ROW, width: colW, name: row.name, value: row.value, ratio: row.share / rows[0].share }));
   };
   column(PAD, 'Code in my repositories', 'share of bytes across owned repos', repo);
-  column(PAD + colW + gap, 'Time spent writing code', `all time on Wakapi, ${fmt(data.wakapi.totalSeconds / 3600)} hrs total`, time);
+  column(PAD + colW + gap, 'Time spent writing code', `all time on ${data.wakapi.source ?? 'Wakapi'}, ${fmt(data.wakapi.totalSeconds / 3600)} hrs total`, time);
 
   const footRule = listTop + (ROWS - 1) * ROW + 38;
   doc.rule(footRule);
@@ -214,7 +214,7 @@ function week(theme) {
 
 // ── Wakapi: leaderboard ─────────────────────────────────────────────────────
 const TIERS = [
-  { name: 'Bronze', min: 101, max: 1000 },
+  { name: 'Bronze', min: 101, max: Infinity },
   { name: 'Silver', min: 51, max: 100 },
   { name: 'Gold', min: 11, max: 50 },
   { name: 'Diamond', min: 1, max: 10 },
@@ -229,7 +229,7 @@ function rank(theme) {
 
   doc.label('WEEKLY RANK', PAD, 66);
   doc.figure(r ? `#${r.rank}` : '—', null, PAD, 116);
-  doc.text(r ? `${tier.name} tier on wakapi.dev · ranks ${tier.min}–${tier.max}` : 'outside the public top 100', { x: PAD, y: 142, size: 12.5, fill: 'ink3' });
+  doc.text(r ? `${tier.name} tier on ${r.source ?? 'wakapi.dev'} · ${tier.max === Infinity ? `ranks ${tier.min}+` : `ranks ${tier.min}–${tier.max}`}` : 'outside the public top 100', { x: PAD, y: 142, size: 12.5, fill: 'ink3' });
 
   // Tier track, worst to best, filled up to the current rank.
   const trackY = 172;
@@ -416,7 +416,8 @@ function activity(theme) {
   const w = doc.text(fmt(total), { x: PAD - 2, y: 116, size: 46, weight: FIGURE_WEIGHT, tracking: -0.03 });
   if (change !== null) {
     const delta = change === 0 ? '0%' : `${change > 0 ? '↑' : '↓'} ${Math.abs(change)}%`;
-    doc.text(delta, { x: PAD + w + 10, y: 116, size: 14, weight: 600, fill: 'ink2' });
+    // Direction is the one place a card uses colour: green when up, red when down.
+    doc.text(delta, { x: PAD + w + 10, y: 116, size: 14, weight: 600, fill: change > 0 ? 'up' : change < 0 ? 'down' : 'ink2' });
   }
   doc.text(prevTotal ? `vs ${fmt(prevTotal)} in the 30 days before` : `in the last ${DAYS} days`, { x: PAD, y: 142, size: 12, fill: 'ink3' });
 

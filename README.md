@@ -21,6 +21,16 @@ I'm open to serious collaboration around **security consulting**, **software pro
     <img height="26" src="./profile/about-cyber-dark.svg" alt="Cybersecurity" />
   </picture>
   <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="./profile/about-reversing-dark.svg" />
+    <source media="(prefers-color-scheme: light)" srcset="./profile/about-reversing-light.svg" />
+    <img height="26" src="./profile/about-reversing-dark.svg" alt="Reverse Engineering" />
+  </picture>
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="./profile/about-protection-dark.svg" />
+    <source media="(prefers-color-scheme: light)" srcset="./profile/about-protection-light.svg" />
+    <img height="26" src="./profile/about-protection-dark.svg" alt="Software Protection" />
+  </picture>
+  <picture>
     <source media="(prefers-color-scheme: dark)" srcset="./profile/about-aiml-dark.svg" />
     <source media="(prefers-color-scheme: light)" srcset="./profile/about-aiml-light.svg" />
     <img height="26" src="./profile/about-aiml-dark.svg" alt="AI / ML" />
@@ -78,14 +88,14 @@ I'm open to serious collaboration around **security consulting**, **software pro
 ## Selected work
 
 <p>
-<a href="https://github.com/tanu360/ida-chat-plugin"><picture><source media="(prefers-color-scheme: dark)" srcset="./profile/work-ida-chat-plugin-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="./profile/work-ida-chat-plugin-light.svg" /><img height="28" src="./profile/work-ida-chat-plugin-dark.svg" alt="ida-chat-plugin" /></picture></a><br />
-<a href="https://github.com/tanu360/nanobananademo"><picture><source media="(prefers-color-scheme: dark)" srcset="./profile/work-nanobananademo-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="./profile/work-nanobananademo-light.svg" /><img height="28" src="./profile/work-nanobananademo-dark.svg" alt="nanobananademo" /></picture></a><br />
-<a href="https://github.com/tanu360/claude-code-dashboard"><picture><source media="(prefers-color-scheme: dark)" srcset="./profile/work-claude-code-dashboard-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="./profile/work-claude-code-dashboard-light.svg" /><img height="28" src="./profile/work-claude-code-dashboard-dark.svg" alt="claude-code-dashboard" /></picture></a><br />
-<a href="https://github.com/tanu360/Facebook-SSL-Pinning-Bypass"><picture><source media="(prefers-color-scheme: dark)" srcset="./profile/work-facebook-ssl-pinning-bypass-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="./profile/work-facebook-ssl-pinning-bypass-light.svg" /><img height="28" src="./profile/work-facebook-ssl-pinning-bypass-dark.svg" alt="Facebook-SSL-Pinning-Bypass" /></picture></a><br />
-<a href="https://github.com/tanu360/Instagram-SSL-Pinning-Bypass"><picture><source media="(prefers-color-scheme: dark)" srcset="./profile/work-instagram-ssl-pinning-bypass-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="./profile/work-instagram-ssl-pinning-bypass-light.svg" /><img height="28" src="./profile/work-instagram-ssl-pinning-bypass-dark.svg" alt="Instagram-SSL-Pinning-Bypass" /></picture></a><br />
-<a href="https://github.com/tanu360/apple-intelligence-api"><picture><source media="(prefers-color-scheme: dark)" srcset="./profile/work-apple-intelligence-api-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="./profile/work-apple-intelligence-api-light.svg" /><img height="28" src="./profile/work-apple-intelligence-api-dark.svg" alt="apple-intelligence-api" /></picture></a><br />
-<a href="https://github.com/tanu360/chatjimmy-reverse-api"><picture><source media="(prefers-color-scheme: dark)" srcset="./profile/work-chatjimmy-reverse-api-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="./profile/work-chatjimmy-reverse-api-light.svg" /><img height="28" src="./profile/work-chatjimmy-reverse-api-dark.svg" alt="chatjimmy-reverse-api" /></picture></a><br />
-<a href="https://github.com/tanu360/facebook-checker-v4"><picture><source media="(prefers-color-scheme: dark)" srcset="./profile/work-facebook-checker-v4-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="./profile/work-facebook-checker-v4-light.svg" /><img height="28" src="./profile/work-facebook-checker-v4-dark.svg" alt="facebook-checker-v4" /></picture></a><br />
+<a href="https://github.com/tanu360/ida-chat-plugin"><picture><source media="(prefers-color-scheme: dark)" srcset="./profile/work-ida-chat-plugin-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="./profile/work-ida-chat-plugin-light.svg" /><img height="24" src="./profile/work-ida-chat-plugin-dark.svg" alt="ida-chat-plugin" /></picture></a><br />
+<a href="https://github.com/tanu360/nanobananademo"><picture><source media="(prefers-color-scheme: dark)" srcset="./profile/work-nanobananademo-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="./profile/work-nanobananademo-light.svg" /><img height="24" src="./profile/work-nanobananademo-dark.svg" alt="nanobananademo" /></picture></a><br />
+<a href="https://github.com/tanu360/claude-code-dashboard"><picture><source media="(prefers-color-scheme: dark)" srcset="./profile/work-claude-code-dashboard-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="./profile/work-claude-code-dashboard-light.svg" /><img height="24" src="./profile/work-claude-code-dashboard-dark.svg" alt="claude-code-dashboard" /></picture></a><br />
+<a href="https://github.com/tanu360/Facebook-SSL-Pinning-Bypass"><picture><source media="(prefers-color-scheme: dark)" srcset="./profile/work-facebook-ssl-pinning-bypass-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="./profile/work-facebook-ssl-pinning-bypass-light.svg" /><img height="24" src="./profile/work-facebook-ssl-pinning-bypass-dark.svg" alt="Facebook-SSL-Pinning-Bypass" /></picture></a><br />
+<a href="https://github.com/tanu360/Instagram-SSL-Pinning-Bypass"><picture><source media="(prefers-color-scheme: dark)" srcset="./profile/work-instagram-ssl-pinning-bypass-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="./profile/work-instagram-ssl-pinning-bypass-light.svg" /><img height="24" src="./profile/work-instagram-ssl-pinning-bypass-dark.svg" alt="Instagram-SSL-Pinning-Bypass" /></picture></a><br />
+<a href="https://github.com/tanu360/apple-intelligence-api"><picture><source media="(prefers-color-scheme: dark)" srcset="./profile/work-apple-intelligence-api-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="./profile/work-apple-intelligence-api-light.svg" /><img height="24" src="./profile/work-apple-intelligence-api-dark.svg" alt="apple-intelligence-api" /></picture></a><br />
+<a href="https://github.com/tanu360/chatjimmy-reverse-api"><picture><source media="(prefers-color-scheme: dark)" srcset="./profile/work-chatjimmy-reverse-api-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="./profile/work-chatjimmy-reverse-api-light.svg" /><img height="24" src="./profile/work-chatjimmy-reverse-api-dark.svg" alt="chatjimmy-reverse-api" /></picture></a><br />
+<a href="https://github.com/tanu360/facebook-checker-v4"><picture><source media="(prefers-color-scheme: dark)" srcset="./profile/work-facebook-checker-v4-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="./profile/work-facebook-checker-v4-light.svg" /><img height="24" src="./profile/work-facebook-checker-v4-dark.svg" alt="facebook-checker-v4" /></picture></a><br />
 </p>
 
 <br />

@@ -18,11 +18,11 @@ export const WORK = [
   { repo: 'facebook-checker-v4', icon: ['lucide', 'list-checks'], desc: 'Automation tooling research' },
 ];
 
-const H = 28;
+const H = 24;
 const ICON = 15;
 const NAME = 13.5;
 const DESC = 13;
-const BASE = 18.5;
+const BASE = 16.5;
 
 // Lucide icons are strokes on a 24px grid; Simple Icons are filled 24px marks.
 function icon([kind, name], size, colour) {

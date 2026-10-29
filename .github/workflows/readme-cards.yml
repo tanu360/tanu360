@@ -35,6 +35,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.README_STATS_TOKEN || github.token }}
           WAKAPI_API_KEY: ${{ secrets.WAKAPI_API_KEY }}
+          WAKATIME_API_KEY: ${{ secrets.WAKATIME_API_KEY }}
         run: node data.mjs
 
       # Hero and Skills don't depend on data; rebuild them locally with `npm run static`.
