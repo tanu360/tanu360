@@ -35,20 +35,8 @@ I'm open to serious collaboration around **security consulting**, **software pro
 <br />
 
 <p align="center">
-  <a href="https://wakatime.com/@tanu1337">
-    <picture>
-      <source media="(prefers-color-scheme: dark)" srcset="./profile/week-dark.svg" />
-      <source media="(prefers-color-scheme: light)" srcset="./profile/week-light.svg" />
-      <img width="49%" src="./profile/week-dark.svg" alt="Coding this week" />
-    </picture>
-  </a>
-  <a href="https://wakatime.com/@tanu1337">
-    <picture>
-      <source media="(prefers-color-scheme: dark)" srcset="./profile/rank-dark.svg" />
-      <source media="(prefers-color-scheme: light)" srcset="./profile/rank-light.svg" />
-      <img width="49%" src="./profile/rank-dark.svg" alt="Wakapi weekly leaderboard" />
-    </picture>
-  </a>
+  <a href="https://wakatime.com/@tanu1337"><picture><source media="(prefers-color-scheme: dark)" srcset="./profile/week-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="./profile/week-light.svg" /><img width="49%" src="./profile/week-dark.svg" alt="Coding this week" /></picture></a>
+  <a href="https://wakatime.com/@tanu1337"><picture><source media="(prefers-color-scheme: dark)" srcset="./profile/rank-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="./profile/rank-light.svg" /><img width="49%" src="./profile/rank-dark.svg" alt="Wakapi weekly leaderboard" /></picture></a>
 </p>
 
 <p align="center">
@@ -60,13 +48,7 @@ I'm open to serious collaboration around **security consulting**, **software pro
 </p>
 
 <p align="center">
-  <a href="https://github.com/tanu360">
-    <picture>
-      <source media="(prefers-color-scheme: dark)" srcset="./profile/github-dark.svg" />
-      <source media="(prefers-color-scheme: light)" srcset="./profile/github-light.svg" />
-      <img width="100%" src="./profile/github-dark.svg" alt="GitHub stats and contribution grid" />
-    </picture>
-  </a>
+  <a href="https://github.com/tanu360"><picture><source media="(prefers-color-scheme: dark)" srcset="./profile/github-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="./profile/github-light.svg" /><img width="100%" src="./profile/github-dark.svg" alt="GitHub stats and contribution grid" /></picture></a>
 </p>
 
 <p align="center">
@@ -107,27 +89,11 @@ I'm open to serious collaboration around **security consulting**, **software pro
 <br />
 
 <p align="center">
-  <a href="https://github.com/tanu360"><picture>
-    <source media="(prefers-color-scheme: dark)" srcset="./profile/connect-github-dark.svg" />
-    <source media="(prefers-color-scheme: light)" srcset="./profile/connect-github-light.svg" />
-    <img height="28" src="./profile/connect-github-dark.svg" alt="GitHub: tanu360" />
-  </picture></a>
+  <a href="https://github.com/tanu360"><picture><source media="(prefers-color-scheme: dark)" srcset="./profile/connect-github-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="./profile/connect-github-light.svg" /><img height="28" src="./profile/connect-github-dark.svg" alt="GitHub: tanu360" /></picture></a>
   &nbsp;&nbsp;
-  <a href="https://github.com/tanu360?tab=repositories"><picture>
-    <source media="(prefers-color-scheme: dark)" srcset="./profile/connect-repos-dark.svg" />
-    <source media="(prefers-color-scheme: light)" srcset="./profile/connect-repos-light.svg" />
-    <img height="28" src="./profile/connect-repos-dark.svg" alt="Repositories" />
-  </picture></a>
+  <a href="https://github.com/tanu360?tab=repositories"><picture><source media="(prefers-color-scheme: dark)" srcset="./profile/connect-repos-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="./profile/connect-repos-light.svg" /><img height="28" src="./profile/connect-repos-dark.svg" alt="Repositories" /></picture></a>
   &nbsp;&nbsp;
-  <a href="https://gist.github.com/tanu360"><picture>
-    <source media="(prefers-color-scheme: dark)" srcset="./profile/connect-gists-dark.svg" />
-    <source media="(prefers-color-scheme: light)" srcset="./profile/connect-gists-light.svg" />
-    <img height="28" src="./profile/connect-gists-dark.svg" alt="Gists" />
-  </picture></a>
+  <a href="https://gist.github.com/tanu360"><picture><source media="(prefers-color-scheme: dark)" srcset="./profile/connect-gists-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="./profile/connect-gists-light.svg" /><img height="28" src="./profile/connect-gists-dark.svg" alt="Gists" /></picture></a>
   &nbsp;&nbsp;
-  <a href="https://wakatime.com/@tanu1337"><picture>
-    <source media="(prefers-color-scheme: dark)" srcset="./profile/connect-wakatime-dark.svg" />
-    <source media="(prefers-color-scheme: light)" srcset="./profile/connect-wakatime-light.svg" />
-    <img height="28" src="./profile/connect-wakatime-dark.svg" alt="WakaTime: @tanu1337" />
-  </picture></a>
+  <a href="https://wakatime.com/@tanu1337"><picture><source media="(prefers-color-scheme: dark)" srcset="./profile/connect-wakatime-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="./profile/connect-wakatime-light.svg" /><img height="28" src="./profile/connect-wakatime-dark.svg" alt="WakaTime: @tanu1337" /></picture></a>
 </p>

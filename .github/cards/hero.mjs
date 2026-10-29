@@ -118,7 +118,6 @@ function render(theme) {
   // bgColor-danger-emphasis (dark), the same red as the breakpoint hit.
   bioLine(doc, PAD, 186, ['I ', 'make', ' things, ', 'break', ' things,']);
   bioLine(doc, PAD, 218, ['and ', 'make', ' things that ', 'break', ' things.']);
-  doc.rule(250);
   doc.text('Reverse engineering · AI systems · Developer tools', { x: PAD, y: 273, size: 12, fill: 'ink3' });
   doc.text('github.com/tanu360', { x: W - PAD, y: 273, size: 12, anchor: 'end', fill: 'ink3' });
 
