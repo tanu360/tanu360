@@ -140,8 +140,9 @@ function render(theme) {
   bioLine(doc, PAD, 186, ['I ', 'make', ' things, ', 'break', ' things,'], { flip: true });
   bioLine(doc, PAD, 218, ['and ', 'make', ' things that ', 'break', ' things.']);
 
-  // ── Right: graph canvas — a faint dot grid that fades in from the text side ──
-  doc.defs.set('fade', `<linearGradient id="fadeX" x1="436" x2="840" y1="0" y2="0" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#fff" stop-opacity="0"/><stop offset="0.25" stop-color="#fff"/><stop offset="1" stop-color="#fff"/></linearGradient><mask id="fade"><rect x="0" y="0" width="${W}" height="${H}" fill="url(#fadeX)"/></mask>`);
+  // ── Right: graph canvas — a faint dot grid that fades out towards every edge ──
+  // The gradient is sized to the grid's box, so it is an ellipse that reaches zero at each side.
+  doc.defs.set('fade', `<radialGradient id="fadeR"><stop offset="0.4" stop-color="#fff"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient><mask id="fade"><rect x="436" y="0" width="${W - 436}" height="${H}" fill="url(#fadeR)"/></mask>`);
   const dots = [];
   for (let y = 10; y <= 238; y += 12) for (let x = 440; x <= W - PAD; x += 12) dots.push(`M${x} ${y}h1v1h-1z`);
   doc.add(`<path d="${dots.join('')}" fill="${t.ink}" fill-opacity="${dark ? 0.22 : 0.2}" mask="url(#fade)"/>`);
