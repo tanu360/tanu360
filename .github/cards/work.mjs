@@ -36,10 +36,12 @@ function icon([kind, name], size, colour) {
   return `<g transform="translate(0 ${(H - size) / 2}) scale(${s})" fill="none" stroke="${colour}" stroke-width="${(1.35 / s).toFixed(2)}" stroke-linecap="round" stroke-linejoin="round">${shapes}</g>`;
 }
 
+// Every row shares the widest row's width, so when a phone scales the images down to fit
+// they all shrink by the same amount and keep one text size.
+const rowWidth = (w) => ICON + 9 + measure(w.repo, NAME, 600).width + 9 + measure('—', DESC, 400).width + 9 + measure(w.desc, DESC, 400).width + 2;
+const W = Math.ceil(Math.max(...WORK.map(rowWidth)));
+
 for (const w of WORK) {
-  const nameW = measure(w.repo, NAME, 600).width;
-  const dashW = measure('—', DESC, 400).width;
-  const W = Math.ceil(ICON + 9 + nameW + 9 + dashW + 9 + measure(w.desc, DESC, 400).width + 2);
   for (const theme of Object.keys(THEMES)) {
     const doc = new Doc(theme, W);
     const t = doc.t;
