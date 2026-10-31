@@ -129,7 +129,7 @@ function bioLine(doc, x, y, parts, { flip = false } = {}) {
 // Phones get the name and bio on top and the graph under them, scaled to the full width,
 // instead of the whole 840px hero shrinking to unreadable.
 const GRAPH_X = 436;
-const NARROW = { lift: 50, graphTop: 186, scale: HALF / (W - GRAPH_X) };
+const NARROW = { lift: 50, graphTop: 176, scale: HALF / (W - GRAPH_X) };
 
 function render(theme, narrow = false) {
   const doc = new Doc(theme, narrow ? HALF : W);
@@ -140,12 +140,12 @@ function render(theme, narrow = false) {
   // ── Left: name and bio ──
   const textStart = doc.parts.length;
   doc.text('HELLO WORLD, I AM', { x: PAD, y: 72, size: 11, weight: 600, tracking: 0.16, fill: 'ink3' });
-  doc.text('Tarun', { x: PAD - 4, y: 146, size: 80, weight: 500, tracking: -0.035 });
+  doc.text('Tarun', { x: PAD - 3, y: 136, size: 66, weight: 500, tracking: -0.035 });
   // Bio with "make" and "break" as tilted stickers: green to build, red to break, identical in
   // both themes. Primer's emphasis fills for white text: bgColor-success-emphasis (light) and
   // bgColor-danger-emphasis (dark), the same red as the breakpoint hit.
-  bioLine(doc, PAD, 186, ['I ', 'make', ' things, ', 'break', ' things,'], { flip: true });
-  bioLine(doc, PAD, 218, ['and ', 'make', ' things that ', 'break', ' things.']);
+  bioLine(doc, PAD, 176, ['I ', 'make', ' things, ', 'break', ' things,'], { flip: true });
+  bioLine(doc, PAD, 208, ['and ', 'make', ' things that ', 'break', ' things.']);
   wrap(textStart, `translate(0 -${NARROW.lift})`);
   const graphStart = doc.parts.length;
 

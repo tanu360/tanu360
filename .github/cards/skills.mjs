@@ -287,7 +287,7 @@ function specLogos(doc) {
   let y = 0;
   GROUPS.forEach((g) => {
     const top = y + 10;
-    doc.label(g.label, PAD, baseline(top, specMark.h, 12.5));
+    doc.label(g.label, PAD, baseline(top, specMark.h, 12));
     y = items(doc, specMark, g, x0, narrow ? top + 22 : top, W) + (narrow ? 20 : 15);
   });
   if (doc.right > doc.W - PAD - EDGE + 0.01) throw new Error(`spec-logos: an item reaches x=${doc.right.toFixed(1)}, past ${doc.W - PAD - EDGE}`);

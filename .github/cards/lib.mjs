@@ -5,9 +5,12 @@ import opentype from 'opentype.js';
 const fontFile = (w) => new URL(`./assets/fonts/geist-${w}.woff`, import.meta.url);
 export const FIGURE_WEIGHT = 500;
 // Figure sizes: one HERO number leads each card, KPI tiles sit under it, STAT for strips.
-export const HERO = 52;
-export const KPI = 32;
-export const STAT = 24;
+// Kept close together (1.5x, 1.25x): bigger jumps shout over the README's 16px body text.
+export const HERO = 36;
+export const KPI = 24;
+export const STAT = 19;
+// One tile row: label baseline, figure baseline, caption baseline (before the header lift).
+export const TILE = { label: 60, figure: 98, sub: 118 };
 const fonts = Object.fromEntries(
   [400, 500, 600].map((w) => {
     const buf = fs.readFileSync(fontFile(w));
@@ -93,20 +96,20 @@ export class Doc {
   // after the header by HEADER_LIFT so the content sits close to its label.
   header(label, meta) {
     // A title, not another caps label: it has to outrank the KPI labels under it.
-    this.text(label, { x: PAD, y: 18, size: 14.5, weight: 600 });
+    this.text(label, { x: PAD, y: 18, size: 14, weight: 600 });
     if (meta) this.text(meta, { x: this.W - PAD, y: 18, size: 11, weight: 500, tracking: 0.02, anchor: 'end', fill: 'ink3' });
     this.bodyStart = this.parts.length;
   }
 
   // Stat labels in sentence case: tracked caps at 10.5px read as noise and are slow to scan.
   label(str, x, y, anchor = 'start') {
-    return this.text(str, { x, y, size: 12.5, weight: 500, anchor, fill: 'ink2' });
+    return this.text(str, { x, y, size: 12, weight: 500, anchor, fill: 'ink2' });
   }
 
   // Big figure with an optional smaller unit after it.
   figure(value, unit, x, y, size = KPI) {
     const w = this.text(value, { x: x - size * 0.04, y, size, weight: FIGURE_WEIGHT, tracking: -0.03 });
-    if (unit) this.text(unit, { x: x - size * 0.04 + w + Math.max(5, size * 0.15), y, size: Math.max(13, size * 0.35), fill: 'ink3' });
+    if (unit) this.text(unit, { x: x - size * 0.04 + w + Math.max(5, size * 0.15), y, size: Math.max(12, size * 0.35), fill: 'ink3' });
   }
 
   // Squares sharing one size and opacity, drawn from a single shared shape.

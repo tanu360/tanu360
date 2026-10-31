@@ -14,8 +14,8 @@ const SECTIONS = [
   { id: 'work', title: 'Work', note: 'selected projects and open source' },
 ];
 
-const H = 64;
-const BASE = 50;
+const H = 56;
+const BASE = 44;
 
 // A phone version at the cards' phone width, so the heading keeps its size next to body text
 // instead of shrinking with a full-width image.
@@ -24,14 +24,14 @@ const WIDTHS = { '': FULL, '-mobile': HALF };
 SECTIONS.forEach((sec, i) => {
   const num = String(i + 1).padStart(2, '0');
   for (const [suffix, W] of Object.entries(WIDTHS)) {
-    const titleEnd = PAD + 30 + measure(sec.title, 24, 600, -0.02).width;
-    if (titleEnd + 24 > W - PAD - measure(sec.note, 12.5, 500).width) throw new Error(`section ${sec.id}: note meets the title at ${W}px`);
+    const titleEnd = PAD + 26 + measure(sec.title, 20, 600, -0.02).width;
+    if (titleEnd + 24 > W - PAD - measure(sec.note, 12, 500).width) throw new Error(`section ${sec.id}: note meets the title at ${W}px`);
     for (const theme of Object.keys(THEMES)) {
       const doc = new Doc(theme, W);
       doc.rule(0);
-      doc.text(num, { x: PAD, y: BASE, size: 12, weight: 600, tracking: 0.08, fill: 'ink3' });
-      doc.text(sec.title, { x: PAD + 30, y: BASE, size: 24, weight: 600, tracking: -0.02 });
-      doc.text(sec.note, { x: W - PAD, y: BASE, size: 12.5, anchor: 'end', fill: 'ink3' });
+      doc.text(num, { x: PAD, y: BASE, size: 11.5, weight: 600, tracking: 0.08, fill: 'ink3' });
+      doc.text(sec.title, { x: PAD + 26, y: BASE, size: 20, weight: 600, tracking: -0.02 });
+      doc.text(sec.note, { x: W - PAD, y: BASE, size: 12, anchor: 'end', fill: 'ink3' });
       fs.writeFileSync(`${outDir}/section-${sec.id}${suffix}-${theme}.svg`, doc.svg(H, `${num} ${sec.title}`, `${sec.title}: ${sec.note}`));
     }
   }

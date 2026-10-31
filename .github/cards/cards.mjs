@@ -1,12 +1,10 @@
 import fs from 'node:fs';
-import { Doc, THEMES, PAD, FULL, HALF, FIGURE_WEIGHT, HERO, KPI, STAT, fmt, duration, monthYear, monthShort, dayMonth, weekdayDate, contrast } from './lib.mjs';
+import { Doc, THEMES, PAD, FULL, HALF, FIGURE_WEIGHT, HERO, KPI, STAT, TILE, fmt, duration, monthYear, monthShort, dayMonth, weekdayDate, contrast } from './lib.mjs';
 
 const here = (p) => new URL(p, import.meta.url);
 const data = JSON.parse(fs.readFileSync(here('./data.json')));
 const world = JSON.parse(fs.readFileSync(here('./assets/world-grid.json')));
 const ICONS = JSON.parse(fs.readFileSync(here('./assets/icons.json')));
-// Paired half-width cards share a height so they line up side by side in the README.
-const HALF_HEIGHT = 490;
 // Space under each card's last line of text, so every gap between cards matches.
 const BOTTOM = 26;
 const WAKATIME_URL = process.env.WAKATIME_URL || 'wakatime.com/@tanu1337';
@@ -36,9 +34,9 @@ const SHADES = [1, 0.72, 0.52, 0.38, 0.27, 0.19, 0.13];
 // Masked project names ("omni••••••"): the visible start in ink, the dots muted.
 function nameText(doc, name, x, y) {
   const m = /^([^•]*)(•+)$/.exec(name);
-  if (!m) return doc.text(name, { x, y, size: 13 });
-  const w = doc.text(m[1], { x, y, size: 13 });
-  return w + doc.text(m[2], { x: x + w + 1, y, size: 13, tracking: 0.04, fill: 'ink3' }) + 1;
+  if (!m) return doc.text(name, { x, y, size: 12.5 });
+  const w = doc.text(m[1], { x, y, size: 12.5 });
+  return w + doc.text(m[2], { x: x + w + 1, y, size: 12.5, tracking: 0.04, fill: 'ink3' }) + 1;
 }
 
 // ── GitHub: KPI row, contribution grid, stats strip ─────────────────────────
@@ -60,31 +58,31 @@ function github(theme, W = FULL) {
   ];
   const cols = narrow ? 2 : 4;
   const colW = (W - 2 * PAD) / cols;
-  const ROW = 112;
+  const ROW = 92;
   tiles.forEach((tile, i) => {
     const x = PAD + (i % cols) * colW;
     const dy = Math.floor(i / cols) * ROW;
-    doc.label(tile.label, x, 66 + dy);
-    doc.figure(tile.value, tile.unit, x, 116 + dy, i ? KPI : narrow ? 46 : HERO);
-    doc.text(tile.sub, { x, y: 142 + dy, size: 12.5, fill: 'ink3' });
+    doc.label(tile.label, x, TILE.label + dy);
+    doc.figure(tile.value, tile.unit, x, TILE.figure + dy, i ? KPI : HERO);
+    doc.text(tile.sub, { x, y: TILE.sub + dy, size: 12, fill: 'ink3' });
   });
 
   // Contribution grid, GitHub-style squares.
-  const top = 188 + (Math.ceil(tiles.length / cols) - 1) * ROW;
+  const top = TILE.sub + 46 + (Math.ceil(tiles.length / cols) - 1) * ROW;
   const weeks = Math.ceil(c.calendar.length / 7);
   const pitch = (W - 2 * PAD) / weeks;
   const gap = narrow ? 1.6 : 3;
   const size = pitch - gap;
-  const lx = doc.text('Last 12 months', { x: PAD, y: top, size: 12.5, weight: 600, fill: 'ink2' });
-  doc.text(`${fmt(c.lastYear)} contributions`, { x: PAD + lx + 10, y: top, size: 12.5, fill: 'ink3' });
+  const lx = doc.text('Last 12 months', { x: PAD, y: top, size: 12, weight: 600, fill: 'ink2' });
+  doc.text(`${fmt(c.lastYear)} contributions`, { x: PAD + lx + 8, y: top, size: 12, fill: 'ink3' });
 
   const legend = Object.keys(LEVEL);
-  const more = doc.text('More', { x: W - PAD, y: top, size: 11.5, anchor: 'end', fill: 'ink3' });
-  const legendX = W - PAD - more - 8 - legend.length * 14;
-  legend.forEach((level, i) => doc.squares([[legendX + i * 14, top - 10]], 11, levelOpacity(doc, level)));
-  doc.text('Less', { x: legendX - 6, y: top, size: 11.5, anchor: 'end', fill: 'ink3' });
+  const more = doc.text('More', { x: W - PAD, y: top, size: 11, anchor: 'end', fill: 'ink3' });
+  const legendX = W - PAD - more - 8 - legend.length * 13;
+  legend.forEach((level, i) => doc.squares([[legendX + i * 13, top - 9]], 10, levelOpacity(doc, level)));
+  doc.text('Less', { x: legendX - 6, y: top, size: 11, anchor: 'end', fill: 'ink3' });
 
-  const gridTop = top + 16;
+  const gridTop = top + 14;
   const byLevel = new Map();
   c.calendar.forEach((d, i) => {
     const op = levelOpacity(doc, d.level);
@@ -103,11 +101,11 @@ function github(theme, W = FULL) {
   }
   if (starts.length > 1 && starts[1].col - starts[0].col < 3) starts.shift();
   for (const { col, date } of starts) {
-    if (col <= weeks - 2) doc.text(monthShort(date), { x: PAD + col * pitch + gap / 2, y: gridBottom + 17, size: 11, fill: 'ink3' });
+    if (col <= weeks - 2) doc.text(monthShort(date), { x: PAD + col * pitch + gap / 2, y: gridBottom + 16, size: 11, fill: 'ink3' });
   }
 
   // Stats strip: label, figure, caption — same rhythm as the tiles above.
-  const stripRule = gridBottom + 28;
+  const stripRule = gridBottom + 24;
   const strip = [
     { label: 'Stars earned', value: fmt(s.stars), sub: `across ${s.publicRepos} repos` },
     { label: 'Commits', value: fmt(s.commits), sub: 'last 12 months' },
@@ -118,18 +116,18 @@ function github(theme, W = FULL) {
   ];
   const stripCols = narrow ? 3 : 6;
   const stripW = (W - 2 * PAD) / stripCols;
-  const STRIP_ROW = 86;
+  const STRIP_ROW = 72;
   strip.forEach((item, i) => {
     const x = PAD + (i % stripCols) * stripW;
     const y = stripRule + Math.floor(i / stripCols) * STRIP_ROW;
-    doc.label(item.label, x, y + 30);
-    const w = doc.text(item.value, { x: x - 1, y: y + 60, size: STAT, weight: FIGURE_WEIGHT, tracking: -0.02 });
-    if (item.unit) doc.text(item.unit, { x: x + w + 5, y: y + 60, size: 13, fill: 'ink3' });
-    doc.text(item.sub, { x, y: y + 80, size: 12, fill: 'ink3' });
+    doc.label(item.label, x, y + 28);
+    const w = doc.text(item.value, { x: x - 1, y: y + 52, size: STAT, weight: FIGURE_WEIGHT, tracking: -0.02 });
+    if (item.unit) doc.text(item.unit, { x: x + w + 4, y: y + 52, size: 12, fill: 'ink3' });
+    doc.text(item.sub, { x, y: y + 70, size: 12, fill: 'ink3' });
   });
 
   return doc.svg(
-    stripRule + 80 + (Math.ceil(strip.length / stripCols) - 1) * STRIP_ROW + BOTTOM,
+    stripRule + 70 + (Math.ceil(strip.length / stripCols) - 1) * STRIP_ROW + BOTTOM,
     `GitHub stats for ${data.login}`,
     `${fmt(c.allTime)} contributions since ${monthYear(c.since)}; current streak ${c.current.days} days; longest streak ${c.longest.days} days; grade ${s.grade}. ` +
       `${fmt(c.lastYear)} contributions in the last 12 months. ${fmt(s.stars)} stars, ${fmt(s.commits)} commits in the last 12 months, ${s.prs} pull requests, ${s.issues} issues, contributed to ${s.contributedTo} repos, ${s.followers} followers.`,
@@ -143,7 +141,7 @@ function github(theme, W = FULL) {
 function languages(theme) {
   const colW = HALF - 2 * PAD;
   const heading = (doc, title, sub) => {
-    doc.text(title, { x: PAD, y: 12, size: 12.5, weight: 600, fill: 'ink2' });
+    doc.text(title, { x: PAD, y: 12, size: 12, weight: 600, fill: 'ink2' });
     doc.text(sub, { x: PAD, y: 30, size: 11.5, fill: 'ink3' });
   };
 
@@ -157,14 +155,14 @@ function languages(theme) {
   const usable = colW - 2 * (parts.length - 1);
   parts.forEach((l, i) => {
     const w = Math.max(2, usable * l.share);
-    code.rect(x, 50, w, 10, { opacity: SHADES[i], rx: 1.5 });
+    code.rect(x, 48, w, 8, { opacity: SHADES[i], rx: 1.5 });
     x += w + 2;
   });
   parts.forEach((l, i) => {
-    const y = 94 + i * 26;
-    code.squares([[PAD, y - 9]], 9, SHADES[i]);
-    code.text(l.name, { x: PAD + 17, y, size: 13 });
-    code.text(`${(l.share * 100).toFixed(1)}%`, { x: PAD + colW, y, size: 12.5, anchor: 'end', fill: 'ink2' });
+    const y = 86 + i * 22;
+    code.squares([[PAD, y - 8]], 8, SHADES[i]);
+    code.text(l.name, { x: PAD + 16, y, size: 12.5 });
+    code.text(`${(l.share * 100).toFixed(1)}%`, { x: PAD + colW, y, size: 12, anchor: 'end', fill: 'ink2' });
   });
 
   // Radar of hours: grid hexagons and spokes in hairlines, the shape in ink.
@@ -172,9 +170,9 @@ function languages(theme) {
   const t = time.t;
   heading(time, 'Time spent writing code', `all time on ${data.wakapi.source ?? 'Wakapi'}, ${fmt(data.wakapi.totalSeconds / 3600)} hrs total`);
   const langs = data.wakapi.languages.filter((l) => l.name.toLowerCase() !== 'unknown').slice(0, 6);
-  const R = 82;
+  const R = 64;
   const cx = HALF / 2;
-  const cy = 166;
+  const cy = 146;
   const max = langs[0].seconds;
   const at = (i, radius) => {
     const a = -Math.PI / 2 + (i * 2 * Math.PI) / langs.length;
@@ -190,15 +188,15 @@ function languages(theme) {
   time.add(`<polygon points="${shape}" fill="${t.ink}" fill-opacity="0.12" stroke="${t.ink}" stroke-width="1.5" stroke-linejoin="round"/>`);
   langs.forEach((l, i) => {
     const [px, py] = at(i, R * Math.max(0.04, l.seconds / max));
-    time.add(`<circle cx="${px.toFixed(1)}" cy="${py.toFixed(1)}" r="2.6" fill="${t.ink}"/>`);
-    const [lx, ly] = at(i, R + 16);
+    time.add(`<circle cx="${px.toFixed(1)}" cy="${py.toFixed(1)}" r="2.4" fill="${t.ink}"/>`);
+    const [lx, ly] = at(i, R + 14);
     const anchor = Math.abs(lx - cx) < 4 ? 'middle' : lx < cx ? 'end' : 'start';
     const up = ly < cy - R * 0.5;
-    time.text(langName(l.name), { x: lx, y: up ? ly - 8 : ly + 2, size: 12, weight: 600, anchor });
+    time.text(langName(l.name), { x: lx, y: up ? ly - 8 : ly + 2, size: 11.5, weight: 600, anchor });
     time.text(`${fmt(l.seconds / 3600)} hrs`, { x: lx, y: up ? ly + 6 : ly + 16, size: 11, anchor, fill: 'ink3' });
   });
 
-  return pair(theme, 'languages', code.svg(94 + (parts.length - 1) * 26 + BOTTOM, '', ''), time.svg(cy + R + 32 + BOTTOM, '', ''), {
+  return pair(theme, 'languages', code.svg(86 + (parts.length - 1) * 22 + BOTTOM, '', ''), time.svg(cy + R + 32 + BOTTOM, '', ''), {
     header: ['Languages'],
     title: 'Languages',
     desc: `By code: ${parts.map((l) => `${l.name} ${(l.share * 100).toFixed(1)}%`).join(', ')}. By coding time: ${langs.map((l) => `${langName(l.name)} ${fmt(l.seconds / 3600)} hrs`).join(', ')}.`,
@@ -207,11 +205,11 @@ function languages(theme) {
 
 // Concentric rings with a legend (Bklit's ring chart): each ring is one item's share of
 // `total`, read clockwise from the top. Shared by the two half cards so they mirror.
-const RING = { outer: 58, step: 13, width: 8 };
+const RING = { outer: 46, step: 10, width: 6 };
 function ringList(doc, label, items, total, top) {
   doc.label(label, PAD, top);
   const cx = PAD + RING.outer + RING.width / 2;
-  const cy = top + 22 + RING.outer + RING.width / 2;
+  const cy = top + 20 + RING.outer + RING.width / 2;
   items.forEach(([, seconds], i) => {
     const r = RING.outer - i * RING.step;
     const C = 2 * Math.PI * r;
@@ -221,19 +219,19 @@ function ringList(doc, label, items, total, top) {
   });
   const lx = cx + RING.outer + RING.width / 2 + 24;
   items.forEach(([name, seconds], i) => {
-    const y = cy - ((items.length - 1) * 30) / 2 + i * 30 + 4;
-    doc.squares([[lx, y - 9]], 9, SHADES[i]);
-    nameText(doc, name, lx + 16, y);
-    const pct = doc.text(`${Math.round((seconds / total) * 100)}%`, { x: HALF - PAD, y, size: 12, anchor: 'end', fill: 'ink3' });
-    doc.text(duration(seconds), { x: HALF - PAD - pct - 8, y, size: 12.5, anchor: 'end', fill: 'ink2' });
+    const y = cy - ((items.length - 1) * 24) / 2 + i * 24 + 4;
+    doc.squares([[lx, y - 8]], 8, SHADES[i]);
+    nameText(doc, name, lx + 15, y);
+    const pct = doc.text(`${Math.round((seconds / total) * 100)}%`, { x: HALF - PAD, y, size: 11.5, anchor: 'end', fill: 'ink3' });
+    doc.text(duration(seconds), { x: HALF - PAD - pct - 8, y, size: 12, anchor: 'end', fill: 'ink2' });
   });
   return cy + RING.outer + RING.width / 2;
 }
 
 // The two half cards share one grid: stats on top, a chart whose baseline is CHART_BASE with
 // a caption row under it, and a ring list starting at LIST_TOP.
-const CHART_BASE = 270;
-const LIST_TOP = CHART_BASE + 56;
+const CHART_BASE = 228;
+const LIST_TOP = CHART_BASE + 52;
 
 // ── Wakapi: this week ───────────────────────────────────────────────────────
 function week(theme) {
@@ -243,23 +241,23 @@ function week(theme) {
   const best = days.reduce((a, b) => (b.seconds > a.seconds ? b : a));
   doc.header('This week', `${dayMonth(days[0].date)} – ${dayMonth(days.at(-1).date)}`);
 
-  doc.label('Total', PAD, 66);
-  doc.figure(duration(total), null, PAD, 110);
-  doc.label('Daily average', HALF / 2, 66);
-  doc.figure(duration(total / days.length), null, HALF / 2, 110);
+  doc.label('Total', PAD, TILE.label);
+  doc.figure(duration(total), null, PAD, TILE.figure);
+  doc.label('Daily average', HALF / 2, TILE.label);
+  doc.figure(duration(total / days.length), null, HALF / 2, TILE.figure);
 
   // One bar per day on a full-height track; the best day carries the ink.
   const base = CHART_BASE;
-  const chartH = 106;
+  const chartH = 78;
   const slot = (HALF - 2 * PAD) / days.length;
-  const colW = 24;
+  const colW = 20;
   days.forEach((d, i) => {
     const x = PAD + i * slot + (slot - colW) / 2;
     const isBest = d === best;
     meterUp(doc, { x, base, width: colW, height: chartH, ratio: d.seconds / best.seconds, on: isBest ? 1 : 0.42 });
-    if (isBest) doc.text(duration(d.seconds), { x: x + colW / 2, y: base - chartH - 8, size: 11.5, weight: 600, anchor: 'middle' });
+    if (isBest) doc.text(duration(d.seconds), { x: x + colW / 2, y: base - chartH - 8, size: 11, weight: 600, anchor: 'middle' });
     const day = new Date(`${d.date}T00:00:00Z`).toLocaleString('en-US', { weekday: 'short', timeZone: 'UTC' });
-    doc.text(day, { x: x + colW / 2, y: base + 18, size: 11, weight: isBest ? 600 : 500, anchor: 'middle', fill: isBest ? 'ink' : 'ink3' });
+    doc.text(day, { x: x + colW / 2, y: base + 17, size: 11, weight: isBest ? 600 : 500, anchor: 'middle', fill: isBest ? 'ink' : 'ink3' });
   });
 
   // Projects, "Other" always last.
@@ -269,7 +267,7 @@ function week(theme) {
   const bottom = ringList(doc, 'Projects', projects, total, LIST_TOP);
 
   return doc.svg(
-    Math.max(bottom + BOTTOM, HALF_HEIGHT),
+    bottom + BOTTOM,
     'Coding this week',
     `${duration(total)} total, ${duration(total / days.length)} daily average. Best day ${best.date} with ${duration(best.seconds)}. Projects: ${projects.map(([n, sec]) => `${n} ${duration(sec)}`).join(', ')}.`,
   );
@@ -295,14 +293,14 @@ function rank(theme) {
   const tier = TIERS[tierIndex];
 
   // Same top row as the week card: two figures at the same size and positions.
-  doc.label('Ranked time', PAD, 66);
-  doc.figure(r ? duration(r.seconds) : '—', null, PAD, 110);
-  doc.label('Daily average', HALF / 2, 66);
-  doc.figure(r ? duration(r.dailyAverage) : '—', null, HALF / 2, 110);
+  doc.label('Ranked time', PAD, TILE.label);
+  doc.figure(r ? duration(r.seconds) : '—', null, PAD, TILE.figure);
+  doc.label('Daily average', HALF / 2, TILE.label);
+  doc.figure(r ? duration(r.dailyAverage) : '—', null, HALF / 2, TILE.figure);
 
   // Notched half-gauge (Bklit's gauge) sitting on the week card's chart baseline: Bronze on
   // the left to Diamond on the right, one gap between tiers, filled up to the current rank.
-  const G = { cx: HALF / 2, cy: CHART_BASE, r: 112, len: 14, per: 11 };
+  const G = { cx: HALF / 2, cy: CHART_BASE, r: 86, len: 11, per: 11 };
   const slots = TIERS.length * G.per + TIERS.length - 1;
   const progress = r ? (tierIndex + tierPos(tier, r.rank)) / TIERS.length : 0;
   const filled = Math.round(progress * TIERS.length * G.per);
@@ -317,16 +315,16 @@ function rank(theme) {
       const [x2, y2] = point(a, G.r);
       (ti * G.per + j < filled ? on : off).push(`M${x1.toFixed(1)} ${y1.toFixed(1)}L${x2.toFixed(1)} ${y2.toFixed(1)}`);
     }
-    const [lx, ly] = point(angle(ti * (G.per + 1) + (G.per - 1) / 2), G.r + 14);
+    const [lx, ly] = point(angle(ti * (G.per + 1) + (G.per - 1) / 2), G.r + 13);
     const anchor = Math.abs(lx - G.cx) < 30 ? 'middle' : lx < G.cx ? 'end' : 'start';
     doc.text(x.name, { x: lx, y: ly + 4, size: 11, weight: ti === tierIndex ? 600 : 500, anchor, fill: ti === tierIndex ? 'ink' : 'ink3' });
   });
-  const notch = (d, opacity) => d.length && doc.add(`<path d="${d.join('')}" stroke="${t.ink}" stroke-opacity="${opacity}" stroke-width="3.2" stroke-linecap="round"/>`);
+  const notch = (d, opacity) => d.length && doc.add(`<path d="${d.join('')}" stroke="${t.ink}" stroke-opacity="${opacity}" stroke-width="2.6" stroke-linecap="round"/>`);
   notch(off, t.empty * 2);
   notch(on, 1);
-  doc.text(r ? `#${r.rank}` : '—', { x: G.cx, y: G.cy - 8, size: 44, weight: FIGURE_WEIGHT, tracking: -0.03, anchor: 'middle' });
+  doc.text(r ? `#${r.rank}` : '—', { x: G.cx, y: G.cy - 6, size: KPI + 6, weight: FIGURE_WEIGHT, tracking: -0.03, anchor: 'middle' });
   // Caption on the same row as the week card's day names.
-  doc.text(r ? `${tier.name} tier on ${r.source ?? 'wakapi.dev'}` : 'outside the public top 100', { x: G.cx, y: CHART_BASE + 18, size: 11, anchor: 'middle', fill: 'ink3' });
+  doc.text(r ? `${tier.name} tier on ${r.source ?? 'wakapi.dev'}` : 'outside the public top 100', { x: G.cx, y: CHART_BASE + 17, size: 11, anchor: 'middle', fill: 'ink3' });
 
   // This week's languages as rings, mirroring the week card's projects.
   const all = (r?.languages ?? []).filter((l) => l.name.toLowerCase() !== 'unknown');
@@ -335,7 +333,7 @@ function rank(theme) {
   const bottom = ringList(doc, 'Languages this week', langs, langTotal, LIST_TOP);
 
   return doc.svg(
-    Math.max(bottom + BOTTOM, HALF_HEIGHT),
+    bottom + BOTTOM,
     'Wakapi leaderboard',
     r ? `Rank ${r.rank} on the ${r.source ?? 'wakapi.dev'} weekly leaderboard, ${tier.name} tier. ${duration(r.seconds)} ranked time, ${duration(r.dailyAverage)} daily average.` : 'Not in the public top 100 this week.',
   );
@@ -366,20 +364,23 @@ function stargazers(theme, W = FULL) {
   ];
   const cols = narrow ? 2 : 4;
   const colW = (W - 2 * PAD) / cols;
-  const ROW = 96;
+  const ROW = 92;
   tiles.forEach((tile, i) => {
     const x = PAD + (i % cols) * colW;
     const dy = Math.floor(i / cols) * ROW;
-    doc.label(tile.label, x, 66 + dy);
-    doc.figure(tile.value, tile.unit, x, 104 + dy);
-    doc.text(tile.sub, { x, y: 126 + dy, size: 12, fill: 'ink3' });
+    doc.label(tile.label, x, TILE.label + dy);
+    doc.figure(tile.value, tile.unit, x, TILE.figure + dy);
+    doc.text(tile.sub, { x, y: TILE.sub + dy, size: 12, fill: 'ink3' });
   });
 
   // Map grid (India's official worldview, so all of Jammu & Kashmir is India): land is faint,
   // stargazer countries are shaded by count, and the people themselves are solid.
-  const mapTop = 160 + (Math.ceil(tiles.length / cols) - 1) * ROW;
-  const pitch = (W - 2 * PAD) / world.cols;
-  const size = pitch - (narrow ? 0.9 : 1.6);
+  // On desktop the map takes 80% of the width, centred: at full width it outweighs the numbers.
+  const mapTop = TILE.sub + 34 + (Math.ceil(tiles.length / cols) - 1) * ROW;
+  const mapW = (W - 2 * PAD) * (narrow ? 1 : 0.8);
+  const mapX = (W - mapW) / 2;
+  const pitch = mapW / world.cols;
+  const size = pitch - (narrow ? 0.9 : 1.4);
   const cellOf = (lat, lon) => [
     Math.min(world.cols - 1, Math.max(0, Math.floor(((lon + 180) / 360) * world.cols))),
     Math.min(world.rows - 1, Math.max(0, Math.floor(((world.latTop - lat) / (world.latTop - world.latBottom)) * world.rows))),
@@ -395,7 +396,7 @@ function stargazers(theme, W = FULL) {
   // Squares batched per opacity into single paths to keep the file small.
   const layers = new Map();
   const square = (col, row, opacity) => {
-    const x = PAD + col * pitch + (pitch - size) / 2;
+    const x = mapX + col * pitch + (pitch - size) / 2;
     const y = mapTop + row * pitch + (pitch - size) / 2;
     const key = opacity.toFixed(2);
     if (!layers.has(key)) layers.set(key, []);
@@ -424,25 +425,25 @@ function stargazers(theme, W = FULL) {
   });
 
   // Top countries as tiles: the map already shows where, so no bars.
-  const listRule = mapBottom + (narrow ? 34 : 14);
+  const listRule = mapBottom + (narrow ? 32 : 16);
   const perRow = narrow ? 3 : 4;
   const top = countries.slice(0, perRow * 2);
   const tileW = (W - 2 * PAD) / perRow;
   top.forEach((c, i) => {
     const x = PAD + (i % perRow) * tileW;
-    const y = listRule + 30 + Math.floor(i / perRow) * 78;
+    const y = listRule + 28 + Math.floor(i / perRow) * 70;
     doc.label(c.name, x, y);
-    doc.text(fmt(c.count), { x: x - 1, y: y + 30, size: STAT, weight: FIGURE_WEIGHT, tracking: -0.02 });
-    doc.text(`${Math.round((c.count / located.length) * 100)}% of located`, { x, y: y + 48, size: 12, fill: 'ink3' });
+    doc.text(fmt(c.count), { x: x - 1, y: y + 24, size: STAT, weight: FIGURE_WEIGHT, tracking: -0.02 });
+    doc.text(`${Math.round((c.count / located.length) * 100)}% of located`, { x, y: y + 42, size: 12, fill: 'ink3' });
   });
 
   // Credit the geocoder with its mark: "Locations from GitHub profiles · [logo] OpenStreetMap".
-  const creditY = listRule + 30 + 78 + 76;
+  const creditY = listRule + 28 + 70 + 42 + 30;
   const osm = ICONS.openstreetmap.d[0];
-  const osmW = doc.text('OpenStreetMap', { x: W - PAD, y: creditY, size: 11.5, anchor: 'end', fill: 'ink3' });
-  const osmX = W - PAD - osmW - 6 - 12;
-  doc.add(`<g transform="translate(${osmX.toFixed(2)} ${creditY - 9.5}) scale(0.5)" fill="${t.ink3}"><path d="${osm}"/></g>`);
-  doc.text('Locations from GitHub profiles ·', { x: osmX - 6, y: creditY, size: 11.5, anchor: 'end', fill: 'ink3' });
+  const osmW = doc.text('OpenStreetMap', { x: W - PAD, y: creditY, size: 11, anchor: 'end', fill: 'ink3' });
+  const osmX = W - PAD - osmW - 6 - 11;
+  doc.add(`<g transform="translate(${osmX.toFixed(2)} ${creditY - 9}) scale(0.46)" fill="${t.ink3}"><path d="${osm}"/></g>`);
+  doc.text('Locations from GitHub profiles ·', { x: osmX - 6, y: creditY, size: 11, anchor: 'end', fill: 'ink3' });
 
   return doc.svg(
     creditY + BOTTOM,
@@ -490,14 +491,14 @@ function activity(theme, W = FULL) {
   doc.header('Contribution activity', `last ${DAYS} days`);
 
   // Headline number with its change inline, then three supporting stats on the same baseline.
-  doc.label('Contributions', PAD, 66);
-  const w = doc.text(fmt(total), { x: PAD - 2, y: 116, size: HERO, weight: FIGURE_WEIGHT, tracking: -0.03 });
+  doc.label('Contributions', PAD, TILE.label);
+  const w = doc.text(fmt(total), { x: PAD - 1.5, y: TILE.figure, size: HERO, weight: FIGURE_WEIGHT, tracking: -0.03 });
   if (change !== null) {
     const delta = change === 0 ? '0%' : `${change > 0 ? '↑' : '↓'} ${Math.abs(change)}%`;
     // Direction is the one place a card uses colour: green when up, red when down.
-    doc.text(delta, { x: PAD + w + 10, y: 116, size: 14, weight: 600, fill: change > 0 ? 'up' : change < 0 ? 'down' : 'ink2' });
+    doc.text(delta, { x: PAD + w + 8, y: TILE.figure, size: 13, weight: 600, fill: change > 0 ? 'up' : change < 0 ? 'down' : 'ink2' });
   }
-  doc.text(prevTotal ? `vs ${fmt(prevTotal)} in the 30 days before` : `in the last ${DAYS} days`, { x: PAD, y: 142, size: 12, fill: 'ink3' });
+  doc.text(prevTotal ? `vs ${fmt(prevTotal)} in the 30 days before` : `in the last ${DAYS} days`, { x: PAD, y: TILE.sub, size: 12, fill: 'ink3' });
 
   const side = [
     { label: 'Daily average', value: (total / DAYS).toFixed(1), sub: 'per day' },
@@ -505,21 +506,21 @@ function activity(theme, W = FULL) {
     { label: 'Active days', value: String(active), unit: `of ${DAYS}`, sub: `${DAYS - active} quiet ${plural(DAYS - active, 'day')}` },
   ];
   const sideX = narrow ? PAD : PAD + 330;
-  const sideY = narrow ? 114 : 0;
+  const sideY = narrow ? 92 : 0;
   const sideW = (W - PAD - sideX) / side.length;
   side.forEach((item, i) => {
     const x = sideX + i * sideW;
-    doc.label(item.label, x, 66 + sideY);
-    const vw = doc.text(item.value, { x: x - 1, y: 116 + sideY, size: KPI, weight: FIGURE_WEIGHT, tracking: -0.03 });
-    if (item.unit) doc.text(item.unit, { x: x + vw + 5, y: 116 + sideY, size: 13, fill: 'ink3' });
-    doc.text(item.sub, { x, y: 142 + sideY, size: 12, fill: 'ink3' });
+    doc.label(item.label, x, TILE.label + sideY);
+    const vw = doc.text(item.value, { x: x - 1, y: TILE.figure + sideY, size: KPI, weight: FIGURE_WEIGHT, tracking: -0.03 });
+    if (item.unit) doc.text(item.unit, { x: x + vw + 4, y: TILE.figure + sideY, size: 12, fill: 'ink3' });
+    doc.text(item.sub, { x, y: TILE.sub + sideY, size: 12, fill: 'ink3' });
   });
 
   // Chart: solid hairline grid, gradient area, a 2px line, faded in at the left edge.
   const left = PAD;
   const right = W - PAD - 8;
-  const top = 196 + sideY;
-  const base = (narrow ? 340 : 362) + sideY;
+  const top = TILE.sub + 44 + sideY;
+  const base = top + (narrow ? 110 : 124);
   const max = Math.max(peak.count, 1) * 1.12;
   for (let k = 0; k <= 4; k++) {
     const y = base - (k / 4) * (base - top);
@@ -530,24 +531,24 @@ function activity(theme, W = FULL) {
   const line = smoothPath(pts);
   doc.defs.set('area', `<linearGradient id="area" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="${t.ink}" stop-opacity="0.22"/><stop offset="0.6" stop-color="${t.ink}" stop-opacity="0.06"/><stop offset="1" stop-color="${t.ink}" stop-opacity="0"/></linearGradient>`);
   doc.defs.set('fade', `<linearGradient id="fadeX" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#fff" stop-opacity="0.15"/><stop offset="0.12" stop-color="#fff"/><stop offset="1" stop-color="#fff"/></linearGradient><mask id="fade" maskUnits="userSpaceOnUse" x="0" y="0" width="${W}" height="${base + 10}"><rect x="0" y="0" width="${W}" height="${base + 10}" fill="url(#fadeX)"/></mask>`);
-  doc.add(`<g mask="url(#fade)"><path d="${line}L${right} ${base}L${left} ${base}Z" fill="url(#area)"/><path d="${line}" fill="none" stroke="${t.ink}" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/></g>`);
+  doc.add(`<g mask="url(#fade)"><path d="${line}L${right} ${base}L${left} ${base}Z" fill="url(#area)"/><path d="${line}" fill="none" stroke="${t.ink}" stroke-width="1.75" stroke-linejoin="round" stroke-linecap="round"/></g>`);
 
   // Peak gets a value; today gets a dot with a soft halo.
   const [px, py] = pts[days.indexOf(peak)];
-  doc.add(`<circle cx="${px.toFixed(1)}" cy="${py.toFixed(1)}" r="3.5" fill="${t.ink}" stroke="${t.surface}" stroke-width="2"/>`);
-  doc.text(fmt(peak.count), { x: px, y: py - 12, size: 12, weight: 600, anchor: 'middle' });
+  doc.add(`<circle cx="${px.toFixed(1)}" cy="${py.toFixed(1)}" r="3" fill="${t.ink}" stroke="${t.surface}" stroke-width="2"/>`);
+  doc.text(fmt(peak.count), { x: px, y: py - 10, size: 11.5, weight: 600, anchor: 'middle' });
   const [ex, ey] = pts.at(-1);
-  doc.add(`<circle cx="${ex.toFixed(1)}" cy="${ey.toFixed(1)}" r="8" fill="${t.ink}" fill-opacity="0.14"/><circle cx="${ex.toFixed(1)}" cy="${ey.toFixed(1)}" r="3.5" fill="${t.ink}"/>`);
+  doc.add(`<circle cx="${ex.toFixed(1)}" cy="${ey.toFixed(1)}" r="7" fill="${t.ink}" fill-opacity="0.14"/><circle cx="${ex.toFixed(1)}" cy="${ey.toFixed(1)}" r="3" fill="${t.ink}"/>`);
 
   // Weekly date ticks counted back from today.
   days.forEach((d, i) => {
     if ((DAYS - 1 - i) % 7) return;
     const anchor = i === DAYS - 1 ? 'end' : i === 0 ? 'start' : 'middle';
-    doc.text(i === DAYS - 1 ? 'Today' : dayMonth(d.date), { x: i === DAYS - 1 ? W - PAD : pts[i][0], y: base + 22, size: 11, anchor, fill: 'ink3' });
+    doc.text(i === DAYS - 1 ? 'Today' : dayMonth(d.date), { x: i === DAYS - 1 ? W - PAD : pts[i][0], y: base + 20, size: 11, anchor, fill: 'ink3' });
   });
 
   return doc.svg(
-    base + 22 + BOTTOM,
+    base + 20 + BOTTOM,
     'Contribution activity, last 30 days',
     `${fmt(total)} contributions in the last ${DAYS} days${change === null ? '' : `, ${change >= 0 ? 'up' : 'down'} ${Math.abs(change)}% on the 30 days before`}. ` +
       `Busiest day ${peak.date} with ${peak.count}. Active on ${active} of ${DAYS} days. Daily counts: ${days.map((d) => d.count).join(', ')}.`,
