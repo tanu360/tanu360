@@ -66,10 +66,11 @@ for (const b of CONNECT) {
     const doc = new Doc(theme, W);
     const t = doc.t;
     doc.add(icon(b.icon, 0, 5, 15, t.ink));
-    doc.text(b.label, { x: 22, y: 17.5, size: 13, weight: 600 });
+    // Link blue, as GitHub draws links.
+    doc.text(b.label, { x: 22, y: 17.5, size: 13, weight: 600, fill: 'accent' });
     doc.text(b.detail, { x: 22 + labelW + 7, y: 17.5, size: 12, weight: 500, fill: 'ink3' });
-    doc.add(arrow(22 + labelW + 7 + detailW + 8, 8.5, 7, t.ink3));
-    doc.add(`<rect x="0" y="${H - 3}" width="${W - 2}" height="1" fill="${t.ink}" fill-opacity="0.35"/>`);
+    doc.add(arrow(22 + labelW + 7 + detailW + 8, 8.5, 7, t.accent));
+    doc.add(`<rect x="0" y="${H - 3}" width="${W - 2}" height="1" fill="${t.accent}" fill-opacity="0.5"/>`);
     write(`connect-${b.id}-${theme}.svg`, doc.svg(H, `${b.label}: ${b.detail}`, `Link to ${b.label}`));
   }
 }

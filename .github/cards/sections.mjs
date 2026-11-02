@@ -29,7 +29,7 @@ SECTIONS.forEach((sec, i) => {
     for (const theme of Object.keys(THEMES)) {
       const doc = new Doc(theme, W);
       doc.rule(0);
-      doc.text(num, { x: PAD, y: BASE, size: 11.5, weight: 600, tracking: 0.08, fill: 'ink3' });
+      doc.text(num, { x: PAD, y: BASE, size: 11.5, weight: 600, tracking: 0.08, fill: 'accent' });
       doc.text(sec.title, { x: PAD + 26, y: BASE, size: 20, weight: 600, tracking: -0.02 });
       doc.text(sec.note, { x: W - PAD, y: BASE, size: 12, anchor: 'end', fill: 'ink3' });
       fs.writeFileSync(`${outDir}/section-${sec.id}${suffix}-${theme}.svg`, doc.svg(H, `${num} ${sec.title}`, `${sec.title}: ${sec.note}`));

@@ -1,5 +1,5 @@
 import fs from 'node:fs';
-import { Doc, THEMES, PAD, FULL, HALF, FIGURE_WEIGHT, HERO, KPI, STAT, TILE, fmt, duration, monthYear, monthShort, dayMonth, weekdayDate, contrast } from './lib.mjs';
+import { Doc, THEMES, PAD, FULL, HALF, FIGURE_WEIGHT, HERO, KPI, STAT, TILE, fmt, duration, monthYear, monthShort, dayMonth, weekdayDate, contrast, langColour } from './lib.mjs';
 
 const here = (p) => new URL(p, import.meta.url);
 const data = JSON.parse(fs.readFileSync(here('./data.json')));
@@ -10,9 +10,9 @@ const BOTTOM = 26;
 const WAKATIME_URL = process.env.WAKATIME_URL || 'wakatime.com/@tanu1337';
 const plural = (n, word) => `${word}${n === 1 ? '' : 's'}`;
 
-// Contribution level → opacity of one ink, light to dark.
-const LEVEL = { NONE: 0, FIRST_QUARTILE: 0.3, SECOND_QUARTILE: 0.52, THIRD_QUARTILE: 0.76, FOURTH_QUARTILE: 1 };
-const levelOpacity = (doc, level) => LEVEL[level] || doc.t.empty;
+// Contribution level → GitHub's own green for that level.
+const LEVELS = ['NONE', 'FIRST_QUARTILE', 'SECOND_QUARTILE', 'THIRD_QUARTILE', 'FOURTH_QUARTILE'];
+const levelColour = (doc, level) => doc.t.grid[Math.max(0, LEVELS.indexOf(level))];
 
 // Wakapi reports some names in its own casing.
 const LANG_NAMES = { Javascript: 'JavaScript', Typescript: 'TypeScript', Json: 'JSON', Html: 'HTML', Css: 'CSS', Yaml: 'YAML', 'Objective-c': 'Objective-C', Toml: 'TOML', Mql: 'MQL' };
@@ -21,15 +21,13 @@ const langName = (name) => LANG_NAMES[name] ?? name;
 const BAR_GAP = 2;
 
 // The same bar standing up, filled from the baseline.
-function meterUp(doc, { x, base, width, height, ratio, on }) {
+function meterUp(doc, { x, base, width, height, ratio, on, colour = 'ink' }) {
   const fill = ratio > 0 ? Math.min(height, Math.max(3, height * ratio)) : 0;
-  if (fill) doc.rect(x, base - fill, width, fill, { opacity: on, rx: 1.5 });
+  if (fill) doc.rect(x, base - fill, width, fill, { fill: colour, opacity: on, rx: 1.5 });
   const rest = fill ? fill + BAR_GAP : 0;
   if (height - rest > 1) doc.rect(x, base - height, width, height - rest, { opacity: doc.t.empty, rx: 1.5 });
 }
 
-// Ink opacities for ranked series (rings, composition bar, legends), strongest first.
-const SHADES = [1, 0.72, 0.52, 0.38, 0.27, 0.19, 0.13];
 
 // Masked project names ("omni••••••"): the visible start in ink, the dots muted.
 function nameText(doc, name, x, y) {
@@ -76,20 +74,19 @@ function github(theme, W = FULL) {
   const lx = doc.text('Last 12 months', { x: PAD, y: top, size: 12, weight: 600, fill: 'ink2' });
   doc.text(`${fmt(c.lastYear)} contributions`, { x: PAD + lx + 8, y: top, size: 12, fill: 'ink3' });
 
-  const legend = Object.keys(LEVEL);
   const more = doc.text('More', { x: W - PAD, y: top, size: 11, anchor: 'end', fill: 'ink3' });
-  const legendX = W - PAD - more - 8 - legend.length * 13;
-  legend.forEach((level, i) => doc.squares([[legendX + i * 13, top - 9]], 10, levelOpacity(doc, level)));
+  const legendX = W - PAD - more - 8 - LEVELS.length * 13;
+  LEVELS.forEach((level, i) => doc.squares([[legendX + i * 13, top - 9]], 10, 1, levelColour(doc, level)));
   doc.text('Less', { x: legendX - 6, y: top, size: 11, anchor: 'end', fill: 'ink3' });
 
   const gridTop = top + 14;
   const byLevel = new Map();
   c.calendar.forEach((d, i) => {
-    const op = levelOpacity(doc, d.level);
-    if (!byLevel.has(op)) byLevel.set(op, []);
-    byLevel.get(op).push([PAD + Math.floor(i / 7) * pitch + gap / 2, gridTop + (i % 7) * pitch + gap / 2]);
+    const colour = levelColour(doc, d.level);
+    if (!byLevel.has(colour)) byLevel.set(colour, []);
+    byLevel.get(colour).push([PAD + Math.floor(i / 7) * pitch + gap / 2, gridTop + (i % 7) * pitch + gap / 2]);
   });
-  for (const [op, cells] of byLevel) doc.squares(cells, size, op);
+  for (const [colour, cells] of byLevel) doc.squares(cells, size, 1, colour);
 
   // Month names under the first week of each month; a partial leading month is dropped.
   const gridBottom = gridTop + 7 * pitch;
@@ -151,21 +148,24 @@ function languages(theme) {
   const rest = 1 - top.reduce((sum, l) => sum + l.share, 0);
   const parts = [...top, ...(rest > 0.001 ? [{ name: 'Other', share: rest }] : [])];
   heading(code, 'Code in my repositories', 'share of bytes across owned repos');
+  // Each language in its GitHub colour, as on a repository's language bar.
+  const colourOf = (l) => (l.name === 'Other' ? code.t.other : langColour(l.name, theme));
   let x = PAD;
   const usable = colW - 2 * (parts.length - 1);
-  parts.forEach((l, i) => {
+  parts.forEach((l) => {
     const w = Math.max(2, usable * l.share);
-    code.rect(x, 48, w, 8, { opacity: SHADES[i], rx: 1.5 });
+    code.rect(x, 48, w, 8, { fill: colourOf(l), rx: 1.5 });
     x += w + 2;
   });
   parts.forEach((l, i) => {
     const y = 86 + i * 22;
-    code.squares([[PAD, y - 8]], 8, SHADES[i]);
+    code.add(`<circle cx="${PAD + 4}" cy="${y - 4}" r="4" fill="${colourOf(l)}"/>`);
     code.text(l.name, { x: PAD + 16, y, size: 12.5 });
     code.text(`${(l.share * 100).toFixed(1)}%`, { x: PAD + colW, y, size: 12, anchor: 'end', fill: 'ink2' });
   });
 
-  // Radar of hours: grid hexagons and spokes in hairlines, the shape in ink.
+  // Radar of hours: grid hexagons and spokes in hairlines, the shape in the coding accent,
+  // each corner dotted in that language's colour.
   const time = new Doc(theme, HALF);
   const t = time.t;
   heading(time, 'Time spent writing code', `all time on ${data.wakapi.source ?? 'Wakapi'}, ${fmt(data.wakapi.totalSeconds / 3600)} hrs total`);
@@ -185,10 +185,10 @@ function languages(theme) {
     time.add(`<path d="M${cx} ${cy}L${x1.toFixed(1)} ${y1.toFixed(1)}" stroke="${t.rule}"/>`);
   });
   const shape = langs.map((l, i) => at(i, R * Math.max(0.04, l.seconds / max)).map((v) => v.toFixed(1)).join(' ')).join(' ');
-  time.add(`<polygon points="${shape}" fill="${t.ink}" fill-opacity="0.12" stroke="${t.ink}" stroke-width="1.5" stroke-linejoin="round"/>`);
+  time.add(`<polygon points="${shape}" fill="${t.accent}" fill-opacity="0.16" stroke="${t.accent}" stroke-width="1.5" stroke-linejoin="round"/>`);
   langs.forEach((l, i) => {
     const [px, py] = at(i, R * Math.max(0.04, l.seconds / max));
-    time.add(`<circle cx="${px.toFixed(1)}" cy="${py.toFixed(1)}" r="2.4" fill="${t.ink}"/>`);
+    time.add(`<circle cx="${px.toFixed(1)}" cy="${py.toFixed(1)}" r="3.4" fill="${langColour(langName(l.name), theme)}" stroke="${t.surface}" stroke-width="1.5"/>`);
     const [lx, ly] = at(i, R + 14);
     const anchor = Math.abs(lx - cx) < 4 ? 'middle' : lx < cx ? 'end' : 'start';
     const up = ly < cy - R * 0.5;
@@ -205,22 +205,23 @@ function languages(theme) {
 
 // Concentric rings with a legend (Bklit's ring chart): each ring is one item's share of
 // `total`, read clockwise from the top. Shared by the two half cards so they mirror.
+// `colour(name, i)` gives each item its colour; the legend dot repeats it.
 const RING = { outer: 46, step: 10, width: 6 };
-function ringList(doc, label, items, total, top) {
+function ringList(doc, label, items, total, top, colour) {
   doc.label(label, PAD, top);
   const cx = PAD + RING.outer + RING.width / 2;
   const cy = top + 20 + RING.outer + RING.width / 2;
-  items.forEach(([, seconds], i) => {
+  items.forEach(([name, seconds], i) => {
     const r = RING.outer - i * RING.step;
     const C = 2 * Math.PI * r;
-    const ring = `cx="${cx}" cy="${cy.toFixed(1)}" r="${r}" fill="none" stroke="${doc.t.ink}" stroke-width="${RING.width}"`;
-    doc.add(`<circle ${ring} stroke-opacity="${doc.t.empty}"/>`);
-    doc.add(`<circle ${ring} stroke-opacity="${SHADES[i]}" stroke-linecap="round" stroke-dasharray="${((C * seconds) / total).toFixed(2)} ${C.toFixed(2)}" transform="rotate(-90 ${cx} ${cy.toFixed(1)})"/>`);
+    const ring = `cx="${cx}" cy="${cy.toFixed(1)}" r="${r}" fill="none" stroke-width="${RING.width}"`;
+    doc.add(`<circle ${ring} stroke="${doc.t.ink}" stroke-opacity="${doc.t.empty}"/>`);
+    doc.add(`<circle ${ring} stroke="${colour(name, i)}" stroke-linecap="round" stroke-dasharray="${((C * seconds) / total).toFixed(2)} ${C.toFixed(2)}" transform="rotate(-90 ${cx} ${cy.toFixed(1)})"/>`);
   });
   const lx = cx + RING.outer + RING.width / 2 + 24;
   items.forEach(([name, seconds], i) => {
     const y = cy - ((items.length - 1) * 24) / 2 + i * 24 + 4;
-    doc.squares([[lx, y - 8]], 8, SHADES[i]);
+    doc.add(`<circle cx="${lx + 4}" cy="${y - 4}" r="4" fill="${colour(name, i)}"/>`);
     nameText(doc, name, lx + 15, y);
     const pct = doc.text(`${Math.round((seconds / total) * 100)}%`, { x: HALF - PAD, y, size: 11.5, anchor: 'end', fill: 'ink3' });
     doc.text(duration(seconds), { x: HALF - PAD - pct - 8, y, size: 12, anchor: 'end', fill: 'ink2' });
@@ -246,7 +247,7 @@ function week(theme) {
   doc.label('Daily average', HALF / 2, TILE.label);
   doc.figure(duration(total / days.length), null, HALF / 2, TILE.figure);
 
-  // One bar per day on a full-height track; the best day carries the ink.
+  // One bar per day on a full-height track, in the coding accent; the best day is solid.
   const base = CHART_BASE;
   const chartH = 78;
   const slot = (HALF - 2 * PAD) / days.length;
@@ -254,7 +255,7 @@ function week(theme) {
   days.forEach((d, i) => {
     const x = PAD + i * slot + (slot - colW) / 2;
     const isBest = d === best;
-    meterUp(doc, { x, base, width: colW, height: chartH, ratio: d.seconds / best.seconds, on: isBest ? 1 : 0.42 });
+    meterUp(doc, { x, base, width: colW, height: chartH, ratio: d.seconds / best.seconds, on: isBest ? 1 : 0.45, colour: 'accent' });
     if (isBest) doc.text(duration(d.seconds), { x: x + colW / 2, y: base - chartH - 8, size: 11, weight: 600, anchor: 'middle' });
     const day = new Date(`${d.date}T00:00:00Z`).toLocaleString('en-US', { weekday: 'short', timeZone: 'UTC' });
     doc.text(day, { x: x + colW / 2, y: base + 17, size: 11, weight: isBest ? 600 : 500, anchor: 'middle', fill: isBest ? 'ink' : 'ink3' });
@@ -264,7 +265,7 @@ function week(theme) {
   const totals = new Map();
   for (const d of days) for (const p of d.projects) totals.set(p.name, (totals.get(p.name) || 0) + p.seconds);
   const projects = [...totals].sort((a, b) => (a[0] === 'Other') - (b[0] === 'Other') || b[1] - a[1]).slice(0, 4);
-  const bottom = ringList(doc, 'Projects', projects, total, LIST_TOP);
+  const bottom = ringList(doc, 'Projects', projects, total, LIST_TOP, (name, i) => (name === 'Other' ? doc.t.other : doc.t.series[i]));
 
   return doc.svg(
     bottom + BOTTOM,
@@ -319,9 +320,9 @@ function rank(theme) {
     const anchor = Math.abs(lx - G.cx) < 30 ? 'middle' : lx < G.cx ? 'end' : 'start';
     doc.text(x.name, { x: lx, y: ly + 4, size: 11, weight: ti === tierIndex ? 600 : 500, anchor, fill: ti === tierIndex ? 'ink' : 'ink3' });
   });
-  const notch = (d, opacity) => d.length && doc.add(`<path d="${d.join('')}" stroke="${t.ink}" stroke-opacity="${opacity}" stroke-width="2.6" stroke-linecap="round"/>`);
+  const notch = (d, opacity, colour = t.ink) => d.length && doc.add(`<path d="${d.join('')}" stroke="${colour}"${opacity === 1 ? '' : ` stroke-opacity="${opacity}"`} stroke-width="2.6" stroke-linecap="round"/>`);
   notch(off, t.empty * 2);
-  notch(on, 1);
+  notch(on, 1, t.accent);
   doc.text(r ? `#${r.rank}` : '—', { x: G.cx, y: G.cy - 6, size: KPI + 6, weight: FIGURE_WEIGHT, tracking: -0.03, anchor: 'middle' });
   // Caption on the same row as the week card's day names.
   doc.text(r ? `${tier.name} tier on ${r.source ?? 'wakapi.dev'}` : 'outside the public top 100', { x: G.cx, y: CHART_BASE + 17, size: 11, anchor: 'middle', fill: 'ink3' });
@@ -330,7 +331,7 @@ function rank(theme) {
   const all = (r?.languages ?? []).filter((l) => l.name.toLowerCase() !== 'unknown');
   const langTotal = (r?.languages ?? []).reduce((sum, l) => sum + l.seconds, 0) || 1;
   const langs = all.slice(0, 4).map((l) => [langName(l.name), l.seconds]);
-  const bottom = ringList(doc, 'Languages this week', langs, langTotal, LIST_TOP);
+  const bottom = ringList(doc, 'Languages this week', langs, langTotal, LIST_TOP, (name) => langColour(name, theme));
 
   return doc.svg(
     bottom + BOTTOM,
@@ -374,7 +375,7 @@ function stargazers(theme, W = FULL) {
   });
 
   // Map grid (India's official worldview, so all of Jammu & Kashmir is India): land is faint,
-  // stargazer countries are shaded by count, and the people themselves are solid.
+  // stargazer countries are tinted star-gold by count, and the people themselves are solid gold.
   // On desktop the map takes 80% of the width, centred: at full width it outweighs the numbers.
   const mapTop = TILE.sub + 34 + (Math.ceil(tiles.length / cols) - 1) * ROW;
   const mapW = (W - 2 * PAD) * (narrow ? 1 : 0.8);
@@ -393,33 +394,37 @@ function stargazers(theme, W = FULL) {
   const maxCountry = countries[0]?.count || 1;
   const landOpacity = t.empty * 1.5;
 
-  // Squares batched per opacity into single paths to keep the file small.
+  // Squares batched per colour and opacity into single paths to keep the file small.
   const layers = new Map();
-  const square = (col, row, opacity) => {
+  const square = (col, row, colour, opacity) => {
     const x = mapX + col * pitch + (pitch - size) / 2;
     const y = mapTop + row * pitch + (pitch - size) / 2;
-    const key = opacity.toFixed(2);
+    const key = `${colour} ${opacity.toFixed(2)}`;
     if (!layers.has(key)) layers.set(key, []);
     layers.get(key).push(`M${x.toFixed(1)} ${y.toFixed(1)}h${size.toFixed(1)}v${size.toFixed(1)}h-${size.toFixed(1)}z`);
   };
   for (const [col, row, cc] of world.cells) {
     if (people.has(`${col},${row}`)) continue;
     const country = byCountry.get(cc);
-    square(col, row, country ? 0.2 + 0.25 * Math.sqrt(country.count / maxCountry) : landOpacity);
+    if (country) square(col, row, t.star, 0.14 + 0.22 * Math.sqrt(country.count / maxCountry));
+    else square(col, row, t.ink, landOpacity);
   }
   for (const [k, n] of people) {
     const [col, row] = k.split(',').map(Number);
-    square(col, row, n > 1 ? 1 : 0.8);
+    square(col, row, t.star, n > 1 ? 1 : 0.85);
   }
-  for (const [opacity, cmds] of layers) doc.add(`<path fill="${t.ink}" fill-opacity="${opacity}" d="${cmds.join('')}"/>`);
+  for (const [key, cmds] of layers) {
+    const [colour, opacity] = key.split(' ');
+    doc.add(`<path fill="${colour}"${+opacity === 1 ? '' : ` fill-opacity="${+opacity}"`} d="${cmds.join('')}"/>`);
+  }
 
   // Legend stacked in the empty South Pacific corner; on a phone the map is too small for
   // that, so it runs in one line under the map.
   const mapBottom = mapTop + world.rows * pitch;
   let lx = PAD;
-  [['Stargazer', 1], ['Their country', 0.36], ['Land', landOpacity]].forEach(([label, op], i) => {
+  [['Stargazer', t.star, 1], ['Their country', t.star, 0.3], ['Land', t.ink, landOpacity]].forEach(([label, colour, op], i) => {
     const ly = narrow ? mapBottom + 20 : mapBottom - 44 + i * 18;
-    doc.add(`<rect x="${lx}" y="${ly - 8}" width="8" height="8" fill="${t.ink}" fill-opacity="${op}"/>`);
+    doc.add(`<rect x="${lx}" y="${ly - 8}" width="8" height="8" rx="1.5" fill="${colour}"${op === 1 ? '' : ` fill-opacity="${+op.toFixed(3)}"`}/>`);
     const w = doc.text(label, { x: lx + 14, y: ly, size: 11, fill: 'ink3' });
     if (narrow) lx += 14 + w + 18;
   });
@@ -495,7 +500,7 @@ function activity(theme, W = FULL) {
   const w = doc.text(fmt(total), { x: PAD - 1.5, y: TILE.figure, size: HERO, weight: FIGURE_WEIGHT, tracking: -0.03 });
   if (change !== null) {
     const delta = change === 0 ? '0%' : `${change > 0 ? '↑' : '↓'} ${Math.abs(change)}%`;
-    // Direction is the one place a card uses colour: green when up, red when down.
+    // Green when up, red when down.
     doc.text(delta, { x: PAD + w + 8, y: TILE.figure, size: 13, weight: 600, fill: change > 0 ? 'up' : change < 0 ? 'down' : 'ink2' });
   }
   doc.text(prevTotal ? `vs ${fmt(prevTotal)} in the 30 days before` : `in the last ${DAYS} days`, { x: PAD, y: TILE.sub, size: 12, fill: 'ink3' });
@@ -516,7 +521,8 @@ function activity(theme, W = FULL) {
     doc.text(item.sub, { x, y: TILE.sub + sideY, size: 12, fill: 'ink3' });
   });
 
-  // Chart: solid hairline grid, gradient area, a 2px line, faded in at the left edge.
+  // Chart: solid hairline grid, gradient area, a 2px line in contribution green, faded in at
+  // the left edge.
   const left = PAD;
   const right = W - PAD - 8;
   const top = TILE.sub + 44 + sideY;
@@ -529,16 +535,16 @@ function activity(theme, W = FULL) {
 
   const pts = days.map((d, i) => [left + (i * (right - left)) / (DAYS - 1), base - (d.count / max) * (base - top)]);
   const line = smoothPath(pts);
-  doc.defs.set('area', `<linearGradient id="area" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="${t.ink}" stop-opacity="0.22"/><stop offset="0.6" stop-color="${t.ink}" stop-opacity="0.06"/><stop offset="1" stop-color="${t.ink}" stop-opacity="0"/></linearGradient>`);
+  doc.defs.set('area', `<linearGradient id="area" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="${t.up}" stop-opacity="0.3"/><stop offset="0.6" stop-color="${t.up}" stop-opacity="0.08"/><stop offset="1" stop-color="${t.up}" stop-opacity="0"/></linearGradient>`);
   doc.defs.set('fade', `<linearGradient id="fadeX" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#fff" stop-opacity="0.15"/><stop offset="0.12" stop-color="#fff"/><stop offset="1" stop-color="#fff"/></linearGradient><mask id="fade" maskUnits="userSpaceOnUse" x="0" y="0" width="${W}" height="${base + 10}"><rect x="0" y="0" width="${W}" height="${base + 10}" fill="url(#fadeX)"/></mask>`);
-  doc.add(`<g mask="url(#fade)"><path d="${line}L${right} ${base}L${left} ${base}Z" fill="url(#area)"/><path d="${line}" fill="none" stroke="${t.ink}" stroke-width="1.75" stroke-linejoin="round" stroke-linecap="round"/></g>`);
+  doc.add(`<g mask="url(#fade)"><path d="${line}L${right} ${base}L${left} ${base}Z" fill="url(#area)"/><path d="${line}" fill="none" stroke="${t.up}" stroke-width="1.75" stroke-linejoin="round" stroke-linecap="round"/></g>`);
 
   // Peak gets a value; today gets a dot with a soft halo.
   const [px, py] = pts[days.indexOf(peak)];
-  doc.add(`<circle cx="${px.toFixed(1)}" cy="${py.toFixed(1)}" r="3" fill="${t.ink}" stroke="${t.surface}" stroke-width="2"/>`);
+  doc.add(`<circle cx="${px.toFixed(1)}" cy="${py.toFixed(1)}" r="3" fill="${t.up}" stroke="${t.surface}" stroke-width="2"/>`);
   doc.text(fmt(peak.count), { x: px, y: py - 10, size: 11.5, weight: 600, anchor: 'middle' });
   const [ex, ey] = pts.at(-1);
-  doc.add(`<circle cx="${ex.toFixed(1)}" cy="${ey.toFixed(1)}" r="7" fill="${t.ink}" fill-opacity="0.14"/><circle cx="${ex.toFixed(1)}" cy="${ey.toFixed(1)}" r="3" fill="${t.ink}"/>`);
+  doc.add(`<circle cx="${ex.toFixed(1)}" cy="${ey.toFixed(1)}" r="7" fill="${t.up}" fill-opacity="0.2"/><circle cx="${ex.toFixed(1)}" cy="${ey.toFixed(1)}" r="3" fill="${t.up}"/>`);
 
   // Weekly date ticks counted back from today.
   days.forEach((d, i) => {

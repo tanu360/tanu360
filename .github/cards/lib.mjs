@@ -27,9 +27,25 @@ const fonts = Object.fromEntries(
 // surface = bgColor-default, ink = fgColor-default, ink3 = fgColor-muted,
 // ink2 = base neutral 10 (the scale step just above muted, in both themes),
 // rule = borderColor-muted (borderColor-default at 70%) flattened onto the canvas.
+// Colour is GitHub's own and means the same thing on every card:
+//   accent — coding time (fgColor-accent)        up/down — contributions, change (fgColor-success/danger)
+//   grid   — contribution levels 0–4             star    — stargazers (the starred-button star)
+//   series — projects, in a fixed order (Primer data-viz blue, coral, purple, pine; checked for
+//            colour-blind separation), with `other` (data gray) for the rest
+// Languages wear their linguist colours (langColour below).
 export const THEMES = {
-  dark: { surface: '#0d1117', ink: '#f0f6fc', ink2: '#b1bac4', ink3: '#7d8590', rule: '#2f353d', empty: 0.1, up: '#3fb950', down: '#f85149' },
-  light: { surface: '#ffffff', ink: '#1f2328', ink2: '#424a53', ink3: '#6e7781', rule: '#dfe4e9', empty: 0.08, up: '#1a7f37', down: '#d1242f' },
+  dark: {
+    surface: '#0d1117', ink: '#f0f6fc', ink2: '#b1bac4', ink3: '#7d8590', rule: '#2f353d', empty: 0.1, up: '#3fb950', down: '#f85149',
+    accent: '#4493f8', star: '#e3b341', other: '#576270',
+    grid: ['#151b23', '#033a16', '#196c2e', '#2ea043', '#56d364'],
+    series: ['#0576ff', '#e1430e', '#975bf1', '#18915e'],
+  },
+  light: {
+    surface: '#ffffff', ink: '#1f2328', ink2: '#424a53', ink3: '#6e7781', rule: '#dfe4e9', empty: 0.08, up: '#1a7f37', down: '#d1242f',
+    accent: '#0969da', star: '#b88700', other: '#808fa3',
+    grid: ['#eff2f5', '#aceebb', '#4ac26b', '#2da44e', '#116329'],
+    series: ['#006edb', '#d43511', '#894ceb', '#167e53'],
+  },
 };
 
 export const PAD = 6;
@@ -113,12 +129,13 @@ export class Doc {
   }
 
   // Squares sharing one size and opacity, drawn from a single shared shape.
-  squares(points, size, opacity) {
+  squares(points, size, opacity, fill = 'ink') {
     if (!points.length) return;
     const id = `sq${size.toFixed(2).replace('.', '_')}`;
     if (!this.defs.has(id)) this.defs.set(id, `<rect id="${id}" width="${size.toFixed(2)}" height="${size.toFixed(2)}" rx="${Math.min(2, size / 5).toFixed(2)}"/>`);
     const uses = points.map(([x, y]) => `<use href="#${id}" x="${x.toFixed(2)}" y="${y.toFixed(2)}"/>`).join('');
-    this.add(`<g fill="${this.t.ink}" fill-opacity="${+opacity.toFixed(3)}">${uses}</g>`);
+    const op = opacity === 1 ? '' : ` fill-opacity="${+opacity.toFixed(3)}"`;
+    this.add(`<g fill="${this.t[fill] ?? fill}"${op}>${uses}</g>`);
   }
 
   // Draws another card's SVG at (x, y). Def ids name their content (glyph or square size), so
@@ -173,3 +190,20 @@ export const contrast = (a, b) => {
   const [hi, lo] = [lum(a), lum(b)].sort((x, y) => y - x);
   return (hi + 0.05) / (lo + 0.05);
 };
+
+const mix = (a, b, k) => `#${[1, 3, 5].map((i) => Math.round(parseInt(a.slice(i, i + 2), 16) * (1 - k) + parseInt(b.slice(i, i + 2), 16) * k).toString(16).padStart(2, '0')).join('')}`;
+
+// GitHub's language colours (github-linguist languages.yml, names and aliases). Some vanish on
+// one theme (C's #555 on dark, JavaScript's yellow on white), so each is nudged toward the ink
+// just far enough to clear a floor; the hue stays the one people know.
+const LINGUIST = JSON.parse(fs.readFileSync(new URL('./assets/linguist-colors.json', import.meta.url)));
+const LINGUIST_LOWER = new Map(Object.entries(LINGUIST).map(([k, v]) => [k.toLowerCase(), v]));
+const FLOOR = { dark: 2.4, light: 1.7 };
+export function langColour(name, theme) {
+  const t = THEMES[theme];
+  const base = LINGUIST[name] ?? LINGUIST_LOWER.get(name.toLowerCase());
+  if (!base) return t.other;
+  let c = base;
+  for (let k = 0.05; contrast(c, t.surface) < FLOOR[theme] && k <= 0.6; k += 0.05) c = mix(base, theme === 'dark' ? '#ffffff' : '#000000', k);
+  return c;
+}
