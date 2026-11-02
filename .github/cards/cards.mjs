@@ -10,10 +10,6 @@ const BOTTOM = 26;
 const WAKATIME_URL = process.env.WAKATIME_URL || 'wakatime.com/@tanu1337';
 const plural = (n, word) => `${word}${n === 1 ? '' : 's'}`;
 
-// Contribution level → GitHub's own green for that level.
-const LEVELS = ['NONE', 'FIRST_QUARTILE', 'SECOND_QUARTILE', 'THIRD_QUARTILE', 'FOURTH_QUARTILE'];
-const levelColour = (doc, level) => doc.t.grid[Math.max(0, LEVELS.indexOf(level))];
-
 // Wakapi reports some names in its own casing.
 const LANG_NAMES = { Javascript: 'JavaScript', Typescript: 'TypeScript', Json: 'JSON', Html: 'HTML', Css: 'CSS', Yaml: 'YAML', 'Objective-c': 'Objective-C', Toml: 'TOML', Mql: 'MQL' };
 const langName = (name) => LANG_NAMES[name] ?? name;
@@ -35,6 +31,33 @@ function nameText(doc, name, x, y) {
   if (!m) return doc.text(name, { x, y, size: 12.5 });
   const w = doc.text(m[1], { x, y, size: 12.5 });
   return w + doc.text(m[2], { x: x + w + 1, y, size: 12.5, tracking: 0.04, fill: 'ink3' }) + 1;
+}
+
+// ── Last 12 months as a waveform ────────────────────────────────────────────
+// One bar per week, mirrored about a centre line like an audio waveform: not GitHub's own
+// square calendar, which sits a click away on the same profile. Returns the bottom edge and
+// the x of a week column, for the month names.
+function waveform(doc, { cal, top, W, narrow }) {
+  const t = doc.t;
+  const totals = Array.from({ length: Math.ceil(cal.length / 7) }, (_, w) => cal.slice(w * 7, w * 7 + 7).reduce((sum, d) => sum + d.count, 0));
+  const pitch = (W - 2 * PAD) / totals.length;
+  const bw = Math.max(2.4, Math.min(7, pitch * 0.48));
+  const half = narrow ? 40 : 50;
+  const mid = top + 26 + half;
+  const max = Math.max(...totals, 1);
+  doc.text('one bar per week', { x: W - PAD, y: top, size: 11, anchor: 'end', fill: 'ink3' });
+  // Solid at the centre line, fading toward the tips; busier weeks are more opaque too.
+  doc.defs.set('wave', `<linearGradient id="wave" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="${t.up}" stop-opacity="0.45"/><stop offset="0.5" stop-color="${t.up}"/><stop offset="1" stop-color="${t.up}" stop-opacity="0.45"/></linearGradient>`);
+  doc.rect(PAD, mid - 0.5, W - 2 * PAD, 1, { fill: 'rule' });
+  totals.forEach((v, col) => {
+    const h = Math.max(1.2, half * (v / max));
+    const x = PAD + col * pitch + (pitch - bw) / 2;
+    const op = v ? 0.45 + 0.55 * (v / max) : 0.35;
+    doc.add(`<rect x="${x.toFixed(2)}" y="${(mid - h).toFixed(2)}" width="${bw.toFixed(2)}" height="${(2 * h).toFixed(2)}" rx="${(bw / 2).toFixed(2)}" fill="url(#wave)" fill-opacity="${+op.toFixed(3)}"/>`);
+  });
+  // The busiest week gets its total.
+  doc.text(fmt(max), { x: PAD + totals.indexOf(max) * pitch + pitch / 2, y: mid - half - 5, size: 11, weight: 600, anchor: 'middle' });
+  return { bottom: mid + half, colX: (col) => PAD + col * pitch + (pitch - bw) / 2 };
 }
 
 // ── GitHub: KPI row, contribution grid, stats strip ─────────────────────────
@@ -65,31 +88,15 @@ function github(theme, W = FULL) {
     doc.text(tile.sub, { x, y: TILE.sub + dy, size: 12, fill: 'ink3' });
   });
 
-  // Contribution grid, GitHub-style squares.
+  // Last 12 months as a weekly waveform.
   const top = TILE.sub + 46 + (Math.ceil(tiles.length / cols) - 1) * ROW;
   const weeks = Math.ceil(c.calendar.length / 7);
-  const pitch = (W - 2 * PAD) / weeks;
-  const gap = narrow ? 1.6 : 3;
-  const size = pitch - gap;
   const lx = doc.text('Last 12 months', { x: PAD, y: top, size: 12, weight: 600, fill: 'ink2' });
   doc.text(`${fmt(c.lastYear)} contributions`, { x: PAD + lx + 8, y: top, size: 12, fill: 'ink3' });
-
-  const more = doc.text('More', { x: W - PAD, y: top, size: 11, anchor: 'end', fill: 'ink3' });
-  const legendX = W - PAD - more - 8 - LEVELS.length * 13;
-  LEVELS.forEach((level, i) => doc.squares([[legendX + i * 13, top - 9]], 10, 1, levelColour(doc, level)));
-  doc.text('Less', { x: legendX - 6, y: top, size: 11, anchor: 'end', fill: 'ink3' });
-
-  const gridTop = top + 14;
-  const byLevel = new Map();
-  c.calendar.forEach((d, i) => {
-    const colour = levelColour(doc, d.level);
-    if (!byLevel.has(colour)) byLevel.set(colour, []);
-    byLevel.get(colour).push([PAD + Math.floor(i / 7) * pitch + gap / 2, gridTop + (i % 7) * pitch + gap / 2]);
-  });
-  for (const [colour, cells] of byLevel) doc.squares(cells, size, 1, colour);
+  const cal = waveform(doc, { cal: c.calendar, top, W, narrow });
+  const gridBottom = cal.bottom;
 
   // Month names under the first week of each month; a partial leading month is dropped.
-  const gridBottom = gridTop + 7 * pitch;
   const starts = [];
   for (let col = 0; col < weeks; col++) {
     const first = c.calendar[col * 7];
@@ -98,7 +105,7 @@ function github(theme, W = FULL) {
   }
   if (starts.length > 1 && starts[1].col - starts[0].col < 3) starts.shift();
   for (const { col, date } of starts) {
-    if (col <= weeks - 2) doc.text(monthShort(date), { x: PAD + col * pitch + gap / 2, y: gridBottom + 16, size: 11, fill: 'ink3' });
+    if (col <= weeks - 2) doc.text(monthShort(date), { x: cal.colX(col), y: gridBottom + 16, size: 11, fill: 'ink3' });
   }
 
   // Stats strip: label, figure, caption — same rhythm as the tiles above.
