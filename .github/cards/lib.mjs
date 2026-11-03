@@ -29,19 +29,19 @@ const fonts = Object.fromEntries(
 // rule = borderColor-muted (borderColor-default at 70%) flattened onto the canvas.
 // Colour is GitHub's own and means the same thing on every card:
 //   accent — coding time (fgColor-accent)        up/down — contributions, change (fgColor-success/danger)
-//   star   — stargazers (the starred-button star)
+//   star   — stargazers, in the contribution green
 //   series — projects, in a fixed order (Primer data-viz blue, coral, purple, pine; checked for
 //            colour-blind separation), with `other` (data gray) for the rest
 // Languages wear their linguist colours (langColour below).
 export const THEMES = {
   dark: {
     surface: '#0d1117', ink: '#f0f6fc', ink2: '#b1bac4', ink3: '#7d8590', rule: '#2f353d', empty: 0.1, up: '#3fb950', down: '#f85149',
-    accent: '#4493f8', star: '#e3b341', other: '#576270',
+    accent: '#4493f8', star: '#3fb950', other: '#576270',
     series: ['#0576ff', '#e1430e', '#975bf1', '#18915e'],
   },
   light: {
     surface: '#ffffff', ink: '#1f2328', ink2: '#424a53', ink3: '#6e7781', rule: '#dfe4e9', empty: 0.08, up: '#1a7f37', down: '#d1242f',
-    accent: '#0969da', star: '#b88700', other: '#808fa3',
+    accent: '#0969da', star: '#1a7f37', other: '#808fa3',
     series: ['#006edb', '#d43511', '#894ceb', '#167e53'],
   },
 };
