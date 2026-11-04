@@ -1,87 +1,87 @@
 {
  "login": "tanu360",
- "generatedAt": "2026-11-03T04:36:37.789Z",
+ "generatedAt": "2026-11-04T03:55:49.603Z",
  "createdAt": "2017-10-23T22:54:19Z",
  "stats": {
-  "stars": 191,
-  "commits": 2334,
+  "stars": 192,
+  "commits": 2700,
   "prs": 15,
   "issues": 21,
   "reviews": 1,
   "contributedTo": 8,
-  "followers": 96,
-  "publicRepos": 20,
+  "followers": 97,
+  "publicRepos": 19,
   "grade": "B+",
-  "percentile": 38.58181123196041
+  "percentile": 38.529446166213624
  },
  "repoLanguages": [
   {
    "name": "TypeScript",
-   "share": 0.4817401270038367
+   "share": 0.5496322874492384
   },
   {
    "name": "JavaScript",
-   "share": 0.2621265905568993
+   "share": 0.22571177734310707
   },
   {
    "name": "Go",
-   "share": 0.08912320585119236
-  },
-  {
-   "name": "CSS",
-   "share": 0.0604727833960287
+   "share": 0.08125298084843521
   },
   {
    "name": "Python",
-   "share": 0.05902111447382941
+   "share": 0.053299362694816284
+  },
+  {
+   "name": "CSS",
+   "share": 0.049733552308593186
   },
   {
    "name": "HTML",
-   "share": 0.027816297418939158
+   "share": 0.0225652661475951
   },
   {
    "name": "MDX",
-   "share": 0.010476675479343667
+   "share": 0.009461023079410451
   },
   {
    "name": "Swift",
-   "share": 0.004522882167412102
+   "share": 0.004084415199813043
   },
   {
    "name": "Shell",
-   "share": 0.0024909958450056754
+   "share": 0.0022495083699767956
   },
   {
    "name": "Smali",
-   "share": 0.0008084904312584621
+   "share": 0.0007301120135581422
   },
   {
    "name": "PLpgSQL",
-   "share": 0.0003972738535470009
+   "share": 0.0003587604774687523
   },
   {
    "name": "Java",
-   "share": 0.0003045516116820021
+   "share": 0.0002750271145341977
   },
   {
    "name": "Dockerfile",
-   "share": 0.0002582842758896224
+   "share": 0.00024792528431937227
   },
   {
    "name": "Rust",
-   "share": 0.00021345497891241125
+   "share": 0.00019276176740294624
   },
   {
    "name": "PHP",
-   "share": 0.000181005320430999
+   "share": 0.0001634579134831662
   },
   {
    "name": "SCSS",
-   "share": 0.000045016867257450523
+   "share": 0.00004065274532223822
   },
   {
    "name": "Procfile",
-   "share": 0.0000012504685349291813
+   "share": 0.0000011292429256177283
   }
  ],
  "repos": [
@@ -99,7 +99,7 @@
   },
   {
    "name": "kiro-reverse-api",
-   "stars": 18
+   "stars": 20
   },
   {
    "name": "chatjimmy-reverse-api",
@@ -136,18 +136,14 @@
   {
    "name": "threads-posts-helper",
    "stars": 1
-  },
-  {
-   "name": "Instagram-SSL-Pinning-Private",
-   "stars": 1
   }
  ],
  "contributions": {
-  "allTime": 30888,
-  "lastYear": 2379,
+  "allTime": 31250,
+  "lastYear": 2736,
   "since": "2017-10-24",
   "current": {
-   "days": 5,
+   "days": 6,
    "start": "2026-10-29"
   },
   "longest": {
@@ -474,7 +470,7 @@
    {
     "date": "2026-01-04",
     "count": 14,
-    "level": "SECOND_QUARTILE"
+    "level": "FIRST_QUARTILE"
    },
    {
     "date": "2026-01-05",
@@ -574,7 +570,7 @@
    {
     "date": "2026-01-24",
     "count": 17,
-    "level": "SECOND_QUARTILE"
+    "level": "FIRST_QUARTILE"
    },
    {
     "date": "2026-01-25",
@@ -689,7 +685,7 @@
    {
     "date": "2026-02-16",
     "count": 12,
-    "level": "SECOND_QUARTILE"
+    "level": "FIRST_QUARTILE"
    },
    {
     "date": "2026-02-17",
@@ -714,7 +710,7 @@
    {
     "date": "2026-02-21",
     "count": 24,
-    "level": "THIRD_QUARTILE"
+    "level": "FIRST_QUARTILE"
    },
    {
     "date": "2026-02-22",
@@ -724,17 +720,17 @@
    {
     "date": "2026-02-23",
     "count": 28,
-    "level": "THIRD_QUARTILE"
+    "level": "SECOND_QUARTILE"
    },
    {
     "date": "2026-02-24",
     "count": 16,
-    "level": "SECOND_QUARTILE"
+    "level": "FIRST_QUARTILE"
    },
    {
     "date": "2026-02-25",
     "count": 35,
-    "level": "FOURTH_QUARTILE"
+    "level": "SECOND_QUARTILE"
    },
    {
     "date": "2026-02-26",
@@ -759,7 +755,7 @@
    {
     "date": "2026-03-02",
     "count": 12,
-    "level": "SECOND_QUARTILE"
+    "level": "FIRST_QUARTILE"
    },
    {
     "date": "2026-03-03",
@@ -784,7 +780,7 @@
    {
     "date": "2026-03-07",
     "count": 17,
-    "level": "SECOND_QUARTILE"
+    "level": "FIRST_QUARTILE"
    },
    {
     "date": "2026-03-08",
@@ -794,17 +790,17 @@
    {
     "date": "2026-03-09",
     "count": 18,
-    "level": "SECOND_QUARTILE"
+    "level": "FIRST_QUARTILE"
    },
    {
     "date": "2026-03-10",
     "count": 16,
-    "level": "SECOND_QUARTILE"
+    "level": "FIRST_QUARTILE"
    },
    {
     "date": "2026-03-11",
     "count": 25,
-    "level": "THIRD_QUARTILE"
+    "level": "SECOND_QUARTILE"
    },
    {
     "date": "2026-03-12",
@@ -814,7 +810,7 @@
    {
     "date": "2026-03-13",
     "count": 12,
-    "level": "SECOND_QUARTILE"
+    "level": "FIRST_QUARTILE"
    },
    {
     "date": "2026-03-14",
@@ -824,17 +820,17 @@
    {
     "date": "2026-03-15",
     "count": 14,
-    "level": "SECOND_QUARTILE"
+    "level": "FIRST_QUARTILE"
    },
    {
     "date": "2026-03-16",
     "count": 22,
-    "level": "SECOND_QUARTILE"
+    "level": "FIRST_QUARTILE"
    },
    {
     "date": "2026-03-17",
     "count": 24,
-    "level": "THIRD_QUARTILE"
+    "level": "FIRST_QUARTILE"
    },
    {
     "date": "2026-03-18",
@@ -844,7 +840,7 @@
    {
     "date": "2026-03-19",
     "count": 25,
-    "level": "THIRD_QUARTILE"
+    "level": "SECOND_QUARTILE"
    },
    {
     "date": "2026-03-20",
@@ -869,42 +865,42 @@
    {
     "date": "2026-03-24",
     "count": 18,
-    "level": "SECOND_QUARTILE"
+    "level": "FIRST_QUARTILE"
    },
    {
     "date": "2026-03-25",
     "count": 36,
-    "level": "FOURTH_QUARTILE"
+    "level": "SECOND_QUARTILE"
    },
    {
     "date": "2026-03-26",
     "count": 30,
-    "level": "THIRD_QUARTILE"
+    "level": "SECOND_QUARTILE"
    },
    {
     "date": "2026-03-27",
     "count": 37,
-    "level": "FOURTH_QUARTILE"
+    "level": "SECOND_QUARTILE"
    },
    {
     "date": "2026-03-28",
     "count": 19,
-    "level": "SECOND_QUARTILE"
+    "level": "FIRST_QUARTILE"
    },
    {
     "date": "2026-03-29",
     "count": 43,
-    "level": "FOURTH_QUARTILE"
+    "level": "SECOND_QUARTILE"
    },
    {
     "date": "2026-03-30",
     "count": 34,
-    "level": "THIRD_QUARTILE"
+    "level": "SECOND_QUARTILE"
    },
    {
     "date": "2026-03-31",
     "count": 14,
-    "level": "SECOND_QUARTILE"
+    "level": "FIRST_QUARTILE"
    },
    {
     "date": "2026-04-01",
@@ -914,7 +910,7 @@
    {
     "date": "2026-04-02",
     "count": 20,
-    "level": "SECOND_QUARTILE"
+    "level": "FIRST_QUARTILE"
    },
    {
     "date": "2026-04-03",
@@ -964,12 +960,12 @@
    {
     "date": "2026-04-12",
     "count": 27,
-    "level": "THIRD_QUARTILE"
+    "level": "SECOND_QUARTILE"
    },
    {
     "date": "2026-04-13",
     "count": 32,
-    "level": "THIRD_QUARTILE"
+    "level": "SECOND_QUARTILE"
    },
    {
     "date": "2026-04-14",
@@ -978,7 +974,7 @@
    },
    {
     "date": "2026-04-15",
-    "count": 10,
+    "count": 9,
     "level": "FIRST_QUARTILE"
    },
    {
@@ -994,17 +990,17 @@
    {
     "date": "2026-04-18",
     "count": 12,
-    "level": "SECOND_QUARTILE"
+    "level": "FIRST_QUARTILE"
    },
    {
     "date": "2026-04-19",
     "count": 21,
-    "level": "SECOND_QUARTILE"
+    "level": "FIRST_QUARTILE"
    },
    {
     "date": "2026-04-20",
     "count": 21,
-    "level": "SECOND_QUARTILE"
+    "level": "FIRST_QUARTILE"
    },
    {
     "date": "2026-04-21",
@@ -1014,7 +1010,7 @@
    {
     "date": "2026-04-22",
     "count": 14,
-    "level": "SECOND_QUARTILE"
+    "level": "FIRST_QUARTILE"
    },
    {
     "date": "2026-04-23",
@@ -1024,7 +1020,7 @@
    {
     "date": "2026-04-24",
     "count": 18,
-    "level": "SECOND_QUARTILE"
+    "level": "FIRST_QUARTILE"
    },
    {
     "date": "2026-04-25",
@@ -1034,22 +1030,22 @@
    {
     "date": "2026-04-26",
     "count": 20,
-    "level": "SECOND_QUARTILE"
+    "level": "FIRST_QUARTILE"
    },
    {
     "date": "2026-04-27",
     "count": 46,
-    "level": "FOURTH_QUARTILE"
+    "level": "SECOND_QUARTILE"
    },
    {
     "date": "2026-04-28",
     "count": 37,
-    "level": "FOURTH_QUARTILE"
+    "level": "SECOND_QUARTILE"
    },
    {
     "date": "2026-04-29",
     "count": 12,
-    "level": "SECOND_QUARTILE"
+    "level": "FIRST_QUARTILE"
    },
    {
     "date": "2026-04-30",
@@ -1079,7 +1075,7 @@
    {
     "date": "2026-05-05",
     "count": 15,
-    "level": "SECOND_QUARTILE"
+    "level": "FIRST_QUARTILE"
    },
    {
     "date": "2026-05-06",
@@ -1124,7 +1120,7 @@
    {
     "date": "2026-05-14",
     "count": 16,
-    "level": "SECOND_QUARTILE"
+    "level": "FIRST_QUARTILE"
    },
    {
     "date": "2026-05-15",
@@ -1143,7 +1139,7 @@
    },
    {
     "date": "2026-05-18",
-    "count": 11,
+    "count": 18,
     "level": "FIRST_QUARTILE"
    },
    {
@@ -1163,62 +1159,62 @@
    },
    {
     "date": "2026-05-22",
-    "count": 6,
-    "level": "FIRST_QUARTILE"
-   },
-   {
-    "date": "2026-05-23",
-    "count": 4,
-    "level": "FIRST_QUARTILE"
-   },
-   {
-    "date": "2026-05-24",
     "count": 10,
     "level": "FIRST_QUARTILE"
    },
    {
-    "date": "2026-05-25",
-    "count": 18,
+    "date": "2026-05-23",
+    "count": 8,
+    "level": "FIRST_QUARTILE"
+   },
+   {
+    "date": "2026-05-24",
+    "count": 28,
     "level": "SECOND_QUARTILE"
    },
    {
+    "date": "2026-05-25",
+    "count": 52,
+    "level": "THIRD_QUARTILE"
+   },
+   {
     "date": "2026-05-26",
-    "count": 4,
+    "count": 6,
     "level": "FIRST_QUARTILE"
    },
    {
     "date": "2026-05-27",
     "count": 13,
-    "level": "SECOND_QUARTILE"
+    "level": "FIRST_QUARTILE"
    },
    {
     "date": "2026-05-28",
-    "count": 19,
+    "count": 39,
     "level": "SECOND_QUARTILE"
    },
    {
     "date": "2026-05-29",
-    "count": 29,
+    "count": 53,
     "level": "THIRD_QUARTILE"
    },
    {
     "date": "2026-05-30",
-    "count": 2,
+    "count": 6,
     "level": "FIRST_QUARTILE"
    },
    {
     "date": "2026-05-31",
-    "count": 4,
+    "count": 10,
     "level": "FIRST_QUARTILE"
    },
    {
     "date": "2026-06-01",
-    "count": 11,
-    "level": "FIRST_QUARTILE"
+    "count": 29,
+    "level": "SECOND_QUARTILE"
    },
    {
     "date": "2026-06-02",
-    "count": 2,
+    "count": 6,
     "level": "FIRST_QUARTILE"
    },
    {
@@ -1669,7 +1665,7 @@
    {
     "date": "2026-08-31",
     "count": 21,
-    "level": "SECOND_QUARTILE"
+    "level": "FIRST_QUARTILE"
    },
    {
     "date": "2026-09-01",
@@ -1744,7 +1740,7 @@
    {
     "date": "2026-09-15",
     "count": 29,
-    "level": "THIRD_QUARTILE"
+    "level": "SECOND_QUARTILE"
    },
    {
     "date": "2026-09-16",
@@ -1754,37 +1750,37 @@
    {
     "date": "2026-09-17",
     "count": 32,
-    "level": "THIRD_QUARTILE"
+    "level": "SECOND_QUARTILE"
    },
    {
     "date": "2026-09-18",
-    "count": 28,
+    "count": 52,
     "level": "THIRD_QUARTILE"
    },
    {
     "date": "2026-09-19",
     "count": 12,
-    "level": "SECOND_QUARTILE"
+    "level": "FIRST_QUARTILE"
    },
    {
     "date": "2026-09-20",
-    "count": 34,
-    "level": "THIRD_QUARTILE"
+    "count": 38,
+    "level": "SECOND_QUARTILE"
    },
    {
     "date": "2026-09-21",
-    "count": 12,
-    "level": "SECOND_QUARTILE"
+    "count": 18,
+    "level": "FIRST_QUARTILE"
    },
    {
     "date": "2026-09-22",
     "count": 20,
-    "level": "SECOND_QUARTILE"
+    "level": "FIRST_QUARTILE"
    },
    {
     "date": "2026-09-23",
     "count": 16,
-    "level": "SECOND_QUARTILE"
+    "level": "FIRST_QUARTILE"
    },
    {
     "date": "2026-09-24",
@@ -1804,7 +1800,7 @@
    {
     "date": "2026-09-27",
     "count": 17,
-    "level": "SECOND_QUARTILE"
+    "level": "FIRST_QUARTILE"
    },
    {
     "date": "2026-09-28",
@@ -1813,13 +1809,13 @@
    },
    {
     "date": "2026-09-29",
-    "count": 25,
-    "level": "THIRD_QUARTILE"
+    "count": 29,
+    "level": "SECOND_QUARTILE"
    },
    {
     "date": "2026-09-30",
     "count": 36,
-    "level": "FOURTH_QUARTILE"
+    "level": "SECOND_QUARTILE"
    },
    {
     "date": "2026-10-01",
@@ -1829,12 +1825,12 @@
    {
     "date": "2026-10-02",
     "count": 23,
-    "level": "SECOND_QUARTILE"
+    "level": "FIRST_QUARTILE"
    },
    {
     "date": "2026-10-03",
     "count": 38,
-    "level": "FOURTH_QUARTILE"
+    "level": "SECOND_QUARTILE"
    },
    {
     "date": "2026-10-04",
@@ -1844,7 +1840,7 @@
    {
     "date": "2026-10-05",
     "count": 18,
-    "level": "SECOND_QUARTILE"
+    "level": "FIRST_QUARTILE"
    },
    {
     "date": "2026-10-06",
@@ -1868,13 +1864,13 @@
    },
    {
     "date": "2026-10-10",
-    "count": 4,
+    "count": 6,
     "level": "FIRST_QUARTILE"
    },
    {
     "date": "2026-10-11",
-    "count": 21,
-    "level": "SECOND_QUARTILE"
+    "count": 23,
+    "level": "FIRST_QUARTILE"
    },
    {
     "date": "2026-10-12",
@@ -1888,13 +1884,13 @@
    },
    {
     "date": "2026-10-14",
-    "count": 70,
+    "count": 76,
     "level": "FOURTH_QUARTILE"
    },
    {
     "date": "2026-10-15",
-    "count": 18,
-    "level": "SECOND_QUARTILE"
+    "count": 24,
+    "level": "FIRST_QUARTILE"
    },
    {
     "date": "2026-10-16",
@@ -1904,17 +1900,17 @@
    {
     "date": "2026-10-17",
     "count": 23,
-    "level": "SECOND_QUARTILE"
+    "level": "FIRST_QUARTILE"
    },
    {
     "date": "2026-10-18",
     "count": 18,
-    "level": "SECOND_QUARTILE"
+    "level": "FIRST_QUARTILE"
    },
    {
     "date": "2026-10-19",
     "count": 35,
-    "level": "FOURTH_QUARTILE"
+    "level": "SECOND_QUARTILE"
    },
    {
     "date": "2026-10-20",
@@ -1924,7 +1920,7 @@
    {
     "date": "2026-10-21",
     "count": 17,
-    "level": "SECOND_QUARTILE"
+    "level": "FIRST_QUARTILE"
    },
    {
     "date": "2026-10-22",
@@ -1964,7 +1960,7 @@
    {
     "date": "2026-10-29",
     "count": 25,
-    "level": "THIRD_QUARTILE"
+    "level": "SECOND_QUARTILE"
    },
    {
     "date": "2026-10-30",
@@ -1983,22 +1979,27 @@
    },
    {
     "date": "2026-11-02",
-    "count": 58,
+    "count": 128,
     "level": "FOURTH_QUARTILE"
    },
    {
     "date": "2026-11-03",
+    "count": 98,
+    "level": "FOURTH_QUARTILE"
+   },
+   {
+    "date": "2026-11-04",
     "count": 0,
     "level": "NONE"
    }
   ]
  },
  "coding": {
-  "seconds": 6632650,
+  "seconds": 6638063,
   "source": "Wakapi"
  },
  "wakapi": {
-  "totalSeconds": 6632650,
+  "totalSeconds": 6638063,
   "since": "2025-11-01T10:47:34+04:00",
   "languages": [
    {
@@ -2011,11 +2012,11 @@
    },
    {
     "name": "Unknown",
-    "seconds": 718508
+    "seconds": 718516
    },
    {
     "name": "Python",
-    "seconds": 707702
+    "seconds": 709944
    },
    {
     "name": "Typescript",
@@ -2027,7 +2028,7 @@
    },
    {
     "name": "Bash",
-    "seconds": 346646
+    "seconds": 347668
    },
    {
     "name": "Json",
@@ -2035,7 +2036,7 @@
    },
    {
     "name": "Markdown",
-    "seconds": 268721
+    "seconds": 268947
    },
    {
     "name": "Go",
@@ -2047,7 +2048,7 @@
    },
    {
     "name": "Objective-c",
-    "seconds": 219432
+    "seconds": 221346
    },
    {
     "name": "JSX",
@@ -2186,28 +2187,6 @@
   "week": {
    "days": [
     {
-     "date": "2026-10-28",
-     "seconds": 17435,
-     "projects": [
-      {
-       "name": "by••••••",
-       "seconds": 10467
-      },
-      {
-       "name": "om••••••••",
-       "seconds": 5307
-      },
-      {
-       "name": "vi••••",
-       "seconds": 1394
-      },
-      {
-       "name": "mu••••••••",
-       "seconds": 267
-      }
-     ]
-    },
-    {
      "date": "2026-10-29",
      "seconds": 0,
      "projects": []
@@ -2313,74 +2292,87 @@
     },
     {
      "date": "2026-11-03",
-     "seconds": 2607,
+     "seconds": 8020,
      "projects": [
       {
        "name": "co••••••",
-       "seconds": 2607
+       "seconds": 5075
+      },
+      {
+       "name": "pd••••••••",
+       "seconds": 2945
       },
       {
        "name": "ki••••••••",
        "seconds": 0
       }
      ]
+    },
+    {
+     "date": "2026-11-04",
+     "seconds": 0,
+     "projects": []
     }
    ],
    "source": "Wakapi"
   },
   "rank": {
-   "rank": 67,
+   "rank": 41,
    "of": 100,
-   "seconds": 38535,
-   "dailyAverage": 4816,
+   "seconds": 57514,
+   "dailyAverage": 7189,
    "languages": [
     {
+     "name": "Python",
+     "seconds": 19079
+    },
+    {
      "name": "Objective-c",
-     "seconds": 15341
+     "seconds": 17255
     },
     {
      "name": "Bash",
-     "seconds": 12567
+     "seconds": 13589
     },
     {
      "name": "Javascript",
-     "seconds": 7898
+     "seconds": 7726
     },
     {
-     "name": "Python",
-     "seconds": 6180
+     "name": "Go",
+     "seconds": 6671
+    },
+    {
+     "name": "Markdown",
+     "seconds": 4995
+    },
+    {
+     "name": "Json",
+     "seconds": 4111
+    },
+    {
+     "name": "Unknown",
+     "seconds": 3966
     },
     {
      "name": "C",
      "seconds": 3636
     },
     {
-     "name": "TSX",
-     "seconds": 3042
-    },
-    {
-     "name": "Json",
-     "seconds": 1767
-    },
-    {
-     "name": "Markdown",
-     "seconds": 1709
+     "name": "TOML",
+     "seconds": 1453
     },
     {
      "name": "Text",
      "seconds": 1043
     },
     {
-     "name": "TOML",
-     "seconds": 971
+     "name": "TSX",
+     "seconds": 567
     },
     {
      "name": "CSS",
      "seconds": 283
-    },
-    {
-     "name": "Unknown",
-     "seconds": 15
     },
     {
      "name": "Typescript",
@@ -2388,14 +2380,14 @@
     }
    ],
    "range": {
-    "start": "2026-10-27T04:36:31Z",
-    "end": "2026-11-03T04:36:31Z"
+    "start": "2026-10-28T03:55:42Z",
+    "end": "2026-11-04T03:55:42Z"
    },
    "source": "wakapi.dev"
   }
  },
  "stargazers": {
-  "total": 172,
+  "total": 174,
   "located": [
    {
     "lat": 20,
@@ -2732,6 +2724,12 @@
     "lon": 117.8902853,
     "cc": "ID",
     "country": "Indonesia"
+   },
+   {
+    "lat": 23.1288429,
+    "lon": 113.2589581,
+    "cc": "CN",
+    "country": "China"
    },
    {
     "lat": 21.2094892,

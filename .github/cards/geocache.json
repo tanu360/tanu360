@@ -368,5 +368,11 @@
   "cc": "CN",
   "country": "China"
  },
- "🇨🇦": null
+ "🇨🇦": null,
+ "guangzhou china": {
+  "lat": 23.1288429,
+  "lon": 113.2589581,
+  "cc": "CN",
+  "country": "China"
+ }
 }
