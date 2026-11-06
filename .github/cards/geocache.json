@@ -374,5 +374,17 @@
   "lon": 113.2589581,
   "cc": "CN",
   "country": "China"
+ },
+ "beijing": {
+  "lat": 39.9057136,
+  "lon": 116.3912972,
+  "cc": "CN",
+  "country": "China"
+ },
+ "贵州贵阳": {
+  "lat": 26.5878031,
+  "lon": 106.7086936,
+  "cc": "CN",
+  "country": "China"
  }
 }
