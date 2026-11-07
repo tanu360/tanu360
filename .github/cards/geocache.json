@@ -386,5 +386,11 @@
   "lon": 106.7086936,
   "cc": "CN",
   "country": "China"
+ },
+ "london, uk": {
+  "lat": 51.5074456,
+  "lon": -0.1277653,
+  "cc": "GB",
+  "country": "United Kingdom"
  }
 }
