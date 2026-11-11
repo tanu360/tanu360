@@ -1,9 +1,9 @@
 {
  "login": "tanu360",
- "generatedAt": "2026-11-10T05:15:03.846Z",
+ "generatedAt": "2026-11-11T03:46:22.537Z",
  "createdAt": "2017-10-23T22:54:19Z",
  "stats": {
-  "stars": 203,
+  "stars": 205,
   "commits": 2925,
   "prs": 15,
   "issues": 21,
@@ -12,7 +12,7 @@
   "followers": 96,
   "publicRepos": 19,
   "grade": "B+",
-  "percentile": 38.23301783881705
+  "percentile": 38.18135026796789
  },
  "repoLanguages": [
   {
@@ -94,11 +94,11 @@
    "stars": 41
   },
   {
-   "name": "Facebook-SSL-Pinning-Bypass",
-   "stars": 30
+   "name": "kiro-reverse-api",
+   "stars": 32
   },
   {
-   "name": "kiro-reverse-api",
+   "name": "Facebook-SSL-Pinning-Bypass",
    "stars": 30
   },
   {
@@ -143,8 +143,8 @@
   "lastYear": 2975,
   "since": "2017-10-24",
   "current": {
-   "days": 1,
-   "start": "2026-11-09"
+   "days": 0,
+   "start": null
   },
   "longest": {
    "days": 427,
@@ -1986,6 +1986,11 @@
     "date": "2026-11-10",
     "count": 0,
     "level": "NONE"
+   },
+   {
+    "date": "2026-11-11",
+    "count": 0,
+    "level": "NONE"
    }
   ]
  },
@@ -2178,20 +2183,6 @@
   "week": {
    "days": [
     {
-     "date": "2026-11-04",
-     "seconds": 186,
-     "projects": [
-      {
-       "name": "Go••••••••",
-       "seconds": 93
-      },
-      {
-       "name": "un•••••",
-       "seconds": 93
-      }
-     ]
-    },
-    {
      "date": "2026-11-05",
      "seconds": 4776,
      "projects": [
@@ -2310,15 +2301,20 @@
        "seconds": 0
       }
      ]
+    },
+    {
+     "date": "2026-11-11",
+     "seconds": 0,
+     "projects": []
     }
    ],
    "source": "Wakapi"
   },
   "rank": {
-   "rank": 42,
+   "rank": 62,
    "of": 100,
-   "seconds": 56060,
-   "dailyAverage": 7007,
+   "seconds": 42836,
+   "dailyAverage": 5354,
    "languages": [
     {
      "name": "Javascript",
@@ -2326,35 +2322,31 @@
     },
     {
      "name": "Python",
-     "seconds": 13657
-    },
-    {
-     "name": "Markdown",
-     "seconds": 11411
+     "seconds": 10666
     },
     {
      "name": "Html",
      "seconds": 7002
     },
     {
-     "name": "Bash",
-     "seconds": 4591
+     "name": "Markdown",
+     "seconds": 6110
     },
     {
      "name": "Typescript",
      "seconds": 4585
     },
     {
-     "name": "YAML",
-     "seconds": 4021
-    },
-    {
-     "name": "Objective-c",
-     "seconds": 2268
+     "name": "Bash",
+     "seconds": 3568
     },
     {
      "name": "Text",
      "seconds": 1648
+    },
+    {
+     "name": "YAML",
+     "seconds": 1303
     },
     {
      "name": "TSX",
@@ -2370,30 +2362,30 @@
     },
     {
      "name": "Unknown",
-     "seconds": 747
+     "seconds": 585
     },
     {
      "name": "CSS",
      "seconds": 465
     },
     {
-     "name": "Batchfile",
-     "seconds": 179
+     "name": "Objective-c",
+     "seconds": 354
     },
     {
-     "name": "Docker",
-     "seconds": 0
+     "name": "Batchfile",
+     "seconds": 179
     }
    ],
    "range": {
-    "start": "2026-11-03T05:14:58Z",
-    "end": "2026-11-10T05:14:58Z"
+    "start": "2026-11-04T03:46:12Z",
+    "end": "2026-11-11T03:46:12Z"
    },
    "source": "wakapi.dev"
   }
  },
  "stargazers": {
-  "total": 184,
+  "total": 186,
   "located": [
    {
     "lat": 20,
@@ -2636,48 +2628,6 @@
     "country": "United Kingdom"
    },
    {
-    "lat": 25.0375198,
-    "lon": 121.5636796,
-    "cc": "TW",
-    "country": "Taiwan"
-   },
-   {
-    "lat": 15.9266657,
-    "lon": 107.9650855,
-    "cc": "VN",
-    "country": "Vietnam"
-   },
-   {
-    "lat": 37.456,
-    "lon": 126.7052,
-    "cc": "KR",
-    "country": "South Korea"
-   },
-   {
-    "lat": -6.3140565,
-    "lon": 106.7704982,
-    "cc": "ID",
-    "country": "Indonesia"
-   },
-   {
-    "lat": 41.8755616,
-    "lon": -87.6244212,
-    "cc": "US",
-    "country": "United States"
-   },
-   {
-    "lat": 37.5139935,
-    "lon": 15.0626432,
-    "cc": "IT",
-    "country": "Italy"
-   },
-   {
-    "lat": 21.0283334,
-    "lon": 105.854041,
-    "cc": "VN",
-    "country": "Vietnam"
-   },
-   {
     "lat": 34.5412252,
     "lon": 108.9237067,
     "cc": "CN",
@@ -2760,6 +2710,60 @@
     "lon": 78.6677428,
     "cc": "IN",
     "country": "India"
+   },
+   {
+    "lat": 36.7014631,
+    "lon": -118.755997,
+    "cc": "US",
+    "country": "United States"
+   },
+   {
+    "lat": 30.2489634,
+    "lon": 120.2052342,
+    "cc": "CN",
+    "country": "China"
+   },
+   {
+    "lat": 25.0375198,
+    "lon": 121.5636796,
+    "cc": "TW",
+    "country": "Taiwan"
+   },
+   {
+    "lat": 15.9266657,
+    "lon": 107.9650855,
+    "cc": "VN",
+    "country": "Vietnam"
+   },
+   {
+    "lat": 37.456,
+    "lon": 126.7052,
+    "cc": "KR",
+    "country": "South Korea"
+   },
+   {
+    "lat": -6.3140565,
+    "lon": 106.7704982,
+    "cc": "ID",
+    "country": "Indonesia"
+   },
+   {
+    "lat": 41.8755616,
+    "lon": -87.6244212,
+    "cc": "US",
+    "country": "United States"
+   },
+   {
+    "lat": 37.5139935,
+    "lon": 15.0626432,
+    "cc": "IT",
+    "country": "Italy"
+   },
+   {
+    "lat": 21.0283334,
+    "lon": 105.854041,
+    "cc": "VN",
+    "country": "Vietnam"
    },
    {
     "lat": 21.2094892,

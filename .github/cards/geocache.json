@@ -392,5 +392,17 @@
   "lon": -0.1277653,
   "cc": "GB",
   "country": "United Kingdom"
+ },
+ "california": {
+  "lat": 36.7014631,
+  "lon": -118.755997,
+  "cc": "US",
+  "country": "United States"
+ },
+ "hangzhou,china": {
+  "lat": 30.2489634,
+  "lon": 120.2052342,
+  "cc": "CN",
+  "country": "China"
  }
 }
