@@ -1,10 +1,10 @@
 {
  "login": "tanu360",
- "generatedAt": "2026-11-12T04:55:39.825Z",
+ "generatedAt": "2026-11-13T04:07:37.491Z",
  "createdAt": "2017-10-23T22:54:19Z",
  "stats": {
-  "stars": 206,
-  "commits": 2996,
+  "stars": 207,
+  "commits": 3055,
   "prs": 15,
   "issues": 21,
   "reviews": 1,
@@ -12,76 +12,76 @@
   "followers": 96,
   "publicRepos": 19,
   "grade": "B+",
-  "percentile": 38.154924071123766
+  "percentile": 38.128970833907516
  },
  "repoLanguages": [
   {
    "name": "TypeScript",
-   "share": 0.5791301509982075
+   "share": 0.5831553633949075
   },
   {
    "name": "JavaScript",
-   "share": 0.20915300832720365
+   "share": 0.20855944573677568
   },
   {
    "name": "Go",
-   "share": 0.07817643885259852
+   "share": 0.07684588610987561
   },
   {
    "name": "CSS",
-   "share": 0.048778521366394274
+   "share": 0.048409711922547005
   },
   {
    "name": "Python",
-   "share": 0.047896630014130255
+   "share": 0.046917761461982226
   },
   {
    "name": "HTML",
-   "share": 0.020452664312960667
+   "share": 0.020034671024128217
   },
   {
    "name": "MDX",
-   "share": 0.008501998881006162
+   "share": 0.008328242620230417
   },
   {
    "name": "Swift",
-   "share": 0.0036703951746980545
+   "share": 0.0035953829158103657
   },
   {
    "name": "Shell",
-   "share": 0.002125956369591071
+   "share": 0.002082507971805725
   },
   {
    "name": "Smali",
-   "share": 0.0006561036232740368
+   "share": 0.0006426947633274421
   },
   {
    "name": "PLpgSQL",
-   "share": 0.000624594818846446
+   "share": 0.0006118299077071235
   },
   {
    "name": "Java",
-   "share": 0.00024714877031689993
+   "share": 0.0002420977644550283
   },
   {
    "name": "Dockerfile",
-   "share": 0.00022873058028917775
+   "share": 0.00022405598894749897
   },
   {
    "name": "Rust",
-   "share": 0.00017322231612849442
+   "share": 0.00016968215312039963
   },
   {
    "name": "PHP",
-   "share": 0.00014688887088224703
+   "share": 0.00014388688731211392
   },
   {
    "name": "SCSS",
-   "share": 0.000036531947162424135
+   "share": 0.00003578533984964491
   },
   {
    "name": "Procfile",
-   "share": 0.000001014776310067337
+   "share": 9.94037218045692e-7
   }
  ],
  "repos": [
@@ -95,7 +95,7 @@
   },
   {
    "name": "kiro-reverse-api",
-   "stars": 33
+   "stars": 34
   },
   {
    "name": "Facebook-SSL-Pinning-Bypass",
@@ -139,11 +139,11 @@
   }
  ],
  "contributions": {
-  "allTime": 31577,
-  "lastYear": 3047,
+  "allTime": 31636,
+  "lastYear": 3106,
   "since": "2017-10-24",
   "current": {
-   "days": 2,
+   "days": 3,
    "start": "2026-11-11"
   },
   "longest": {
@@ -1849,7 +1849,7 @@
    },
    {
     "date": "2026-10-14",
-    "count": 91,
+    "count": 94,
     "level": "FOURTH_QUARTILE"
    },
    {
@@ -1994,58 +1994,63 @@
    },
    {
     "date": "2026-11-12",
-    "count": 20,
+    "count": 75,
+    "level": "THIRD_QUARTILE"
+   },
+   {
+    "date": "2026-11-13",
+    "count": 1,
     "level": "FIRST_QUARTILE"
    }
   ]
  },
  "coding": {
-  "seconds": 6668618,
+  "seconds": 6698798,
   "source": "Wakapi"
  },
  "wakapi": {
-  "totalSeconds": 6668618,
+  "totalSeconds": 6698798,
   "since": "2025-11-08T12:19:08+04:00",
   "languages": [
    {
     "name": "Javascript",
-    "seconds": 1049804
+    "seconds": 1049652
    },
    {
     "name": "TSX",
-    "seconds": 815978
+    "seconds": 820225
    },
    {
     "name": "Python",
-    "seconds": 721508
+    "seconds": 721775
    },
    {
     "name": "Unknown",
-    "seconds": 720226
+    "seconds": 720442
    },
    {
     "name": "Typescript",
-    "seconds": 436395
+    "seconds": 446015
    },
    {
     "name": "CSS",
-    "seconds": 395345
+    "seconds": 400319
    },
    {
     "name": "Bash",
-    "seconds": 349114
+    "seconds": 350869
    },
    {
     "name": "Json",
-    "seconds": 302818
+    "seconds": 302837
    },
    {
     "name": "Markdown",
-    "seconds": 275518
+    "seconds": 275561
    },
    {
     "name": "Html",
-    "seconds": 236648
+    "seconds": 243256
    },
    {
     "name": "Go",
@@ -2053,7 +2058,7 @@
    },
    {
     "name": "Objective-c",
-    "seconds": 221700
+    "seconds": 224162
    },
    {
     "name": "JSX",
@@ -2073,7 +2078,7 @@
    },
    {
     "name": "Text",
-    "seconds": 89986
+    "seconds": 90107
    },
    {
     "name": "Scala",
@@ -2187,16 +2192,6 @@
   "source": "Wakapi",
   "week": {
    "days": [
-    {
-     "date": "2026-11-06",
-     "seconds": 3053,
-     "projects": [
-      {
-       "name": "om••••••••",
-       "seconds": 3053
-      }
-     ]
-    },
     {
      "date": "2026-11-07",
      "seconds": 17032,
@@ -2329,11 +2324,15 @@
     },
     {
      "date": "2026-11-12",
-     "seconds": 6671,
+     "seconds": 37026,
      "projects": [
       {
        "name": "st•••",
-       "seconds": 3974
+       "seconds": 25314
+      },
+      {
+       "name": "ki••••••••",
+       "seconds": 4250
       },
       {
        "name": "br••••••",
@@ -2341,42 +2340,63 @@
       },
       {
        "name": "sh••••••",
-       "seconds": 0
+       "seconds": 2695
+      },
+      {
+       "name": "om••••••••",
+       "seconds": 1362
+      },
+      {
+       "name": "re••••••••",
+       "seconds": 708
       }
      ]
+    },
+    {
+     "date": "2026-11-13",
+     "seconds": 0,
+     "projects": []
     }
    ],
    "source": "Wakapi"
   },
   "rank": {
-   "rank": 56,
+   "rank": 35,
    "of": 100,
-   "seconds": 49552,
-   "dailyAverage": 6194,
+   "seconds": 66552,
+   "dailyAverage": 8319,
    "languages": [
     {
      "name": "Javascript",
-     "seconds": 21130
+     "seconds": 23383
     },
     {
      "name": "Html",
-     "seconds": 13938
-    },
-    {
-     "name": "Python",
-     "seconds": 11230
+     "seconds": 15263
     },
     {
      "name": "Typescript",
-     "seconds": 10624
+     "seconds": 14629
+    },
+    {
+     "name": "Python",
+     "seconds": 12770
+    },
+    {
+     "name": "CSS",
+     "seconds": 7365
     },
     {
      "name": "Markdown",
-     "seconds": 6933
+     "seconds": 7309
+    },
+    {
+     "name": "TSX",
+     "seconds": 5103
     },
     {
      "name": "Bash",
-     "seconds": 3018
+     "seconds": 4291
     },
     {
      "name": "Go",
@@ -2384,27 +2404,19 @@
     },
     {
      "name": "Text",
-     "seconds": 1648
+     "seconds": 1769
     },
     {
      "name": "Unknown",
-     "seconds": 1494
+     "seconds": 1539
     },
     {
      "name": "Json",
-     "seconds": 1100
-    },
-    {
-     "name": "TSX",
-     "seconds": 856
+     "seconds": 1119
     },
     {
      "name": "TOML",
-     "seconds": 831
-    },
-    {
-     "name": "CSS",
-     "seconds": 454
+     "seconds": 940
     },
     {
      "name": "Objective-c",
@@ -2416,7 +2428,7 @@
     },
     {
      "name": "YAML",
-     "seconds": 57
+     "seconds": 89
     },
     {
      "name": "INI",
@@ -2424,14 +2436,14 @@
     }
    ],
    "range": {
-    "start": "2026-11-05T04:55:33Z",
-    "end": "2026-11-12T04:55:33Z"
+    "start": "2026-11-06T04:07:29Z",
+    "end": "2026-11-13T04:07:29Z"
    },
    "source": "wakapi.dev"
   }
  },
  "stargazers": {
-  "total": 187,
+  "total": 188,
   "located": [
    {
     "lat": 20,
