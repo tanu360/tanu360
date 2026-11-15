@@ -1,10 +1,10 @@
 {
  "login": "tanu360",
- "generatedAt": "2026-11-14T04:04:19.746Z",
+ "generatedAt": "2026-11-15T03:50:10.062Z",
  "createdAt": "2017-10-23T22:54:19Z",
  "stats": {
-  "stars": 207,
-  "commits": 3073,
+  "stars": 208,
+  "commits": 3533,
   "prs": 15,
   "issues": 21,
   "reviews": 1,
@@ -12,76 +12,76 @@
   "followers": 96,
   "publicRepos": 19,
   "grade": "B+",
-  "percentile": 38.1288007637361
+  "percentile": 38.10126964614041
  },
  "repoLanguages": [
   {
    "name": "TypeScript",
-   "share": 0.5843621988613077
+   "share": 0.5601557587646175
   },
   {
    "name": "JavaScript",
-   "share": 0.20860164409726525
+   "share": 0.18313626879942665
   },
   {
    "name": "Go",
-   "share": 0.07636476085476304
+   "share": 0.14168691600273747
   },
   {
    "name": "CSS",
-   "share": 0.048108993776477725
+   "share": 0.04253758974746112
   },
   {
    "name": "Python",
-   "share": 0.046676663999240565
+   "share": 0.040978536491494064
   },
   {
    "name": "HTML",
-   "share": 0.01990923573155058
+   "share": 0.0174787843226409
   },
   {
    "name": "MDX",
-   "share": 0.008276100234240249
+   "share": 0.007265782221745634
   },
   {
    "name": "Swift",
-   "share": 0.003572872543295131
+   "share": 0.0031367084823640964
   },
   {
    "name": "Shell",
-   "share": 0.0020694695746978253
+   "share": 0.00181683580656431
   },
   {
    "name": "Smali",
-   "share": 0.0006386709086018516
+   "share": 0.0005607041483217922
   },
   {
    "name": "PLpgSQL",
-   "share": 0.0006079992950961869
+   "share": 0.0005337768204965789
   },
   {
    "name": "Java",
-   "share": 0.0002405820118938689
+   "share": 0.00021121258266765524
   },
   {
    "name": "Dockerfile",
-   "share": 0.0002226531943374176
+   "share": 0.00019547245384228903
   },
   {
    "name": "Rust",
-   "share": 0.00016861978825819513
+   "share": 0.0001480352611840228
   },
   {
    "name": "PHP",
-   "share": 0.00014298602431384735
+   "share": 0.00012553077947502812
   },
   {
    "name": "SCSS",
-   "share": 0.00003556129102106048
+   "share": 0.000031220090232131346
   },
   {
    "name": "Procfile",
-   "share": 9.878136394739024e-7
+   "share": 8.672247286703151e-7
   }
  ],
  "repos": [
@@ -95,7 +95,7 @@
   },
   {
    "name": "kiro-reverse-api",
-   "stars": 34
+   "stars": 35
   },
   {
    "name": "Facebook-SSL-Pinning-Bypass",
@@ -139,11 +139,11 @@
   }
  ],
  "contributions": {
-  "allTime": 31654,
-  "lastYear": 3122,
+  "allTime": 32114,
+  "lastYear": 3582,
   "since": "2017-10-24",
   "current": {
-   "days": 3,
+   "days": 5,
    "start": "2026-11-11"
   },
   "longest": {
@@ -152,41 +152,6 @@
    "end": "2019-07-31"
   },
   "calendar": [
-   {
-    "date": "2025-11-09",
-    "count": 0,
-    "level": "NONE"
-   },
-   {
-    "date": "2025-11-10",
-    "count": 0,
-    "level": "NONE"
-   },
-   {
-    "date": "2025-11-11",
-    "count": 0,
-    "level": "NONE"
-   },
-   {
-    "date": "2025-11-12",
-    "count": 0,
-    "level": "NONE"
-   },
-   {
-    "date": "2025-11-13",
-    "count": 0,
-    "level": "NONE"
-   },
-   {
-    "date": "2025-11-14",
-    "count": 2,
-    "level": "FIRST_QUARTILE"
-   },
-   {
-    "date": "2025-11-15",
-    "count": 0,
-    "level": "NONE"
-   },
    {
     "date": "2025-11-16",
     "count": 0,
@@ -695,7 +660,7 @@
    {
     "date": "2026-02-25",
     "count": 35,
-    "level": "SECOND_QUARTILE"
+    "level": "FIRST_QUARTILE"
    },
    {
     "date": "2026-02-26",
@@ -835,17 +800,17 @@
    {
     "date": "2026-03-25",
     "count": 36,
-    "level": "SECOND_QUARTILE"
+    "level": "FIRST_QUARTILE"
    },
    {
     "date": "2026-03-26",
     "count": 30,
-    "level": "SECOND_QUARTILE"
+    "level": "FIRST_QUARTILE"
    },
    {
     "date": "2026-03-27",
     "count": 37,
-    "level": "SECOND_QUARTILE"
+    "level": "FIRST_QUARTILE"
    },
    {
     "date": "2026-03-28",
@@ -855,12 +820,12 @@
    {
     "date": "2026-03-29",
     "count": 43,
-    "level": "SECOND_QUARTILE"
+    "level": "FIRST_QUARTILE"
    },
    {
     "date": "2026-03-30",
     "count": 34,
-    "level": "SECOND_QUARTILE"
+    "level": "FIRST_QUARTILE"
    },
    {
     "date": "2026-03-31",
@@ -930,7 +895,7 @@
    {
     "date": "2026-04-13",
     "count": 32,
-    "level": "SECOND_QUARTILE"
+    "level": "FIRST_QUARTILE"
    },
    {
     "date": "2026-04-14",
@@ -1000,12 +965,12 @@
    {
     "date": "2026-04-27",
     "count": 46,
-    "level": "SECOND_QUARTILE"
+    "level": "FIRST_QUARTILE"
    },
    {
     "date": "2026-04-28",
     "count": 37,
-    "level": "SECOND_QUARTILE"
+    "level": "FIRST_QUARTILE"
    },
    {
     "date": "2026-04-29",
@@ -1140,7 +1105,7 @@
    {
     "date": "2026-05-25",
     "count": 52,
-    "level": "SECOND_QUARTILE"
+    "level": "FIRST_QUARTILE"
    },
    {
     "date": "2026-05-26",
@@ -1155,12 +1120,12 @@
    {
     "date": "2026-05-28",
     "count": 39,
-    "level": "SECOND_QUARTILE"
+    "level": "FIRST_QUARTILE"
    },
    {
     "date": "2026-05-29",
     "count": 53,
-    "level": "SECOND_QUARTILE"
+    "level": "FIRST_QUARTILE"
    },
    {
     "date": "2026-05-30",
@@ -1175,7 +1140,7 @@
    {
     "date": "2026-06-01",
     "count": 29,
-    "level": "SECOND_QUARTILE"
+    "level": "FIRST_QUARTILE"
    },
    {
     "date": "2026-06-02",
@@ -1705,7 +1670,7 @@
    {
     "date": "2026-09-15",
     "count": 29,
-    "level": "SECOND_QUARTILE"
+    "level": "FIRST_QUARTILE"
    },
    {
     "date": "2026-09-16",
@@ -1715,12 +1680,12 @@
    {
     "date": "2026-09-17",
     "count": 32,
-    "level": "SECOND_QUARTILE"
+    "level": "FIRST_QUARTILE"
    },
    {
     "date": "2026-09-18",
     "count": 52,
-    "level": "SECOND_QUARTILE"
+    "level": "FIRST_QUARTILE"
    },
    {
     "date": "2026-09-19",
@@ -1730,7 +1695,7 @@
    {
     "date": "2026-09-20",
     "count": 38,
-    "level": "SECOND_QUARTILE"
+    "level": "FIRST_QUARTILE"
    },
    {
     "date": "2026-09-21",
@@ -1775,12 +1740,12 @@
    {
     "date": "2026-09-29",
     "count": 29,
-    "level": "SECOND_QUARTILE"
+    "level": "FIRST_QUARTILE"
    },
    {
     "date": "2026-09-30",
     "count": 36,
-    "level": "SECOND_QUARTILE"
+    "level": "FIRST_QUARTILE"
    },
    {
     "date": "2026-10-01",
@@ -1795,12 +1760,12 @@
    {
     "date": "2026-10-03",
     "count": 38,
-    "level": "SECOND_QUARTILE"
+    "level": "FIRST_QUARTILE"
    },
    {
     "date": "2026-10-04",
     "count": 78,
-    "level": "THIRD_QUARTILE"
+    "level": "SECOND_QUARTILE"
    },
    {
     "date": "2026-10-05",
@@ -1850,7 +1815,7 @@
    {
     "date": "2026-10-14",
     "count": 101,
-    "level": "FOURTH_QUARTILE"
+    "level": "SECOND_QUARTILE"
    },
    {
     "date": "2026-10-15",
@@ -1875,7 +1840,7 @@
    {
     "date": "2026-10-19",
     "count": 35,
-    "level": "SECOND_QUARTILE"
+    "level": "FIRST_QUARTILE"
    },
    {
     "date": "2026-10-20",
@@ -1945,12 +1910,12 @@
    {
     "date": "2026-11-02",
     "count": 128,
-    "level": "FOURTH_QUARTILE"
+    "level": "THIRD_QUARTILE"
    },
    {
     "date": "2026-11-03",
     "count": 112,
-    "level": "FOURTH_QUARTILE"
+    "level": "SECOND_QUARTILE"
    },
    {
     "date": "2026-11-04",
@@ -1960,17 +1925,17 @@
    {
     "date": "2026-11-05",
     "count": 89,
-    "level": "FOURTH_QUARTILE"
+    "level": "SECOND_QUARTILE"
    },
    {
     "date": "2026-11-06",
     "count": 36,
-    "level": "SECOND_QUARTILE"
+    "level": "FIRST_QUARTILE"
    },
    {
     "date": "2026-11-07",
     "count": 49,
-    "level": "SECOND_QUARTILE"
+    "level": "FIRST_QUARTILE"
    },
    {
     "date": "2026-11-08",
@@ -1980,7 +1945,7 @@
    {
     "date": "2026-11-09",
     "count": 29,
-    "level": "SECOND_QUARTILE"
+    "level": "FIRST_QUARTILE"
    },
    {
     "date": "2026-11-10",
@@ -1989,32 +1954,37 @@
    },
    {
     "date": "2026-11-11",
-    "count": 52,
+    "count": 64,
     "level": "SECOND_QUARTILE"
    },
    {
     "date": "2026-11-12",
-    "count": 75,
-    "level": "THIRD_QUARTILE"
+    "count": 247,
+    "level": "FOURTH_QUARTILE"
    },
    {
     "date": "2026-11-13",
-    "count": 12,
-    "level": "FIRST_QUARTILE"
+    "count": 168,
+    "level": "THIRD_QUARTILE"
    },
    {
     "date": "2026-11-14",
-    "count": 0,
-    "level": "NONE"
+    "count": 119,
+    "level": "SECOND_QUARTILE"
+   },
+   {
+    "date": "2026-11-15",
+    "count": 1,
+    "level": "FIRST_QUARTILE"
    }
   ]
  },
  "coding": {
-  "seconds": 6698798,
+  "seconds": 6730393,
   "source": "Wakapi"
  },
  "wakapi": {
-  "totalSeconds": 6698798,
+  "totalSeconds": 6730393,
   "since": "2025-11-08T12:19:08+04:00",
   "languages": [
    {
@@ -2027,7 +1997,7 @@
    },
    {
     "name": "Python",
-    "seconds": 721775
+    "seconds": 727455
    },
    {
     "name": "Unknown",
@@ -2035,15 +2005,15 @@
    },
    {
     "name": "Typescript",
-    "seconds": 446015
+    "seconds": 455224
    },
    {
     "name": "CSS",
-    "seconds": 400319
+    "seconds": 400650
    },
    {
     "name": "Bash",
-    "seconds": 350869
+    "seconds": 358592
    },
    {
     "name": "Json",
@@ -2051,11 +2021,11 @@
    },
    {
     "name": "Markdown",
-    "seconds": 275561
+    "seconds": 281568
    },
    {
     "name": "Html",
-    "seconds": 243256
+    "seconds": 245589
    },
    {
     "name": "Go",
@@ -2063,7 +2033,7 @@
    },
    {
     "name": "Objective-c",
-    "seconds": 224162
+    "seconds": 224171
    },
    {
     "name": "JSX",
@@ -2075,7 +2045,7 @@
    },
    {
     "name": "YAML",
-    "seconds": 99578
+    "seconds": 99873
    },
    {
     "name": "Rust",
@@ -2083,7 +2053,7 @@
    },
    {
     "name": "Text",
-    "seconds": 90107
+    "seconds": 90111
    },
    {
     "name": "Scala",
@@ -2198,28 +2168,6 @@
   "week": {
    "days": [
     {
-     "date": "2026-11-08",
-     "seconds": 14633,
-     "projects": [
-      {
-       "name": "om••••••••",
-       "seconds": 7097
-      },
-      {
-       "name": "go••••••••",
-       "seconds": 4370
-      },
-      {
-       "name": "sh••••••",
-       "seconds": 2966
-      },
-      {
-       "name": "co••••••",
-       "seconds": 200
-      }
-     ]
-    },
-    {
      "date": "2026-11-09",
      "seconds": 22892,
      "projects": [
@@ -2307,7 +2255,7 @@
     },
     {
      "date": "2026-11-12",
-     "seconds": 37026,
+     "seconds": 37256,
      "projects": [
       {
        "name": "st•••",
@@ -2318,12 +2266,12 @@
        "seconds": 4250
       },
       {
-       "name": "br••••••",
-       "seconds": 2697
+       "name": "sh••••••",
+       "seconds": 2925
       },
       {
-       "name": "sh••••••",
-       "seconds": 2695
+       "name": "br••••••",
+       "seconds": 2697
       },
       {
        "name": "om••••••••",
@@ -2337,11 +2285,38 @@
     },
     {
      "date": "2026-11-13",
-     "seconds": 0,
-     "projects": []
+     "seconds": 10530,
+     "projects": [
+      {
+       "name": "ki••••••••",
+       "seconds": 5680
+      },
+      {
+       "name": "om••••••••",
+       "seconds": 4850
+      }
+     ]
     },
     {
      "date": "2026-11-14",
+     "seconds": 22399,
+     "projects": [
+      {
+       "name": "st•••",
+       "seconds": 18178
+      },
+      {
+       "name": "om••••••••",
+       "seconds": 4168
+      },
+      {
+       "name": "sh••••••",
+       "seconds": 53
+      }
+     ]
+    },
+    {
+     "date": "2026-11-15",
      "seconds": 0,
      "projects": []
     }
@@ -2349,22 +2324,22 @@
    "source": "Wakapi"
   },
   "rank": {
-   "rank": 34,
+   "rank": 37,
    "of": 100,
-   "seconds": 73394,
-   "dailyAverage": 9174,
+   "seconds": 67003,
+   "dailyAverage": 8375,
    "languages": [
     {
      "name": "Javascript",
-     "seconds": 23211
-    },
-    {
-     "name": "Typescript",
-     "seconds": 22049
+     "seconds": 22878
     },
     {
      "name": "Html",
-     "seconds": 21631
+     "seconds": 21515
+    },
+    {
+     "name": "Typescript",
+     "seconds": 18897
     },
     {
      "name": "CSS",
@@ -2372,19 +2347,19 @@
     },
     {
      "name": "Python",
-     "seconds": 7327
+     "seconds": 7271
     },
     {
      "name": "Markdown",
-     "seconds": 7317
-    },
-    {
-     "name": "TSX",
-     "seconds": 5103
+     "seconds": 7258
     },
     {
      "name": "Bash",
-     "seconds": 4773
+     "seconds": 4344
+    },
+    {
+     "name": "TSX",
+     "seconds": 4247
     },
     {
      "name": "Objective-c",
@@ -2395,24 +2370,20 @@
      "seconds": 2469
     },
     {
-     "name": "Text",
-     "seconds": 1769
-    },
-    {
      "name": "Unknown",
      "seconds": 1755
     },
     {
      "name": "Json",
-     "seconds": 1119
+     "seconds": 948
     },
     {
      "name": "TOML",
      "seconds": 940
     },
     {
-     "name": "Batchfile",
-     "seconds": 179
+     "name": "Text",
+     "seconds": 730
     },
     {
      "name": "YAML",
@@ -2421,17 +2392,21 @@
     {
      "name": "INI",
      "seconds": 5
+    },
+    {
+     "name": "Batchfile",
+     "seconds": 0
     }
    ],
    "range": {
-    "start": "2026-11-07T04:04:13Z",
-    "end": "2026-11-14T04:04:13Z"
+    "start": "2026-11-08T03:50:03Z",
+    "end": "2026-11-15T03:50:03Z"
    },
    "source": "wakapi.dev"
   }
  },
  "stargazers": {
-  "total": 188,
+  "total": 189,
   "located": [
    {
     "lat": 20,
