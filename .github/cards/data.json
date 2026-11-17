@@ -1,10 +1,10 @@
 {
  "login": "tanu360",
- "generatedAt": "2026-11-16T03:51:10.865Z",
+ "generatedAt": "2026-11-17T05:43:43.508Z",
  "createdAt": "2017-10-23T22:54:19Z",
  "stats": {
-  "stars": 210,
-  "commits": 3619,
+  "stars": 211,
+  "commits": 3690,
   "prs": 15,
   "issues": 21,
   "reviews": 1,
@@ -12,76 +12,76 @@
   "followers": 96,
   "publicRepos": 19,
   "grade": "B+",
-  "percentile": 38.051380798705026
+  "percentile": 38.026689740905915
  },
  "repoLanguages": [
   {
    "name": "TypeScript",
-   "share": 0.5537887974481286
+   "share": 0.5584411478304729
   },
   {
    "name": "JavaScript",
-   "share": 0.17874399508700767
+   "share": 0.17457792163376434
   },
   {
    "name": "Go",
-   "share": 0.1550896180534439
+   "share": 0.15689882249413256
   },
   {
    "name": "CSS",
-   "share": 0.041555430482077
+   "share": 0.0409196586697288
   },
   {
    "name": "Python",
-   "share": 0.04001760226523785
+   "share": 0.03907979412793202
   },
   {
    "name": "HTML",
-   "share": 0.017061991824629773
+   "share": 0.0166621459101812
   },
   {
    "name": "MDX",
-   "share": 0.007091522341592204
+   "share": 0.006925333290240461
   },
   {
    "name": "Swift",
-   "share": 0.0030614788061184887
+   "share": 0.0029897333847527193
   },
   {
    "name": "Shell",
-   "share": 0.0017732614768847326
+   "share": 0.0017317052878964175
   },
   {
    "name": "Smali",
-   "share": 0.0005472564238089852
+   "share": 0.0005344315293028299
   },
   {
    "name": "PLpgSQL",
-   "share": 0.0005209749112279489
+   "share": 0.000508765921097969
   },
   {
    "name": "Dockerfile",
-   "share": 0.0002436012663710864
+   "share": 0.0002378924973062477
   },
   {
    "name": "Java",
-   "share": 0.00020614693684738742
+   "share": 0.00020131590590318494
   },
   {
    "name": "Rust",
-   "share": 0.00014448483728125242
+   "share": 0.00014109885090401834
   },
   {
    "name": "PHP",
-   "share": 0.00012252009488260862
+   "share": 0.00011964884984391714
   },
   {
    "name": "SCSS",
-   "share": 0.000030471318934534785
+   "share": 0.000029757226904186646
   },
   {
    "name": "Procfile",
-   "share": 8.464255259592996e-7
+   "share": 8.265896362274069e-7
   }
  ],
  "repos": [
@@ -95,7 +95,7 @@
   },
   {
    "name": "kiro-reverse-api",
-   "stars": 37
+   "stars": 38
   },
   {
    "name": "Facebook-SSL-Pinning-Bypass",
@@ -139,8 +139,8 @@
   }
  ],
  "contributions": {
-  "allTime": 32202,
-  "lastYear": 3670,
+  "allTime": 32273,
+  "lastYear": 3739,
   "since": "2017-10-24",
   "current": {
    "days": 6,
@@ -820,7 +820,7 @@
    {
     "date": "2026-03-29",
     "count": 43,
-    "level": "SECOND_QUARTILE"
+    "level": "FIRST_QUARTILE"
    },
    {
     "date": "2026-03-30",
@@ -965,7 +965,7 @@
    {
     "date": "2026-04-27",
     "count": 46,
-    "level": "SECOND_QUARTILE"
+    "level": "FIRST_QUARTILE"
    },
    {
     "date": "2026-04-28",
@@ -1105,7 +1105,7 @@
    {
     "date": "2026-05-25",
     "count": 52,
-    "level": "SECOND_QUARTILE"
+    "level": "FIRST_QUARTILE"
    },
    {
     "date": "2026-05-26",
@@ -1125,7 +1125,7 @@
    {
     "date": "2026-05-29",
     "count": 53,
-    "level": "SECOND_QUARTILE"
+    "level": "FIRST_QUARTILE"
    },
    {
     "date": "2026-05-30",
@@ -1685,7 +1685,7 @@
    {
     "date": "2026-09-18",
     "count": 52,
-    "level": "SECOND_QUARTILE"
+    "level": "FIRST_QUARTILE"
    },
    {
     "date": "2026-09-19",
@@ -1814,8 +1814,8 @@
    },
    {
     "date": "2026-10-14",
-    "count": 101,
-    "level": "THIRD_QUARTILE"
+    "count": 104,
+    "level": "SECOND_QUARTILE"
    },
    {
     "date": "2026-10-15",
@@ -1910,12 +1910,12 @@
    {
     "date": "2026-11-02",
     "count": 128,
-    "level": "FOURTH_QUARTILE"
+    "level": "THIRD_QUARTILE"
    },
    {
     "date": "2026-11-03",
     "count": 112,
-    "level": "THIRD_QUARTILE"
+    "level": "SECOND_QUARTILE"
    },
    {
     "date": "2026-11-04",
@@ -1925,7 +1925,7 @@
    {
     "date": "2026-11-05",
     "count": 89,
-    "level": "THIRD_QUARTILE"
+    "level": "SECOND_QUARTILE"
    },
    {
     "date": "2026-11-06",
@@ -1935,7 +1935,7 @@
    {
     "date": "2026-11-07",
     "count": 49,
-    "level": "SECOND_QUARTILE"
+    "level": "FIRST_QUARTILE"
    },
    {
     "date": "2026-11-08",
@@ -1965,12 +1965,12 @@
    {
     "date": "2026-11-13",
     "count": 168,
-    "level": "FOURTH_QUARTILE"
+    "level": "THIRD_QUARTILE"
    },
    {
     "date": "2026-11-14",
     "count": 120,
-    "level": "THIRD_QUARTILE"
+    "level": "SECOND_QUARTILE"
    },
    {
     "date": "2026-11-15",
@@ -1979,17 +1979,22 @@
    },
    {
     "date": "2026-11-16",
-    "count": 4,
-    "level": "FIRST_QUARTILE"
+    "count": 72,
+    "level": "SECOND_QUARTILE"
+   },
+   {
+    "date": "2026-11-17",
+    "count": 0,
+    "level": "NONE"
    }
   ]
  },
  "coding": {
-  "seconds": 6725762,
+  "seconds": 6761770,
   "source": "Wakapi"
  },
  "wakapi": {
-  "totalSeconds": 6725762,
+  "totalSeconds": 6761770,
   "since": "2025-11-15T14:54:39+04:00",
   "languages": [
    {
@@ -2002,23 +2007,23 @@
    },
    {
     "name": "Python",
-    "seconds": 727120
+    "seconds": 744335
    },
    {
     "name": "Unknown",
-    "seconds": 720453
+    "seconds": 720766
    },
    {
     "name": "Typescript",
-    "seconds": 455728
+    "seconds": 457463
    },
    {
     "name": "CSS",
-    "seconds": 402798
+    "seconds": 406182
    },
    {
     "name": "Bash",
-    "seconds": 347995
+    "seconds": 358302
    },
    {
     "name": "Json",
@@ -2026,11 +2031,11 @@
    },
    {
     "name": "Markdown",
-    "seconds": 281592
+    "seconds": 282585
    },
    {
     "name": "Html",
-    "seconds": 248773
+    "seconds": 249432
    },
    {
     "name": "Go",
@@ -2058,7 +2063,7 @@
    },
    {
     "name": "Text",
-    "seconds": 90097
+    "seconds": 91464
    },
    {
     "name": "Scala",
@@ -2074,7 +2079,7 @@
    },
    {
     "name": "C",
-    "seconds": 15149
+    "seconds": 15180
    },
    {
     "name": "Swift",
@@ -2173,24 +2178,6 @@
   "week": {
    "days": [
     {
-     "date": "2026-11-10",
-     "seconds": 1480,
-     "projects": [
-      {
-       "name": "x-•••••••",
-       "seconds": 1381
-      },
-      {
-       "name": "ex•••••••",
-       "seconds": 99
-      },
-      {
-       "name": "d•••",
-       "seconds": 0
-      }
-     ]
-    },
-    {
      "date": "2026-11-11",
      "seconds": 25998,
      "projects": [
@@ -2288,7 +2275,7 @@
     },
     {
      "date": "2026-11-15",
-     "seconds": 10007,
+     "seconds": 12162,
      "projects": [
       {
        "name": "st•••",
@@ -2296,7 +2283,11 @@
       },
       {
        "name": "sh••••••",
-       "seconds": 3214
+       "seconds": 4440
+      },
+      {
+       "name": "ki••••••••",
+       "seconds": 929
       },
       {
        "name": "ny•••••••",
@@ -2330,69 +2321,104 @@
     },
     {
      "date": "2026-11-16",
-     "seconds": 0,
-     "projects": []
+     "seconds": 26090,
+     "projects": [
+      {
+       "name": "om••••••••",
+       "seconds": 14571
+      },
+      {
+       "name": "st•••",
+       "seconds": 5780
+      },
+      {
+       "name": "sp••••••••",
+       "seconds": 3540
+      },
+      {
+       "name": "sp•••••••",
+       "seconds": 1149
+      },
+      {
+       "name": "sp••••••••",
+       "seconds": 1050
+      }
+     ]
+    },
+    {
+     "date": "2026-11-17",
+     "seconds": 9918,
+     "projects": [
+      {
+       "name": "sp•••••••",
+       "seconds": 9636
+      },
+      {
+       "name": "om••••••••",
+       "seconds": 282
+      }
+     ]
     }
    ],
    "source": "Wakapi"
   },
   "rank": {
-   "rank": 35,
+   "rank": 27,
    "of": 100,
-   "seconds": 74382,
-   "dailyAverage": 9297,
+   "seconds": 84218,
+   "dailyAverage": 10527,
    "languages": [
     {
      "name": "Typescript",
-     "seconds": 28610
-    },
-    {
-     "name": "Javascript",
-     "seconds": 21277
-    },
-    {
-     "name": "Html",
-     "seconds": 20146
+     "seconds": 30345
     },
     {
      "name": "Python",
-     "seconds": 12340
+     "seconds": 25563
     },
     {
-     "name": "CSS",
-     "seconds": 11006
-    },
-    {
-     "name": "Markdown",
-     "seconds": 10024
+     "name": "Html",
+     "seconds": 20805
     },
     {
      "name": "Bash",
-     "seconds": 9606
+     "seconds": 19805
+    },
+    {
+     "name": "CSS",
+     "seconds": 14390
+    },
+    {
+     "name": "Markdown",
+     "seconds": 8634
     },
     {
      "name": "Objective-c",
-     "seconds": 7188
-    },
-    {
-     "name": "Unknown",
-     "seconds": 4307
+     "seconds": 5661
     },
     {
      "name": "TSX",
      "seconds": 4247
     },
     {
-     "name": "TOML",
-     "seconds": 2745
+     "name": "Javascript",
+     "seconds": 4245
     },
     {
      "name": "Go",
      "seconds": 2469
     },
     {
+     "name": "Unknown",
+     "seconds": 1680
+    },
+    {
      "name": "Text",
-     "seconds": 677
+     "seconds": 1496
+    },
+    {
+     "name": "TOML",
+     "seconds": 476
     },
     {
      "name": "YAML",
@@ -2403,19 +2429,23 @@
      "seconds": 267
     },
     {
+     "name": "C",
+     "seconds": 31
+    },
+    {
      "name": "INI",
      "seconds": 5
     }
    ],
    "range": {
-    "start": "2026-11-09T03:51:05Z",
-    "end": "2026-11-16T03:51:05Z"
+    "start": "2026-11-10T05:43:36Z",
+    "end": "2026-11-17T05:43:36Z"
    },
    "source": "wakapi.dev"
   }
  },
  "stargazers": {
-  "total": 191,
+  "total": 192,
   "located": [
    {
     "lat": 20,
@@ -2750,6 +2780,12 @@
    {
     "lat": 30.2489634,
     "lon": 120.2052342,
+    "cc": "CN",
+    "country": "China"
+   },
+   {
+    "lat": 43.9930478,
+    "lon": 125.3854224,
     "cc": "CN",
     "country": "China"
    },

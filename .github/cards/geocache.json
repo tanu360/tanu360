@@ -404,5 +404,11 @@
   "lon": 120.2052342,
   "cc": "CN",
   "country": "China"
+ },
+ "changchun university of technology": {
+  "lat": 43.9930478,
+  "lon": 125.3854224,
+  "cc": "CN",
+  "country": "China"
  }
 }
