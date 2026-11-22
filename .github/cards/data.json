@@ -1,9 +1,9 @@
 {
  "login": "tanu360",
- "generatedAt": "2026-11-21T04:48:26.894Z",
+ "generatedAt": "2026-11-22T04:03:56.277Z",
  "createdAt": "2017-10-23T22:54:19Z",
  "stats": {
-  "stars": 214,
+  "stars": 216,
   "commits": 3886,
   "prs": 15,
   "issues": 21,
@@ -12,7 +12,7 @@
   "followers": 97,
   "publicRepos": 19,
   "grade": "B+",
-  "percentile": 37.94652585641797
+  "percentile": 37.89905870368767
  },
  "repoLanguages": [
   {
@@ -91,11 +91,11 @@
   },
   {
    "name": "apple-intelligence-api",
-   "stars": 41
+   "stars": 42
   },
   {
    "name": "kiro-reverse-api",
-   "stars": 41
+   "stars": 42
   },
   {
    "name": "Facebook-SSL-Pinning-Bypass",
@@ -140,11 +140,11 @@
  ],
  "contributions": {
   "allTime": 32470,
-  "lastYear": 3921,
+  "lastYear": 3920,
   "since": "2017-10-24",
   "current": {
-   "days": 10,
-   "start": "2026-11-11"
+   "days": 0,
+   "start": null
   },
   "longest": {
    "days": 427,
@@ -152,41 +152,6 @@
    "end": "2019-07-31"
   },
   "calendar": [
-   {
-    "date": "2025-11-16",
-    "count": 0,
-    "level": "NONE"
-   },
-   {
-    "date": "2025-11-17",
-    "count": 2,
-    "level": "FIRST_QUARTILE"
-   },
-   {
-    "date": "2025-11-18",
-    "count": 1,
-    "level": "FIRST_QUARTILE"
-   },
-   {
-    "date": "2025-11-19",
-    "count": 8,
-    "level": "FIRST_QUARTILE"
-   },
-   {
-    "date": "2025-11-20",
-    "count": 6,
-    "level": "FIRST_QUARTILE"
-   },
-   {
-    "date": "2025-11-21",
-    "count": 0,
-    "level": "NONE"
-   },
-   {
-    "date": "2025-11-22",
-    "count": 1,
-    "level": "FIRST_QUARTILE"
-   },
    {
     "date": "2025-11-23",
     "count": 0,
@@ -2006,6 +1971,11 @@
     "date": "2026-11-21",
     "count": 0,
     "level": "NONE"
+   },
+   {
+    "date": "2026-11-22",
+    "count": 0,
+    "level": "NONE"
    }
   ]
  },
@@ -2198,52 +2168,6 @@
   "week": {
    "days": [
     {
-     "date": "2026-11-15",
-     "seconds": 12162,
-     "projects": [
-      {
-       "name": "st•••",
-       "seconds": 5109
-      },
-      {
-       "name": "sh••••••",
-       "seconds": 4440
-      },
-      {
-       "name": "ki••••••••",
-       "seconds": 929
-      },
-      {
-       "name": "ny•••••••",
-       "seconds": 471
-      },
-      {
-       "name": "om••••••••",
-       "seconds": 371
-      },
-      {
-       "name": "mu••••••••",
-       "seconds": 307
-      },
-      {
-       "name": "up••••••",
-       "seconds": 242
-      },
-      {
-       "name": "20••••••••",
-       "seconds": 165
-      },
-      {
-       "name": "co••••••",
-       "seconds": 80
-      },
-      {
-       "name": "t3••••••••",
-       "seconds": 48
-      }
-     ]
-    },
-    {
      "date": "2026-11-16",
      "seconds": 26090,
      "projects": [
@@ -2302,43 +2226,48 @@
      "date": "2026-11-21",
      "seconds": 0,
      "projects": []
+    },
+    {
+     "date": "2026-11-22",
+     "seconds": 0,
+     "projects": []
     }
    ],
    "source": "Wakapi"
   },
   "rank": {
-   "rank": 51,
+   "rank": 62,
    "of": 100,
-   "seconds": 40756,
-   "dailyAverage": 5094,
+   "seconds": 34509,
+   "dailyAverage": 4313,
    "languages": [
     {
      "name": "Python",
-     "seconds": 17779
+     "seconds": 18016
     },
     {
      "name": "Bash",
-     "seconds": 14516
-    },
-    {
-     "name": "Typescript",
-     "seconds": 11448
-    },
-    {
-     "name": "Markdown",
-     "seconds": 7024
-    },
-    {
-     "name": "Html",
-     "seconds": 6176
+     "seconds": 10348
     },
     {
      "name": "CSS",
-     "seconds": 5863
+     "seconds": 5532
     },
     {
      "name": "Objective-c",
-     "seconds": 3199
+     "seconds": 4726
+    },
+    {
+     "name": "Html",
+     "seconds": 4204
+    },
+    {
+     "name": "Typescript",
+     "seconds": 2793
+    },
+    {
+     "name": "Markdown",
+     "seconds": 2550
     },
     {
      "name": "Text",
@@ -2353,23 +2282,19 @@
      "seconds": 324
     },
     {
-     "name": "YAML",
-     "seconds": 295
-    },
-    {
      "name": "C",
      "seconds": 31
     }
    ],
    "range": {
-    "start": "2026-11-14T04:48:20Z",
-    "end": "2026-11-21T04:48:20Z"
+    "start": "2026-11-15T04:03:48Z",
+    "end": "2026-11-22T04:03:48Z"
    },
    "source": "wakapi.dev"
   }
  },
  "stargazers": {
-  "total": 195,
+  "total": 197,
   "located": [
    {
     "lat": 20,
@@ -2612,6 +2537,12 @@
     "country": "United Kingdom"
    },
    {
+    "lat": 39.9527237,
+    "lon": -75.1635262,
+    "cc": "US",
+    "country": "United States"
+   },
+   {
     "lat": 34.5412252,
     "lon": 108.9237067,
     "cc": "CN",
@@ -2724,6 +2655,12 @@
     "lon": 105.854041,
     "cc": "VN",
     "country": "Vietnam"
+   },
+   {
+    "lat": -2.4833826,
+    "lon": 117.8902853,
+    "cc": "ID",
+    "country": "Indonesia"
    },
    {
     "lat": 25.0375198,
