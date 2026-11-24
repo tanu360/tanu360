@@ -1,87 +1,87 @@
 {
  "login": "tanu360",
- "generatedAt": "2026-11-23T04:45:38.449Z",
+ "generatedAt": "2026-11-24T07:37:16.853Z",
  "createdAt": "2017-10-23T22:54:19Z",
  "stats": {
-  "stars": 216,
-  "commits": 3873,
+  "stars": 217,
+  "commits": 3917,
   "prs": 15,
   "issues": 21,
   "reviews": 1,
   "contributedTo": 8,
-  "followers": 97,
+  "followers": 96,
   "publicRepos": 19,
   "grade": "B+",
-  "percentile": 37.89907150685997
+  "percentile": 37.882910388043676
  },
  "repoLanguages": [
   {
    "name": "TypeScript",
-   "share": 0.5561283031424947
+   "share": 0.5542121030131762
   },
   {
    "name": "JavaScript",
-   "share": 0.1905012281200151
+   "share": 0.18925093289824452
   },
   {
    "name": "Go",
-   "share": 0.14939796694073165
+   "share": 0.1515626310914317
   },
   {
    "name": "CSS",
-   "share": 0.03888429698932775
+   "share": 0.03862909206908946
   },
   {
    "name": "Python",
-   "share": 0.03673218802548703
+   "share": 0.037805968125201594
   },
   {
    "name": "HTML",
-   "share": 0.01574170590218991
+   "share": 0.015638390139523926
   },
   {
    "name": "MDX",
-   "share": 0.006509313834242004
+   "share": 0.006466591989011533
   },
   {
    "name": "Swift",
-   "share": 0.0028101337605645144
+   "share": 0.002791690326640002
   },
   {
    "name": "Shell",
-   "share": 0.0016276780791502946
+   "share": 0.001986357190484905
   },
   {
    "name": "Smali",
-   "share": 0.0005023270940690324
+   "share": 0.0004990302273155816
   },
   {
    "name": "PLpgSQL",
-   "share": 0.0004782032733732727
+   "share": 0.00047506473577100074
   },
   {
    "name": "Dockerfile",
-   "share": 0.00022360179053911922
+   "share": 0.00022213425012980342
   },
   {
    "name": "Java",
-   "share": 0.00018922243254274664
+   "share": 0.0001879805302957388
   },
   {
    "name": "Rust",
-   "share": 0.0001326227437283796
+   "share": 0.0001317523158344595
   },
   {
    "name": "PHP",
-   "share": 0.00011246128971694756
+   "share": 0.00011172318521990635
   },
   {
    "name": "SCSS",
-   "share": 0.000027969647183489548
+   "share": 0.00002778607715313733
   },
   {
    "name": "Procfile",
-   "share": 7.769346439858208e-7
+   "share": 7.71835476476037e-7
   }
  ],
  "repos": [
@@ -90,11 +90,11 @@
    "stars": 51
   },
   {
-   "name": "apple-intelligence-api",
-   "stars": 42
+   "name": "kiro-reverse-api",
+   "stars": 43
   },
   {
-   "name": "kiro-reverse-api",
+   "name": "apple-intelligence-api",
    "stars": 42
   },
   {
@@ -139,12 +139,12 @@
   }
  ],
  "contributions": {
-  "allTime": 32475,
-  "lastYear": 3925,
+  "allTime": 32520,
+  "lastYear": 3970,
   "since": "2017-10-24",
   "current": {
-   "days": 0,
-   "start": null
+   "days": 2,
+   "start": "2026-11-23"
   },
   "longest": {
    "days": 427,
@@ -1979,22 +1979,27 @@
    },
    {
     "date": "2026-11-23",
-    "count": 0,
-    "level": "NONE"
+    "count": 41,
+    "level": "FIRST_QUARTILE"
+   },
+   {
+    "date": "2026-11-24",
+    "count": 4,
+    "level": "FIRST_QUARTILE"
    }
   ]
  },
  "coding": {
-  "seconds": 6727106,
+  "seconds": 6751126,
   "source": "Wakapi"
  },
  "wakapi": {
-  "totalSeconds": 6727106,
+  "totalSeconds": 6751126,
   "since": "2025-11-22T21:05:37+04:00",
   "languages": [
    {
     "name": "Javascript",
-    "seconds": 1035177
+    "seconds": 1040185
    },
    {
     "name": "TSX",
@@ -2018,7 +2023,7 @@
    },
    {
     "name": "Bash",
-    "seconds": 357707
+    "seconds": 369703
    },
    {
     "name": "Json",
@@ -2026,7 +2031,7 @@
    },
    {
     "name": "Markdown",
-    "seconds": 281631
+    "seconds": 283290
    },
    {
     "name": "Html",
@@ -2053,12 +2058,12 @@
     "seconds": 99873
    },
    {
-    "name": "Rust",
-    "seconds": 95140
+    "name": "Text",
+    "seconds": 99640
    },
    {
-    "name": "Text",
-    "seconds": 94285
+    "name": "Rust",
+    "seconds": 95140
    },
    {
     "name": "Scala",
@@ -2173,28 +2178,6 @@
   "week": {
    "days": [
     {
-     "date": "2026-11-17",
-     "seconds": 32080,
-     "projects": [
-      {
-       "name": "on••••••••",
-       "seconds": 10042
-      },
-      {
-       "name": "sp•••••••",
-       "seconds": 9636
-      },
-      {
-       "name": "om••••••••",
-       "seconds": 7139
-      },
-      {
-       "name": "st•••",
-       "seconds": 5263
-      }
-     ]
-    },
-    {
      "date": "2026-11-18",
      "seconds": 16250,
      "projects": [
@@ -2248,16 +2231,30 @@
     },
     {
      "date": "2026-11-22",
-     "seconds": 2829,
+     "seconds": 14249,
      "projects": [
       {
+       "name": "om••••••••",
+       "seconds": 11395
+      },
+      {
        "name": "su••••••",
-       "seconds": 2829
+       "seconds": 2854
       }
      ]
     },
     {
      "date": "2026-11-23",
+     "seconds": 26505,
+     "projects": [
+      {
+       "name": "om••••••••",
+       "seconds": 26505
+      }
+     ]
+    },
+    {
+     "date": "2026-11-24",
      "seconds": 0,
      "projects": []
     }
@@ -2265,18 +2262,14 @@
    "source": "Wakapi"
   },
   "rank": {
-   "rank": 52,
+   "rank": 50,
    "of": 100,
-   "seconds": 44124,
-   "dailyAverage": 5515,
+   "seconds": 45008,
+   "dailyAverage": 5626,
    "languages": [
     {
-     "name": "Python",
-     "seconds": 19766
-    },
-    {
      "name": "Bash",
-     "seconds": 17257
+     "seconds": 21430
     },
     {
      "name": "TOML",
@@ -2287,51 +2280,51 @@
      "seconds": 9776
     },
     {
-     "name": "Typescript",
-     "seconds": 9687
-    },
-    {
      "name": "Text",
-     "seconds": 5339
+     "seconds": 9326
     },
     {
-     "name": "CSS",
-     "seconds": 4817
+     "name": "Typescript",
+     "seconds": 7951
+    },
+    {
+     "name": "Javascript",
+     "seconds": 5008
     },
     {
      "name": "Objective-c",
      "seconds": 2682
     },
     {
+     "name": "Python",
+     "seconds": 2506
+    },
+    {
      "name": "Markdown",
-     "seconds": 1594
+     "seconds": 2259
+    },
+    {
+     "name": "CSS",
+     "seconds": 1433
     },
     {
      "name": "Json",
-     "seconds": 1081
+     "seconds": 1080
     },
     {
      "name": "Html",
-     "seconds": 743
-    },
-    {
-     "name": "Unknown",
-     "seconds": 313
-    },
-    {
-     "name": "C",
-     "seconds": 31
+     "seconds": 84
     }
    ],
    "range": {
-    "start": "2026-11-16T04:45:32Z",
-    "end": "2026-11-23T04:45:32Z"
+    "start": "2026-11-17T07:37:10Z",
+    "end": "2026-11-24T07:37:10Z"
    },
    "source": "wakapi.dev"
   }
  },
  "stargazers": {
-  "total": 197,
+  "total": 198,
   "located": [
    {
     "lat": 20,
@@ -2446,6 +2439,126 @@
     "lon": 28.9758715,
     "cc": "TR",
     "country": "Turkey"
+   },
+   {
+    "lat": 34.5412252,
+    "lon": 108.9237067,
+    "cc": "CN",
+    "country": "China"
+   },
+   {
+    "lat": 40.0757384,
+    "lon": -74.4041622,
+    "cc": "US",
+    "country": "United States"
+   },
+   {
+    "lat": 11.3323723,
+    "lon": 78.6098639,
+    "cc": "IN",
+    "country": "India"
+   },
+   {
+    "lat": 34.1185808,
+    "lon": -118.3003729,
+    "cc": "US",
+    "country": "United States"
+   },
+   {
+    "lat": 10.7737261,
+    "lon": 106.7166008,
+    "cc": "VN",
+    "country": "Vietnam"
+   },
+   {
+    "lat": 34.914934,
+    "lon": 134.860666,
+    "cc": "JP",
+    "country": "Japan"
+   },
+   {
+    "lat": 15.9266657,
+    "lon": 107.9650855,
+    "cc": "VN",
+    "country": "Vietnam"
+   },
+   {
+    "lat": 31.2312707,
+    "lon": 121.4700152,
+    "cc": "CN",
+    "country": "China"
+   },
+   {
+    "lat": -2.4833826,
+    "lon": 117.8902853,
+    "cc": "ID",
+    "country": "Indonesia"
+   },
+   {
+    "lat": 23.1288429,
+    "lon": 113.2589581,
+    "cc": "CN",
+    "country": "China"
+   },
+   {
+    "lat": 39.9057136,
+    "lon": 116.3912972,
+    "cc": "CN",
+    "country": "China"
+   },
+   {
+    "lat": 26.5878031,
+    "lon": 106.7086936,
+    "cc": "CN",
+    "country": "China"
+   },
+   {
+    "lat": 22.3511148,
+    "lon": 78.6677428,
+    "cc": "IN",
+    "country": "India"
+   },
+   {
+    "lat": 22.3511148,
+    "lon": 78.6677428,
+    "cc": "IN",
+    "country": "India"
+   },
+   {
+    "lat": 36.7014631,
+    "lon": -118.755997,
+    "cc": "US",
+    "country": "United States"
+   },
+   {
+    "lat": 30.2489634,
+    "lon": 120.2052342,
+    "cc": "CN",
+    "country": "China"
+   },
+   {
+    "lat": 43.9930478,
+    "lon": 125.3854224,
+    "cc": "CN",
+    "country": "China"
+   },
+   {
+    "lat": 34.5412252,
+    "lon": 108.9237067,
+    "cc": "CN",
+    "country": "China"
+   },
+   {
+    "lat": 21.0283334,
+    "lon": 105.854041,
+    "cc": "VN",
+    "country": "Vietnam"
+   },
+   {
+    "lat": -2.4833826,
+    "lon": 117.8902853,
+    "cc": "ID",
+    "country": "Indonesia"
    },
    {
     "lat": 22.3511148,
@@ -2578,126 +2691,6 @@
     "lon": -75.1635262,
     "cc": "US",
     "country": "United States"
-   },
-   {
-    "lat": 34.5412252,
-    "lon": 108.9237067,
-    "cc": "CN",
-    "country": "China"
-   },
-   {
-    "lat": 40.0757384,
-    "lon": -74.4041622,
-    "cc": "US",
-    "country": "United States"
-   },
-   {
-    "lat": 11.3323723,
-    "lon": 78.6098639,
-    "cc": "IN",
-    "country": "India"
-   },
-   {
-    "lat": 34.1185808,
-    "lon": -118.3003729,
-    "cc": "US",
-    "country": "United States"
-   },
-   {
-    "lat": 10.7737261,
-    "lon": 106.7166008,
-    "cc": "VN",
-    "country": "Vietnam"
-   },
-   {
-    "lat": 34.914934,
-    "lon": 134.860666,
-    "cc": "JP",
-    "country": "Japan"
-   },
-   {
-    "lat": 15.9266657,
-    "lon": 107.9650855,
-    "cc": "VN",
-    "country": "Vietnam"
-   },
-   {
-    "lat": 31.2312707,
-    "lon": 121.4700152,
-    "cc": "CN",
-    "country": "China"
-   },
-   {
-    "lat": -2.4833826,
-    "lon": 117.8902853,
-    "cc": "ID",
-    "country": "Indonesia"
-   },
-   {
-    "lat": 23.1288429,
-    "lon": 113.2589581,
-    "cc": "CN",
-    "country": "China"
-   },
-   {
-    "lat": 39.9057136,
-    "lon": 116.3912972,
-    "cc": "CN",
-    "country": "China"
-   },
-   {
-    "lat": 26.5878031,
-    "lon": 106.7086936,
-    "cc": "CN",
-    "country": "China"
-   },
-   {
-    "lat": 22.3511148,
-    "lon": 78.6677428,
-    "cc": "IN",
-    "country": "India"
-   },
-   {
-    "lat": 22.3511148,
-    "lon": 78.6677428,
-    "cc": "IN",
-    "country": "India"
-   },
-   {
-    "lat": 36.7014631,
-    "lon": -118.755997,
-    "cc": "US",
-    "country": "United States"
-   },
-   {
-    "lat": 30.2489634,
-    "lon": 120.2052342,
-    "cc": "CN",
-    "country": "China"
-   },
-   {
-    "lat": 43.9930478,
-    "lon": 125.3854224,
-    "cc": "CN",
-    "country": "China"
-   },
-   {
-    "lat": 34.5412252,
-    "lon": 108.9237067,
-    "cc": "CN",
-    "country": "China"
-   },
-   {
-    "lat": 21.0283334,
-    "lon": 105.854041,
-    "cc": "VN",
-    "country": "Vietnam"
-   },
-   {
-    "lat": -2.4833826,
-    "lon": 117.8902853,
-    "cc": "ID",
-    "country": "Indonesia"
    },
    {
     "lat": 25.0375198,
